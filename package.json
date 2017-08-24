@@ -2,6 +2,7 @@
   "name": "@microsoft.azure/autorest.testserver",
   "version": "0.1.0",
   "private": true,
+  "main": "./startup/www.js",
   "scripts": {
     "start": "node ./startup/www"
   },
