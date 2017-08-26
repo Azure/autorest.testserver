@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "main": "./startup/www.js",
   "scripts": {
     "start": "node ./startup/www"
