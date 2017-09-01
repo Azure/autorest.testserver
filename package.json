@@ -1,7 +1,13 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "main": "./startup/www.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Azure/autorest.testserver"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
   "scripts": {
     "start": "node ./startup/www"
   },
