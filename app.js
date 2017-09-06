@@ -241,6 +241,8 @@ var coverage = {
   "getComplexInheritanceValid": 0,
   "putComplexPolymorphismValid": 0,
   "getComplexPolymorphismValid": 0,
+  "putComplexPolymorphismComplicated": 0,
+  "getComplexPolymorphismComplicated": 0,
   "putComplexPolymorphicRecursiveValid": 0,
   "getComplexPolymorphicRecursiveValid": 0,
   "putComplexReadOnlyPropertyValid": 0,
