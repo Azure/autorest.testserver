@@ -4,7 +4,8 @@
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Azure/autorest.testserver"
+    "url": "https://github.com/Azure/autorest.testserver",
+    "publish-preview": "echo not automated yet"
   },
   "author": "Microsoft Corporation",
   "license": "MIT",
