@@ -15,5 +15,5 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 # Test Server
 
-This project contains a set of OpenAPI definition and a server implementing the corresponding API.
+This project contains a set of OpenAPI definitions and a server implementing the corresponding API.
 Use this to test compliance of AutoRest generators.
