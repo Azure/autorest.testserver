@@ -4,13 +4,13 @@
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Azure/autorest.testserver",
-    "publish-preview": "echo not automated yet"
+    "url": "https://github.com/Azure/autorest.testserver"
   },
   "author": "Microsoft Corporation",
   "license": "MIT",
   "scripts": {
-    "start": "node ./startup/www"
+    "start": "node ./startup/www",
+    "publish-preview": "echo not automated yet"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
