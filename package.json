@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./startup/www",
-    "publish-preview": "echo not automated yet"
+    "publish-preview": "echo NOT YET AUTOMATED"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
