@@ -9,7 +9,9 @@
   "author": "Microsoft Corporation",
   "license": "MIT",
   "scripts": {
-    "start": "node ./startup/www"
+    "start": "node ./startup/www",
+    "testci": "echo no tests",
+    "publish-preview": "NOT YET AUTOMATED"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
