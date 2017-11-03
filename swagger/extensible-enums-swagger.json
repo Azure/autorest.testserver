@@ -32,6 +32,33 @@
      "application/json"
     ]
    }
+  },
+  "/extensibleenums/pet/addPet": {
+   "post": {
+    "operationId": "Pet_AddPet",
+    "parameters": [
+     {
+      "name": "petParam",
+      "in": "body",
+      "schema": {
+       "$ref": "#/definitions/Pet"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "schema": {
+       "$ref": "#/definitions/Pet"
+      }
+     }
+    },
+    "produces": [
+     "application/json"
+    ],
+    "consumes": [
+     "application/json"
+    ]
+   }
   }
  },
  "definitions": {
@@ -54,7 +81,7 @@
      ],
      "x-ms-enum": {
       "name": "DaysOfWeekExtensibleEnum",
-      "modelAsString": true
+      "modelAsExtensible": true
      },
      "default": "Friday"
     },
@@ -68,7 +95,7 @@
      ],
      "readonly": true,
      "x-ms-enum": {
-      "modelAsString": true,
+      "modelAsExtensible": true,
       "name": "IntEnum",
       "values": [
        {

@@ -23,6 +23,12 @@ var scooby = {
     "name":"Scooby Scarface"
 };
 
+// roundtripping test
+var dreamFetcher = {
+    "name":"Retriever"
+}
+
+
 var pathitem = function(coverage) {
     router.get('/pet/:petId', function(req, res, next) {
         var petId = req.params.petId;
@@ -41,6 +47,21 @@ var pathitem = function(coverage) {
         }
         else{
             utils.send400(res, next, 'Pet not found for '+petId);
+        }
+    });
+
+    router.post('/pet/addPet', function(req, res, next) {
+        var petName = req.body.name;
+        console.log('Inside addPet for '+petName+'\n');
+        if (petName === 'Retriever') {
+            coverage['expectedEnum']++;
+            var retriever = JSON.stringify(dreamFetcher);
+            retriever['DaysOfWeek'] = req.body.DaysOfWeek;
+            retriever['IntEnum'] = req.body.IntEnum;
+            res.status(200).send(JSON.stringify(retriever));
+        }
+        else{
+            utils.send400(res, next, 'Pet info incorrect '+petName);
         }
     });
 }
