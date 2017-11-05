@@ -24,7 +24,7 @@ var scooby = {
 };
 
 // roundtripping test
-var dreamFetcher = {
+var retriever = {
     "name":"Retriever"
 }
 
@@ -54,8 +54,7 @@ var pathitem = function(coverage) {
         var petName = req.body.name;
         console.log('Inside addPet for '+petName+'\n');
         if (petName === 'Retriever') {
-            coverage['expectedEnum']++;
-            var retriever = JSON.stringify(dreamFetcher);
+            coverage['roundTripEnum']++;
             retriever['DaysOfWeek'] = req.body.DaysOfWeek;
             retriever['IntEnum'] = req.body.IntEnum;
             res.status(200).send(JSON.stringify(retriever));

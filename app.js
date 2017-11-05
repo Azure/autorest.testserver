@@ -457,6 +457,7 @@ var coverage = {
   "expectedEnum": 0,
   "unexpectedEnum": 0,
   "allowedValueEnum": 0,
+  "roundTripEnum": 0,
   /* TODO: Once all the languages implement these tests, the scenario counters should be reset to zero. It is currently implemented in Python */
   "getDecimalInvalid": 1,
   "getDecimalBig": 1,

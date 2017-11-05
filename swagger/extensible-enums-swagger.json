@@ -93,7 +93,6 @@
       "2",
       "3"
      ],
-     "readonly": true,
      "x-ms-enum": {
       "modelAsExtensible": true,
       "name": "IntEnum",
@@ -129,7 +128,10 @@
       ]
      }
     }
-   }
+   },
+   "required": [
+    "IntEnum"
+   ]
   }
  },
  "parameters": {
