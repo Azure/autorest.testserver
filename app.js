@@ -36,6 +36,7 @@ var azureSpecial = require('./routes/azureSpecials');
 var parameterGrouping = require('./routes/azureParameterGrouping.js');
 var validation = require('./routes/validation.js');
 var customUri = require('./routes/customUri.js');
+var extensibleEnums = require('./routes/extensibleEnums.js');
 var xml = require('./routes/xml.js'); // XML serialization
 var util = require('util');
 
@@ -452,6 +453,11 @@ var coverage = {
   "getNullUnixTime": 1,
   "putUnixTime": 1,
   "UrlPathsIntUnixTime": 1,
+  /* TODO: onl;y C# implements this today, we should implement this for all other sdks */
+  "expectedEnum": 0,
+  "unexpectedEnum": 0,
+  "allowedValueEnum": 0,
+  "roundTripEnum": 0,
   /* TODO: Once all the languages implement these tests, the scenario counters should be reset to zero. It is currently implemented in Python */
   "getDecimalInvalid": 1,
   "getDecimalBig": 1,
@@ -509,6 +515,7 @@ app.use('/subscriptions', new azureUrl(azurecoverage).router);
 app.use('/parameterGrouping', new parameterGrouping(azurecoverage).router);
 app.use('/validation', new validation(coverage).router);
 app.use('/customUri', new customUri(coverage).router);
+app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/xml', new xml().router);
 
 // catch 404 and forward to error handler
