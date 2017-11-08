@@ -23,12 +23,6 @@ var scooby = {
     "name":"Scooby Scarface"
 };
 
-// roundtripping test
-var retriever = {
-    "name":"Retriever"
-}
-
-
 var pathitem = function(coverage) {
     router.get('/pet/:petId', function(req, res, next) {
         var petId = req.params.petId;
@@ -55,9 +49,7 @@ var pathitem = function(coverage) {
         console.log('Inside addPet for '+petName+'\n');
         if (petName === 'Retriever') {
             coverage['roundTripEnum']++;
-            retriever['DaysOfWeek'] = req.body.DaysOfWeek;
-            retriever['IntEnum'] = req.body.IntEnum;
-            res.status(200).send(JSON.stringify(retriever));
+            res.status(200).send(JSON.stringify(req.body));
         }
         else{
             utils.send400(res, next, 'Pet info incorrect '+petName);
