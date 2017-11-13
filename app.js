@@ -115,7 +115,7 @@ var coverage = {
   "getArrayComplexValid": 0,
   "putArrayComplexValid": 0,
   "getArrayDictionaryNull": 0,
-    "getArrayDictionaryEmpty": 0,
+  "getArrayDictionaryEmpty": 0,
   "getArrayDictionaryItemNull": 0,
   "getArrayDictionaryItemEmpty": 0,
   "getArrayDictionaryValid": 0,
@@ -510,7 +510,7 @@ app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
 app.use('/paging', new paging(azurecoverage).router);
 app.use('/azurespecials', new azureSpecial(azurecoverage).router);
-app.use('/report', new report(coverage, azurecoverage).router);
+app.use('/report', new report(coverage, azurecoverage, optionalCoverage).router);
 app.use('/subscriptions', new azureUrl(azurecoverage).router);
 app.use('/parameterGrouping', new parameterGrouping(azurecoverage).router);
 app.use('/validation', new validation(coverage).router);
