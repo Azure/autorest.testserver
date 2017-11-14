@@ -6,7 +6,7 @@ var report = function(coverage, azureCoverage, optionalCoverage) {
 
   const writeOutCoverageReport = () => require("fs").writeFileSync(
     require("path").join(__dirname, "../report.json"), 
-    JSON.stringify({ 'vanilla': coverage, 'azure': azurecoverage, 'optional': optionalCoverage }));
+    JSON.stringify({ vanilla: coverage, azure: azureCoverage, optional: optionalCoverage }, null, 2));
 
   router.get('/', function(req, res, next) {
     writeOutCoverageReport();
