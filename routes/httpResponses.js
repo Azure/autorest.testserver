@@ -365,8 +365,7 @@ var httpResponses = function(coverage, optionalCoverage) {
     coverage['HttpClientFailure404Put'] = 0;
     coverage['HttpClientFailure405Patch'] = 0;
     coverage['HttpClientFailure406Post'] = 0;
-    // 407 throws an exception in DNX
-    coverage['HttpClientFailure407Delete'] = 1;
+    coverage['HttpClientFailure407Delete'] = 0;
     coverage['HttpClientFailure409Put'] = 0;
     coverage['HttpClientFailure410Head'] = 0;
     coverage['HttpClientFailure411Get'] = 0;
