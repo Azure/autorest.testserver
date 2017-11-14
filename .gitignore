@@ -289,4 +289,4 @@ __pycache__/
 
 package-lock.json
 *.tgz
-report.json
+report*.json
