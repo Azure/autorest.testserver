@@ -5,7 +5,7 @@ var constants = require('../util/constants');
 var utils = require('../util/utils');
 
 var header = function (coverage, optionalCoverage) {
-  optionalCoverage['HeaderParameterProtectedKey'] = 0;
+  optionalCoverage['HeaderParameterProtectedKey'] = 1; // NOT A THING
   optionalCoverage['CustomHeaderInRequest'] = 0;
   router.post('/param/:scenario', function (req, res, next) {
     if (req.params.scenario === "existingkey") {

@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.3.0",
+  "version": "2.3.8",
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./startup/www",
+    "stop": "node ./startup/shutdown.js",
     "testci": "echo no tests",
     "publish-preview": "npm publish"
   },
@@ -21,6 +22,8 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "serve-favicon": "~2.3.0",
+    "socket.io-client": "~2.0.4",
+    "socket.io": "~2.0.4",
     "underscore": "*",
     "morgan": "1.6.1"
   }
