@@ -13,13 +13,20 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
     } catch (_) { }
   };
 
+  const getQualifiedSuffix = (req) => {
+    let qualifier = (req.query || {}).qualifier;
+    if (typeof qualifier !== "string") qualifier = "";
+    if (qualifier.length > 0 && !qualifier.startsWith(".")) qualifier = "." + qualifier;
+    return qualifier + ".json";
+  }
+
   router.get('/', function(req, res, next) {
-    writeOutCoverageReport("../report-vanilla.json", coverage);
+    writeOutCoverageReport(`../report-vanilla${getQualifiedSuffix(req)}`, coverage);
     res.status(200).end(JSON.stringify(coverage));
   });
 
   router.get('/azure', function(req, res, next) {
-    writeOutCoverageReport("../report-azure.json", azureCoverage);
+    writeOutCoverageReport(`../report-azure${getQualifiedSuffix(req)}`, azureCoverage);
     res.status(200).end(JSON.stringify(azureCoverage));
   });
 }
