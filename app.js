@@ -54,7 +54,16 @@ var logfile = fs.createWriteStream(path.join(testResultDir, logFileName), {flags
 app.use(morgan('combined', {stream: logfile}));
 
 var azurecoverage = {};
-var optionalCoverage = {};
+var optionalCoverage = {
+  "getDecimalInvalid": 0,
+  "getDecimalBig": 0,
+  "getDecimalSmall": 0,
+  "getDecimalBigPositiveDecimal" : 0,
+  "getDecimalBigNegativeDecimal" : 0,
+  "putDecimalBig": 0,
+  "putDecimalSmall": 0,
+  "putDecimalBigPositiveDecimal" : 0
+};
 var coverage = {
   "getArrayNull": 0,
   "getArrayEmpty": 0,
@@ -474,7 +483,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/bool', new bool(coverage).router);
 app.use('/int', new integer(coverage).router);
-app.use('/number', new number(coverage).router);
+app.use('/number', new number(coverage, optionalCoverage).router);
 app.use('/string', new string(coverage).router);
 app.use('/byte', new byte(coverage).router);
 app.use('/date', new date(coverage).router);
