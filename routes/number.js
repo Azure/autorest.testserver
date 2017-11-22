@@ -25,10 +25,6 @@ var number = function(coverage, optCoverage) {
             } else {
                 utils.send400(res, next, "Did not like the value provided for big double in the req " + util.inspect(req.body));
             }
-<<<<<<< HEAD
-		} else {
-            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
-=======
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e+101' && req.body === 2.5976931e+101) {
                 optCoverage['putDecimalBig']++;
@@ -44,7 +40,6 @@ var number = function(coverage, optCoverage) {
             }
         } else {
             utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
->>>>>>> opt coverage
         }
     });
 
