@@ -26,7 +26,7 @@ var number = function(coverage) {
                 utils.send400(res, next, "Did not like the value provided for big double in the req " + util.inspect(req.body));
             }
 		} else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -52,7 +52,7 @@ var number = function(coverage) {
                 utils.send400(res, next, "Did not understand the value provided for big double in the req " + util.inspect(req.params.value));
             }
 		} else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -72,7 +72,7 @@ var number = function(coverage) {
                 utils.send400(res, next, "Did not like the value provided for small double in the req " + util.inspect(req.body));
             }
 		} else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -92,7 +92,7 @@ var number = function(coverage) {
                 utils.send400(res, next, "Did not like the value provided for small double in the req " + util.inspect(req.params.value));
             }
 		} else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
