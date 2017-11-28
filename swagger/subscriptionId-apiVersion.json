@@ -7,7 +7,7 @@
   },
   "host": "management.azure.com",
   "schemes": [
-    "https"
+    "http"
   ],
   "basePath": "/",
   "produces": [ "application/json" ],
