@@ -5,9 +5,9 @@
   "title": "PetStore Inc",
   "description": "PetStore"
  },
- "host": "localhost",
+ "host": "localhost:3000",
  "schemes": [
-  "https"
+  "http"
  ],
  "paths": {
   "/extensibleenums/pet/{petId}": {

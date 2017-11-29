@@ -5,7 +5,7 @@
     "description": "Some cool documentation.",
     "version": "2014-04-01-preview"
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": [
     "http"
   ],
