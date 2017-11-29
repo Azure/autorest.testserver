@@ -7,7 +7,7 @@
     },
     "host": "management.azure.com",
     "schemes": [
-        "http"
+        "https"
     ],
     "produces": [ "application/json", "text/plain", "text/html"],
     "consumes": [ "application/json", "text/plain", "text/html"],
