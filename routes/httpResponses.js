@@ -464,8 +464,7 @@ var httpResponses = function(coverage, optionalCoverage) {
         utils.send400(res, next, 'NoErrorModel');
     });
     router.all('/failure/nomodel/empty', function(req, res, next) {
-        // TODO: cover this scenario
-        coverage['ResponsesScenarioNoModelEmptyBody']++;
+        optionalCoverage['ResponsesScenarioNoModelEmptyBody']++;
         res.status(400).end();
     });
     router.all('/redirect/:code', function(req, res, next) {
