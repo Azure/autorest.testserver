@@ -135,6 +135,36 @@
           }
         }
       }
+    },
+    "/additionalProperties/in/properties/with/additionalProperties/string": {
+      "put": {
+        "operationId": "Pets_CreateAPInPropertiesWithAPString",
+        "description": "Create a Pet which contains more properties than what is defined.",
+        "parameters": [
+          {
+            "name": "createParameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PetAPInPropertiesWithAPString"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A Pet which contains more properties than what is defined.",
+            "schema": {
+              "$ref": "#/definitions/PetAPInPropertiesWithAPString"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -150,7 +180,6 @@
       }
     },
     "PetAPTrue": {
-      "type": "object",
       "required": [
         "id"
       ],
@@ -215,6 +244,33 @@
       "required": [
         "id"
       ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "PetAPInPropertiesWithAPString": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      },
       "properties": {
         "id": {
           "type": "integer"
