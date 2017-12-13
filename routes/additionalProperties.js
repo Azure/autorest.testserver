@@ -47,6 +47,20 @@ var apInProperties = {
   }
 };
 
+var apInPropertiesWithAPString = {
+  id: 5,
+  name: 'Funny',
+  '@odata.location': 'westus',
+  additionalProperties: {
+    height: 5.61,
+    weight: 599,
+    footsize: 11.5
+  },
+  color: 'red',
+  city: 'Seattle',
+  food: 'tikka masala'
+};
+
 var additionalProperties = function (coverage) {
 
   router.put('/true', function (req, res, next) {
@@ -83,6 +97,16 @@ var additionalProperties = function (coverage) {
     if (req.body && _.isEqual(req.body, apInProperties)) {
       coverage["additionalPropertiesInProperties"]++;
       let resBody = JSON.parse(JSON.stringify(apInProperties));
+      resBody.status = true;
+      res.status(200).end(JSON.stringify(resBody));
+    } else {
+      utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
+    }
+  });
+  router.put('/in/properties/with/additionalProperties/string', function (req, res, next) {
+    if (req.body && _.isEqual(req.body, apInPropertiesWithAPString)) {
+      coverage["additionalPropertiesInPropertiesWithAPTypeString"]++;
+      let resBody = JSON.parse(JSON.stringify(apInPropertiesWithAPString));
       resBody.status = true;
       res.status(200).end(JSON.stringify(resBody));
     } else {
