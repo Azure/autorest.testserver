@@ -31,6 +31,17 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
+ * Listen on a socket for the npmStop signal, this will terminate the HTTP server.
+ */
+let io = require('socket.io')(server);
+io.on('connection', (socketServer) => {
+  socketServer.on('npmStop', () => {
+    console.log('Received npmStop signal, server will exit');
+    process.exit(0);
+  });
+});
+
+/**
  * Normalize a port into a number, string, or false.
  */
 

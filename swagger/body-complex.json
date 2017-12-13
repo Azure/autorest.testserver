@@ -5,7 +5,7 @@
     "description": "Test Infrastructure for AutoRest",
     "version": "2016-02-29"
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": [
     "http"
   ],
@@ -993,6 +993,7 @@
         "description": "Get complex types that are polymorphic, but not at the root of the hierarchy; also have additional properties",
         "responses": {
           "200": {
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/salmon"
             }
@@ -1111,6 +1112,7 @@
         "description": "Get complex types that have readonly properties",
         "responses": {
           "200": {
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/readonly-obj"
             }

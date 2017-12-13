@@ -81,7 +81,7 @@ var specials = function (coverage) {
 
     if (scenario === subscription) {
         coverage[coverageScenario]++;
-        res.send(200).end();
+        res.status(200).end();
     } else {
            utils.send400(res, next, 'Expected subscription: "' + util.inspect(scenario) + '" did not match actual "' + subscription + '"');
     }
@@ -131,7 +131,7 @@ var specials = function (coverage) {
 
     if (scenario === apiVersion || (scenario === 'null' && Object.keys(req.query).length === 0)) {
         coverage[coverageScenario]++;
-        res.send(200).end();
+        res.status(200).end();
     } else {
            utils.send400(res, next, 'Expected api-version: "' + util.inspect(scenario) + '" did not match actual "' + apiVersion + '"');
     }

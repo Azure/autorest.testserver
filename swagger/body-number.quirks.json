@@ -78,27 +78,6 @@
         }
       }
     },
-    "/number/invaliddecimal": {
-      "get": {
-        "operationId": "number_getInvalidDecimal",
-        "description": "Get invalid decimal Number value",
-        "responses": {
-          "200": {
-            "description": "The invalid decimal number value",
-            "schema": {
-              "type": "number",
-              "format": "decimal"
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
     "/number/big/float/3.402823e+20": {
       "put": {
         "operationId": "number_putBigFloat",
@@ -205,8 +184,7 @@
             "in": "body",
             "schema": {
               "type": "number",
-              "format": "double",
-              "enum":  [99999999.99]
+              "format": "double"
             },
             "required": true
           }
@@ -254,8 +232,7 @@
             "in": "body",
             "schema": {
               "type": "number",
-              "format": "double",
-              "enum":  [-99999999.99]
+              "format": "double"
             },
             "required": true
           }
@@ -351,8 +328,7 @@
             "in": "body",
             "schema": {
               "type": "number",
-              "format": "decimal",
-              "enum":  [99999999.99]
+              "format": "decimal"
             },
             "required": true
           }
@@ -400,8 +376,7 @@
             "in": "body",
             "schema": {
               "type": "number",
-              "format": "decimal",
-              "enum":  [-99999999.99]
+              "format": "decimal"
             },
             "required": true
           }

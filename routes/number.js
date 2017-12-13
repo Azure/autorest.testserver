@@ -3,7 +3,7 @@ var router = express.Router();
 var util = require('util');
 var utils = require('../util/utils')
 
-var number = function(coverage) {
+var number = function(coverage, optCoverage) {
     router.put('/big/:format/:value', function(req, res, next) {
         if (req.params.format === 'float') {
             if (req.params.value === '3.402823e+20' && req.body === 3.402823e+20) {
@@ -27,19 +27,19 @@ var number = function(coverage) {
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e+101' && req.body === 2.5976931e+101) {
-                coverage['putDecimalBig']++;
+                optCoverage['putDecimalBig']++;
                 res.status(200).end();
             } else if (req.params.value === '99999999.99' && req.body === 99999999.99) {
-                coverage['putDecimalBigPositiveDecimal']++;
+                optCoverage['putDecimalBigPositiveDecimal']++;
                 res.status(200).end();
             } else if (req.params.value === '-99999999.99' && req.body === -99999999.99) {
-                coverage['putDecimalBigNegativeDecimal']++;
+                optCoverage['putDecimalBigNegativeDecimal']++;
                 res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for big decimal in the req " + util.inspect(req.body));
             }
         } else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -66,19 +66,19 @@ var number = function(coverage) {
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e+101') {
-                coverage['getDecimalBig']++;
+                optCoverage['getDecimalBig']++;
                 res.status(200).end('2.5976931e+101');
             } else if (req.params.value === '99999999.99') {
-                coverage['getDecimalBigPositiveDecimal']++;
+                optCoverage['getDecimalBigPositiveDecimal']++;
                 res.status(200).end('99999999.99');
             } else if (req.params.value === '-99999999.99') {
-                coverage['getDecimalBigNegativeDecimal']++;
+                optCoverage['getDecimalBigNegativeDecimal']++;
                 res.status(200).end('-99999999.99');
             } else {
                 utils.send400(res, next, "Did not understand the value provided for big decimal in the req " + util.inspect(req.params.value));
             }
         } else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -99,13 +99,13 @@ var number = function(coverage) {
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e-101' && req.body === 2.5976931e-101) {
-                coverage['putDecimalSmall']++;
+                optCoverage['putDecimalSmall']++;
                     res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for small decimal in the req " + util.inspect(req.body));
             }
         } else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -126,13 +126,13 @@ var number = function(coverage) {
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e-101') {
-                coverage['getDecimalSmall']++;
+                optCoverage['getDecimalSmall']++;
                 res.status(200).end('2.5976931e-101');
             } else {
                 utils.send400(res, next, "Did not like the value provided for small decimal in the req " + util.inspect(req.params.value));
             }
         } else {
-            utils.send400(res, next, "Please use either float, double or decimal in the req " + util.inspect(req.params.format));
+            utils.send400(res, next, "Please use either float or double in the req " + util.inspect(req.params.format));
         }
     });
 
@@ -147,7 +147,7 @@ var number = function(coverage) {
             coverage['getDoubleInvalid']++;
             res.status(200).end('9223372036854775910.980089k');
 		} else if (req.params.scenario === 'invaliddecimal') {
-			coverage['getDecimalInvalid']++;
+			optCoverage['getDecimalInvalid']++;
             res.status(200).end('9223372036854775910.980089k');
         } else {
             res.status(400).send('Request path must contain true or false');

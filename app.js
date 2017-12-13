@@ -36,6 +36,7 @@ var azureSpecial = require('./routes/azureSpecials');
 var parameterGrouping = require('./routes/azureParameterGrouping.js');
 var validation = require('./routes/validation.js');
 var customUri = require('./routes/customUri.js');
+var extensibleEnums = require('./routes/extensibleEnums.js');
 var xml = require('./routes/xml.js'); // XML serialization
 var util = require('util');
 
@@ -53,7 +54,16 @@ var logfile = fs.createWriteStream(path.join(testResultDir, logFileName), {flags
 app.use(morgan('combined', {stream: logfile}));
 
 var azurecoverage = {};
-var optionalCoverage = {};
+var optionalCoverage = {
+  "getDecimalInvalid": 0,
+  "getDecimalBig": 0,
+  "getDecimalSmall": 0,
+  "getDecimalBigPositiveDecimal" : 0,
+  "getDecimalBigNegativeDecimal" : 0,
+  "putDecimalBig": 0,
+  "putDecimalSmall": 0,
+  "putDecimalBigPositiveDecimal" : 0
+};
 var coverage = {
   "getArrayNull": 0,
   "getArrayEmpty": 0,
@@ -114,7 +124,7 @@ var coverage = {
   "getArrayComplexValid": 0,
   "putArrayComplexValid": 0,
   "getArrayDictionaryNull": 0,
-    "getArrayDictionaryEmpty": 0,
+  "getArrayDictionaryEmpty": 0,
   "getArrayDictionaryItemNull": 0,
   "getArrayDictionaryItemEmpty": 0,
   "getArrayDictionaryValid": 0,
@@ -293,10 +303,9 @@ var coverage = {
   "UrlQueriesArrayCsvNull": 0,
   "UrlQueriesArrayCsvEmpty": 0,
   "UrlQueriesArrayCsvValid": 0,
-  //Once all the languages implement this test, the scenario counter should be reset to zero. It is currently implemented in C# and Python
-  "UrlQueriesArrayMultiNull": 1,
-  "UrlQueriesArrayMultiEmpty": 1,
-  "UrlQueriesArrayMultiValid": 1,
+  "UrlQueriesArrayMultiNull": 0,
+  "UrlQueriesArrayMultiEmpty": 0,
+  "UrlQueriesArrayMultiValid": 0,
   "UrlQueriesArraySsvValid": 0,
   "UrlQueriesArrayPipesValid": 0,
   "UrlQueriesArrayTsvValid": 0,
@@ -426,8 +435,7 @@ var coverage = {
   "ConstantsInPath": 0,
   "ConstantsInBody": 0,
   "CustomBaseUri": 0,
-  //Once all the languages implement this test, the scenario counter should be reset to zero. It is currently implemented in C#, Python and node.js
-  "CustomBaseUriMoreOptions": 1,
+  "CustomBaseUriMoreOptions": 0,
   'getModelFlattenArray': 0,
   'putModelFlattenArray': 0,
   'getModelFlattenDictionary': 0,
@@ -437,34 +445,27 @@ var coverage = {
   'putModelFlattenCustomBase': 0,
   'postModelFlattenCustomParameter': 0,
   'putModelFlattenCustomGroupedParameter': 0,
-  /* TODO: only C#, Python and node.js support the base64url format currently. Exclude these tests from code coverage until it is implemented in other languages */
-  "getStringBase64Encoded": 1,
-  "getStringBase64UrlEncoded": 1,
-  "putStringBase64UrlEncoded": 1,
-  "getStringNullBase64UrlEncoding": 1,
-  "getArrayBase64Url": 1,
-  "getDictionaryBase64Url": 1,
-  "UrlPathsStringBase64Url": 1,
-  "UrlPathsArrayCSVInPath": 1,
-  /* TODO: only C# and Python support the unixtime format currently. Exclude these tests from code coverage until it is implemented in other languages */
-  "getUnixTime": 1,
-  "getInvalidUnixTime": 1,
-  "getNullUnixTime": 1,
-  "putUnixTime": 1,
-  "UrlPathsIntUnixTime": 1,
-  /* TODO: Once all the languages implement these tests, the scenario counters should be reset to zero. It is currently implemented in Python */
-  "getDecimalInvalid": 1,
-  "getDecimalBig": 1,
-  "getDecimalSmall": 1,
-  "getDecimalBigPositiveDecimal" : 1,
-  "getDecimalBigNegativeDecimal" : 1,
-  "putDecimalBig": 1,
-  "putDecimalSmall": 1,
-  "putDecimalBigPositiveDecimal" : 1,
-  "getEnumReferenced" : 1,
-  "putEnumReferenced" : 1,
-  "getEnumReferencedConstant" : 1,
-  "putEnumReferencedConstant" : 1
+  "getStringBase64Encoded": 0,
+  "getStringBase64UrlEncoded": 0,
+  "putStringBase64UrlEncoded": 0,
+  "getStringNullBase64UrlEncoding": 0,
+  "getArrayBase64Url": 0,
+  "getDictionaryBase64Url": 0,
+  "UrlPathsStringBase64Url": 0,
+  "UrlPathsArrayCSVInPath": 0,
+  "getUnixTime": 0,
+  "getInvalidUnixTime": 0,
+  "getNullUnixTime": 0,
+  "putUnixTime": 0,
+  "UrlPathsIntUnixTime": 0,
+  "expectedEnum": 0,
+  "unexpectedEnum": 0,
+  "allowedValueEnum": 0,
+  "roundTripEnum": 0,
+  "getEnumReferenced" : 0,
+  "putEnumReferenced" : 0,
+  "getEnumReferencedConstant" : 0,
+  "putEnumReferencedConstant" : 0
 };
 
 // view engine setup
@@ -482,7 +483,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/bool', new bool(coverage).router);
 app.use('/int', new integer(coverage).router);
-app.use('/number', new number(coverage).router);
+app.use('/number', new number(coverage, optionalCoverage).router);
 app.use('/string', new string(coverage).router);
 app.use('/byte', new byte(coverage).router);
 app.use('/date', new date(coverage).router);
@@ -504,11 +505,12 @@ app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
 app.use('/paging', new paging(azurecoverage).router);
 app.use('/azurespecials', new azureSpecial(azurecoverage).router);
-app.use('/report', new report(coverage, azurecoverage).router);
+app.use('/report', new report(coverage, azurecoverage, optionalCoverage).router);
 app.use('/subscriptions', new azureUrl(azurecoverage).router);
 app.use('/parameterGrouping', new parameterGrouping(azurecoverage).router);
 app.use('/validation', new validation(coverage).router);
 app.use('/customUri', new customUri(coverage).router);
+app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/xml', new xml().router);
 
 // catch 404 and forward to error handler

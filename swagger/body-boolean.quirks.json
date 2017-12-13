@@ -1,8 +1,8 @@
-﻿{
+{
     "swagger": "2.0",
     "info": {
-        "title": "AutoRest Swagger BAT Byte Service",
-        "description": "Test Infrastructure for AutoRest Swagger BAT",
+        "title": "AutoRest Bool Test Service",
+        "description": "Test Infrastructure for AutoRest",
         "version": "1.0.0"
     },
     "host": "localhost:3000",
@@ -12,72 +12,18 @@
     "produces": [ "application/json"],
     "consumes": [ "application/json"],
     "paths": {
-        "/byte/null": {
+        "/bool/true": {
             "get": {
-                "operationId": "byte_getNull",
-                "description": "Get null byte value",
+                "operationId": "bool_getTrue",
+                "description": "Get true Boolean value",
                 "tags": [
-                    "Byte Operations"
+                    "Bool Operations"
                 ],
                 "responses": {
                     "200": {
-                        "description": "The null byte value",
+                        "description": "The true Boolean value",
                         "schema": {
-                            "description": "The null byte value",
-                            "type": "string",
-                            "format":  "byte",
-                            "enum": [null]
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/byte/empty": {
-            "get": {
-                "operationId": "byte_getEmpty",
-                "description": "Get empty byte value ''",
-                "tags": [
-                    "Byte Operations"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "The empty byte value ''",
-                        "schema": {
-                            "description": "The empty byte value ''",
-                            "type": "string",
-                            "format":  "byte",
-                            "enum": [""]
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/byte/nonAscii": {
-            "get": {
-                "operationId": "byte_getNonAscii",
-                "description": "Get non-ascii byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
-                "tags": [
-                    "Byte Operations"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Non-ascii base-64 encoded byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
-                        "schema": {
-                           "description": "Non-ascii base-64 encoded byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
-                           "type": "string",
-                            "format":  "byte"
+                            "type": "boolean"
                         }
                     },
                     "default": {
@@ -89,23 +35,20 @@
                 }
             },
             "put": {
-                "operationId": "byte_putNonAscii",
-                "description": "Put non-ascii byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
+                "operationId": "bool_putTrue",
+                "description": "Set Boolean value true",
                 "parameters": [
                     {
-                        "name": "byteBody",
+                        "name": "boolBody",
                         "in": "body",
-                        "description": "Base64-encoded non-ascii byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
                         "schema" : {
-                           "description": "Base64-encoded non-ascii byte string hex(FF FE FD FC FB FA F9 F8 F7 F6)",
-                           "type": "string",
-                           "format":  "byte"
+                            "type": "boolean"
                         },
                         "required": true
                     }
                 ],
                 "tags": [
-                    "Byte Operations"
+                    "Bool Operations"
                 ],
                 "responses": {
                     "200": {
@@ -120,20 +63,92 @@
                 }
             }
         },
-        "/byte/invalid": {
+        "/bool/false": {
             "get": {
-                "operationId": "byte_getInvalid",
-                "description": "Get invalid byte value ':::SWAGGER::::'",
+                "operationId": "bool_getFalse",
+                "description": "Get false Boolean value",
                 "tags": [
-                    "Byte Operations"
+                    "Bool Operations"
                 ],
                 "responses": {
                     "200": {
-                        "description": "The invalid byte value '::::SWAGGER::::'",
+                        "description": "The false Boolean value",
                         "schema": {
-                            "description": "The invalid byte value '::::SWAGGER::::'",
-                            "type": "string",
-                            "format":  "byte"
+                            "type": "boolean"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "bool_putFalse",
+                "description": "Set Boolean value false",
+                "parameters": [
+                    {
+                        "name": "boolBody",
+                        "in": "body",
+                        "schema" : {
+                            "type": "boolean"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Bool Operations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Empty Response"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+         "/bool/null": {
+            "get": {
+                "operationId": "bool_getNull",
+                "description": "Get null Boolean value",
+                "tags": [
+                    "Bool Operations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The null Boolean value",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/bool/invalid": {
+            "get": {
+                "operationId": "bool_getInvalid",
+                "description": "Get invalid Boolean value",
+                "tags": [
+                    "Bool Operations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The invalid Boolean value",
+                        "schema": {
+                            "type": "boolean"
                         }
                     },
                     "default": {

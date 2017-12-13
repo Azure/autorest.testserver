@@ -5,9 +5,9 @@
     "description": "Test Infrastructure for AutoRest",
     "version": "1.0.0"
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": [
-    "https"
+    "http"
   ],
   "produces": [
     "application/json"

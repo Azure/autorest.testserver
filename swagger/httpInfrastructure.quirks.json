@@ -153,8 +153,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -183,8 +182,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -213,8 +211,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -243,8 +240,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -275,8 +271,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -305,8 +300,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -337,8 +331,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -367,8 +360,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -397,8 +389,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -427,8 +418,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -477,8 +467,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -507,8 +496,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -537,8 +525,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -567,8 +554,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -743,8 +729,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -838,8 +823,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -877,8 +861,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1003,8 +986,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1043,8 +1025,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1083,8 +1064,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1123,8 +1103,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1210,8 +1189,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1237,8 +1215,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1264,8 +1241,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1291,8 +1267,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1386,8 +1361,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1415,8 +1389,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1444,8 +1417,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1473,8 +1445,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1502,8 +1473,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1597,8 +1567,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1626,8 +1595,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1655,8 +1623,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1701,8 +1668,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1779,8 +1745,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1806,8 +1771,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1855,8 +1819,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1885,8 +1848,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1960,8 +1922,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -1990,8 +1951,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -2022,8 +1982,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],
@@ -2052,8 +2011,7 @@
             "in": "body",
             "schema": {
               "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
+              "type": "boolean"
             }
           }
         ],

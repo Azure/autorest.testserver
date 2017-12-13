@@ -8,7 +8,7 @@
       "ft": 2
     }
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": [
     "http"
   ],

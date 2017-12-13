@@ -5,7 +5,7 @@
     "description": "Test Infrastructure for AutoRest",
     "version": "2015-07-01-preview"
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": [
     "http"
   ],
@@ -911,7 +911,7 @@
   },
   "definitions": {
     "Error": {
-      "requiredProperties": ["constantId"],
+      "required": ["constantId"],
       "properties": {
         "status": {
           "type": "integer",

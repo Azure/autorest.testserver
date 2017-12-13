@@ -365,8 +365,7 @@ var httpResponses = function(coverage, optionalCoverage) {
     coverage['HttpClientFailure404Put'] = 0;
     coverage['HttpClientFailure405Patch'] = 0;
     coverage['HttpClientFailure406Post'] = 0;
-    // 407 throws an exception in DNX
-    coverage['HttpClientFailure407Delete'] = 1;
+    coverage['HttpClientFailure407Delete'] = 0;
     coverage['HttpClientFailure409Put'] = 0;
     coverage['HttpClientFailure410Head'] = 0;
     coverage['HttpClientFailure411Get'] = 0;
@@ -465,8 +464,7 @@ var httpResponses = function(coverage, optionalCoverage) {
         utils.send400(res, next, 'NoErrorModel');
     });
     router.all('/failure/nomodel/empty', function(req, res, next) {
-        // TODO: cover this scenario
-        coverage['ResponsesScenarioNoModelEmptyBody']++;
+        optionalCoverage['ResponsesScenarioNoModelEmptyBody']++;
         res.status(400).end();
     });
     router.all('/redirect/:code', function(req, res, next) {

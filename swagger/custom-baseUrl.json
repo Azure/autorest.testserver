@@ -52,7 +52,7 @@
       "name": "host",
       "description": "A string value that is used as a global part of the parameterized host",
       "type": "string",
-      "required": false,
+      "required": true,
       "default": "host",
       "in": "path",
       "x-ms-skip-url-encoding": true
