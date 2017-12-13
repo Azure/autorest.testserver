@@ -83,7 +83,7 @@
      ],
      "x-ms-enum": {
       "name": "DaysOfWeekExtensibleEnum",
-      "modelAsString": true
+      "modelAsExtensible": true
      },
      "default": "Friday"
     },
@@ -97,6 +97,7 @@
      ],
      "x-ms-enum": {
       "modelAsString": true,
+      "modelAsExtensible": true,
       "name": "IntEnum",
       "values": [
        {
