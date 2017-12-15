@@ -258,6 +258,7 @@ var coverage = {
   "getComplexPolymorphismValid": 0,
   "putComplexPolymorphismComplicated": 0,
   "getComplexPolymorphismComplicated": 0,
+  "putComplexPolymorphismNoDiscriminator": 0,
   "putComplexPolymorphicRecursiveValid": 0,
   "getComplexPolymorphicRecursiveValid": 0,
   "putComplexReadOnlyPropertyValid": 0,
