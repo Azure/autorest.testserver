@@ -1,0 +1,19 @@
+# git #
+.git*
+
+# Node #
+node_modules/
+
+# Tools and dev scripts #
+tools/
+tasks/
+scripts/
+gruntfile.js
+
+# Nuget packages #
+.nuget/
+packages/
+packages.config
+
+# VS #
+.ntvs_analysis.*
