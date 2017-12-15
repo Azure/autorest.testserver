@@ -1032,6 +1032,36 @@
         }
       }
     },
+    "/complex/polymorphism/missingdiscriminator": {
+      "put": {
+        "operationId": "polymorphism_putMissingDiscriminator",
+        "description": "Put complex types that are polymorphic, omitting the discriminator",
+        "parameters": [
+          {
+            "name": "complexBody",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/salmon"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a salmon",
+            "schema": {
+              "$ref": "#/definitions/salmon"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/complex/polymorphism/missingrequired/invalid": {
       "put": {
         "operationId": "polymorphism_putValidMissingRequired",
