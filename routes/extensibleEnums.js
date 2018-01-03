@@ -29,14 +29,14 @@ var pathitem = function(coverage) {
         console.log('Inside pathItem handler with petId "' + petId +'"\n');
         if (petId === 'tommy') {
             coverage['expectedEnum']++;
-            res.status(200).send(JSON.stringify(tommy));
+            res.status(200).end(JSON.stringify(tommy));
         } 
         else if(petId === 'casper'){
-            res.status(200).send(JSON.stringify(casper));
+            res.status(200).end(JSON.stringify(casper));
             coverage['unexpectedEnum']++;
         }
         else if(petId === 'scooby'){
-            res.status(200).send(JSON.stringify(scooby));
+            res.status(200).end(JSON.stringify(scooby));
             coverage['allowedValueEnum']++;
         }
         else{
@@ -49,7 +49,7 @@ var pathitem = function(coverage) {
         console.log('Inside addPet for '+petName+'\n');
         if (petName === 'Retriever') {
             coverage['roundTripEnum']++;
-            res.status(200).send(JSON.stringify(req.body));
+            res.status(200).end(JSON.stringify(req.body));
         }
         else{
             utils.send400(res, next, 'Pet info incorrect '+petName);
