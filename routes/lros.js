@@ -624,7 +624,7 @@ var lros = function (coverage) {
     var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/post/payload/200';
     var headers = {
       'Location': pollingUri,
-      'Retry-After' : 0
+      'Retry-After': 0
     };
 
     res.set(headers).status(202).end();
@@ -649,7 +649,7 @@ var lros = function (coverage) {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
-        'Location': pollingUri
+        'Location': 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
       };
       if (retry === 'retry') {
         headers['Retry-After'] = 0;
@@ -674,7 +674,7 @@ var lros = function (coverage) {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
       var headers = {
         'Azure-AsyncOperation': pollingUri,
-        'Location': pollingUri
+        'Location': 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
       };
       if (retry === 'retry') {
         headers['Retry-After'] = 0;
@@ -694,6 +694,42 @@ var lros = function (coverage) {
       }
     } else {
       utils.send400(res, next, 'Unable to parse "putAsync" scenario in initial polling operationwith retry: "' + retry + '", finalState: "' + finalState + '"');
+    }
+  });
+
+  /*Final GET on location header for POST operation */
+  router.get('/postasync/:retry/:finalState/operationResults/foo/:code', function (req, res, next) {
+    console.log('In initial poller for post async with ( ' + req.params.retry + ', ' + req.params.finalState + ', ' + req.params.code + ')\n');
+    var retry = req.params.retry;
+    var finalState = getPascalCase(req.params.finalState);
+    var code = JSON.parse(req.params.code);
+    var operation = 'postasync';
+    console.log('Parsed parameters ( ' + operation + ', ' + retry + ', ' + finalState + ', ' + code + ')\n');
+
+    var scenario = getLROAsyncScenarioName(operation, retry, finalState);
+    console.log('In scenario: ' + scenario + '\n');
+
+    //res.status(200).end('{ "id": "100", "name": "foo" }');
+
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res.status(200).end('{ "id": "100", "name": "foo" }');
+    } else {
+      removeScenarioCookie(res);
+      coverage[scenario]++;
+      var outStr = '{ "status": "' + finalState + '", "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }';
+    }
+  });
+
+  router.get('/retryerror/delete/provisioning/202/accepted/200/succeeded', function (req, res, next) {
+    var scenario = 'LRORetryErrorDelete202Accepted200Succeeded';
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res.status(500).end();
+    } else {
+      coverage[scenario]++;
+      removeScenarioCookie(res);
+      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -842,7 +878,7 @@ var lros = function (coverage) {
     } else {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/200';
       var headers = {
-        'Location': '/foo',
+        'Location': 'http://localhost:' + utils.getPort() + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/foo/200',
         'Azure-AsyncOperation': pollingUri,
         'Retry-After': 0
       };
@@ -862,6 +898,19 @@ var lros = function (coverage) {
       res.status(200).end('{ "status": "Succeeded" }');
     }
   });
+
+  router.get('/retryerror/deleteasync/retry/succeeded/operationResults/foo/200', function (req, res, next) {
+    var scenario = 'LRORetryErrorDeleteAsyncRetrySucceeded';
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res.status(500).end();
+    } else {
+      coverage[scenario]++;
+      removeScenarioCookie(res);
+      res.status(200).end();
+    }
+  });
+
 
   coverage['LRORetryErrorPost202Retry200Succeeded'] = 0;
   router.post('/retryerror/post/202/retry/200', function (req, res, next) {
@@ -901,7 +950,8 @@ var lros = function (coverage) {
     } else {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/postasync/retry/succeeded/operationResults/200';
       var headers = {
-        'Location': '/foo',
+        /*Passing absolute uri */
+        'Location': 'http://localhost:' + utils.getPort() + '/lro/retryerror/postasync/retry/succeeded/operationResults/foo/200',
         'Azure-AsyncOperation': pollingUri,
         'Retry-After': 0
       };
@@ -919,6 +969,18 @@ var lros = function (coverage) {
       coverage[scenario]++;
       removeScenarioCookie(res);
       res.status(200).end('{ "status": "Succeeded" }');
+    }
+  });
+
+  router.get('/retryerror/postasync/retry/succeeded/operationResults/foo/200', function (req, res, next) {
+    var scenario = 'LRORetryErrorPostAsyncRetrySucceeded';
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res.status(500).end();
+    } else {
+      coverage[scenario]++;
+      removeScenarioCookie(res);
+      res.status(200).end('{ "name": "sku" , "id": "100" }');
     }
   });
 
@@ -942,12 +1004,12 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryPut201Creating400InvalidJson'] = 0;
   router.put('/nonretryerror/put/201/creating/400/invalidjson', function (req, res, next) {
-      res.status(201).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(201).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/nonretryerror/put/201/creating/400/invalidjson', function (req, res, next) {
-      coverage['LRONonRetryPut201Creating400InvalidJson']++;
-      res.status(400).end('<{ "message" : "Error from the server" }');
+    coverage['LRONonRetryPut201Creating400InvalidJson']++;
+    res.status(400).end('<{ "message" : "Error from the server" }');
   });
 
   coverage['LRONonRetryPutAsyncRetry400'] = 0;
@@ -1337,7 +1399,7 @@ var lros = function (coverage) {
     }
   });
 
- router.put('/customheader/put/201/creating/succeeded/200', function (req, res, next) {
+  router.put('/customheader/put/201/creating/succeeded/200', function (req, res, next) {
     var scenario = 'CustomHeaderPutSucceeded';
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
@@ -1358,7 +1420,7 @@ var lros = function (coverage) {
     }
   });
 
-///////////////////////////////
+  ///////////////////////////////
   router.post('/customheader/post/202/retry/200', function (req, res, next) {
     var scenario = 'CustomHeaderPostSucceeded';
     var header = req.get("x-ms-client-request-id");
