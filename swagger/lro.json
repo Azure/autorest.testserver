@@ -2928,6 +2928,7 @@
   },
   "definitions": {
     "CloudError": {
+      "type":  "object",
       "x-ms-external": true,
       "properties": {
         "status": {
@@ -2940,6 +2941,7 @@
       }
     },
     "Resource": {
+      "type":  "object",
       "x-ms-azure-resource": true,
       "properties": {
         "id": {
@@ -2970,6 +2972,7 @@
       }
     },
     "Sku": {
+      "type":  "object",
       "properties": {
         "name": {
           "type": "string"
@@ -2980,6 +2983,7 @@
       }
     },
     "Product": {
+      "type":  "object",
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
@@ -3015,6 +3019,7 @@
       }
     },
     "SubProduct": {
+      "type":  "object",
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
@@ -3050,6 +3055,7 @@
       }
     },
     "SubResource": {
+      "type":  "object",
       "x-ms-azure-resource": true,
       "properties": {
         "id": {
@@ -3060,6 +3066,7 @@
       }
     },
     "OperationResult": {
+      "type":  "object",
       "properties": {
         "status": {
           "description": "The status of the request",
@@ -3079,6 +3086,7 @@
           ]
         },
         "error": {
+          "type":  "object",
           "properties": {
             "code": {
               "description": "The error code for an operation failure",

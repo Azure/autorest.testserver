@@ -166,6 +166,7 @@
   },
   "definitions": {
     "Product": {
+      "type":  "object",
       "description": "The product documentation.",
       "required": ["child", "constString", "constInt", "constChild"],
       "properties": {
@@ -220,6 +221,7 @@
       }
     },
     "ChildProduct": {
+      "type":  "object",
       "description": "The product documentation.",
       "required": [ "constProperty" ],
       "properties": {
@@ -235,6 +237,7 @@
       }
     },
     "ConstantProduct": {
+      "type":  "object",
       "description": "The product documentation.",
       "required": [ "constProperty", "constProperty2" ],
       "properties": {
@@ -251,6 +254,7 @@
       }
     },
     "Error": {
+      "type":  "object",
       "properties": {
         "code": {
           "type": "integer",

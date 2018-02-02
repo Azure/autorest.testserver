@@ -29,6 +29,7 @@
             "200": {
               "description": "The test coverage mapping",
               "schema": {
+                "type": "object",
                 "additionalProperties": {
                   "type": "integer"
                 }
@@ -46,6 +47,7 @@
     },
     "definitions": {
         "Error": {
+          "type":  "object",
             "properties": {
                 "status": {
                     "type": "integer",

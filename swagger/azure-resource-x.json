@@ -184,6 +184,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -195,6 +196,7 @@
       }
     },
     "ResourceX": {
+      "type":  "object",
       "x-ms-azure-resource": true,
       "description": "Some resource",
       "externalDocs": {
@@ -234,6 +236,7 @@
           "$ref": "#/definitions/ResourceX"
         }
       ],
+      "type":  "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -242,6 +245,7 @@
       }
     },
     "FlattenedResourceProperties": {
+      "type":  "object",
       "properties": {
         "pname": {
           "type": "string"
@@ -256,6 +260,7 @@
       }
     },
     "ResourceCollection": {
+      "type":  "object",
       "properties": {
         "productresource": {
           "type": "object",

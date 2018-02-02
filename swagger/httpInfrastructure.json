@@ -2822,6 +2822,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -2833,6 +2834,7 @@
       }
     },
     "A": {
+      "type":  "object",
       "x-ms-client-name": "MyException",
       "properties": {
         "statusCode": {
@@ -2841,6 +2843,7 @@
       }
     },
     "B": {
+      "type":  "object",
       "allOf": [
         { "$ref": "#/definitions/A" }
       ],
@@ -2851,6 +2854,7 @@
       }
     },
     "C": {
+      "type":  "object",
       "properties": {
         "httpCode": {
           "type": "string"
@@ -2858,6 +2862,7 @@
       }
     },
     "D": {
+      "type":  "object",
       "properties": {
         "httpStatusCode": {
           "type": "string"

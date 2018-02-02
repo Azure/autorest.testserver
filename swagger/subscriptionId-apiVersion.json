@@ -67,6 +67,7 @@
   },
   "definitions": {
     "SampleResourceGroup": {
+      "type":  "object",
       "properties": {
         "name": {
           "type": "string",
@@ -79,6 +80,7 @@
       }
     },
     "Error": {
+      "type":  "object",
       "properties": {
         "code": {
           "type": "integer",

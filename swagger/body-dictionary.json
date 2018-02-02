@@ -110,6 +110,7 @@
           "200": {
             "description": "The Dictionary with null value",
             "schema": {
+              "type": "object",
               "additionalProperties": {
                 "type": "string"
               }
@@ -132,6 +133,7 @@
           "200": {
             "description": "The Dictionary with null key",
             "schema": {
+              "type": "object",
               "additionalProperties": {
                 "type": "string"
               }
@@ -154,6 +156,7 @@
           "200": {
             "description": "The Dictionary with key as empty string",
             "schema": {
+              "type": "object",
               "additionalProperties": {
                 "type": "string"
               }
@@ -176,6 +179,7 @@
           "200": {
             "description": "The invalid Dictionary value",
             "schema": {
+              "type": "object",
               "additionalProperties": {
                 "type": "string"
               }
@@ -1904,6 +1908,7 @@
       }
     },
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",

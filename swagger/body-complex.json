@@ -1184,6 +1184,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -1195,6 +1196,7 @@
       }
     },
     "basic": {
+      "type":  "object",
       "properties": {
         "id": {
           "type": "integer",
@@ -1215,6 +1217,7 @@
       }
     },
     "pet": {
+      "type":  "object",
       "properties": {
         "id": {
           "type": "integer"
@@ -1230,6 +1233,7 @@
           "$ref": "#/definitions/pet"
         }
       ],
+      "type":  "object",
       "properties": {
         "color": {
           "type": "string"
@@ -1248,6 +1252,7 @@
           "$ref": "#/definitions/cat"
         }
       ],
+      "type":  "object",
       "properties": {
         "breed": {
           "type": "string"
@@ -1260,6 +1265,7 @@
           "$ref": "#/definitions/pet"
         }
       ],
+      "type":  "object",
       "properties": {
         "food": {
           "type": "string"
@@ -1267,6 +1273,7 @@
       }
     },
     "Fish": {
+      "type":  "object",
       "discriminator": "fishtype",
       "required": [ "fishtype", "length" ],
       "properties": {
@@ -1294,6 +1301,7 @@
           "$ref": "#/definitions/Fish"
         }
       ],
+      "type":  "object",
       "properties": {
         "location": {
           "type": "string"
@@ -1323,6 +1331,7 @@
           "$ref": "#/definitions/Fish"
         }
       ],
+      "type":  "object",
       "required": [ "birthday" ],
       "properties": {
         "age": {
@@ -1341,6 +1350,7 @@
           "$ref": "#/definitions/shark"
         }
       ],
+      "type":  "object",
       "properties": {
         "picture": {
           "type": "string",
@@ -1355,6 +1365,7 @@
           "$ref": "#/definitions/shark"
         }
       ],
+      "type":  "object",
       "properties": {
         "jawsize": {
           "type": "integer"
@@ -1362,6 +1373,7 @@
       }
     },
     "cookiecuttershark": {
+      "type":  "object",
       "allOf": [
         {
           "$ref": "#/definitions/shark"
@@ -1369,6 +1381,7 @@
       ]
     },
     "int-wrapper": {
+      "type":  "object",
       "properties": {
         "field1": {
           "type": "integer",
@@ -1381,6 +1394,7 @@
       }
     },
     "long-wrapper": {
+      "type":  "object",
       "properties": {
         "field1": {
           "type": "integer",
@@ -1393,6 +1407,7 @@
       }
     },
     "float-wrapper": {
+      "type":  "object",
       "properties": {
         "field1": {
           "type": "number",
@@ -1405,6 +1420,7 @@
       }
     },
     "double-wrapper": {
+      "type":  "object",
       "properties": {
         "field1": {
           "type": "number",
@@ -1417,6 +1433,7 @@
       }
     },
     "boolean-wrapper": {
+      "type":  "object",
       "properties": {
         "field_true": {
           "type": "boolean"
@@ -1427,6 +1444,7 @@
       }
     },
     "string-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string"
@@ -1440,6 +1458,7 @@
       }
     },
     "date-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1452,6 +1471,7 @@
       }
     },
     "datetime-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1464,6 +1484,7 @@
       }
     },
     "datetimerfc1123-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1476,6 +1497,7 @@
       }
     },
     "duration-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1484,6 +1506,7 @@
       }
     },
     "byte-wrapper": {
+      "type":  "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1492,6 +1515,7 @@
       }
     },
     "array-wrapper": {
+      "type":  "object",
       "properties": {
         "array": {
           "type": "array",
@@ -1502,8 +1526,10 @@
       }
     },
     "dictionary-wrapper": {
+      "type":  "object",
       "properties": {
         "defaultProgram": {
+          "type":  "object",
           "additionalProperties": {
             "type": "string"
           }
@@ -1511,6 +1537,7 @@
       }
     },
     "readonly-obj": {
+      "type":  "object",
       "properties": {
         "id": {
           "type": "string",

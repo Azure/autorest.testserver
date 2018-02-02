@@ -451,6 +451,7 @@
   },
   "definitions": {
     "ProductResult": {
+      "type":  "object",
       "properties": {
         "values": {
           "type": "array",
@@ -464,6 +465,7 @@
       }
     },
     "OdataProductResult": {
+      "type":  "object",
       "properties": {
         "values": {
           "type": "array",
@@ -477,6 +479,7 @@
       }
     },
     "Product": {
+      "type":  "object",
       "properties": {
         "properties": {
           "type": "object",
@@ -492,6 +495,7 @@
       }
     },
     "OperationResult": {
+      "type":  "object",
       "properties": {
         "status": {
           "description": "The status of the request",

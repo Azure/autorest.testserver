@@ -63,6 +63,7 @@
   },
   "definitions": {
     "AvailabilitySetUpdateParameters": {
+      "type":  "object",
       "properties": {
         "tags": {
           "type": "object",

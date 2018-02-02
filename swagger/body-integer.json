@@ -344,6 +344,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
