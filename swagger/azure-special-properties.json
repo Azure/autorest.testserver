@@ -911,6 +911,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "required": ["constantId"],
       "properties": {
         "status": {
@@ -927,6 +928,7 @@
       }
     },
     "OdataFilter": {
+      "type":  "object",
       "properties": {
         "id": {
           "type": "integer",

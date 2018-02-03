@@ -154,6 +154,7 @@
   },
   "definitions": {
     "Product": {
+      "type":  "object",
       "description": "The product documentation.",
       "properties": {
         "product_id": {
@@ -184,6 +185,7 @@
       }
     },
     "CatalogDictionary": {
+      "type":  "object",
       "properties": {
         "productDictionary": {
           "type": "object",
@@ -195,6 +197,7 @@
       }
     },
     "CatalogArray": {
+      "type":  "object",
       "properties": {
         "productArray": {
           "description": "Array of products",
@@ -206,6 +209,7 @@
       }
     },
     "CatalogArrayOfDictionary": {
+      "type":  "object",
       "properties": {
         "productArrayOfDictionary": {
           "description": "Array of dictionary of products",
@@ -220,6 +224,7 @@
       }
     },
     "CatalogDictionaryOfArray": {
+      "type":  "object",
       "properties": {
         "productDictionaryOfArray": {
           "type": "object",
@@ -234,6 +239,7 @@
       }
     },
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",

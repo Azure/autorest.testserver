@@ -369,6 +369,7 @@
   },
   "definitions": {
     "StorageAccountCheckNameAvailabilityParameters": {
+      "type":  "object",
       "properties": {
         "name": {
           "type": "string"
@@ -383,6 +384,7 @@
       ]    
     },
     "CheckNameAvailabilityResult": {
+      "type":  "object",
       "properties": {
         "nameAvailable": {
           "type": "boolean",
@@ -405,6 +407,7 @@
       "description": "The CheckNameAvailability operation response."
     },
     "StorageAccountPropertiesCreateParameters": {
+      "type":  "object",
       "properties": {
         "accountType": {
           "type": "string",
@@ -421,6 +424,7 @@
       }
     },
     "StorageAccountCreateParameters": {
+      "type":  "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -435,6 +439,7 @@
       "description": "The parameters to provide for the account."
     },
     "Endpoints": {
+      "type":  "object",
       "properties": {
         "blob": {
           "type": "string",
@@ -460,6 +465,7 @@
       "description": "The URIs that are used to perform a retrieval of a public blob, queue or table object."
     },
     "Foo": {
+      "type":  "object",
       "properties": {
         "Bar.Point": {
           "$ref": "#/definitions/Bar",
@@ -469,6 +475,7 @@
       "description": "The URIs that are used to perform a retrieval of a public blob, queue or table object."
     },
     "Bar": {
+      "type":  "object",
       "properties": {
         "RecursivePoint": {
           "$ref": "#/definitions/Endpoints",
@@ -478,6 +485,7 @@
       "description": "The URIs that are used to perform a retrieval of a public blob, queue or table object."
     },
     "CustomDomain": {
+      "type":  "object",
       "properties": {
         "name": {
           "type": "string",
@@ -491,6 +499,7 @@
       "description": "The custom domain assigned to this storage account. This can be set via Update."
     },
     "StorageAccountProperties": {
+      "type":  "object",
       "properties": {
         "provisioningState": {
           "type": "string",
@@ -565,6 +574,7 @@
       }
     },
     "StorageAccount": {
+      "type":  "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -579,6 +589,7 @@
       "description": "The storage account."
     },
     "StorageAccountKeys": {
+      "type":  "object",
       "properties": {
         "key1": {
           "type": "string",
@@ -592,6 +603,7 @@
       "description": "The access keys for the storage account."
     },
     "StorageAccountListResult": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "array",
@@ -608,6 +620,7 @@
       "description": "The list storage accounts operation response."
     },
     "StorageAccountPropertiesUpdateParameters": {
+      "type":  "object",
       "properties": {
         "accountType": {
           "type": "string",
@@ -628,6 +641,7 @@
       }
     },
     "StorageAccountUpdateParameters": {
+      "type":  "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -642,6 +656,7 @@
       "description": "The parameters to update on the account."
     },
     "StorageAccountRegenerateKeyParameters": {
+      "type":  "object",
       "properties": {
         "keyName": {
           "type": "string",
@@ -654,6 +669,7 @@
       }
     },
     "UsageName": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "string",
@@ -667,6 +683,7 @@
       "description": "The Usage Names."
     },
     "Usage": {
+      "type":  "object",
       "properties": {
         "unit": {
           "type": "string",
@@ -699,6 +716,7 @@
       "description": "Describes Storage Resource Usage."
     },
     "UsageListResult": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "array",
@@ -711,6 +729,7 @@
       "description": "The List Usages operation response."
     },
     "Resource": {
+      "type":  "object",
       "properties": {
         "id": {
           "readOnly": true,
@@ -745,6 +764,7 @@
       "x-ms-azure-resource": true
     },
     "SubResource": {
+      "type":  "object",
       "properties": {
         "id": {
           "type": "string",

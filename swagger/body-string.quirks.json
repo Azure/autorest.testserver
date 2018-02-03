@@ -503,6 +503,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -520,6 +521,7 @@
       "description": "Referenced Color Enum Description."
     },
     "RefColorConstant": {
+      "type":  "object",
       "properties": {       
         "ColorConstant": {   
           "x-ms-enum": { "name": "ColorConstant", "modelAsString": false},

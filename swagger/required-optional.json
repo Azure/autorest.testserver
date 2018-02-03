@@ -759,6 +759,7 @@
   },
   "definitions": {
     "Error": {
+      "type":  "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -770,6 +771,7 @@
       }
     },
     "int-wrapper": {
+      "type":  "object",
       "required": [
         "value"
       ],
@@ -781,6 +783,7 @@
       }
     },
     "int-optional-wrapper": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "integer",
@@ -789,6 +792,7 @@
       }
     },
     "string-wrapper": {
+      "type":  "object",
       "required": [
         "value"
       ],
@@ -799,6 +803,7 @@
       }
     },
     "string-optional-wrapper": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "string"
@@ -806,6 +811,7 @@
       }
     },
     "array-wrapper": {
+      "type":  "object",
       "required": [
         "value"
       ],
@@ -819,6 +825,7 @@
       }
     },
     "array-optional-wrapper": {
+      "type":  "object",
       "properties": {
         "value": {
           "type": "array",
@@ -829,6 +836,7 @@
       }
     },
     "class-wrapper": {
+      "type":  "object",
       "required": [
         "value"
       ],
@@ -839,6 +847,7 @@
       }
     },
     "class-optional-wrapper": {
+      "type":  "object",
       "properties": {
         "value": {
           "$ref": "#/definitions/product"
@@ -846,6 +855,7 @@
       }
     },
     "product": {
+      "type":  "object",
       "required": [
         "id"
       ],
