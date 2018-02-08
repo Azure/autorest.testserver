@@ -37,6 +37,7 @@ var parameterGrouping = require('./routes/azureParameterGrouping.js');
 var validation = require('./routes/validation.js');
 var customUri = require('./routes/customUri.js');
 var extensibleEnums = require('./routes/extensibleEnums.js');
+var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
 var xml = require('./routes/xml.js'); // XML serialization
 var util = require('util');
@@ -471,7 +472,14 @@ var coverage = {
   "getEnumReferenced" : 0,
   "putEnumReferenced" : 0,
   "getEnumReferencedConstant" : 0,
-  "putEnumReferencedConstant" : 0
+  "putEnumReferencedConstant" : 0,
+  "expectedNoErrors":0,
+  "expectedPetSadError": 0,
+  "expectedPetHungryError":0,
+  "intError":0,
+  "stringError":0,
+  "animalNotFoundError":0,
+  "linkNotFoundError":0
 };
 
 // view engine setup
@@ -517,6 +525,7 @@ app.use('/parameterGrouping', new parameterGrouping(azurecoverage).router);
 app.use('/validation', new validation(coverage).router);
 app.use('/customUri', new customUri(coverage).router);
 app.use('/extensibleEnums', new extensibleEnums(coverage).router);
+app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/xml', new xml().router);
 
