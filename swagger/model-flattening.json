@@ -556,7 +556,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "description": "the product value",
+          "description": "the product value"
         }
       }
     },
