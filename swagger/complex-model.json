@@ -249,7 +249,7 @@
           "type": "string"
         }
       }
-    },
+    }
   },
   "parameters": {
     "SubscriptionIdParamterer": {
