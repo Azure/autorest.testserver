@@ -1211,7 +1211,7 @@
           "enum": [ "cyan", "Magenta", "YELLOW", "blacK" ],
           "x-ms-enum": {
             "name": "CMYKColors",
-            "modelAsString": true
+            "oldModelAsString": true
           }
         }
       }
