@@ -1371,18 +1371,18 @@
           "type": "integer"
         },
         "color": {
-	  "type": "string",
-	  "description": "Colors possible",
-	  "enum": [
-	    "pink",
-	    "gray",
-	    "brown"
-	  ],
-	  "x-ms-enum": {
-	    "name": "GoblinSharkColor",
-	    "modelAsString": true
-	  },
-	  "default": "gray"
+          "type": "string",
+          "description": "Colors possible",
+          "enum": [
+            "pink",
+            "gray",
+            "brown"
+          ],
+          "x-ms-enum": {
+            "name": "GoblinSharkColor",
+            "modelAsString": true
+          },
+          "default": "gray"
         }
       }
     },
