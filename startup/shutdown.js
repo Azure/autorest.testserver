@@ -13,11 +13,15 @@ var port = process.env.PORT || Constants.DEFAULT_SERVER_PORT;
 var socketClient = io.connect('http://localhost:' + port);
 
 /**
+ * Set a timeout so if we can't connect to the socket self-terminate.
+ */
+setTimeout(() => {
+  process.exit(0);
+}, 3000);
+
+/**
  * Send the npmStop signal to the server process.
  */
 socketClient.on('connect', () => {
   socketClient.emit('npmStop');
-  setTimeout(() => {
-    process.exit(0);
-  }, 1000);
 });
