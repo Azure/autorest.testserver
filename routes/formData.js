@@ -12,10 +12,8 @@ var formData = function (coverage) {
     var busboy = new Busboy({ headers: req.headers });
     busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
       console.log('File [' + fieldname + ']: filename: ' + filename + ', encoding: ' + encoding + ', mimetype: ' + mimetype);
-      file.on('data', function (data) {
-        coverage['FormdataStreamUploadFile']++;
-        res.send(data);
-      });
+      file.pipe(res);
+      coverage['FormdataStreamUploadFile']++;
     });
     busboy.on('field', function (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
       console.log('Field [' + fieldname + ']: value: ' + val);
