@@ -46,7 +46,7 @@
         ],
         "parameters": [
           {
-            "name": "wrappedLists",
+            "name": "slideshow",
             "in": "body",
             "schema": {
               "$ref": "#/definitions/Slideshow"

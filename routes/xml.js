@@ -2,16 +2,24 @@ var express = require('express');
 var router = express.Router();
 var util = require('util');
 var utils = require('../util/utils');
+var xml2js = require('xml2js');
+var util = require('util');
+var parseXMLString = util.promisify(xml2js.parseString);
+var assert = require('assert');
 
 // Expect given request body. Otherwise, 400 with comparison is returned.
 var expectXmlBody = function (req, res, body) {
   var rawBody = '';
   req.setEncoding('utf8');
   req.on('data', function(chunk) { rawBody += chunk });
-  req.on('end', function() {
-    if (rawBody.replace(/\s/g, "") == body.replace(/\s/g, ""))
-      res.sendStatus(200); // response headers?
-    else
+  req.on('end', async function() {
+    var actualParsedBody = await parseXMLString(rawBody);
+    var expectedParsedBody = await parseXMLString(body);
+
+    try {
+      assert.deepStrictEqual(actualParsedBody, expectedParsedBody);
+      res.status(201).end();
+    } catch (err) {
       res.status(400).header('Content-Type', 'text/plain').end(`
 Expected:
 ${body}
@@ -19,6 +27,7 @@ ${body}
 Actual:
 ${rawBody}
 `);
+    }
   });
 };
 
@@ -338,7 +347,7 @@ var xmlService = function () {
 </AppleBarrel>`
 
   router.get('/wrapped-lists', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, wrappedListsBody);
   });
 
   router.put('/wrapped-lists', function(req, res) {
