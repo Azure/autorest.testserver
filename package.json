@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.4.3",
+  "version": "2.5.0",
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
@@ -12,15 +12,20 @@
     "start": "node ./startup/www",
     "stop": "node ./startup/shutdown.js",
     "testci": "echo no tests",
-    "publish-preview": "npm publish"
+    "publish-preview": "npm publish",
+    "show-results": "node ./coverage/app-show.js",
+    "push-results": "node ./coverage/app-push.js"
   },
   "dependencies": {
+    "azure-storage": "^2.4.0",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.1",
     "busboy": "*",
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "jade": "~1.11.0",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
     "serve-favicon": "~2.3.0",
     "socket.io-client": "~2.0.4",
     "socket.io": "~2.0.4",
