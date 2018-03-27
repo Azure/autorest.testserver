@@ -317,7 +317,7 @@ var xmlService = function () {
 </slideshow>`;
 
   router.get('/simple', function (req, res) {
-    res.status(200).end(simpleBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.put('/simple', function(req, res) {
@@ -338,7 +338,7 @@ var xmlService = function () {
 </AppleBarrel>`
 
   router.get('/wrapped-lists', function (req, res) {
-    res.status(200).end(wrappedListsBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.put('/wrapped-lists', function(req, res) {
@@ -351,7 +351,7 @@ var xmlService = function () {
 <slideshow/>`;
 
   router.get('/empty-list', function (req, res) {
-    res.status(200).end(emptyListBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.get('/empty-list', function (req, res) {
@@ -367,7 +367,7 @@ var xmlService = function () {
 </AppleBarrel>`;
 
   router.get('/empty-wrapped-lists', function (req, res) {
-    res.status(200).end(emptyWrappedListsBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.get('/empty-wrapped-lists', function (req, res) {
@@ -391,7 +391,7 @@ var xmlService = function () {
 </bananas>`
 
   router.get('/root-list', function (req, res) {
-    res.status(200).end(rootListBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.put('/root-list', function(req, res) {
@@ -404,7 +404,7 @@ var xmlService = function () {
 <bananas/>`;
 
   router.get('/empty-root-list', function (req, res) {
-    res.status(200).end(emptyRootListBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.put('/empty-root-list', function(req, res) {
@@ -421,7 +421,7 @@ var xmlService = function () {
 </banana>`
 
   router.get('/empty-child-element', function (req, res) {
-    res.status(200).end(emptyRootListBody);
+    sendXmlBody(res, simpleBody);
   });
 
   router.put('/empty-child-element', function(req, res) {
