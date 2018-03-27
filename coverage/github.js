@@ -42,16 +42,4 @@ export class GitHubCiClient {
     const res = await this.request.post(`https://api.github.com/repos/${this.githubRepo}/issues/${pr}/comments`, { body: JSON.stringify({ body: message }) });
     return JSON.parse(res).id;
   }
-
-  get pullUrl() {
-    return `https://${this.githubTokenOfCI}@github.com/${this.githubRepo}`;
-  }
-
-  getPrUrl(pr) {
-    return `https://github.com/${this.githubRepo}/pull/${pr}`;
-  }
-
-  getPrName(pr) {
-    return `${this.githubRepo}#${pr}`;
-  }
 }
