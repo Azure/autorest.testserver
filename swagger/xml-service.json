@@ -186,6 +186,28 @@
             }
           }
         }
+      },
+      "put": {
+        "operationId": "xml_putEmptyWrappedLists",
+        "description": "Puts some empty wrapped lists.",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "appleBarrel",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/AppleBarrel"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
       }
     },
     "/xml/root-list": {

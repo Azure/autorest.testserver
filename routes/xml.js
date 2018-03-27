@@ -376,10 +376,10 @@ var xmlService = function () {
 </AppleBarrel>`;
 
   router.get('/empty-wrapped-lists', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, emptyWrappedListsBody);
   });
 
-  router.get('/empty-wrapped-lists', function (req, res) {
+  router.put('/empty-wrapped-lists', function (req, res) {
     expectXmlBody(req, res, emptyWrappedListsBody);
   });
 
@@ -400,7 +400,7 @@ var xmlService = function () {
 </bananas>`
 
   router.get('/root-list', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, rootListBody);
   });
 
   router.put('/root-list', function(req, res) {
