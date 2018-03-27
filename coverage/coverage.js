@@ -1,7 +1,7 @@
 import * as as from "azure-storage";
 import { GitHubCiClient } from "./github";
 
-const commentIndicatorCoverage = "<!--AUTO-GENERATED COVERAGE COMMENT-->\n";
+const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
 export async function show(repo, pr, token) {
     const ghClient = new GitHubCiClient(repo, token);
