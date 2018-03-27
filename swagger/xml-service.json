@@ -147,6 +147,28 @@
             }
           }
         }
+      },
+      "put": {
+        "operationId": "xml_putEmptyList",
+        "description": "Puts an empty list.",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "slideshow",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Slideshow"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
       }
     },
     "/xml/empty-wrapped-lists": {

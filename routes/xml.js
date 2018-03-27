@@ -360,11 +360,11 @@ var xmlService = function () {
 <slideshow/>`;
 
   router.get('/empty-list', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, emptyListBody);
   });
 
-  router.get('/empty-list', function (req, res) {
-    expectXmlBody(req, res, simpleBody);
+  router.put('/empty-list', function (req, res) {
+    expectXmlBody(req, res, emptyListBody);
   });
 
 
