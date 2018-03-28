@@ -432,7 +432,7 @@ var xmlService = function () {
 <bananas/>`;
 
   router.get('/empty-root-list', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, emptyRootListBody);
   });
 
   router.put('/empty-root-list', function(req, res) {
