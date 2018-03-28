@@ -390,12 +390,12 @@ var xmlService = function () {
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
-        <expiration>2018-02-28T00:40:00Z</expiration>
+        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
     </banana>
     <banana>
         <name>Plantain</name>
         <flavor>Savory</flavor>
-        <expiration>2018-02-28T00:40:00Z</expiration>
+        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
     </banana>
 </bananas>`
 
@@ -405,6 +405,25 @@ var xmlService = function () {
 
   router.put('/root-list', function(req, res) {
     expectXmlBody(req, res, rootListBody);
+  });
+
+
+  const rootListSingleItemBody =
+`<?xml version='1.0' encoding='UTF-8'?>
+<bananas>
+    <banana>
+        <name>Cavendish</name>
+        <flavor>Sweet</flavor>
+        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
+    </banana>
+</bananas>`
+
+  router.get('/root-list-single-item', function (req, res) {
+    sendXmlBody(res, rootListSingleItemBody);
+  });
+
+  router.put('/root-list-single-item', function(req, res) {
+    expectXmlBody(req, res, rootListSingleItemBody);
   });
 
 

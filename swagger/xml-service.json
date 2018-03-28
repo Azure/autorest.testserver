@@ -265,6 +265,61 @@
         }
       }
     },
+    "/xml/root-list-single-item": {
+      "get": {
+        "operationId": "xml_getRootListSingleItem",
+        "description": "Gets a list with a single item.",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The root list.",
+            "schema": {
+              "type": "array",
+              "xml": {
+                "name": "bananas"
+              },
+              "items": {
+                "$ref": "#/definitions/Banana"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putRootListSingleItem",
+        "description": "Puts a list with a single item.",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "bananas",
+            "in": "body",
+            "schema": {
+              "type": "array",
+              "xml": {
+                "name": "bananas",
+                "wrapped": true
+              },
+              "items": {
+                "$ref": "#/definitions/Banana",
+                "xml": {
+                  "name": "banana"
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
+      }
+    },
     "/xml/empty-root-list": {
       "get": {
         "operationId": "xml_getEmptyRootList",
