@@ -445,15 +445,15 @@ var xmlService = function () {
 <banana>
   <name>Unknown Banana</name>
   <flavor></flavor>
-  <expiration>2012-02-24T00:53:52.780Z</expiration>
+  <expiration>${new Date('2012-02-24T00:53:52.780Z').toISOString()}</expiration>
 </banana>`
 
   router.get('/empty-child-element', function (req, res) {
-    sendXmlBody(res, simpleBody);
+    sendXmlBody(res, emptyChildElementBody);
   });
 
   router.put('/empty-child-element', function(req, res) {
-    expectXmlBody(req, res, emptyRootListBody);
+    expectXmlBody(req, res, emptyChildElementBody);
   });
 
 };
