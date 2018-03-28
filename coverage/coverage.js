@@ -1,16 +1,16 @@
-import * as as from "azure-storage";
-import { GitHubCiClient } from "./github";
+const as = require("azure-storage");
+const { GitHubCiClient } = require("./github");
 
 const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
-export async function show(repo, pr, token) {
+async function show(repo, pr, token) {
     const ghClient = new GitHubCiClient(repo, token);
 
     // try cleaning up previous auto-comments
     try {
         const comments = await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage);
         for (const comment of comments) await ghClient.tryDeleteComment(comment.id);
-    } catch (e) { }
+    } catch (_) { }
 
     // search for reports
     const testServerFolder = __dirname;
@@ -59,7 +59,7 @@ export async function show(repo, pr, token) {
     await ghClient.createComment(pr, `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`);
 }
 
-export async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
+async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
     const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
     const ghClient = new GitHubCiClient(repo, token);
     // try pushing coverage
@@ -79,3 +79,5 @@ export async function push(repo, pr, token, azStorageAccount, azStorageAccessKey
                 (error, result) => error ? rej(error) : res(result.name)));
     }
 }
+
+module.export = { show, push };

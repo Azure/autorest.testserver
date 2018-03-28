@@ -1,4 +1,4 @@
-import { push } from "./coverage";
-import { repo, pr, githubToken, azStorageAccount, azStorageAccessKey } from "./cli";
+const { push } = require("./coverage");
+const { repo, pr, githubToken, azStorageAccount, azStorageAccessKey } = require("./cli");
 
 push(repo, pr, githubToken, azStorageAccount, azStorageAccessKey);

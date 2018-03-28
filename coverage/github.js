@@ -1,14 +1,14 @@
-import { arch, platform, release, tmpdir } from "os";
-import { RequestAPI, UriOptions, UrlOptions } from "request";
-import { defaults as request_defaults, RequestPromise, RequestPromiseOptions } from "request-promise-native";
+const { arch, platform, release, tmpdir } = require("os");
+const { RequestAPI, UriOptions, UrlOptions } = require("request");
+const { defaults, RequestPromise, RequestPromiseOptions } = require("request-promise-native");
 
-export class GitHubCiClient {
+class GitHubCiClient {
   constructor(
     githubRepo,
     githubTokenOfCI
   ) {
     this.githubRepo = githubRepo;
-    this.request = request_defaults({
+    this.request = defaults({
       headers: {
         "User-Agent": "AutoRest CI",
         "Authorization": "token " + githubTokenOfCI
@@ -35,7 +35,7 @@ export class GitHubCiClient {
   }
 
   async tryDeleteComment(id) {
-    try { await this.deleteComment(id); } catch { }
+    try { await this.deleteComment(id); } catch(_) { }
   }
 
   async createComment(pr, message) {
@@ -43,3 +43,5 @@ export class GitHubCiClient {
     return JSON.parse(res).id;
   }
 }
+
+module.export = { GitHubCiClient }
