@@ -480,6 +480,46 @@
             }
           }
         }
+      },
+      "put": {
+        "operationId": "xml_putServiceProperties",
+        "description": "Puts storage service properties.",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "comp",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "properties"
+            ],
+            "required": true
+          },
+          {
+            "name": "restype",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "service"
+            ],
+            "required": true
+          },
+          {
+            "name": "properties",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/StorageServiceProperties"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
       }
     }
   },
