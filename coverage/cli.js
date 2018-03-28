@@ -12,12 +12,21 @@
 
 const args = process.argv.slice(2);
 
-export const repo = args[0];
+const repo = args[0];
 const ref = args[1];
-export const githubToken = args[2];
-export const azStorageAccount = args[3];
-export const azStorageAccessKey = args[4];
+const githubToken = args[2];
+const azStorageAccount = args[3];
+const azStorageAccessKey = args[4];
+if (!repo || !ref || !githubToken) throw "too few arguments";
 
 if (!ref.startsWith("refs/pull")) throw "not a PR";
-export const pr = ref.split('/')[2];
+const pr = ref.split('/')[2];
 
+
+module.exports = {
+    repo,
+    githubToken,
+    azStorageAccount,
+    azStorageAccessKey,
+    pr
+};
