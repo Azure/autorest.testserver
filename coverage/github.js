@@ -1,14 +1,11 @@
 const { arch, platform, release, tmpdir } = require("os");
 const { RequestAPI, UriOptions, UrlOptions } = require("request");
-const { defaults, RequestPromise, RequestPromiseOptions } = require("request-promise-native");
+const req = require("request-promise-native");
 
 class GitHubCiClient {
-  constructor(
-    githubRepo,
-    githubTokenOfCI
-  ) {
+  constructor(githubRepo, githubTokenOfCI) {
     this.githubRepo = githubRepo;
-    this.request = defaults({
+    this.request = req.defaults({
       headers: {
         "User-Agent": "AutoRest CI",
         "Authorization": "token " + githubTokenOfCI
@@ -35,7 +32,7 @@ class GitHubCiClient {
   }
 
   async tryDeleteComment(id) {
-    try { await this.deleteComment(id); } catch(_) { }
+    try { await this.deleteComment(id); } catch (_) { }
   }
 
   async createComment(pr, message) {
@@ -44,4 +41,4 @@ class GitHubCiClient {
   }
 }
 
-module.export = { GitHubCiClient }
+module.exports = { GitHubCiClient }

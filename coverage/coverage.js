@@ -1,4 +1,6 @@
-const as = require("azure-storage");
+const { createBlobService } = require("azure-storage");
+const { readFileSync, readdirSync } = require('fs');
+const { join } = require("path");
 const { GitHubCiClient } = require("./github");
 
 const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
@@ -13,11 +15,11 @@ async function show(repo, pr, token) {
     } catch (_) { }
 
     // search for reports
-    const testServerFolder = __dirname;
-    const testServerVersion = require(join(testServerFolder, "package.json")).version;
+    const coverageFolder = __dirname;
+    const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
     const report = {};
     const getWorstCaseReport = (category) => {
-        const reports = readdirSync(join(testServerFolder, "coverage")).filter(f => f.startsWith(`report-${category}`) && f.endsWith(".json")).map(f => require(join(testServerFolder, f)));
+        const reports = readdirSync(coverageFolder).filter(f => f.startsWith(`report-${category}`) && f.endsWith(".json")).map(f => require(join(coverageFolder, f)));
         const result = {};
         for (const feature of [].concat.apply([], reports.map(r => Object.keys(r)))) {
             result[feature] = Math.min(...reports.map(r => r[feature] || 0));
@@ -65,6 +67,8 @@ async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
     // try pushing coverage
     const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
     if (coverageComment) {
+        const version = require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
+
         const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
             `autorest-ci-coverage-report`,
             { publicAccessLevel: "blob" },
@@ -73,11 +77,11 @@ async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
         await new Promise((res, rej) =>
             blobSvc.createBlockBlobFromText(
                 container,
-                `${repo}_${version}.md`,
+                `${repo.split('/')[1]}_${version}.md`,
                 `<!-- ${coverageComment.url} -->\n` + coverageComment.message,
                 { contentSettings: { contentType: "text/markdown; charset=utf-8" } },
                 (error, result) => error ? rej(error) : res(result.name)));
     }
 }
 
-module.export = { show, push };
+module.exports = { show, push };

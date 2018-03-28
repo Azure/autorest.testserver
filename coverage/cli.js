@@ -23,7 +23,7 @@ if (!ref.startsWith("refs/pull")) throw "not a PR";
 const pr = ref.split('/')[2];
 
 
-module.export = {
+module.exports = {
     repo,
     githubToken,
     azStorageAccount,
