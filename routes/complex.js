@@ -20,7 +20,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must specify scenario either "valid" or "empty"');
     }
   });
-  
+
   router.get('/basic/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexBasicValid']++;
@@ -41,7 +41,7 @@ var complex = function (coverage) {
       res.status(400).send('Request scenario must be valid, empty, null, notprovided, or invalid.');
     }
   });
-  
+
   /**
      * Put and get for primitive
      */
@@ -146,7 +146,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid primitive type.');
     }
   });
-  
+
   router.get('/primitive/:scenario', function (req, res, next) {
     if (req.params.scenario === 'integer') {
       coverage['getComplexPrimitiveInteger']++;
@@ -185,7 +185,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid primitive type scenario.');
     }
   });
-  
+
   /**
      * Put and get for array properties.
      */
@@ -209,7 +209,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/array/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexArrayValid']++;
@@ -224,7 +224,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   /**
      * Put and get for typed dictionary properties.
      */
@@ -248,7 +248,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/dictionary/typed/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexDictionaryValid']++;
@@ -266,23 +266,23 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   /**
      * Put and get for untyped dictionary properties.
      */
     router.put('/dictionary/untyped/:scenario', function (req, res, next) {
     res.status(501).end("Untyped dictionaries are not supported for now.");
   });
-  
+
   router.get('/dictionary/untyped/:scenario', function (req, res, next) {
     res.status(501).end("Untyped dictionaries are not supported for now.");
   });
-  
+
   /**
      * Put and get for inhertiance.
      */
     var siamese = '{"breed":"persian","color":"green","hates":[{"food":"tomato","id":1,"name":"Potato"},{"food":"french fries","id":-1,"name":"Tomato"}],"id":2,"name":"Siameeee"}';
-  
+
   router.put('/inheritance/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       if (_.isEqual(req.body, JSON.parse(siamese))) {
@@ -295,7 +295,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/inheritance/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexInheritanceValid']++;
@@ -304,7 +304,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   /**
      * Put and get for polymorphism.
      */
@@ -337,6 +337,8 @@ var complex = function (coverage) {
         'length': 30.0,
         'species': 'scary',
         'jawsize': 5,
+        // Intentionally requiring a value not defined in the enum, since
+        // such values should be allowed to be sent to/received from the server
         'color':'pinkish-gray'
       }
     ]
@@ -446,7 +448,7 @@ var complex = function (coverage) {
       }
     ]
   };
-  
+
   router.put('/polymorphism/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       console.log(JSON.stringify(req.body, null, 4));
@@ -479,7 +481,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/polymorphism/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexPolymorphismValid']++;
@@ -491,11 +493,11 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.put('/polymorphism/missingrequired/invalid', function (req, res, next) {
     utils.send400(res, next, 'Reached server in scenario: /complex/polymorphism/missingrequired/invalid, and should not have - since required fields are missing from the request, the client should not be able to send it.')
   })
-  
+
   /**
      * Put and get for recursive reference.
      */
@@ -558,8 +560,8 @@ var complex = function (coverage) {
       }
     ]
   };
-  
-  
+
+
   router.put('/polymorphicrecursive/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       console.log(JSON.stringify(req.body, null, 4));
@@ -574,7 +576,7 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/polymorphicrecursive/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexPolymorphicRecursiveValid']++;
@@ -583,11 +585,11 @@ var complex = function (coverage) {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
   });
-  
+
   router.get('/readonlyproperty/valid', function (req, res, next) {
     res.status(200).end(JSON.stringify({ "id": "1234", "size": 2 }));
   });
-  
+
   router.put('/readonlyproperty/valid', function (req, res, next) {
     if (req.body) {
       if (typeof req.body.id == "undefined") {
