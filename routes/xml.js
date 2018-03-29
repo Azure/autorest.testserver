@@ -188,8 +188,8 @@ var body_acl_container =
   <SignedIdentifier>
     <Id>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</Id>
     <AccessPolicy>
-      <Start>2009-09-28T08:49:37.0000000Z</Start>
-      <Expiry>2009-09-29T08:49:37.0000000Z</Expiry>
+      <Start>${new Date('2009-09-28T08:49:37.0000000Z').toISOString()}</Start>
+      <Expiry>${new Date('2009-09-29T08:49:37.0000000Z').toISOString()}</Expiry>
       <Permission>rwd</Permission>
     </AccessPolicy>
   </SignedIdentifier>
