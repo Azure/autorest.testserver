@@ -21,10 +21,16 @@ var expectXmlBody = function (req, res, body) {
       res.status(201).end();
     } catch (err) {
       res.status(400).header('Content-Type', 'text/plain').end(`
-Expected:
+Expected (parsed form):
+${JSON.stringify(err.expected, null, 2)}
+
+Actual (parsed form):
+${JSON.stringify(err.actual, null, 2)}
+
+Expected (raw form):
 ${body}
 
-Actual:
+Actual (raw form):
 ${rawBody}
 `);
     }
