@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
@@ -13,8 +13,8 @@
     "stop": "node ./startup/shutdown.js",
     "testci": "echo no tests",
     "publish-preview": "npm publish",
-    "coverage-show": "node ./coverage/app-show.js",
-    "coverage-push": "node ./coverage/app-push.js"
+    "coverage-show": "node ./coverage/app-show-and-push.js",
+    "show-results": "node ./coverage/app-show-and-push.js"
   },
   "dependencies": {
     "azure-storage": "^2.4.0",
