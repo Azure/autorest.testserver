@@ -5,18 +5,9 @@ const { GitHubCiClient } = require("./github");
 
 const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
-async function show(repo, pr, token) {
-    const ghClient = new GitHubCiClient(repo, token);
-
-    // try cleaning up previous auto-comments
-    try {
-        const comments = await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage);
-        for (const comment of comments) await ghClient.tryDeleteComment(comment.id);
-    } catch (_) { }
-
+async function collectCoverage() {
     // search for reports
     const coverageFolder = __dirname;
-    const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
     const report = {};
     const getWorstCaseReport = (category) => {
         const reports = readdirSync(coverageFolder).filter(f => f.startsWith(`report-${category}`) && f.endsWith(".json")).map(f => require(join(coverageFolder, f)));
@@ -57,31 +48,51 @@ async function show(repo, pr, token) {
         }
         comment += "\n\n";
     }
+    
+    const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
+    return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
+}
+async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment) {
+    const version = require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
 
-    await ghClient.createComment(pr, `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`);
+    const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
+    const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
+        `autorest-ci-coverage-report`,
+        { publicAccessLevel: "blob" },
+        (error, result) => error ? rej(error) : res(result.name)));
+
+    await new Promise((res, rej) =>
+        blobSvc.createBlockBlobFromText(
+            container,
+            `${repo.split('/')[1]}_${version}.md`,
+            `<!-- ${ref} -->\n` + comment,
+            { contentSettings: { contentType: "text/markdown; charset=utf-8" } },
+            (error, result) => error ? rej(error) : res(result.name)));
+}
+
+async function show(repo, pr, token) {
+    const comment = await collectCoverage();
+
+    const ghClient = new GitHubCiClient(repo, token);
+    // try cleaning up previous auto-comments
+    try {
+        const comments = await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage);
+        for (const comment of comments) await ghClient.tryDeleteComment(comment.id);
+    } catch (_) { }
+    // send comment
+    await ghClient.createComment(pr, comment);
 }
 
 async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
-    const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
     const ghClient = new GitHubCiClient(repo, token);
     // try pushing coverage
     const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
-    if (coverageComment) {
-        const version = require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
-
-        const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
-            `autorest-ci-coverage-report`,
-            { publicAccessLevel: "blob" },
-            (error, result) => error ? rej(error) : res(result.name)));
-
-        await new Promise((res, rej) =>
-            blobSvc.createBlockBlobFromText(
-                container,
-                `${repo.split('/')[1]}_${version}.md`,
-                `<!-- ${coverageComment.url} -->\n` + coverageComment.message,
-                { contentSettings: { contentType: "text/markdown; charset=utf-8" } },
-                (error, result) => error ? rej(error) : res(result.name)));
-    }
+    if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message);
 }
 
-module.exports = { show, push };
+async function immediatePush(repo, ref, azStorageAccount, azStorageAccessKey) {
+    const comment = await collectCoverage();
+    await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment);
+}
+
+module.exports = { show, push, immediatePush };
