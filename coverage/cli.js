@@ -19,7 +19,6 @@ const azStorageAccount = args[3];
 const azStorageAccessKey = args[4];
 if (!repo || !ref || !githubToken) throw "too few arguments";
 
-if (!ref.startsWith("refs/pull")) throw "not a PR";
 const pr = ref.split('/')[2];
 
 
