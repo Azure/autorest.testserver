@@ -11,7 +11,7 @@
         "type": "node",
         "request": "launch",
         "name": "Start Server",
-        "program": "${workspaceRoot}\\startup\\www.js",
+        "program": "${workspaceRoot}/startup/www.js",
         "env": {
           "PORT": "3000"
         }
