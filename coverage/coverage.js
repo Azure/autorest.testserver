@@ -3,6 +3,7 @@ const { readFileSync, readdirSync } = require('fs');
 const { join } = require("path");
 const { GitHubCiClient } = require("./github");
 
+const commentIndicatorPublish = "<!--AUTO-GENERATED PUBLISH JOB COMMENT-->\n";
 const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
 async function collectCoverage() {
@@ -52,8 +53,11 @@ async function collectCoverage() {
     const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
     return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
 }
+function getPublishedPackageVersion() {
+    return require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
+}
 async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment) {
-    const version = require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
+    const version = getPublishedPackageVersion();
 
     const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
     const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
@@ -90,7 +94,25 @@ async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
     if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message);
 }
 
-async function immediatePush(repo, ref, azStorageAccount, azStorageAccessKey) {
+async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey) {
+    // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
+    try {
+        // try deriving PR associated with last commit
+        const lastCommitMessage = require("child_process").execSync("git log -1 --pretty=%B").toString();
+        const pr = +/\(\#\d+\)/g.exec(lastCommitMessage)[0];
+        if (isNaN(pr)) throw "Could not deduce PR number";
+
+        const version = getPublishedPackageVersion();
+        const ghClient = new GitHubCiClient(repo, githubToken);
+        await ghClient.createComment(pr, `${commentIndicatorPublish}
+# 🤖 AutoRest automatic publish job 🤖
+## success (version: ${version})
+<!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`);
+    } catch(e) {
+        console.log("Posting 'published' comment to GitHub failed.");
+        console.log(e);
+    }
+
     const comment = await collectCoverage();
     await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment);
 }
