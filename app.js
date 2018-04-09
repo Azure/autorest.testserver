@@ -41,6 +41,7 @@ var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
 var xml = require('./routes/xml.js'); // XML serialization
 var util = require('util');
+var cors = require('cors');
 var app = express();
 
 //set up server log
@@ -53,6 +54,13 @@ if (!fs.existsSync(testResultDir)) {
 }
 var logfile = fs.createWriteStream(path.join(testResultDir, logFileName), {flags: 'a'});
 app.use(morgan('combined', {stream: logfile}));
+
+// allow CORS for browser tests
+app.use(cors({
+  origin: /localhost:\d+/,
+  credentials: true,
+  exposedHeaders: ["x-ms-request-id", "foo-request-id", "Content-Type", "value", "Location", "Azure-AsyncOperation", "Retry-After"]
+}));
 
 var azurecoverage = {};
 var optionalCoverage = {
