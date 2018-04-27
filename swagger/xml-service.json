@@ -671,6 +671,9 @@
             }
           }
         }
+      },
+      "xml": {
+        "name": "slide"
       }
     },
     "Slideshow": {
@@ -701,10 +704,7 @@
         "slides": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Slide",
-            "xml": {
-              "name": "slide"
-            }
+            "$ref": "#/definitions/Slide"
           }
         }
       }
@@ -851,10 +851,7 @@
           },
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Container",
-            "xml": {
-              "name": "Container"
-            }
+            "$ref": "#/definitions/Container"
           }
         },
         "NextMarker": {
@@ -894,6 +891,9 @@
           "type": "integer",
           "minimum": 0
         }
+      },
+      "xml": {
+        "name": "CorsRule"
       }
     },
     "Blob": {
@@ -921,6 +921,9 @@
         "Metadata": {
           "$ref": "#/definitions/Metadata"
         }
+      },
+      "xml": {
+        "name": "Blob"
       }
     },
     "BlobProperties": {
@@ -1155,10 +1158,7 @@
         "Blob": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Blob",
-            "xml": {
-              "name": "Blob"
-            }
+            "$ref": "#/definitions/Blob"
           }
         }
       }
@@ -1323,16 +1323,16 @@
           "description": "The access policy",
           "$ref": "#/definitions/AccessPolicy"
         }
-      }
+      },
+      "xml": {
+        "name": "SignedIdentifier"
+      }    
     },
     "SignedIdentifiers": {
       "description": "a collection of signed identifiers",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/SignedIdentifier",
-        "xml": {
-          "name": "SignedIdentifier"
-        }
+        "$ref": "#/definitions/SignedIdentifier"
       },
       "xml": {
         "wrapped": true,
@@ -1359,10 +1359,7 @@
           "description": "The set of CORS rules.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CorsRule",
-            "xml": {
-              "name": "CorsRule"
-            }
+            "$ref": "#/definitions/CorsRule"
           },
           "xml": {
             "wrapped": true
