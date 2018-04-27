@@ -785,9 +785,6 @@
         "Metadata": {
           "$ref": "#/definitions/Metadata"
         }
-      },
-      "xml": {
-        "name": "Container"
       }
     },
     "ContainerProperties": {
