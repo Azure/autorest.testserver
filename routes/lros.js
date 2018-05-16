@@ -633,7 +633,7 @@ var lros = function (coverage) {
   router.get('/post/payload/200', function (req, res, next) {
     var scenario = 'LROPost200';
     coverage[scenario]++;
-    res.status(200).end('{"id":1, "name":"product"}');
+    res.status(200).end('{"id":"1", "name":"product"}');
   });
 
   coverage['LROPostAsyncRetrySucceeded'] = 0;
