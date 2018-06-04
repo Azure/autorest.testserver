@@ -355,6 +355,56 @@
           }
         }
       }
+    },
+    "/paging/multiple/lro": {
+      "post": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "x-ms-long-running-operation": true,
+        "operationId": "Paging_GetMultiplePagesLRO",
+        "description": "A long-running paging operation that includes a nextLink that has 10 pages",
+        "parameters": [
+          {
+            "name": "client-request-id",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maxresults",
+            "in": "header",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Sets the maximum number of items to return in the response.",
+            "x-ms-parameter-grouping": {
+                "postfix": "Options"
+            }
+          },
+          {
+            "name": "timeout",
+            "in": "header",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 30,
+            "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
+            "x-ms-parameter-grouping": {
+                "postfix": "Options"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Operation is in progress.",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
     }
   },
   "x-ms-paths": {
