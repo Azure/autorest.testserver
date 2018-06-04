@@ -39,6 +39,7 @@ var paging = function(coverage) {
   coverage['PagingMultipleFailure'] = 0;
   coverage['PagingMultipleFailureUri'] = 0;
   coverage['PagingFragment'] = 1;
+  coverage['PagingMultipleLRO'] = 0;
 
   router.get('/single', function(req, res, next) {
     coverage["PagingSingle"]++;
@@ -164,6 +165,22 @@ var paging = function(coverage) {
     }
   });
 
+  /*** PAGEABLE LROs ***/
+  router.post('/multiple/lro', function (req, res, next) {
+    var pollingUri = 'http://localhost:' + utils.getPort() + '/paging/multiple/lro/200';
+    var headers = {
+      'Azure-AsyncOperation': pollingUri,
+      'Location': 'http://localhost:' + utils.getPort() + '/paging/multiple',
+      'Retry-After': 0
+    };
+    res.set(headers).status(202).end('{ "status": "Accepted"}');
+  });
+
+  router.get('/multiple/lro/200', function (req, res, next) {
+    coverage['PagingMultipleLRO']++;
+    res.status(200).end('{ "status": "Succeeded"}');
+  });
+
   /*** NEGATIVE TESTS HERE ***/
   router.get('/single/failure', function(req, res, next) {
     coverage["PagingSingleFailure"]++;
@@ -183,7 +200,6 @@ var paging = function(coverage) {
     coverage["PagingMultipleFailureUri"]++;
     res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "*&*#&$" }')
   });
-
 
 };
 
