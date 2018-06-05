@@ -636,6 +636,26 @@ var lros = function (coverage) {
     res.status(200).end('{"id":"1", "name":"product"}');
   });
 
+  // Initial call is 202 with no body and Location and Azure-AsyncOperation
+  // Then, should poll Azure-AsyncOperation and see it's done
+  // Then, should do final GET on the initial Location
+  // ARM guidance ok, and implemented in VM capture after 2018-04-01
+  coverage['LROPostFinalLocationGet'] = 0;
+  router.post('/LROPostFinalLocationGet', function (req, res, next) {
+    var headers = {
+      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostFinalLocationGet/asyncOperationUrl',
+      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostFinalLocationGet/location'
+    };
+    res.set(headers).status(202).end('');
+  });
+  router.get('/LROPostFinalLocationGet/asyncOperationUrl', function (req, res, next) {
+    res.status(200).end('{ "status": "succeeded"} ');
+  });
+  router.get('/LROPostFinalLocationGet/location', function (req, res, next) {
+    res.status(200).end('{ "id": "100", "name": "foo" }');
+    coverage['LROPostFinalLocationGet']++;
+  });
+
   coverage['LROPostAsyncRetrySucceeded'] = 0;
   coverage['LROPostAsyncNoRetrySucceeded'] = 0;
   coverage['LROPostAsyncRetryFailed'] = 0;
