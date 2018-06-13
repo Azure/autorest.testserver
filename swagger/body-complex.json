@@ -1180,7 +1180,20 @@
           }
         }  
       }
-    }
+    },
+    "/complex/flatten/valid": {
+      "get": {
+        "operationId": "flattencomplex_getValid",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MyBaseType"
+            }
+          }
+        }
+      }
+    }    
   },
   "definitions": {
     "Error": {
@@ -1562,6 +1575,65 @@
           "format": "int32"
         }
       }
+    },
+    "MyKind": {
+      "type": "string",
+      "enum": [
+        "Kind1"
+      ],
+      "x-ms-enum": {
+        "name": "MyKind",
+        "modelAsString": true,
+        "values": [
+          {
+            "value": "Kind1"
+          }
+        ]
+      }
+    },
+    "MyBaseHelperType": {
+      "type": "object",
+      "properties": {
+        "propBH1": {
+          "type": "string"
+        }
+      }
+    },
+    "MyBaseType": {
+      "type": "object",
+      "discriminator": "kind",
+      "properties": {
+        "kind": {
+          "$ref": "#/definitions/MyKind"
+        },
+        "propB1": {
+          "type": "string"
+        },
+        "helper": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MyBaseHelperType"
+        }
+      },
+      "required": [
+        "kind"
+      ]
+    },
+    "MyDerivedType": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/MyBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "propD1": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "x-ms-discriminator-value": "Kind1"
     }
   },
   "parameters": {
