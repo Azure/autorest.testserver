@@ -636,6 +636,48 @@ var lros = function (coverage) {
     res.status(200).end('{"id":"1", "name":"product"}');
   });
 
+  // Initial call is 202 with no body and Location and Azure-AsyncOperation
+  // Configured to follow Location
+  // Then, should poll Azure-AsyncOperation and see it's done
+  // Then, should do final GET on the initial Location
+  // ARM guidance ok, and implemented in VM capture after 2018-04-01
+  coverage['LROPostDoubleHeadersFinalLocationGet'] = 0;
+  router.post('/LROPostDoubleHeadersFinalLocationGet', function (req, res, next) {
+    var headers = {
+      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl',
+      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalLocationGet/location'
+    };
+    res.set(headers).status(202).end('');
+  });
+  router.get('/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl', function (req, res, next) {
+    res.status(200).end('{ "status": "succeeded"} ');
+  });
+  router.get('/LROPostDoubleHeadersFinalLocationGet/location', function (req, res, next) {
+    res.status(200).end('{ "id": "100", "name": "foo" }');
+    coverage['LROPostDoubleHeadersFinalLocationGet']++;
+  });
+
+  // Initial call is 202 with no body and Location and Azure-AsyncOperation
+  // Configured to follow Azure-AsyncOperation
+  // Then, should poll Azure-AsyncOperation and see it's done
+  // Then, should do final GET on the initial Location
+  // ARM guidance ok, and implemented in VM capture after 2018-04-01
+  coverage['LROPostDoubleHeadersFinalAzureHeaderGet'] = 0;
+  router.post('/LROPostDoubleHeadersFinalAzureHeaderGet', function (req, res, next) {
+    var headers = {
+      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl',
+      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/location'
+    };
+    res.set(headers).status(202).end('');
+  });
+  router.get('/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl', function (req, res, next) {
+    res.status(200).end('{ "status": "succeeded", "id": "100"} ');
+    coverage['LROPostDoubleHeadersFinalAzureHeaderGet']++;
+  });
+  router.get('/LROPostDoubleHeadersFinalAzureHeaderGet/location', function (req, res, next) {
+    utils.send400(res, next, "You must NOT do a final GET on Location in LROPostDoubleHeadersFinalAzureHeaderGet");
+  });
+
   coverage['LROPostAsyncRetrySucceeded'] = 0;
   coverage['LROPostAsyncNoRetrySucceeded'] = 0;
   coverage['LROPostAsyncRetryFailed'] = 0;
