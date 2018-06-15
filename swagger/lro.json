@@ -1265,6 +1265,30 @@
         }
       }
     },
+    "/lro/LROPostDoubleHeadersFinalAzureHeaderGetDefault": {
+      "post": {
+        "x-ms-long-running-operation": true,
+        "operationId": "LROs_postDoubleHeadersFinalAzureHeaderGetDefault",
+        "description": "Long running post request, service returns a 202 to the initial request with both Location and Azure-Async header. Poll Azure-Async and it's success. Should NOT poll Location to get the final object if you support initial Autorest behavior.",
+        "tags": [
+          "LRO Operations"
+        ],
+        "responses": {
+          "202": {
+            "description": "Response after completion.",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/lro/postasync/retry/succeeded": {
       "post": {
         "x-ms-long-running-operation": true,
