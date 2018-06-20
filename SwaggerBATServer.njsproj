@@ -55,9 +55,9 @@
     <Compile Include="routes\string.js" />
     <Content Include="routes\sample.png" />
     <Content Include="startup\www.js" />
-    <Content Include="views\error.jade" />
-    <Content Include="views\index.jade" />
-    <Content Include="views\layout.jade" />
+    <Content Include="views\error.pug" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
     <Content Include="public\stylesheets\style.css" />
   </ItemGroup>
   <ItemGroup>
