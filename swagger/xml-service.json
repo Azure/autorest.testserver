@@ -1483,6 +1483,10 @@
         "RefToModel": {
           "description": "XML will use RefToModel",
           "$ref": "#/definitions/ComplexTypeNoMeta"
+        },
+        "Something": {
+          "description": "Something else (just to avoid flattening)",
+          "type": "string"
         }
       }
     },
@@ -1493,6 +1497,10 @@
         "RefToModel": {
           "description": "XML will use XMLComplexTypeWithMeta",
           "$ref": "#/definitions/ComplexTypeWithMeta"
+        },
+        "Something": {
+          "description": "Something else (just to avoid flattening)",
+          "type": "string"
         }
       }
     }

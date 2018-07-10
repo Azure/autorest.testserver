@@ -465,7 +465,10 @@ var xmlService = function () {
   const complexTypeRefComplexTypeWithNoXMLmeta =
   `<?xml version='1.0' encoding='UTF-8'?>
   <RootWithRefAndNoMeta>
-    <RefToModel><ID>myid</ID></RefToModel>
+    <RefToModel>
+      <ID>myid</ID>
+    </RefToModel>
+    <Something>else</Something>
   </RootWithRefAndNoMeta>`
 
   router.get('/complex-type-ref-no-meta', function (req, res) {
@@ -479,7 +482,10 @@ var xmlService = function () {
   const complexTypeRefComplexTypeWithXMLmeta =
   `<?xml version='1.0' encoding='UTF-8'?>
   <RootWithRefAndMeta>
-    <XMLComplexTypeWithMeta><ID>myid</ID></XMLComplexTypeWithMeta>
+    <XMLComplexTypeWithMeta>
+      <ID>myid</ID>
+    </XMLComplexTypeWithMeta>
+    <Something>else</Something>
   </RootWithRefAndMeta>`
 
   router.get('/complex-type-ref-with-meta', function (req, res) {
