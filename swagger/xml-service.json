@@ -16,6 +16,84 @@
     "application/xml"
   ],
   "paths": {
+    "/xml/complex-type-ref-no-meta": {
+      "get": {
+        "operationId": "xml_getComplexTypeRefNoMeta",
+        "description": "Get a complex type that has a ref to a complex type with no XML node",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty list.",
+            "schema": {
+              "$ref": "#/definitions/RootWithRefAndNoMeta"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putComplexTypeRefNoMeta",
+        "description": "Puts a complex type that has a ref to a complex type with no XML node",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/RootWithRefAndNoMeta"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
+      }
+    },
+    "/xml/complex-type-ref-with-meta": {
+      "get": {
+        "operationId": "xml_getComplexTypeRefWithMeta",
+        "description": "Get a complex type that has a ref to a complex type with XML node",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty list.",
+            "schema": {
+              "$ref": "#/definitions/RootWithRefAndMeta"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putComplexTypeRefWithMeta",
+        "description": "Puts a complex type that has a ref to a complex type with XML node",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/RootWithRefAndMeta"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success."
+          }
+        }
+      }
+    },
     "/xml/simple": {
       "get": {
         "operationId": "xml_getSimple",
@@ -1326,7 +1404,7 @@
       },
       "xml": {
         "name": "SignedIdentifier"
-      }    
+      }
     },
     "SignedIdentifiers": {
       "description": "a collection of signed identifiers",
@@ -1372,6 +1450,57 @@
         "DeleteRetentionPolicy": {
           "description": "The Delete Retention Policy for the service",
           "$ref": "#/definitions/RetentionPolicy"
+        }
+      }
+    },
+    "ComplexTypeNoMeta": {
+      "description": "I am a complex type with no XML node",
+      "type": "object",
+      "properties":{
+        "ID": {
+          "description": "The id of the res",
+          "type": "string"
+        }
+      }
+    },
+    "ComplexTypeWithMeta": {
+      "description": "I am a complex type with XML node",
+      "type": "object",
+      "properties":{
+        "ID": {
+          "description": "The id of the res",
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "XMLComplexTypeWithMeta"
+      }
+    },
+    "RootWithRefAndNoMeta": {
+      "description": "I am root, and I ref a model with no meta",
+      "type": "object",
+      "properties":{
+        "RefToModel": {
+          "description": "XML will use RefToModel",
+          "$ref": "#/definitions/ComplexTypeNoMeta"
+        },
+        "Something": {
+          "description": "Something else (just to avoid flattening)",
+          "type": "string"
+        }
+      }
+    },
+    "RootWithRefAndMeta": {
+      "description": "I am root, and I ref a model WITH meta",
+      "type": "object",
+      "properties":{
+        "RefToModel": {
+          "description": "XML will use XMLComplexTypeWithMeta",
+          "$ref": "#/definitions/ComplexTypeWithMeta"
+        },
+        "Something": {
+          "description": "Something else (just to avoid flattening)",
+          "type": "string"
         }
       }
     }

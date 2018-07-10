@@ -462,6 +462,40 @@ var xmlService = function () {
     expectXmlBody(req, res, emptyChildElementBody);
   });
 
+  const complexTypeRefComplexTypeWithNoXMLmeta =
+  `<?xml version='1.0' encoding='UTF-8'?>
+  <RootWithRefAndNoMeta>
+    <RefToModel>
+      <ID>myid</ID>
+    </RefToModel>
+    <Something>else</Something>
+  </RootWithRefAndNoMeta>`
+
+  router.get('/complex-type-ref-no-meta', function (req, res) {
+    sendXmlBody(res, complexTypeRefComplexTypeWithNoXMLmeta);
+  });
+
+  router.put('/complex-type-ref-no-meta', function(req, res) {
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithNoXMLmeta);
+  });
+
+  const complexTypeRefComplexTypeWithXMLmeta =
+  `<?xml version='1.0' encoding='UTF-8'?>
+  <RootWithRefAndMeta>
+    <XMLComplexTypeWithMeta>
+      <ID>myid</ID>
+    </XMLComplexTypeWithMeta>
+    <Something>else</Something>
+  </RootWithRefAndMeta>`
+
+  router.get('/complex-type-ref-with-meta', function (req, res) {
+    sendXmlBody(res, complexTypeRefComplexTypeWithXMLmeta);
+  });
+
+  router.put('/complex-type-ref-with-meta', function(req, res) {
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta);
+  });
+
 };
 
 xmlService.prototype.router = router;
