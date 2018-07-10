@@ -496,6 +496,11 @@ var xmlService = function () {
     expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta);
   });
 
+  router.get('/headers', function (req, res) {
+    res.status(200);
+    res.setHeader("Custom-HEADER", "custom-value");
+    res.end();
+  });
 };
 
 xmlService.prototype.router = router;
