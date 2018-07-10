@@ -9,6 +9,7 @@ tools/
 tasks/
 scripts/
 gruntfile.js
+TestResults/
 
 # Nuget packages #
 .nuget/
@@ -17,3 +18,4 @@ packages.config
 
 # VS #
 .ntvs_analysis.*
+
