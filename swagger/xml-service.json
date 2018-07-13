@@ -327,10 +327,7 @@
                 "wrapped": true
               },
               "items": {
-                "$ref": "#/definitions/Banana",
-                "xml": {
-                  "name": "banana"
-                }
+                "$ref": "#/definitions/Banana"
               }
             },
             "required": true
@@ -382,10 +379,7 @@
                 "wrapped": true
               },
               "items": {
-                "$ref": "#/definitions/Banana",
-                "xml": {
-                  "name": "banana"
-                }
+                "$ref": "#/definitions/Banana"
               }
             },
             "required": true
@@ -437,10 +431,7 @@
                 "wrapped": true
               },
               "items": {
-                "$ref": "#/definitions/Banana",
-                "xml": {
-                  "name": "banana"
-                }
+                "$ref": "#/definitions/Banana"
               }
             },
             "required": true
@@ -464,10 +455,7 @@
           "200": {
             "description": "The unknown banana.",
             "schema": {
-              "$ref": "#/definitions/Banana",
-              "xml": {
-                "name": "banana"
-              }
+              "$ref": "#/definitions/Banana"
             }
           }
         }
