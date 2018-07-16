@@ -107,6 +107,8 @@ var coverage = {
   "putArrayStringValid": 0,
   "getArrayEnumValid": 0,
   "putArrayEnumValid": 0,
+  "getArrayStringEnumValid": 0,
+  "putArrayStringEnumValid": 0,
   "getArrayStringWithNull": 0,
   "getArrayStringWithNumber": 0,
   "getArrayDateValid": 0,

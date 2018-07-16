@@ -114,7 +114,14 @@ var array = function (coverage) {
       }
     } else if (req.params.type == 'enum') {
       if (req.params.scenario === 'foo1.foo2.foo3') {
-        coverage['getEnumStringValid']++;
+        coverage['getArrayEnumValid']++;
+        res.status(200).end('[ \"foo1\", \"foo2\", \"foo3\"]');
+      } else {
+        res.status(400).send('Request scenario for enum primitive type must contain foo1.foo2.foo3');
+      }
+    } else if (req.params.type == 'string-enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        coverage['getArrayStringEnumValid']++;
         res.status(200).end('[ \"foo1\", \"foo2\", \"foo3\"]');
       } else {
         res.status(400).send('Request scenario for enum primitive type must contain foo1.foo2.foo3');
@@ -274,6 +281,17 @@ var array = function (coverage) {
         }
       } else {
         res.status(400).send('Request scenario for string primitive type must contain foo1.foo2.foo3');
+      }
+    } else if (req.params.type == 'string-enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        if (util.inspect(req.body) !== util.inspect(['foo1', 'foo2', 'foo3'])) {
+          utils.send400(res, next, "Did not like enum array req '" + util.inspect(req.body) + "'");
+        } else {
+          coverage['putArrayStringEnumValid']++;
+          res.status(200).end();
+        }
+      } else {
+        res.status(400).send('Request scenario for string enum primitive type must contain foo1.foo2.foo3');
       }
     } else if (req.params.type == 'date') {
       if (req.params.scenario === 'valid') {
