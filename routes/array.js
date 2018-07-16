@@ -16,7 +16,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain empty');
     }
   });
-  
+
   router.get('/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null' || req.params.scenario === 'notProvided') {
       coverage['getArrayNull']++;
@@ -32,7 +32,7 @@ var array = function (coverage) {
     }
 
   });
-  
+
   router.get('/prim/:type/:scenario', function (req, res, next) {
     if (req.params.type == 'boolean') {
       if (req.params.scenario === 'tfft') {
@@ -110,7 +110,21 @@ var array = function (coverage) {
         coverage['getArrayStringWithNumber']++;
         res.status(200).end('[\"foo\", 123, \"foo2\"]');
       } else {
-        res.status(400).send('Request scenario for float primitive type must contain foo1.foo2.foo3 or foo.null.foo2 or foo.123.foo2');
+        res.status(400).send('Request scenario for string primitive type must contain foo1.foo2.foo3 or foo.null.foo2 or foo.123.foo2');
+      }
+    } else if (req.params.type == 'enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        coverage['getArrayEnumValid']++;
+        res.status(200).end('[ \"foo1\", \"foo2\", \"foo3\"]');
+      } else {
+        res.status(400).send('Request scenario for enum primitive type must contain foo1.foo2.foo3');
+      }
+    } else if (req.params.type == 'string-enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        coverage['getArrayStringEnumValid']++;
+        res.status(200).end('[ \"foo1\", \"foo2\", \"foo3\"]');
+      } else {
+        res.status(400).send('Request scenario for enum primitive type must contain foo1.foo2.foo3');
       }
     } else if (req.params.type == 'date') {
       if (req.params.scenario === 'valid') {
@@ -189,7 +203,7 @@ var array = function (coverage) {
     }
 
   });
-  
+
   router.put('/prim/:type/:scenario', function (req, res, next) {
     if (req.params.type == 'boolean') {
       if (req.params.scenario === 'tfft') {
@@ -256,6 +270,28 @@ var array = function (coverage) {
         }
       } else {
         res.status(400).send('Request scenario for string primitive type must contain foo1.foo2.foo3');
+      }
+    } else if (req.params.type == 'enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        if (util.inspect(req.body) !== util.inspect(['foo1', 'foo2', 'foo3'])) {
+          utils.send400(res, next, "Did not like enum array req '" + util.inspect(req.body) + "'");
+        } else {
+          coverage['putArrayEnumValid']++;
+          res.status(200).end();
+        }
+      } else {
+        res.status(400).send('Request scenario for string primitive type must contain foo1.foo2.foo3');
+      }
+    } else if (req.params.type == 'string-enum') {
+      if (req.params.scenario === 'foo1.foo2.foo3') {
+        if (util.inspect(req.body) !== util.inspect(['foo1', 'foo2', 'foo3'])) {
+          utils.send400(res, next, "Did not like enum array req '" + util.inspect(req.body) + "'");
+        } else {
+          coverage['putArrayStringEnumValid']++;
+          res.status(200).end();
+        }
+      } else {
+        res.status(400).send('Request scenario for string enum primitive type must contain foo1.foo2.foo3');
       }
     } else if (req.params.type == 'date') {
       if (req.params.scenario === 'valid') {
@@ -333,7 +369,7 @@ var array = function (coverage) {
     }
 
   });
-  
+
   router.get('/complex/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null') {
       coverage['getArrayComplexNull']++;
@@ -354,7 +390,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain null, empty, itemnull, itemempty, or valid for complex array get scenarios.')
     }
   });
-  
+
   router.put('/complex/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       if (_.isEqual(req.body, [{
@@ -376,7 +412,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain valid for complex array put scenarios.');
     }
   });
-  
+
   router.get('/array/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null') {
       coverage['getArrayArrayNull']++;
@@ -397,7 +433,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain null, empty, itemnull, itemempty, or valid for array of array get scenarios.')
     }
   });
-  
+
   router.put('/array/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       if (_.isEqual(req.body, [
@@ -414,7 +450,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain valid for array of array put scenarios.');
     }
   });
-  
+
   router.get('/dictionary/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null') {
       coverage['getArrayDictionaryNull']++;
@@ -435,7 +471,7 @@ var array = function (coverage) {
       utils.send400(res, next, 'Request path must contain null, empty, itemnull, itemempty, or valid for dictionary array get scenarios.')
     }
   });
-  
+
   router.put('/dictionary/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       if (_.isEqual(req.body, [{
