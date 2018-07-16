@@ -766,6 +766,69 @@
         }
       }
     },
+    "/array/prim/enum/foo1.foo2.foo3": {
+      "get": {
+        "operationId": "array_getEnumValid",
+        "description": "Get enum array value ['foo1', 'foo2', 'foo3']",
+        "tags": [
+          "Array Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The array value ['foo1', 'foo2', 'foo3']",
+            "schema": {
+              "description": "The array value ['foo1', 'foo2', 'foo3']",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["foo1", "foo2", "foo3"],
+                "x-ms-enum": { "name": "FooEnum", "modelAsString": false }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "array_putEnumValid",
+        "description": "Set array value ['foo1', 'foo2', 'foo3']",
+        "parameters": [
+          {
+            "name": "arrayBody",
+            "in": "body",
+            "schema": {
+              "description": "The array value ['foo1', 'foo2', 'foo3']",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["foo1", "foo2", "foo3"],
+                "x-ms-enum": { "name": "FooEnum", "modelAsString": false }
+              }
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          "Array Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty Response"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/array/prim/string/foo.null.foo2": {
       "get": {
         "operationId": "array_getStringWithNull",
