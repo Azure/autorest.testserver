@@ -396,12 +396,12 @@ var xmlService = function () {
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
+        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
     </banana>
     <banana>
         <name>Plantain</name>
         <flavor>Savory</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
+        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
     </banana>
 </bananas>`
 
@@ -420,7 +420,7 @@ var xmlService = function () {
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00Z').toISOString()}</expiration>
+        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
     </banana>
 </bananas>`
 
