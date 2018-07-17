@@ -194,8 +194,8 @@ var body_acl_container =
   <SignedIdentifier>
     <Id>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</Id>
     <AccessPolicy>
-      <Start>${new Date('2009-09-28T08:49:37.0000000Z').toISOString()}</Start>
-      <Expiry>${new Date('2009-09-29T08:49:37.0000000Z').toISOString()}</Expiry>
+      <Start>${new Date('2009-09-28T08:49:37.123Z').toISOString()}</Start>
+      <Expiry>${new Date('2009-09-29T08:49:37.123Z').toISOString()}</Expiry>
       <Permission>rwd</Permission>
     </AccessPolicy>
   </SignedIdentifier>
@@ -451,7 +451,7 @@ var xmlService = function () {
 <banana>
   <name>Unknown Banana</name>
   <flavor></flavor>
-  <expiration>${new Date('2012-02-24T00:53:52.780Z').toISOString()}</expiration>
+  <expiration>${new Date('2012-02-24T00:53:52.789Z').toISOString()}</expiration>
 </banana>`
 
   router.get('/empty-child-element', function (req, res) {
