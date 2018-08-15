@@ -13,8 +13,14 @@ var expectXmlBody = function (req, res, body) {
   req.setEncoding('utf8');
   req.on('data', function(chunk) { rawBody += chunk });
   req.on('end', async function() {
-    var actualParsedBody = await parseXMLString(rawBody);
-    var expectedParsedBody = await parseXMLString(body);
+    var actualParsedBody, expectedParsedBody;
+    try {
+      actualParsedBody = await parseXMLString(rawBody);
+      expectedParsedBody = await parseXMLString(body);
+    } catch (err) {
+      res.status(400).end("XML parse failure: " + err.message);
+      return;
+    }
 
     try {
       assert.deepStrictEqual(actualParsedBody, expectedParsedBody);
