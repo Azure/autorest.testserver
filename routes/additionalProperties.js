@@ -13,6 +13,16 @@ var apTrue = {
   }
 };
 
+var apSubclass = {
+  id: 1,
+  name: 'Lisa',
+  friendly: true,
+  birthdate: '2017-12-13T02:29:51Z',
+  complexProperty: {
+    color: 'Red'
+  }
+};
+
 var apObject = {
   id: 2,
   name: 'Hira',
@@ -67,6 +77,16 @@ var additionalProperties = function (coverage) {
     if (req.body && _.isEqual(utils.coerceDate(req.body), apTrue)) {
         coverage["additionalPropertiesTrue"]++;
         let resBody = JSON.parse(JSON.stringify(apTrue));
+        resBody.status = true;
+        res.status(200).end(JSON.stringify(resBody));
+    } else {
+      utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
+    }
+  });
+  router.put('/true-subclass', function (req, res) {
+    if (req.body && _.isEqual(utils.coerceDate(req.body), apSubclass)) {
+        coverage["additionalPropertiesSubclass"]++;
+        let resBody = JSON.parse(JSON.stringify(apSubclass));
         resBody.status = true;
         res.status(200).end(JSON.stringify(resBody));
     } else {

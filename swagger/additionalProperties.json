@@ -46,6 +46,36 @@
         }
       }
     },
+    "/additionalProperties/true-subclass": {
+      "put": {
+        "operationId": "Pets_CreateCatAPTrue",
+        "description": "Create a CatAPTrue which contains more properties than what is defined.",
+        "parameters": [
+          {
+            "name": "createParameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CatAPTrue"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A CatAPTrue which contains more properties than what is defined.",
+            "schema": {
+              "$ref": "#/definitions/CatAPTrue"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/additionalProperties/type/object": {
       "put": {
         "operationId": "Pets_CreateAPObject",
@@ -198,6 +228,19 @@
         }
       },
       "additionalProperties": true
+    },
+    "CatAPTrue": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/PetAPTrue"
+        }
+      ],
+      "properties": {
+        "friendly": {
+          "type": "boolean"
+        }
+      }
     },
     "PetAPObject": {
       "type": "object",
