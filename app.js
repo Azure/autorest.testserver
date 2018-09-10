@@ -75,6 +75,7 @@ var optionalCoverage = {
 };
 var coverage = {
   "additionalPropertiesTrue": 0,
+  "additionalPropertiesSubclass": 0,
   "additionalPropertiesTypeObject": 0,
   "additionalPropertiesTypeString": 0,
   "additionalPropertiesInProperties": 0,
