@@ -449,6 +449,19 @@ var complex = function (coverage) {
     ]
   };
 
+  var dotSalmon = {
+    'fish.type': 'DotSalmon',
+    'location': 'sweden',
+    'iswild': true,
+    'species': 'king',
+  };
+
+  coverage['getComplexPolymorphismDotSyntax'] = 0;
+  router.get('/polymorphism/dotsyntax', function (req, res, next) {
+    coverage['getComplexPolymorphismDotSyntax']++;
+    res.status(200).end(JSON.stringify(dotSalmon));
+  });
+
   router.put('/polymorphism/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       console.log(JSON.stringify(req.body, null, 4));

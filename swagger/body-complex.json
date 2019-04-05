@@ -987,6 +987,26 @@
         }
       }
     },
+    "/complex/polymorphism/dotsyntax": {
+      "get": {
+        "operationId": "polymorphism_getDotSyntax",
+        "description": "Get complex types that are polymorphic, JSON key contains a dot",
+        "responses": {
+          "200": {
+            "description": "Returns an object like this: {\n        'fishtype':'Salmon',\n        'location':'alaska',\n        'iswild':true,\n        'species':'king',\n        'length':1.0,\n        'siblings':[\n          {\n            'fishtype':'Shark',\n            'age':6,\n            'birthday': '2012-01-05T01:00:00Z',\n            'length':20.0,\n            'species':'predator',\n          },\n          {\n            'fishtype':'Sawshark',\n            'age':105,\n            'birthday': '1900-01-05T01:00:00Z',\n            'length':10.0,\n            'picture': new Buffer([255, 255, 255, 255, 254]).toString('base64'),\n            'species':'dangerous',\n          },\n          {\n            'fishtype': 'goblin',\n            'age': 1,\n            'birthday': '2015-08-08T00:00:00Z',\n            'length': 30.0,\n            'species': 'scary',\n            'jawsize': 5\n          }\n        ]\n      };",
+            "schema": {
+              "$ref": "#/definitions/DotFish"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/complex/polymorphism/complicated": {
       "get": {
         "operationId": "polymorphism_getComplicated",
@@ -1178,7 +1198,7 @@
               "$ref": "#/definitions/Error"
             }
           }
-        }  
+        }
       }
     },
     "/complex/flatten/valid": {
@@ -1193,7 +1213,7 @@
           }
         }
       }
-    }    
+    }
   },
   "definitions": {
     "Error": {
@@ -1282,6 +1302,35 @@
       "properties": {
         "food": {
           "type": "string"
+        }
+      }
+    },
+    "DotFish": {
+      "type":  "object",
+      "discriminator": "fish.type",
+      "required": [ "fish.type" ],
+      "properties": {
+        "fish.type": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        }
+      }
+    },
+    "DotSalmon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DotFish"
+        }
+      ],
+      "type":  "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "iswild": {
+          "type": "boolean"
         }
       }
     },
