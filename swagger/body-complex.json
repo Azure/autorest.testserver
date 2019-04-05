@@ -987,6 +987,26 @@
         }
       }
     },
+    "/complex/polymorphism/dotsyntax": {
+      "get": {
+        "operationId": "polymorphism_getDotSyntax",
+        "description": "Get complex types that are polymorphic, JSON key contains a dot",
+        "responses": {
+          "200": {
+            "description": "Returns an object like where JSON key of discriminator contains a dot",
+            "schema": {
+              "$ref": "#/definitions/DotFish"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/complex/polymorphism/complicated": {
       "get": {
         "operationId": "polymorphism_getComplicated",
@@ -1178,7 +1198,7 @@
               "$ref": "#/definitions/Error"
             }
           }
-        }  
+        }
       }
     },
     "/complex/flatten/valid": {
@@ -1193,7 +1213,7 @@
           }
         }
       }
-    }    
+    }
   },
   "definitions": {
     "Error": {
@@ -1282,6 +1302,35 @@
       "properties": {
         "food": {
           "type": "string"
+        }
+      }
+    },
+    "DotFish": {
+      "type":  "object",
+      "discriminator": "fish.type",
+      "required": [ "fish.type" ],
+      "properties": {
+        "fish.type": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        }
+      }
+    },
+    "DotSalmon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DotFish"
+        }
+      ],
+      "type":  "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "iswild": {
+          "type": "boolean"
         }
       }
     },
