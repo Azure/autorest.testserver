@@ -1007,6 +1007,46 @@
         }
       }
     },
+    "/complex/polymorphism/composedWithDiscriminator": {
+      "get": {
+        "operationId": "polymorphism_getComposedWithDiscriminator",
+        "description": "Get complex type composing a scalar polymorphic type and array of polymorphic type with discriminator specified",
+        "responses": {
+          "200": {
+            "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects with discriminator specified",
+            "schema": {
+              "$ref": "#/definitions/DotFishMarket"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/complex/polymorphism/composedWithoutDiscriminator": {
+      "get": {
+        "operationId": "polymorphism_getComposedWithoutDiscriminator",
+        "description": "Get complex type composing a scalar polymorphic type and array of polymorphic type without discriminator specified",
+        "responses": {
+          "200": {
+            "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects without discriminator specified",
+            "schema": {
+              "$ref": "#/definitions/DotFishMarket"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/complex/polymorphism/complicated": {
       "get": {
         "operationId": "polymorphism_getComplicated",
@@ -1333,6 +1373,27 @@
           "type": "boolean"
         }
       }
+    },
+    "DotFishMarket": {
+      "properties": {
+        "sampleSalmon": {
+          "$ref": "#/definitions/DotSalmon"
+        },
+        "salmons": {
+          "type": "array",
+          "items": {
+            "type": "#/definitions/DotSalmon"
+          }
+        },
+        "sampleFish": {
+          "$ref": "#/definitions/DotFish"
+        },
+        "fishes": {
+          "type": "array",
+          "items": {
+            "type": "#/definitions/DotFish"
+          }
+        }
     },
     "Fish": {
       "type":  "object",

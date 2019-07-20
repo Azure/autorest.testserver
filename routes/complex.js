@@ -456,10 +456,102 @@ var complex = function (coverage) {
     'species': 'king',
   };
 
+  var dotFishMarketWithDiscriminator = {
+    'sampleSalmon': {
+      'fish.type': 'DotSalmon',
+      'location': 'sweden',
+      'iswild': false,
+      'species': 'king',
+    },
+    'salmons': [
+      {
+        'fish.type': 'DotSalmon',
+        'location': 'sweden',
+        'iswild': false,
+        'species': 'king',
+      },
+      {
+        'fish.type': 'DotSalmon',
+        'location': 'atlantic',
+        'iswild': true,
+        'species': 'king',
+      }
+    ],
+    'sampleFish': {
+      'fish.type': 'DotSalmon',
+      'location': 'australia',
+      'iswild': false,
+      'species': 'king',
+    },
+    'fishes': [
+      {
+        'fish.type': 'DotSalmon',
+        'location': 'australia',
+        'iswild': false,
+        'species': 'king',
+      },
+      {
+        'fish.type': 'DotSalmon',
+        'location': 'canada',
+        'iswild': true,
+        'species': 'king',
+      }
+    ]
+  }
+
+  var dotFishMarketWithoutDiscriminator = {
+    'sampleSalmon': {
+      'location': 'sweden',
+      'iswild': false,
+      'species': 'king',
+    },
+    'salmons': [
+      {
+        'location': 'sweden',
+        'iswild': false,
+        'species': 'king',
+      },
+      {
+        'location': 'atlantic',
+        'iswild': true,
+        'species': 'king',
+      }
+    ],
+    'sampleFish': {
+      'location': 'australia',
+      'iswild': false,
+      'species': 'king',
+    },
+    'fishes': [
+      {
+        'location': 'australia',
+        'iswild': false,
+        'species': 'king',
+      },
+      {
+        'location': 'canada',
+        'iswild': true,
+        'species': 'king',
+      }
+    ]
+  }
+
   coverage['getComplexPolymorphismDotSyntax'] = 0;
   router.get('/polymorphism/dotsyntax', function (req, res, next) {
     coverage['getComplexPolymorphismDotSyntax']++;
     res.status(200).end(JSON.stringify(dotSalmon));
+  });
+
+  coverage['getComposedWithDiscriminator'] = 0;
+  router.get('/polymorphism/composedWithDiscriminator', function (req, res, next) {
+    coverage['getComposedWithDiscriminator']++;
+    res.status(200).end(JSON.stringify(dotFishMarketWithDiscriminator));
+  });
+
+  coverage['getComposedWithoutDiscriminator'] = 0;
+  router.get('/polymorphism/composedWithoutDiscriminator', function (req, res, next) {
+    coverage['getComposedWithoutDiscriminator']++;
+    res.status(200).end(JSON.stringify(dotFishMarketWithoutDiscriminator));
   });
 
   router.put('/polymorphism/:scenario', function (req, res, next) {
