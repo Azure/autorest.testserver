@@ -1010,7 +1010,7 @@
     "/complex/polymorphism/composedWithDiscriminator": {
       "get": {
         "operationId": "polymorphism_getComposedWithDiscriminator",
-        "description": "Get complex type composing a scalar polymorphic type and array of polymorphic type with discriminator specified",
+        "description": "Get complex object composing a polymorphic scalar property and array property with polymorphic element type, with discriminator specified. Deserialization must NOT fail and use the discriminator type specified on the wire.",
         "responses": {
           "200": {
             "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects with discriminator specified",
@@ -1030,7 +1030,7 @@
     "/complex/polymorphism/composedWithoutDiscriminator": {
       "get": {
         "operationId": "polymorphism_getComposedWithoutDiscriminator",
-        "description": "Get complex type composing a scalar polymorphic type and array of polymorphic type without discriminator specified",
+        "description": "Get complex object composing a polymorphic scalar property and array property with polymorphic element type, without discriminator specified on wire. Deserialization must NOT fail and use the explicit type of the property.",
         "responses": {
           "200": {
             "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects without discriminator specified",
