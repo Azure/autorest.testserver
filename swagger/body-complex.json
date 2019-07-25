@@ -1382,7 +1382,7 @@
         "salmons": {
           "type": "array",
           "items": {
-            "type": "#/definitions/DotSalmon"
+            "$ref": "#/definitions/DotSalmon"
           }
         },
         "sampleFish": {
@@ -1391,7 +1391,7 @@
         "fishes": {
           "type": "array",
           "items": {
-            "type": "#/definitions/DotFish"
+            "$ref": "#/definitions/DotFish"
           }
         }
       }
