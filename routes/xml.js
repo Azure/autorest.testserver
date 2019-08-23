@@ -240,7 +240,7 @@ var body_properties_service =
     </MinuteMetrics>
 </StorageServiceProperties>`;
 
-var xmlService = function () {
+var xmlService = function (coverage) {
   router.get('/', function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
