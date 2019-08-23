@@ -4,6 +4,7 @@ var util = require('util');
 var utils = require('../util/utils');
 var xml2js = require('xml2js');
 var util = require('util');
+var _ = require('underscore');
 var parseXMLString = util.promisify(xml2js.parseString);
 var assert = require('assert');
 
@@ -240,7 +241,9 @@ var body_properties_service =
     </MinuteMetrics>
 </StorageServiceProperties>`;
 
-var xmlService = function () {
+var xmlService = function (coverage) {
+  coverage['jsonInputInXMLSwagger'] = 0;
+
   router.get('/', function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
@@ -506,6 +509,15 @@ var xmlService = function () {
     res.status(200);
     res.setHeader("Custom-HEADER", "custom-value");
     res.end();
+  });
+
+  router.put('/jsoninput', function (req, res, next) {
+    if (_.isEqual(req.body, { "id": 42 })) {
+      coverage['jsonInputInXMLSwagger']++;
+      res.status(200).end();
+    } else {
+      utils.send400(res, next, "Did not like valid req " + util.inspect(req.body));
+    }
   });
 };
 
