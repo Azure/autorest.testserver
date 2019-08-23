@@ -701,9 +701,43 @@
           }
         }
       }
+    },
+    "/xml/jsoninput": {
+      "put": {
+        "operationId": "xml_jsonInput",
+        "consumes":[
+          "application/json"
+        ],
+        "description": "A Swagger with XML that has one operation that takes JSON as input. You need to send the ID number 42",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "properties",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/JSONInput"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates success."
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "JSONInput": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
     "Error": {
       "properties": {
         "status": {
