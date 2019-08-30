@@ -243,6 +243,7 @@ var body_properties_service =
 
 var xmlService = function (coverage) {
   coverage['jsonInputInXMLSwagger'] = 0;
+  coverage['jsonOutputInXMLSwagger'] = 0;
 
   router.get('/', function (req, res, next) {
     var comp = req.query.comp;
@@ -518,6 +519,11 @@ var xmlService = function (coverage) {
     } else {
       utils.send400(res, next, "Did not like valid req " + util.inspect(req.body));
     }
+  });
+
+  router.get('/jsonoutput', function (req, res, next) {
+    coverage['jsonOutputInXMLSwagger']++;
+    res.status(200).end('{ "id": 42 }');
   });
 };
 
