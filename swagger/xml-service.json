@@ -728,10 +728,37 @@
           }
         }
       }
+    },
+    "/xml/jsonoutput": {
+      "get": {
+        "operationId": "xml_jsonOutput",
+        "produces":[
+          "application/json"
+        ],
+        "description": "A Swagger with XML that has one operation that returns JSON. ID number 42",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates success.",
+            "schema": {
+              "$ref": "#/definitions/JSONOutput"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
     "JSONInput": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "JSONOutput": {
       "properties": {
         "id": {
           "type": "integer"
