@@ -40,6 +40,8 @@ var paging = function(coverage) {
   coverage['PagingMultipleFailureUri'] = 0;
   coverage['PagingFragment'] = 1;
   coverage['PagingMultipleLRO'] = 0;
+  coverage['PagingCustomUrlPartialNextLink'] = 0;
+  coverage["PagingCustomUrlPartialOperationNextLink"] = 0;
 
   router.get('/single', function(req, res, next) {
     coverage["PagingSingle"]++;
@@ -47,7 +49,7 @@ var paging = function(coverage) {
   });
 
   router.get('/multiple', function(req, res, next) {
-    
+
     coverage["PagingMultiple"]++;
     res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/page/2" }')
   });
@@ -61,7 +63,7 @@ var paging = function(coverage) {
   });
 
   router.get('/multiple/odata', function(req, res, next) {
-    
+
     coverage["PagingOdataMultiple"]++;
     res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "odata.nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/odata/page/2" }')
   });
@@ -75,7 +77,7 @@ var paging = function(coverage) {
   });
 
   router.get('/multiple/withpath/:offset', function(req, res, next) {
-    
+
     coverage["PagingMultiplePath"]++;
     res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/withpath/page/' + req.params.offset + '/2" }');
   });
@@ -199,6 +201,25 @@ var paging = function(coverage) {
   router.get('/multiple/failureuri', function(req, res, next) {
     coverage["PagingMultipleFailureUri"]++;
     res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "*&*#&$" }')
+  });
+
+  /** CUSTOM URL **/
+  router.get('/customurl/partialnextlink', function(req, res, next) {
+    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "/paging/customurl/partialnextlink/page/2" }')
+  });
+
+  router.get('/customurl/partialnextlink/page/2', function(req, res, next) {
+    coverage["PagingCustomUrlPartialNextLink"]++;
+    res.status(200).end('{ "values" : [ {"properties":{"id": 2, "name": "Product" }}]}');
+  });
+
+  router.get('/customurl/partialnextlinkop', function(req, res, next) {
+    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "partialnextlinkop/page/2" }')
+  });
+
+  router.get('/customurl/partialnextlinkop/page/2', function(req, res, next) {
+    coverage["PagingCustomUrlPartialOperationNextLink"]++;
+    res.status(200).end('{ "values" : [ {"properties":{"id": 2, "name": "Product" }}]}');
   });
 
 };

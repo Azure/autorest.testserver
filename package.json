@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.6.6",
+  "version": "2.7.0",
   "main": "./startup/www.js",
   "repository": {
     "type": "git",
