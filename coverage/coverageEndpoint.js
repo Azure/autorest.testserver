@@ -7,10 +7,10 @@ var coverageEndpoint = function(coverage) {
     });
 
     router.post("/clear", function(req, res, next) {
-        for (var property in Object.getOwnPropertyNames(coverage))
-        {
-            coverage[property] = 0;
-        }
+        Object.getOwnPropertyNames(coverage).forEach(function(val, idx, array) {
+            coverage[val] = 0;
+        });
+
         res.status(200).send();
     });
 }
