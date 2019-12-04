@@ -39,6 +39,8 @@ var customUri = require('./routes/customUri.js');
 var extensibleEnums = require('./routes/extensibleEnums.js');
 var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
+var coverageEndpoint = require('./coverage/coverageEndpoint.js');
+
 var xml = require('./routes/xml.js'); // XML serialization
 var util = require('util');
 var cors = require('cors');
@@ -541,6 +543,7 @@ app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/xml', new xml(coverage).router);
+app.use('/coverage', new coverageEndpoint(coverage).router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
