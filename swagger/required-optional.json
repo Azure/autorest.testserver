@@ -53,6 +53,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -151,6 +154,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -202,6 +208,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -251,6 +260,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -300,6 +312,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -351,6 +366,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -400,6 +418,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -449,6 +470,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -500,6 +524,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -554,6 +581,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -608,6 +638,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -661,6 +694,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -709,6 +745,9 @@
         "operationId": "implicit_getRequiredGlobalPath",
         "description": "Test implicitly required path parameter",
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -728,6 +767,9 @@
         "operationId": "implicit_getRequiredGlobalQuery",
         "description": "Test implicitly required query parameter",
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
@@ -747,6 +789,9 @@
         "operationId": "implicit_getOptionalGlobalQuery",
         "description": "Test implicitly optional query parameter",
         "responses": {
+          "200": {
+            "description": "Will not happen, request not supposed to be done."
+          },
           "default": {
             "description": "Unexpected error",
             "schema": {
