@@ -692,6 +692,7 @@ var complex = function (coverage) {
   });
 
   router.get('/readonlyproperty/valid', function (req, res, next) {
+    coverage['getComplexReadOnlyPropertyValid']++;
     res.status(200).end(JSON.stringify({ "id": "1234", "size": 2 }));
   });
 
