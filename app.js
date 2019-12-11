@@ -73,7 +73,8 @@ var optionalCoverage = {
   "getDecimalBigNegativeDecimal" : 0,
   "putDecimalBig": 0,
   "putDecimalSmall": 0,
-  "putDecimalBigPositiveDecimal" : 0
+  "putDecimalBigPositiveDecimal" : 0,
+  "putDecimalBigNegativeDecimal" : 0
 };
 var coverage = {
   "additionalPropertiesTrue": 0,
@@ -543,7 +544,7 @@ app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/xml', new xml(coverage).router);
-app.use('/coverage', new coverageEndpoint(coverage).router);
+app.use('/coverage', new coverageEndpoint(coverage, optionalCoverage).router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

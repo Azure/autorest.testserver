@@ -2,6 +2,7 @@
 exports = module.exports;
 
 exports.sendError = function(code, res, next, msg) {
+  res.statusMessage = msg;
   return next({'message': msg, 'status': code});
 };
 
