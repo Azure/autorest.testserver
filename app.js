@@ -73,7 +73,8 @@ var optionalCoverage = {
   "getDecimalBigNegativeDecimal" : 0,
   "putDecimalBig": 0,
   "putDecimalSmall": 0,
-  "putDecimalBigPositiveDecimal" : 0
+  "putDecimalBigPositiveDecimal" : 0,
+  "putDecimalBigNegativeDecimal" : 0
 };
 var coverage = {
   "additionalPropertiesTrue": 0,
