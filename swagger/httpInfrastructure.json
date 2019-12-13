@@ -2584,7 +2584,7 @@
           "MultipleResponse Operations"
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "Return {'statusCode': '200'}",
             "schema": {
               "$ref": "#/definitions/A"
@@ -2601,7 +2601,7 @@
           "MultipleResponse Operations"
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "Return no payload",
             "schema": {
               "$ref": "#/definitions/A"
@@ -2618,6 +2618,9 @@
           "MultipleResponse Operations"
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, server will return 400."
+          },
           "default": {
             "description": "Return {'statusCode': '400'}",
             "schema": {
@@ -2635,6 +2638,9 @@
           "MultipleResponse Operations"
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, server will return 400."
+          },
           "default": {
             "description": "Return no payload",
             "schema": {
@@ -2652,7 +2658,7 @@
           "MultipleResponse Operations"
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "Return invalid payload {'statusCode': '200'}"
           }
         }
@@ -2666,7 +2672,7 @@
           "MultipleResponse Operations"
         ],
         "responses": {
-          "default": {
+          "200": {
             "description": "Return no payload"
           }
         }
@@ -2680,6 +2686,9 @@
           "MultipleResponse Operations"
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, server will return 400."
+          },
           "default": {
             "description": "Return invalid payload{'statusCode': '400'}"
           }
@@ -2694,6 +2703,9 @@
           "MultipleResponse Operations"
         ],
         "responses": {
+          "200": {
+            "description": "Will not happen, server will return 400."
+          },
           "default": {
             "description": "Return no payload"
           }
