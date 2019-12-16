@@ -71,7 +71,7 @@
     }
   },
   "x-ms-paths": {
-    "/paging/customurl/{nextLink}?Paging_getPagesPartialUrlNext": {
+    "/paging/customurl/{nextLink}?Paging_getPagesPartialUrlOperationNext": {
       "get": {
         "operationId": "Paging_getPagesPartialUrlOperationNext",
         "description": "A paging operation that combines custom url, paging and partial URL",
@@ -99,7 +99,7 @@
         "x-ms-pageable": {
           "nextLinkName": "nextLink",
           "itemName": "values",
-          "operationName": "Paging_getPagesPartialUrlNext"
+          "operationName": "Paging_getPagesPartialUrlOperationNext"
         }
       }
     }
