@@ -1,10 +1,10 @@
 {
-  "name": "@autorest/testserver",
-  "version": "3.2.0",
-  "main": "./startup/www.js",
+  "name": "@microsoft.azure/autorest.testserver",
+  "version": "2.9.1",
+  "main": "./legacy/startup/www.js",
   "bin": {
-    "start-autorest-express": "./legacy/startup/start-autorest-express",
-    "start-autorest-wiremock": "./modern/start-autorest-express"
+    "start-autorest-express": "./.scripts/start-autorest-express.js",
+    "start-autorest-wiremock": "./.scripts/start-autorest-wiremock.js"
   },
   "repository": {
     "type": "git",
