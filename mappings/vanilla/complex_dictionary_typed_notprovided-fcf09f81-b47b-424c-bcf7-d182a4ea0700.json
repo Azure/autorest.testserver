@@ -1,0 +1,23 @@
+{
+  "id" : "fcf09f81-b47b-424c-bcf7-d182a4ea0700",
+  "name" : "complex_dictionary_typed_notprovided",
+  "request" : {
+    "url" : "/complex/dictionary/typed/notprovided",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "e30=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "fcf09f81-b47b-424c-bcf7-d182a4ea0700",
+  "persistent" : true,
+  "insertionIndex" : 168
+}

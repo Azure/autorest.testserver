@@ -1,0 +1,22 @@
+{
+  "id" : "4464184e-dbcb-4a7f-af6d-908ed80bd41e",
+  "name" : "http_failure_client_402",
+  "request" : {
+    "url" : "/http/failure/client/402",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 402,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4464184e-dbcb-4a7f-af6d-908ed80bd41e",
+  "persistent" : true,
+  "insertionIndex" : 414
+}

@@ -1,0 +1,25 @@
+{
+  "id" : "dff20366-d3e2-4046-8470-55359134eb6d",
+  "name" : "",
+  "request" : {
+    "url" : "/*&*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "base64Body" : "eyJzdGF0dXMiOjQwNH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 23:37:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dff20366-d3e2-4046-8470-55359134eb6d",
+  "persistent" : true,
+  "scenarioName" : "scenario-*&*",
+  "requiredScenarioState" : "scenario-*&*-2",
+  "insertionIndex" : 976
+}

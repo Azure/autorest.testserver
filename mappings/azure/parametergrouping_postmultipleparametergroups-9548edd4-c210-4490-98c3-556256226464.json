@@ -1,0 +1,22 @@
+{
+  "id" : "9548edd4-c210-4490-98c3-556256226464",
+  "name" : "parametergrouping_postmultipleparametergroups",
+  "request" : {
+    "url" : "/parameterGrouping/postMultipleParameterGroups?query-one=21&query-two=42",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:59 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "9548edd4-c210-4490-98c3-556256226464",
+  "persistent" : true,
+  "insertionIndex" : 971
+}

@@ -1,0 +1,30 @@
+{
+  "id" : "038c6d78-8ecc-49c6-ba6b-308b0bd40a0e",
+  "name" : "string_enum_referenced",
+  "request" : {
+    "url" : "/string/enum/Referenced",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"red color\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "038c6d78-8ecc-49c6-ba6b-308b0bd40a0e",
+  "persistent" : true,
+  "scenarioName" : "scenario-enum-Referenced",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-enum-Referenced-2",
+  "insertionIndex" : 551
+}

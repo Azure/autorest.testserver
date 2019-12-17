@@ -1,0 +1,23 @@
+{
+  "id" : "209ae927-d23e-4289-8c9c-150a69082146",
+  "name" : "dictionary_prim_integer_1-13300",
+  "request" : {
+    "url" : "/dictionary/prim/integer/1.-1.3.300",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogMSwgIjEiOiAtMSwgIjIiOiAzLCAiMyI6IDMwMH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "209ae927-d23e-4289-8c9c-150a69082146",
+  "persistent" : true,
+  "insertionIndex" : 218
+}

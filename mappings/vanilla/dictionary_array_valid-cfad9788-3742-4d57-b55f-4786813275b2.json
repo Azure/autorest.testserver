@@ -1,0 +1,27 @@
+{
+  "id" : "cfad9788-3742-4d57-b55f-4786813275b2",
+  "name" : "dictionary_array_valid",
+  "request" : {
+    "url" : "/dictionary/array/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "cfad9788-3742-4d57-b55f-4786813275b2",
+  "persistent" : true,
+  "insertionIndex" : 265
+}

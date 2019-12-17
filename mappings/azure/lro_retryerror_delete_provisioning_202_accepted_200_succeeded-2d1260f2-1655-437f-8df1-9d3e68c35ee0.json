@@ -1,0 +1,28 @@
+{
+  "id" : "2d1260f2-1655-437f-8df1-9d3e68c35ee0",
+  "name" : "lro_retryerror_delete_provisioning_202_accepted_200_succeeded",
+  "request" : {
+    "url" : "/lro/retryerror/delete/provisioning/202/accepted/200/succeeded",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkFjY2VwdGVkIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Location" : "http://localhost:3000/lro/retryerror/delete/provisioning/202/accepted/200/succeeded",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "2d1260f2-1655-437f-8df1-9d3e68c35ee0",
+  "persistent" : true,
+  "scenarioName" : "scenario-200-succeeded",
+  "requiredScenarioState" : "scenario-200-succeeded-2",
+  "insertionIndex" : 779
+}

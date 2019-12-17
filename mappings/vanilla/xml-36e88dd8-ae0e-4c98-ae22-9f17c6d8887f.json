@@ -1,0 +1,24 @@
+{
+  "id" : "36e88dd8-ae0e-4c98-ae22-9f17c6d8887f",
+  "name" : "xml",
+  "request" : {
+    "url" : "/xml/?comp=properties&restype=service",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<StorageServiceProperties>\n    <Logging>\n        <Version>1.0</Version>\n        <Delete>true</Delete>\n        <Read>false</Read>\n        <Write>true</Write>\n        <RetentionPolicy>\n            <Enabled>true</Enabled>\n            <Days>7</Days>\n        </RetentionPolicy>\n    </Logging>\n    <HourMetrics>\n        <Version>1.0</Version>\n        <Enabled>true</Enabled>\n        <IncludeAPIs>false</IncludeAPIs>\n        <RetentionPolicy>\n            <Enabled>true</Enabled>\n            <Days>7</Days>\n        </RetentionPolicy>\n    </HourMetrics>\n    <MinuteMetrics>\n        <Version>1.0</Version>\n        <Enabled>true</Enabled>\n        <IncludeAPIs>true</IncludeAPIs>\n        <RetentionPolicy>\n            <Enabled>true</Enabled>\n            <Days>7</Days>\n        </RetentionPolicy>\n    </MinuteMetrics>\n</StorageServiceProperties>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "36e88dd8-ae0e-4c98-ae22-9f17c6d8887f",
+  "persistent" : true,
+  "insertionIndex" : 640
+}

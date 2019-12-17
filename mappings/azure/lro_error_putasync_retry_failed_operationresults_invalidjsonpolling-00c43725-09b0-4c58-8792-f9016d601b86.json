@@ -1,0 +1,23 @@
+{
+  "id" : "00c43725-09b0-4c58-8792-f9016d601b86",
+  "name" : "lro_error_putasync_retry_failed_operationresults_invalidjsonpolling",
+  "request" : {
+    "url" : "/lro/error/putasync/retry/failed/operationResults/invalidjsonpolling",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogIkFjY2VwdGVkIg==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "00c43725-09b0-4c58-8792-f9016d601b86",
+  "persistent" : true,
+  "insertionIndex" : 833
+}

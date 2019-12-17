@@ -1,0 +1,23 @@
+{
+  "id" : "481ce6a4-2788-4258-bc16-f02b86ca41ce",
+  "name" : "dictionary_prim_duration_valid",
+  "request" : {
+    "url" : "/dictionary/prim/duration/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogIlAxMjNEVDIySDE0TTEyLjAxMVMiLCAiMSI6ICJQNURUMUgifQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "481ce6a4-2788-4258-bc16-f02b86ca41ce",
+  "persistent" : true,
+  "insertionIndex" : 248
+}

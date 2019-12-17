@@ -1,0 +1,25 @@
+{
+  "id" : "a837e951-de75-4f56-a6af-a6d19cbc5326",
+  "name" : "xml",
+  "request" : {
+    "url" : "/xml/?comp=properties&restype=service",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<?xml version='1.0' encoding='utf8'?>\n<StorageServiceProperties><Logging><Version>1.0</Version><Delete>true</Delete><Read>false</Read><Write>true</Write><RetentionPolicy><Enabled>true</Enabled><Days>7</Days></RetentionPolicy></Logging><HourMetrics><Version>1.0</Version><Enabled>true</Enabled><IncludeAPIs>false</IncludeAPIs><RetentionPolicy><Enabled>true</Enabled><Days>7</Days></RetentionPolicy></HourMetrics><MinuteMetrics><Version>1.0</Version><Enabled>true</Enabled><IncludeAPIs>true</IncludeAPIs><RetentionPolicy><Enabled>true</Enabled><Days>7</Days></RetentionPolicy></MinuteMetrics></StorageServiceProperties>"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a837e951-de75-4f56-a6af-a6d19cbc5326",
+  "persistent" : true,
+  "insertionIndex" : 641
+}

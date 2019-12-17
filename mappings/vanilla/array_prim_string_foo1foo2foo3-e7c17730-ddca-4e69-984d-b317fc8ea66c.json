@@ -1,0 +1,27 @@
+{
+  "id" : "e7c17730-ddca-4e69-984d-b317fc8ea66c",
+  "name" : "array_prim_string_foo1foo2foo3",
+  "request" : {
+    "url" : "/array/prim/string/foo1.foo2.foo3",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[\"foo1\", \"foo2\", \"foo3\"]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e7c17730-ddca-4e69-984d-b317fc8ea66c",
+  "persistent" : true,
+  "insertionIndex" : 64
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "6e8f0f41-5e5e-47d0-bcd7-b86f441c5822",
+  "name" : "datetimerfc1123_overflow",
+  "request" : {
+    "url" : "/datetimerfc1123/overflow",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "IlNhdCwgMSBKYW4gMTAwMDAgMDA6MDA6MDAgR01UIg==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6e8f0f41-5e5e-47d0-bcd7-b86f441c5822",
+  "persistent" : true,
+  "insertionIndex" : 38
+}

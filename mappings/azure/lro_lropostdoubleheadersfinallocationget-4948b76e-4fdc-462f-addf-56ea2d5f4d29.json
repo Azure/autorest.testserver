@@ -1,0 +1,24 @@
+{
+  "id" : "4948b76e-4fdc-462f-addf-56ea2d5f4d29",
+  "name" : "lro_lropostdoubleheadersfinallocationget",
+  "request" : {
+    "url" : "/lro/LROPostDoubleHeadersFinalLocationGet",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl",
+      "Location" : "http://localhost:3000/lro/LROPostDoubleHeadersFinalLocationGet/location",
+      "Date" : "Thu, 18 Oct 2018 21:54:55 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4948b76e-4fdc-462f-addf-56ea2d5f4d29",
+  "persistent" : true,
+  "insertionIndex" : 657
+}

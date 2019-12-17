@@ -1,0 +1,25 @@
+{
+  "id" : "b98aa14f-c565-4879-9748-526cfe7ebe3b",
+  "name" : "lro_error_postasync_retry_invalidjsonpolling",
+  "request" : {
+    "url" : "/lro/error/postasync/retry/invalidjsonpolling",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/error/postasync/retry/failed/operationResults/invalidjsonpolling",
+      "Location" : "http://localhost:3000/lro/error/postasync/retry/failed/operationResults/invalidjsonpolling",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b98aa14f-c565-4879-9748-526cfe7ebe3b",
+  "persistent" : true,
+  "insertionIndex" : 841
+}

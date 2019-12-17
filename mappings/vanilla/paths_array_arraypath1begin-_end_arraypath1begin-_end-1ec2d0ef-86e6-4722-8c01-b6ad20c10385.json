@@ -1,0 +1,22 @@
+{
+  "id" : "1ec2d0ef-86e6-4722-8c01-b6ad20c10385",
+  "name" : "paths_array_arraypath1begin-_end_arraypath1begin-_end",
+  "request" : {
+    "url" : "/paths/array/ArrayPath1%2cbegin%21%2A%27%28%29%3B%3A%40%20%26%3D%2B%24%2C%2F%3F%23%5B%5Dend%2c%2c/ArrayPath1%2Cbegin%21%2A%27%28%29%3B%3A%40%20%26%3D%2B%24%2C%2F%3F%23%5B%5Dend%2C%2C",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1ec2d0ef-86e6-4722-8c01-b6ad20c10385",
+  "persistent" : true,
+  "insertionIndex" : 572
+}

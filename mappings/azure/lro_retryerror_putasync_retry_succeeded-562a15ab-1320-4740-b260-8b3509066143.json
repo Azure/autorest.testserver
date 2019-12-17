@@ -1,0 +1,26 @@
+{
+  "id" : "562a15ab-1320-4740-b260-8b3509066143",
+  "name" : "lro_retryerror_putasync_retry_succeeded",
+  "request" : {
+    "url" : "/lro/retryerror/putasync/retry/succeeded",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=LRORetryErrorPutAsyncSucceeded; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 22:09:57 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "562a15ab-1320-4740-b260-8b3509066143",
+  "persistent" : true,
+  "scenarioName" : "scenario-retry-succeeded",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-retry-succeeded-2",
+  "insertionIndex" : 776
+}

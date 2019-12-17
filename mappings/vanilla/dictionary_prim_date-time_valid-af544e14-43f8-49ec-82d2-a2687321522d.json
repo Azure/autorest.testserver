@@ -1,0 +1,27 @@
+{
+  "id" : "af544e14-43f8-49ec-82d2-a2687321522d",
+  "name" : "dictionary_prim_date-time_valid",
+  "request" : {
+    "url" : "/dictionary/prim/date-time/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"0\": \"2000-12-01T00:00:01.000Z\", \"1\": \"1980-01-01T23:11:35.000Z\", \"2\": \"1492-10-12T18:15:01.000Z\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "af544e14-43f8-49ec-82d2-a2687321522d",
+  "persistent" : true,
+  "insertionIndex" : 243
+}

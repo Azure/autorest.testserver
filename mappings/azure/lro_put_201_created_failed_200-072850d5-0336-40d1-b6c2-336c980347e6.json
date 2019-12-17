@@ -1,0 +1,23 @@
+{
+  "id" : "072850d5-0336-40d1-b6c2-336c980347e6",
+  "name" : "lro_put_201_created_failed_200",
+  "request" : {
+    "url" : "/lro/put/201/created/failed/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkZhaWxlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "072850d5-0336-40d1-b6c2-336c980347e6",
+  "persistent" : true,
+  "insertionIndex" : 667
+}

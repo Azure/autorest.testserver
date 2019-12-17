@@ -1,0 +1,24 @@
+{
+  "id" : "e9cabbb2-c691-4ba9-be5f-18b604b869f4",
+  "name" : "lro_lropostdoubleheadersfinalazureheaderget",
+  "request" : {
+    "url" : "/lro/LROPostDoubleHeadersFinalAzureHeaderGet",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl",
+      "Location" : "http://localhost:3000/lro/LROPostDoubleHeadersFinalAzureHeaderGet/location",
+      "Date" : "Thu, 18 Oct 2018 21:54:55 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e9cabbb2-c691-4ba9-be5f-18b604b869f4",
+  "persistent" : true,
+  "insertionIndex" : 660
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "49f3115c-1e07-41ec-8533-5ebcfa121227",
+  "name" : "lro_error_put_201_noprovisioningstatepayload",
+  "request" : {
+    "url" : "/lro/error/put/201/noprovisioningstatepayload",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "49f3115c-1e07-41ec-8533-5ebcfa121227",
+  "persistent" : true,
+  "insertionIndex" : 825
+}

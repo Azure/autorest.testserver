@@ -20,3 +20,4 @@ packages.config
 # VS #
 .ntvs_analysis.*
 
+!__files/

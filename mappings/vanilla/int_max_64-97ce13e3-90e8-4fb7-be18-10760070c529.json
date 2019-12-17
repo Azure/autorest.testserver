@@ -1,0 +1,27 @@
+{
+  "id" : "97ce13e3-90e8-4fb7-be18-10760070c529",
+  "name" : "int_max_64",
+  "request" : {
+    "url" : "/int/max/64",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "9223372036854776000",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "97ce13e3-90e8-4fb7-be18-10760070c529",
+  "persistent" : true,
+  "insertionIndex" : 477
+}

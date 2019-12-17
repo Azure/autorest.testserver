@@ -1,0 +1,28 @@
+{
+  "id" : "d57728b6-c335-4553-ba3a-91a41162a348",
+  "name" : "lro_put_200_succeeded_nostate",
+  "request" : {
+    "url" : "/lro/put/200/succeeded/nostate",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "d57728b6-c335-4553-ba3a-91a41162a348",
+  "persistent" : true,
+  "insertionIndex" : 705
+}

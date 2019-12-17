@@ -1,0 +1,28 @@
+{
+  "id" : "ada76215-b9b7-40a2-8303-069a5e7db1be",
+  "name" : "lro_customheader_put_201_creating_succeeded_200",
+  "request" : {
+    "url" : "/lro/customheader/put/201/creating/succeeded/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkNyZWF0aW5nIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ada76215-b9b7-40a2-8303-069a5e7db1be",
+  "persistent" : true,
+  "insertionIndex" : 805
+}

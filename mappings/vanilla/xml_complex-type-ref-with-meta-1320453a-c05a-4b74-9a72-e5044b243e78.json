@@ -1,0 +1,25 @@
+{
+  "id" : "1320453a-c05a-4b74-9a72-e5044b243e78",
+  "name" : "xml_complex-type-ref-with-meta",
+  "request" : {
+    "url" : "/xml/complex-type-ref-with-meta",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<?xml version='1.0' encoding='utf8'?>\n<RootWithRefAndMeta><XMLComplexTypeWithMeta><ID>myid</ID></XMLComplexTypeWithMeta><Something>else</Something></RootWithRefAndMeta>"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1320453a-c05a-4b74-9a72-e5044b243e78",
+  "persistent" : true,
+  "insertionIndex" : 637
+}

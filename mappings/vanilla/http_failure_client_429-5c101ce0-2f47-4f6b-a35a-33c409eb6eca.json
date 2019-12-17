@@ -1,0 +1,22 @@
+{
+  "id" : "5c101ce0-2f47-4f6b-a35a-33c409eb6eca",
+  "name" : "http_failure_client_429",
+  "request" : {
+    "url" : "/http/failure/client/429",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 429,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "5c101ce0-2f47-4f6b-a35a-33c409eb6eca",
+  "persistent" : true,
+  "insertionIndex" : 429
+}

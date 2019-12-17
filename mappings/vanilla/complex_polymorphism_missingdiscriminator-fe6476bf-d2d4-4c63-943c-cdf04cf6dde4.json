@@ -1,0 +1,28 @@
+{
+  "id" : "fe6476bf-d2d4-4c63-943c-cdf04cf6dde4",
+  "name" : "complex_polymorphism_missingdiscriminator",
+  "request" : {
+    "url" : "/complex/polymorphism/missingdiscriminator",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"species\": \"king\", \"length\": 1.0, \"siblings\": [{\"species\": \"predator\", \"length\": 20.0, \"fishtype\": \"shark\", \"age\": 6, \"birthday\": \"2012-01-05T01:00:00.000Z\"}, {\"species\": \"dangerous\", \"length\": 10.0, \"fishtype\": \"sawshark\", \"age\": 105, \"birthday\": \"1900-01-05T01:00:00.000Z\", \"picture\": \"//////4=\"}, {\"species\": \"scary\", \"length\": 30.0, \"fishtype\": \"goblin\", \"age\": 1, \"birthday\": \"2015-08-08T00:00:00.000Z\", \"jawsize\": 5, \"color\": \"pinkish-gray\"}], \"fishtype\": \"salmon\", \"location\": \"alaska\", \"iswild\": true}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJsb2NhdGlvbiI6ImFsYXNrYSIsImlzd2lsZCI6dHJ1ZSwic3BlY2llcyI6ImtpbmciLCJsZW5ndGgiOjEsInNpYmxpbmdzIjpbeyJmaXNodHlwZSI6InNoYXJrIiwiYWdlIjo2LCJiaXJ0aGRheSI6IjIwMTItMDEtMDVUMDE6MDA6MDBaIiwibGVuZ3RoIjoyMCwic3BlY2llcyI6InByZWRhdG9yIn0seyJmaXNodHlwZSI6InNhd3NoYXJrIiwiYWdlIjoxMDUsImJpcnRoZGF5IjoiMTkwMC0wMS0wNVQwMTowMDowMFoiLCJsZW5ndGgiOjEwLCJwaWN0dXJlIjoiLy8vLy8vND0iLCJzcGVjaWVzIjoiZGFuZ2Vyb3VzIn0seyJmaXNodHlwZSI6ImdvYmxpbiIsImFnZSI6MSwiYmlydGhkYXkiOiIyMDE1LTA4LTA4VDAwOjAwOjAwWiIsImxlbmd0aCI6MzAsInNwZWNpZXMiOiJzY2FyeSIsImphd3NpemUiOjUsImNvbG9yIjoicGlua2lzaC1ncmF5In1dfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "fe6476bf-d2d4-4c63-943c-cdf04cf6dde4",
+  "persistent" : true,
+  "insertionIndex" : 177
+}

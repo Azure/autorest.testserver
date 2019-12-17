@@ -1,0 +1,26 @@
+{
+  "id" : "dc9a22d5-cce3-4387-9bff-5689ebee17e2",
+  "name" : "lro_deleteasync_noretry_succeeded_operationresults_200",
+  "request" : {
+    "url" : "/lro/deleteasync/noretry/succeeded/operationResults/200/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 202,
+    "base64Body" : "eyAic3RhdHVzIjogIkFjY2VwdGVkIn0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=LRODeleteAsyncNoRetrySucceeded; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 22:09:56 GMT",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/deleteasync/noretry/succeeded/operationResults/200",
+      "Location" : "http://localhost:3000/lro/deleteasync/noretry/succeeded/operationResults/200",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dc9a22d5-cce3-4387-9bff-5689ebee17e2",
+  "persistent" : true,
+  "insertionIndex" : 728
+}

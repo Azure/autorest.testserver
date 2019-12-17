@@ -1,0 +1,26 @@
+{
+  "id" : "71503776-356c-460c-9847-1e830f5fcbb6",
+  "name" : "array_prim_string_foo123foo2",
+  "request" : {
+    "url" : "/array/prim/string/foo.123.foo2",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "WyJmb28iLCAxMjMsICJmb28yIl0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "71503776-356c-460c-9847-1e830f5fcbb6",
+  "persistent" : true,
+  "scenarioName" : "scenario-string-foo.123.foo2",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-string-foo.123.foo2-2",
+  "insertionIndex" : 66
+}

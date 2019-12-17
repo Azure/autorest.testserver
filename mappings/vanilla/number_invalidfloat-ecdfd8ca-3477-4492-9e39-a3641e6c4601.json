@@ -1,0 +1,23 @@
+{
+  "id" : "ecdfd8ca-3477-4492-9e39-a3641e6c4601",
+  "name" : "number_invalidfloat",
+  "request" : {
+    "url" : "/number/invalidfloat",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "MjE0NzQ4MzY1Ni4wOTAwOTY3ODk5MDlq",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ecdfd8ca-3477-4492-9e39-a3641e6c4601",
+  "persistent" : true,
+  "insertionIndex" : 519
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "6e58ff61-f152-4c82-9872-3f70cb03a05e",
+  "name" : "array_array_valid",
+  "request" : {
+    "url" : "/array/array/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[[\"1\", \"2\", \"3\"], [\"4\", \"5\", \"6\"], [\"7\", \"8\", \"9\"]]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6e58ff61-f152-4c82-9872-3f70cb03a05e",
+  "persistent" : true,
+  "insertionIndex" : 85
+}

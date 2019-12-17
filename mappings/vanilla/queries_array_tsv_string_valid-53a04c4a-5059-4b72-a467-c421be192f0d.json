@@ -1,0 +1,22 @@
+{
+  "id" : "53a04c4a-5059-4b72-a467-c421be192f0d",
+  "name" : "queries_array_tsv_string_valid",
+  "request" : {
+    "url" : "/queries/array/tsv/string/valid?arrayQuery=ArrayQuery1%09begin%21%2A%27%28%29%3B%3A%40%20%26%3D%2B%24%2C%2F%3F%23%5B%5Dend%09%09",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "53a04c4a-5059-4b72-a467-c421be192f0d",
+  "persistent" : true,
+  "insertionIndex" : 608
+}

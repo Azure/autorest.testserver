@@ -1,0 +1,25 @@
+{
+  "id" : "dc7ea9f2-2b5b-4ece-af8e-ac55f15a602d",
+  "name" : "lro_error_deleteasync_retry_invalidjsonpolling",
+  "request" : {
+    "url" : "/lro/error/deleteasync/retry/invalidjsonpolling",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/error/deleteasync/retry/failed/operationResults/invalidjsonpolling",
+      "Location" : "http://localhost:3000/lro/error/deleteasync/retry/failed/operationResults/invalidjsonpolling",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dc7ea9f2-2b5b-4ece-af8e-ac55f15a602d",
+  "persistent" : true,
+  "insertionIndex" : 839
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "7002bc41-bc1a-4dc5-82ab-1bb2631cfe85",
+  "name" : "lro_lropostdoubleheadersfinalazureheaderget_asyncoperationurl",
+  "request" : {
+    "url" : "/lro/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogInN1Y2NlZWRlZCIsICJpZCI6ICIxMDAifSA=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:55 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7002bc41-bc1a-4dc5-82ab-1bb2631cfe85",
+  "persistent" : true,
+  "insertionIndex" : 661
+}

@@ -1,0 +1,22 @@
+{
+  "id" : "8db1f610-779e-4563-9e62-b0ee31f344dd",
+  "name" : "http_payloads_200_a_response_200_none",
+  "request" : {
+    "url" : "/http/payloads/200/A/response/200/none",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8db1f610-779e-4563-9e62-b0ee31f344dd",
+  "persistent" : true,
+  "insertionIndex" : 380
+}

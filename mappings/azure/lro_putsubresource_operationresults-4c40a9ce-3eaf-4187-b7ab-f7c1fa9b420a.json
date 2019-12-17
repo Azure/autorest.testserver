@@ -1,0 +1,26 @@
+{
+  "id" : "4c40a9ce-3eaf-4187-b7ab-f7c1fa9b420a",
+  "name" : "lro_putsubresource_operationresults",
+  "request" : {
+    "url" : "/lro/putsubresource/operationresults",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgInN1YnJlc291cmNlIjogInN1YjEiIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4c40a9ce-3eaf-4187-b7ab-f7c1fa9b420a",
+  "persistent" : true,
+  "scenarioName" : "scenario-putsubresource-operationresults",
+  "requiredScenarioState" : "scenario-putsubresource-operationresults-2",
+  "insertionIndex" : 689
+}

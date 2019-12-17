@@ -1,0 +1,27 @@
+{
+  "id" : "8818153c-293e-4918-9619-44a947920689",
+  "name" : "complex_readonlyproperty_valid",
+  "request" : {
+    "url" : "/complex/readonlyproperty/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"size\": 2}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8818153c-293e-4918-9619-44a947920689",
+  "persistent" : true,
+  "insertionIndex" : 157
+}

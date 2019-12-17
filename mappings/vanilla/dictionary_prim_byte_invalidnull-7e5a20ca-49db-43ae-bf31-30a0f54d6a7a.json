@@ -1,0 +1,23 @@
+{
+  "id" : "7e5a20ca-49db-43ae-bf31-30a0f54d6a7a",
+  "name" : "dictionary_prim_byte_invalidnull",
+  "request" : {
+    "url" : "/dictionary/prim/byte/invalidnull",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogInE2eXQiLCAiMSI6IG51bGx9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7e5a20ca-49db-43ae-bf31-30a0f54d6a7a",
+  "persistent" : true,
+  "insertionIndex" : 252
+}

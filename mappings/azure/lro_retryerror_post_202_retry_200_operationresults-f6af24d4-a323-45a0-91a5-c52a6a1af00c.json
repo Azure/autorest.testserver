@@ -1,0 +1,26 @@
+{
+  "id" : "f6af24d4-a323-45a0-91a5-c52a6a1af00c",
+  "name" : "lro_retryerror_post_202_retry_200_operationresults",
+  "request" : {
+    "url" : "/lro/retryerror/post/202/retry/200/operationResults",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=LRORetryErrorPost202Retry200Succeeded; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 22:09:57 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f6af24d4-a323-45a0-91a5-c52a6a1af00c",
+  "persistent" : true,
+  "scenarioName" : "scenario-200-operationResults",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-200-operationResults-2",
+  "insertionIndex" : 792
+}

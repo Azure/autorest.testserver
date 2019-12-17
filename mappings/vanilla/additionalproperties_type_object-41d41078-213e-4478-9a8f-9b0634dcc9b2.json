@@ -1,0 +1,28 @@
+{
+  "id" : "41d41078-213e-4478-9a8f-9b0634dcc9b2",
+  "name" : "additionalproperties_type_object",
+  "request" : {
+    "url" : "/additionalProperties/type/object",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"siblings\": [{\"id\": 1, \"name\": \"Puppy\", \"birthdate\": \"2017-12-13T02:29:51Z\", \"complexProperty\": {\"color\": \"Red\"}}], \"picture\": \"//////4=\", \"id\": 2, \"name\": \"Hira\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6MiwibmFtZSI6IkhpcmEiLCJzaWJsaW5ncyI6W3siaWQiOjEsIm5hbWUiOiJQdXBweSIsImJpcnRoZGF0ZSI6IjIwMTctMTItMTNUMDI6Mjk6NTFaIiwiY29tcGxleFByb3BlcnR5Ijp7ImNvbG9yIjoiUmVkIn19XSwicGljdHVyZSI6Ii8vLy8vLzQ9Iiwic3RhdHVzIjp0cnVlfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "41d41078-213e-4478-9a8f-9b0634dcc9b2",
+  "persistent" : true,
+  "insertionIndex" : 46
+}

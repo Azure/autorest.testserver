@@ -1,0 +1,30 @@
+{
+  "id" : "7ff526ae-5594-493e-bb51-9764f0858fde",
+  "name" : "lro_nonretryerror_postasync_retry_400",
+  "request" : {
+    "url" : "/lro/nonretryerror/postasync/retry/400",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/nonretryerror/postasync/retry/failed/operationResults/400",
+      "Location" : "http://localhost:3000/lro/nonretryerror/postasync/retry/failed/operationResults/400",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7ff526ae-5594-493e-bb51-9764f0858fde",
+  "persistent" : true,
+  "insertionIndex" : 823
+}

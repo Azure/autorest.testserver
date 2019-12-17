@@ -1,0 +1,23 @@
+{
+  "id" : "db149535-2ff7-4349-915e-bbf6618c6687",
+  "name" : "dictionary_prim_date_valid",
+  "request" : {
+    "url" : "/dictionary/prim/date/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogIjIwMDAtMTItMDEiLCAiMSI6ICIxOTgwLTAxLTAyIiwgIjIiOiAiMTQ5Mi0xMC0xMiJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "db149535-2ff7-4349-915e-bbf6618c6687",
+  "persistent" : true,
+  "insertionIndex" : 238
+}

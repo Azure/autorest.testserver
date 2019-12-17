@@ -1,0 +1,24 @@
+{
+  "id" : "95dc011d-b87f-4748-8a63-1be99e4b7b42",
+  "name" : "xml_empty-wrapped-lists",
+  "request" : {
+    "url" : "/xml/empty-wrapped-lists",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<AppleBarrel>\n    <GoodApples></GoodApples>\n    <BadApples/>\n</AppleBarrel>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "95dc011d-b87f-4748-8a63-1be99e4b7b42",
+  "persistent" : true,
+  "insertionIndex" : 628
+}

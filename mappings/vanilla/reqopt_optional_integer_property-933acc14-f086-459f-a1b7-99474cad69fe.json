@@ -1,0 +1,22 @@
+{
+  "id" : "933acc14-f086-459f-a1b7-99474cad69fe",
+  "name" : "reqopt_optional_integer_property",
+  "request" : {
+    "url" : "/reqopt/optional/integer/property",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "933acc14-f086-459f-a1b7-99474cad69fe",
+  "persistent" : true,
+  "insertionIndex" : 525
+}

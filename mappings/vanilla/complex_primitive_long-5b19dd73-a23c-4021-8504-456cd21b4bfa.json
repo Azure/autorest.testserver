@@ -1,0 +1,27 @@
+{
+  "id" : "5b19dd73-a23c-4021-8504-456cd21b4bfa",
+  "name" : "complex_primitive_long",
+  "request" : {
+    "url" : "/complex/primitive/long",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field1\": 1099511627775, \"field2\": -999511627788}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "5b19dd73-a23c-4021-8504-456cd21b4bfa",
+  "persistent" : true,
+  "insertionIndex" : 137
+}

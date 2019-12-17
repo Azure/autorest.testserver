@@ -1,0 +1,27 @@
+{
+  "id" : "0875dd98-71a1-4b26-bff0-32e953b4f06f",
+  "name" : "http_success_204",
+  "request" : {
+    "url" : "/http/success/204",
+    "method" : "PATCH",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 204,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0875dd98-71a1-4b26-bff0-32e953b4f06f",
+  "persistent" : true,
+  "insertionIndex" : 474
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "610b90ab-1a7a-4d79-9152-795c6a44a600",
+  "name" : "lro_put_202_retry_operationresults_200",
+  "request" : {
+    "url" : "/lro/put/202/retry/operationResults/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "610b90ab-1a7a-4d79-9152-795c6a44a600",
+  "persistent" : true,
+  "insertionIndex" : 707
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "6233d67f-327e-47aa-9dd9-6b88dde2a28e",
+  "name" : "dictionary_dictionary_valid",
+  "request" : {
+    "url" : "/dictionary/dictionary/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6233d67f-327e-47aa-9dd9-6b88dde2a28e",
+  "persistent" : true,
+  "insertionIndex" : 267
+}

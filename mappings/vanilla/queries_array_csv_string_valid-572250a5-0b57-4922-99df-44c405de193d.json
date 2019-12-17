@@ -1,0 +1,22 @@
+{
+  "id" : "572250a5-0b57-4922-99df-44c405de193d",
+  "name" : "queries_array_csv_string_valid",
+  "request" : {
+    "url" : "/queries/array/csv/string/valid?arrayQuery=ArrayQuery1%2Cbegin%21%2A%27%28%29%3B%3A%40%20%26%3D%2B%24%2C%2F%3F%23%5B%5Dend%2C%2C",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "572250a5-0b57-4922-99df-44c405de193d",
+  "persistent" : true,
+  "insertionIndex" : 605
+}

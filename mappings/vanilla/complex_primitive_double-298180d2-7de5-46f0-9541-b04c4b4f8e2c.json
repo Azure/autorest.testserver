@@ -1,0 +1,23 @@
+{
+  "id" : "298180d2-7de5-46f0-9541-b04c4b4f8e2c",
+  "name" : "complex_primitive_double",
+  "request" : {
+    "url" : "/complex/primitive/double",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaWVsZDEiOjNlLTEwMCwiZmllbGRfNTZfemVyb3NfYWZ0ZXJfdGhlX2RvdF9hbmRfbmVnYXRpdmVfemVyb19iZWZvcmVfZG90X2FuZF90aGlzX2lzX2FfbG9uZ19maWVsZF9uYW1lX29uX3B1cnBvc2UiOi01ZS01N30=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "298180d2-7de5-46f0-9541-b04c4b4f8e2c",
+  "persistent" : true,
+  "insertionIndex" : 140
+}

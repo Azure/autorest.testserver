@@ -1,0 +1,23 @@
+{
+  "id" : "17328c48-4477-42ad-a690-09edc81e17ed",
+  "name" : "lro_nonretryerror_delete_202_retry_400",
+  "request" : {
+    "url" : "/lro/nonretryerror/delete/202/retry/400",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "base64Body" : "eyJtZXNzYWdlIjoiRXhwZWN0ZWQgYmFkIHJlcXVlc3QgbWVzc2FnZSIsInN0YXR1cyI6NDAwfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "17328c48-4477-42ad-a690-09edc81e17ed",
+  "persistent" : true,
+  "insertionIndex" : 817
+}

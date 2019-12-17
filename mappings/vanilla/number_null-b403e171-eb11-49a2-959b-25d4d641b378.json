@@ -1,0 +1,22 @@
+{
+  "id" : "b403e171-eb11-49a2-959b-25d4d641b378",
+  "name" : "number_null",
+  "request" : {
+    "url" : "/number/null",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b403e171-eb11-49a2-959b-25d4d641b378",
+  "persistent" : true,
+  "insertionIndex" : 506
+}

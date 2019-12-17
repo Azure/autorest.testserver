@@ -1,0 +1,26 @@
+{
+  "id" : "7d384bb1-aa7a-4589-b0f2-b62614f4a25d",
+  "name" : "lro_retryerror_put_201_creating_succeeded_200",
+  "request" : {
+    "url" : "/lro/retryerror/put/201/creating/succeeded/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7d384bb1-aa7a-4589-b0f2-b62614f4a25d",
+  "persistent" : true,
+  "scenarioName" : "scenario-succeeded-200",
+  "requiredScenarioState" : "scenario-succeeded-200-2",
+  "insertionIndex" : 771
+}

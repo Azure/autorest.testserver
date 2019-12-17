@@ -1,0 +1,28 @@
+{
+  "id" : "c97b2dd1-47f8-4758-824f-12e05ba0d8ff",
+  "name" : "lro_nonretryerror_put_400",
+  "request" : {
+    "url" : "/lro/nonretryerror/put/400",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 400,
+    "base64Body" : "eyJtZXNzYWdlIjoiRXhwZWN0ZWQgYmFkIHJlcXVlc3QgbWVzc2FnZSIsInN0YXR1cyI6NDAwfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "c97b2dd1-47f8-4758-824f-12e05ba0d8ff",
+  "persistent" : true,
+  "insertionIndex" : 810
+}

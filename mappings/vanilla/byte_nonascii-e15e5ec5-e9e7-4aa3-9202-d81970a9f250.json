@@ -1,0 +1,23 @@
+{
+  "id" : "e15e5ec5-e9e7-4aa3-9202-d81970a9f250",
+  "name" : "byte_nonascii",
+  "request" : {
+    "url" : "/byte/nonAscii",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "Ii8vNzkvUHY2K2ZqMzlnPT0i",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e15e5ec5-e9e7-4aa3-9202-d81970a9f250",
+  "persistent" : true,
+  "insertionIndex" : 123
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "8478d342-90fe-4357-b1f3-e358a5d9d955",
+  "name" : "lro_delete_provisioning_202_accepted_200_succeeded",
+  "request" : {
+    "url" : "/lro/delete/provisioning/202/accepted/200/succeeded",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8478d342-90fe-4357-b1f3-e358a5d9d955",
+  "persistent" : true,
+  "insertionIndex" : 746
+}

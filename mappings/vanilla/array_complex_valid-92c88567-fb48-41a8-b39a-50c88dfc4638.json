@@ -1,0 +1,27 @@
+{
+  "id" : "92c88567-fb48-41a8-b39a-50c88dfc4638",
+  "name" : "array_complex_valid",
+  "request" : {
+    "url" : "/array/complex/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[{\"integer\": 1, \"string\": \"2\"}, {\"integer\": 3, \"string\": \"4\"}, {\"integer\": 5, \"string\": \"6\"}]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "92c88567-fb48-41a8-b39a-50c88dfc4638",
+  "persistent" : true,
+  "insertionIndex" : 83
+}

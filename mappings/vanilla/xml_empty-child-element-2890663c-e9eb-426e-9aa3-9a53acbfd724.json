@@ -1,0 +1,24 @@
+{
+  "id" : "2890663c-e9eb-426e-9aa3-9a53acbfd724",
+  "name" : "xml_empty-child-element",
+  "request" : {
+    "url" : "/xml/empty-child-element",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<banana>\n  <name>Unknown Banana</name>\n  <flavor></flavor>\n  <expiration>2012-02-24T00:53:52.789Z</expiration>\n</banana>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "2890663c-e9eb-426e-9aa3-9a53acbfd724",
+  "persistent" : true,
+  "insertionIndex" : 620
+}

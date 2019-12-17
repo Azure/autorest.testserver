@@ -1,0 +1,27 @@
+{
+  "id" : "e41ed1e6-4a9f-44d2-8405-441e89e89772",
+  "name" : "http_failure_client_415",
+  "request" : {
+    "url" : "/http/failure/client/415",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 415,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e41ed1e6-4a9f-44d2-8405-441e89e89772",
+  "persistent" : true,
+  "insertionIndex" : 426
+}

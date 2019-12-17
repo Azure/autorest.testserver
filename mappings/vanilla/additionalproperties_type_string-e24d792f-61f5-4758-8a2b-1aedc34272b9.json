@@ -1,0 +1,28 @@
+{
+  "id" : "e24d792f-61f5-4758-8a2b-1aedc34272b9",
+  "name" : "additionalproperties_type_string",
+  "request" : {
+    "url" : "/additionalProperties/type/string",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"color\": \"red\", \"weight\": \"10 kg\", \"city\": \"Bombay\", \"id\": 3, \"name\": \"Tommy\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6MywibmFtZSI6IlRvbW15IiwiY29sb3IiOiJyZWQiLCJ3ZWlnaHQiOiIxMCBrZyIsImNpdHkiOiJCb21iYXkiLCJzdGF0dXMiOnRydWV9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e24d792f-61f5-4758-8a2b-1aedc34272b9",
+  "persistent" : true,
+  "insertionIndex" : 47
+}

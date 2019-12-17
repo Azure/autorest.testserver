@@ -1,0 +1,23 @@
+{
+  "id" : "5cc1bfd8-2be3-4b47-b724-e2a41b97d177",
+  "name" : "paging_multiple_fragment_test_user_next",
+  "request" : {
+    "url" : "/paging/multiple/fragment/test_user/next?api_version=1.6&page=3",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAidmFsdWVzIjogWyB7InByb3BlcnRpZXMiOnsiaWQiIDogMywgIm5hbWUiOiAicHJvZHVjdCJ9fSBdLCAib2RhdGEubmV4dExpbmsiOiAibmV4dD9wYWdlPTQifQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 23:37:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "5cc1bfd8-2be3-4b47-b724-e2a41b97d177",
+  "persistent" : true,
+  "insertionIndex" : 979
+}

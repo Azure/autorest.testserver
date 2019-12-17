@@ -1,0 +1,30 @@
+{
+  "id" : "b031d8e6-4d64-4e81-9245-8af498b25c00",
+  "name" : "header_param_prim_double",
+  "request" : {
+    "url" : "/header/param/prim/double",
+    "method" : "POST",
+    "headers" : {
+      "value" : {
+        "equalTo" : "7e+120"
+      },
+      "scenario" : {
+        "equalTo" : "positive"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b031d8e6-4d64-4e81-9245-8af498b25c00",
+  "persistent" : true,
+  "insertionIndex" : 606
+}

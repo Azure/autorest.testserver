@@ -1,0 +1,23 @@
+{
+  "id" : "d8b3d065-5af0-4142-bb48-a4ae95c4dad4",
+  "name" : "datetime_max_localpositiveoffset_lowercase",
+  "request" : {
+    "url" : "/datetime/max/localpositiveoffset/lowercase",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "Ijk5OTktMTItMzF0MjM6NTk6NTkuOTk5OTk5OSsxNDowMCI=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "d8b3d065-5af0-4142-bb48-a4ae95c4dad4",
+  "persistent" : true,
+  "insertionIndex" : 25
+}

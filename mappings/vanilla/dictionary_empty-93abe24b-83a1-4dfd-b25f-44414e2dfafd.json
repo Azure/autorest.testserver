@@ -1,0 +1,25 @@
+{
+  "id" : "93abe24b-83a1-4dfd-b25f-44414e2dfafd",
+  "name" : "dictionary_empty_put",
+  "request" : {
+    "url" : "/dictionary/empty",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{}"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "93abe24b-83a1-4dfd-b25f-44414e2dfafd",
+  "persistent" : true,
+  "insertionIndex" : 255
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "441ea2c6-2c1c-4841-93b6-91db00cbfe26",
+  "name" : "array_prim_uuid_valid",
+  "request" : {
+    "url" : "/array/prim/uuid/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "WyI2ZGNjNzIzNy00NWZlLTQ1YzQtOGE2Yi0zYThhM2Y2MjU2NTIiLCAiZDEzOTkwMDUtMzBmNy00MGQ2LThkYTYtZGQ3Yzg5YWQzNGRiIiwgImY0MmY2YWExLWE1YmMtNGRkZi05MDdlLTVmOTE1ZGU0MzIwNSJd",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "441ea2c6-2c1c-4841-93b6-91db00cbfe26",
+  "persistent" : true,
+  "insertionIndex" : 67
+}

@@ -1,0 +1,22 @@
+{
+  "id" : "87d6ed0f-1de8-48d2-9b67-0940528bf634",
+  "name" : "lro_error_post_202_nolocation",
+  "request" : {
+    "url" : "/lro/error/post/202/nolocation",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "87d6ed0f-1de8-48d2-9b67-0940528bf634",
+  "persistent" : true,
+  "insertionIndex" : 846
+}

@@ -290,3 +290,4 @@ __pycache__/
 package-lock.json
 *.tgz
 coverage/report-*.json
+__files/

@@ -1,0 +1,32 @@
+{
+  "id" : "90f01284-d4a2-4220-8ca9-9f01be8bf6d2",
+  "name" : "http_retry_504",
+  "request" : {
+    "url" : "/http/retry/504",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 504,
+    "base64Body" : "eyJtZXNzYWdlIjoiUmV0cnkgc2NlbmFyaW8gaW5pdGlhbCByZXF1ZXN0Iiwic3RhdHVzIjo1MDR9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "tries=504_put; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 17:54:29 GMT",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "90f01284-d4a2-4220-8ca9-9f01be8bf6d2",
+  "persistent" : true,
+  "scenarioName" : "scenario-retry-504",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-retry-504-2",
+  "insertionIndex" : 403
+}

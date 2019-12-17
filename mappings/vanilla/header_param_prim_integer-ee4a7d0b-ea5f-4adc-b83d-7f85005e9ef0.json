@@ -1,0 +1,30 @@
+{
+  "id" : "ee4a7d0b-ea5f-4adc-b83d-7f85005e9ef0",
+  "name" : "header_param_prim_integer",
+  "request" : {
+    "url" : "/header/param/prim/integer",
+    "method" : "POST",
+    "headers" : {
+      "value" : {
+        "equalTo" : "-2"
+      },
+      "scenario" : {
+        "equalTo" : "negative"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ee4a7d0b-ea5f-4adc-b83d-7f85005e9ef0",
+  "persistent" : true,
+  "insertionIndex" : 595
+}

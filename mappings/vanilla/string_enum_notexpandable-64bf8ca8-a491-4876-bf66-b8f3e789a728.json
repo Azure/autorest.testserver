@@ -1,0 +1,29 @@
+{
+  "id" : "64bf8ca8-a491-4876-bf66-b8f3e789a728",
+  "name" : "string_enum_notexpandable",
+  "request" : {
+    "url" : "/string/enum/notExpandable",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"red color\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "64bf8ca8-a491-4876-bf66-b8f3e789a728",
+  "persistent" : true,
+  "scenarioName" : "scenario-enum-notExpandable",
+  "requiredScenarioState" : "scenario-enum-notExpandable-2",
+  "insertionIndex" : 546
+}

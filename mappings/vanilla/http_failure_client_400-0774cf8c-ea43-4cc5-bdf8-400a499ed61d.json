@@ -1,0 +1,22 @@
+{
+  "id" : "0774cf8c-ea43-4cc5-bdf8-400a499ed61d",
+  "name" : "http_failure_client_400",
+  "request" : {
+    "url" : "/http/failure/client/400",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0774cf8c-ea43-4cc5-bdf8-400a499ed61d",
+  "persistent" : true,
+  "insertionIndex" : 408
+}

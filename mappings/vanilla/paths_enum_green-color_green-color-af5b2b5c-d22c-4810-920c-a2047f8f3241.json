@@ -1,0 +1,22 @@
+{
+  "id" : "af5b2b5c-d22c-4810-920c-a2047f8f3241",
+  "name" : "paths_enum_green-color_green-color",
+  "request" : {
+    "url" : "/paths/enum/green%20color/green%20color",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "af5b2b5c-d22c-4810-920c-a2047f8f3241",
+  "persistent" : true,
+  "insertionIndex" : 574
+}

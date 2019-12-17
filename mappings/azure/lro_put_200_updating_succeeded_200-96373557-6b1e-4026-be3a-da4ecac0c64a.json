@@ -1,0 +1,31 @@
+{
+  "id" : "96373557-6b1e-4026-be3a-da4ecac0c64a",
+  "name" : "lro_put_200_updating_succeeded_200",
+  "request" : {
+    "url" : "/lro/put/200/updating/succeeded/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlVwZGF0aW5nIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "96373557-6b1e-4026-be3a-da4ecac0c64a",
+  "persistent" : true,
+  "scenarioName" : "scenario-succeeded-200",
+  "requiredScenarioState" : "scenario-succeeded-200-2",
+  "newScenarioState" : "scenario-succeeded-200-3",
+  "insertionIndex" : 674
+}

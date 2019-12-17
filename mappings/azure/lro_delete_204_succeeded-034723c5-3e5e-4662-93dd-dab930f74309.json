@@ -1,0 +1,22 @@
+{
+  "id" : "034723c5-3e5e-4662-93dd-dab930f74309",
+  "name" : "lro_delete_204_succeeded",
+  "request" : {
+    "url" : "/lro/delete/204/succeeded",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 204,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "034723c5-3e5e-4662-93dd-dab930f74309",
+  "persistent" : true,
+  "insertionIndex" : 722
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "b72c4989-2579-4e99-8340-1054ad0237a4",
+  "name" : "datetimerfc1123_invalid",
+  "request" : {
+    "url" : "/datetimerfc1123/invalid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "IlR1ZSwgMDEgRGVjIDIwMDAgMDA6MDA6MEEgQUJDIg==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:26 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b72c4989-2579-4e99-8340-1054ad0237a4",
+  "persistent" : true,
+  "insertionIndex" : 206
+}

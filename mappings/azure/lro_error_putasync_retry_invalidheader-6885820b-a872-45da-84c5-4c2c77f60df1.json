@@ -1,0 +1,31 @@
+{
+  "id" : "6885820b-a872-45da-84c5-4c2c77f60df1",
+  "name" : "lro_error_putasync_retry_invalidheader",
+  "request" : {
+    "url" : "/lro/error/putasync/retry/invalidheader",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkNyZWF0aW5nIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "/foo",
+      "Location" : "/foo",
+      "Retry-After" : "/bar",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6885820b-a872-45da-84c5-4c2c77f60df1",
+  "persistent" : true,
+  "insertionIndex" : 834
+}

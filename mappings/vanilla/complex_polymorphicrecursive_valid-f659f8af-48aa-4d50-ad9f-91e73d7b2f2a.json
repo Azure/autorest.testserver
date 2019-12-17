@@ -1,0 +1,23 @@
+{
+  "id" : "f659f8af-48aa-4d50-ad9f-91e73d7b2f2a",
+  "name" : "complex_polymorphicrecursive_valid",
+  "request" : {
+    "url" : "/complex/polymorphicrecursive/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaXNodHlwZSI6InNhbG1vbiIsImxvY2F0aW9uIjoiYWxhc2thIiwiaXN3aWxkIjp0cnVlLCJzcGVjaWVzIjoia2luZyIsImxlbmd0aCI6MSwic2libGluZ3MiOlt7ImZpc2h0eXBlIjoic2hhcmsiLCJhZ2UiOjYsImJpcnRoZGF5IjoiMjAxMi0wMS0wNVQwMTowMDowMFoiLCJzcGVjaWVzIjoicHJlZGF0b3IiLCJsZW5ndGgiOjIwLCJzaWJsaW5ncyI6W3siZmlzaHR5cGUiOiJzYWxtb24iLCJsb2NhdGlvbiI6ImF0bGFudGljIiwiaXN3aWxkIjp0cnVlLCJzcGVjaWVzIjoiY29obyIsImxlbmd0aCI6Miwic2libGluZ3MiOlt7ImZpc2h0eXBlIjoic2hhcmsiLCJhZ2UiOjYsImJpcnRoZGF5IjoiMjAxMi0wMS0wNVQwMTowMDowMFoiLCJzcGVjaWVzIjoicHJlZGF0b3IiLCJsZW5ndGgiOjIwfSx7ImZpc2h0eXBlIjoic2F3c2hhcmsiLCJhZ2UiOjEwNSwiYmlydGhkYXkiOiIxOTAwLTAxLTA1VDAxOjAwOjAwWiIsInBpY3R1cmUiOiIvLy8vLy80PSIsInNwZWNpZXMiOiJkYW5nZXJvdXMiLCJsZW5ndGgiOjEwfV19LHsiZmlzaHR5cGUiOiJzYXdzaGFyayIsImFnZSI6MTA1LCJiaXJ0aGRheSI6IjE5MDAtMDEtMDVUMDE6MDA6MDBaIiwicGljdHVyZSI6Ii8vLy8vLzQ9Iiwic3BlY2llcyI6ImRhbmdlcm91cyIsImxlbmd0aCI6MTAsInNpYmxpbmdzIjpbXX1dfSx7ImZpc2h0eXBlIjoic2F3c2hhcmsiLCJhZ2UiOjEwNSwiYmlydGhkYXkiOiIxOTAwLTAxLTA1VDAxOjAwOjAwWiIsInBpY3R1cmUiOiIvLy8vLy80PSIsInNwZWNpZXMiOiJkYW5nZXJvdXMiLCJsZW5ndGgiOjEwLCJzaWJsaW5ncyI6W119XX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f659f8af-48aa-4d50-ad9f-91e73d7b2f2a",
+  "persistent" : true,
+  "insertionIndex" : 173
+}

@@ -1,0 +1,25 @@
+{
+  "id" : "f6ff3367-b3c7-4933-bf39-653f883e3cf0",
+  "name" : "xml_simple",
+  "request" : {
+    "url" : "/xml/simple",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<?xml version='1.0' encoding='utf8'?>\n<slideshow author=\"Yours Truly\" date=\"Date of publication\" title=\"Sample Slide Show\"><slide type=\"all\"><title>Wake up to WonderWidgets!</title></slide><slide type=\"all\"><title>Overview</title><item>Why WonderWidgets are great</item><item /><item>Who buys WonderWidgets</item></slide></slideshow>"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f6ff3367-b3c7-4933-bf39-653f883e3cf0",
+  "persistent" : true,
+  "insertionIndex" : 619
+}

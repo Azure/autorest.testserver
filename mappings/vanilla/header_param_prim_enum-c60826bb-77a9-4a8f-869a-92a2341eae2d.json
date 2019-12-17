@@ -1,0 +1,27 @@
+{
+  "id" : "c60826bb-77a9-4a8f-869a-92a2341eae2d",
+  "name" : "header_param_prim_enum",
+  "request" : {
+    "url" : "/header/param/prim/enum",
+    "method" : "POST",
+    "headers" : {
+      "scenario" : {
+        "equalTo" : "null"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:05 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "c60826bb-77a9-4a8f-869a-92a2341eae2d",
+  "persistent" : true,
+  "insertionIndex" : 622
+}

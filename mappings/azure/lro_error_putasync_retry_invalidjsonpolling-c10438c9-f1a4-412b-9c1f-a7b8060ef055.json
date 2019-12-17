@@ -1,0 +1,31 @@
+{
+  "id" : "c10438c9-f1a4-412b-9c1f-a7b8060ef055",
+  "name" : "lro_error_putasync_retry_invalidjsonpolling",
+  "request" : {
+    "url" : "/lro/error/putasync/retry/invalidjsonpolling",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkNyZWF0aW5nIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/error/putasync/retry/failed/operationResults/invalidjsonpolling",
+      "Location" : "http://localhost:3000/lro/error/putasync/retry/failed/operationResults/invalidjsonpolling",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "c10438c9-f1a4-412b-9c1f-a7b8060ef055",
+  "persistent" : true,
+  "insertionIndex" : 832
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "139ef020-14ef-4dd3-9a7d-59167616e738",
+  "name" : "lro_delete_202_noretry_204",
+  "request" : {
+    "url" : "/lro/delete/202/noretry/204",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/delete/202/noretry/204",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "139ef020-14ef-4dd3-9a7d-59167616e738",
+  "persistent" : true,
+  "insertionIndex" : 725
+}

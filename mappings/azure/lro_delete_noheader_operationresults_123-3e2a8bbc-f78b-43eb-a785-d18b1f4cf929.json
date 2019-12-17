@@ -1,0 +1,26 @@
+{
+  "id" : "3e2a8bbc-f78b-43eb-a785-d18b1f4cf929",
+  "name" : "lro_delete_noheader_operationresults_123",
+  "request" : {
+    "url" : "/lro/delete/noheader/operationresults/123",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=LRODeleteNoHeaderInRetry; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 22:09:56 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3e2a8bbc-f78b-43eb-a785-d18b1f4cf929",
+  "persistent" : true,
+  "scenarioName" : "scenario-operationresults-123",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-operationresults-123-2",
+  "insertionIndex" : 731
+}

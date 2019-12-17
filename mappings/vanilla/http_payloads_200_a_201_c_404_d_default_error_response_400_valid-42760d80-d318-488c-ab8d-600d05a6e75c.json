@@ -1,0 +1,23 @@
+{
+  "id" : "42760d80-d318-488c-ab8d-600d05a6e75c",
+  "name" : "http_payloads_200_a_201_c_404_d_default_error_response_400_valid",
+  "request" : {
+    "url" : "/http/payloads/200/A/201/C/404/D/default/Error/response/400/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "base64Body" : "eyJtZXNzYWdlIjoiY2xpZW50IGVycm9yIiwic3RhdHVzIjo0MDB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:28 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "42760d80-d318-488c-ab8d-600d05a6e75c",
+  "persistent" : true,
+  "insertionIndex" : 362
+}

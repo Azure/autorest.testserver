@@ -1,0 +1,23 @@
+{
+  "id" : "378e315f-bcb7-45f0-999b-98749173c487",
+  "name" : "complex_inheritance_valid",
+  "request" : {
+    "url" : "/complex/inheritance/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJicmVlZCI6InBlcnNpYW4iLCJjb2xvciI6ImdyZWVuIiwiaGF0ZXMiOlt7ImZvb2QiOiJ0b21hdG8iLCJpZCI6MSwibmFtZSI6IlBvdGF0byJ9LHsiZm9vZCI6ImZyZW5jaCBmcmllcyIsImlkIjotMSwibmFtZSI6IlRvbWF0byJ9XSwiaWQiOjIsIm5hbWUiOiJTaWFtZWVlZSJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "378e315f-bcb7-45f0-999b-98749173c487",
+  "persistent" : true,
+  "insertionIndex" : 169
+}

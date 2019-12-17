@@ -1,0 +1,23 @@
+{
+  "id" : "31418b57-66de-4938-b5a4-d3814e30e1f6",
+  "name" : "dictionary_dictionary_itemempty",
+  "request" : {
+    "url" : "/dictionary/dictionary/itemempty",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogeyIxIjogIm9uZSIsICIyIjogInR3byIsICIzIjogInRocmVlIn0sICIxIjoge30sICIyIjogeyI3IjogInNldmVuIiwgIjgiOiAiZWlnaHQiLCAiOSI6ICJuaW5lIn19",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "31418b57-66de-4938-b5a4-d3814e30e1f6",
+  "persistent" : true,
+  "insertionIndex" : 280
+}

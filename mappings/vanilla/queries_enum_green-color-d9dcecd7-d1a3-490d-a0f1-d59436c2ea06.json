@@ -1,0 +1,22 @@
+{
+  "id" : "d9dcecd7-d1a3-490d-a0f1-d59436c2ea06",
+  "name" : "queries_enum_green-color",
+  "request" : {
+    "url" : "/queries/enum/green%20color?enumQuery=green%20color",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "d9dcecd7-d1a3-490d-a0f1-d59436c2ea06",
+  "persistent" : true,
+  "insertionIndex" : 601
+}

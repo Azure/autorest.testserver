@@ -1,0 +1,22 @@
+{
+  "id" : "fbd5a1ba-74ee-43df-ab6e-df232182f1a2",
+  "name" : "files_stream_empty",
+  "request" : {
+    "url" : "/files/stream/empty",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:28 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "fbd5a1ba-74ee-43df-ab6e-df232182f1a2",
+  "persistent" : true,
+  "insertionIndex" : 291
+}

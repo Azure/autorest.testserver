@@ -1,0 +1,24 @@
+{
+  "id" : "e255cda8-65de-4885-be64-41572f3c36f8",
+  "name" : "lro_error_delete_202_retry_invalidheader",
+  "request" : {
+    "url" : "/lro/error/delete/202/retry/invalidheader",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/foo",
+      "Retry-After" : "/bar",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e255cda8-65de-4885-be64-41572f3c36f8",
+  "persistent" : true,
+  "insertionIndex" : 835
+}

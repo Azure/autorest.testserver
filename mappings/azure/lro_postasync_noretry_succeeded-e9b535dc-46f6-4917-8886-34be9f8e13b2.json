@@ -1,0 +1,25 @@
+{
+  "id" : "e9b535dc-46f6-4917-8886-34be9f8e13b2",
+  "name" : "lro_postasync_noretry_succeeded",
+  "request" : {
+    "url" : "/lro/postasync/noretry/succeeded",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkFjY2VwdGVkIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/postasync/noretry/succeeded/operationResults/200/",
+      "Location" : "http://localhost:3000/lro/postasync/noretry/Succeeded/operationResults/foo/200/",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e9b535dc-46f6-4917-8886-34be9f8e13b2",
+  "persistent" : true,
+  "insertionIndex" : 763
+}

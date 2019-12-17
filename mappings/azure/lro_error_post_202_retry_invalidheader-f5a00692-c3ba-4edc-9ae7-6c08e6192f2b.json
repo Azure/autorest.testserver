@@ -1,0 +1,24 @@
+{
+  "id" : "f5a00692-c3ba-4edc-9ae7-6c08e6192f2b",
+  "name" : "lro_error_post_202_retry_invalidheader",
+  "request" : {
+    "url" : "/lro/error/post/202/retry/invalidheader",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/foo",
+      "Retry-After" : "/bar",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f5a00692-c3ba-4edc-9ae7-6c08e6192f2b",
+  "persistent" : true,
+  "insertionIndex" : 837
+}

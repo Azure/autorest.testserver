@@ -1,0 +1,23 @@
+{
+  "id" : "4c54f25c-97e1-4bf2-927a-bcac5fd87f2a",
+  "name" : "dictionary_array_itemempty",
+  "request" : {
+    "url" : "/dictionary/array/itemempty",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogWyIxIiwgIjIiLCAiMyJdLCAiMSI6IFtdLCAiMiI6IFsiNyIsICI4IiwgIjkiXX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4c54f25c-97e1-4bf2-927a-bcac5fd87f2a",
+  "persistent" : true,
+  "insertionIndex" : 276
+}

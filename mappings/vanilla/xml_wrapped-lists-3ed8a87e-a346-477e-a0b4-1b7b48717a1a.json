@@ -1,0 +1,24 @@
+{
+  "id" : "3ed8a87e-a346-477e-a0b4-1b7b48717a1a",
+  "name" : "xml_wrapped-lists",
+  "request" : {
+    "url" : "/xml/wrapped-lists",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<AppleBarrel>\n    <GoodApples>\n        <Apple>Fuji</Apple>\n        <Apple>Gala</Apple>\n    </GoodApples>\n    <BadApples>\n        <Apple>Red Delicious</Apple>\n    </BadApples>\n</AppleBarrel>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3ed8a87e-a346-477e-a0b4-1b7b48717a1a",
+  "persistent" : true,
+  "insertionIndex" : 632
+}

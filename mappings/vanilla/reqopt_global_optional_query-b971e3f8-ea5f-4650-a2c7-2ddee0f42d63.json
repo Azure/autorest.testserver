@@ -1,0 +1,22 @@
+{
+  "id" : "b971e3f8-ea5f-4650-a2c7-2ddee0f42d63",
+  "name" : "reqopt_global_optional_query",
+  "request" : {
+    "url" : "/reqopt/global/optional/query",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b971e3f8-ea5f-4650-a2c7-2ddee0f42d63",
+  "persistent" : true,
+  "insertionIndex" : 523
+}

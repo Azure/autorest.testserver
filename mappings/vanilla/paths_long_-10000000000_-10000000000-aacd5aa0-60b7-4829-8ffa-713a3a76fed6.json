@@ -1,0 +1,22 @@
+{
+  "id" : "aacd5aa0-60b7-4829-8ffa-713a3a76fed6",
+  "name" : "paths_long_-10000000000_-10000000000",
+  "request" : {
+    "url" : "/paths/long/-10000000000/-10000000000",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "aacd5aa0-60b7-4829-8ffa-713a3a76fed6",
+  "persistent" : true,
+  "insertionIndex" : 569
+}

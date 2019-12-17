@@ -1,0 +1,28 @@
+{
+  "id" : "bf6bc02a-5f58-4437-80d4-f454ed22dfa2",
+  "name" : "additionalproperties_in_properties",
+  "request" : {
+    "url" : "/additionalProperties/in/properties",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"id\": 4, \"name\": \"Bunny\", \"additionalProperties\": {\"height\": 5.61, \"weight\": 599.0, \"footsize\": 11.5}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6NCwibmFtZSI6IkJ1bm55IiwiYWRkaXRpb25hbFByb3BlcnRpZXMiOnsiaGVpZ2h0Ijo1LjYxLCJ3ZWlnaHQiOjU5OSwiZm9vdHNpemUiOjExLjV9LCJzdGF0dXMiOnRydWV9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "bf6bc02a-5f58-4437-80d4-f454ed22dfa2",
+  "persistent" : true,
+  "insertionIndex" : 48
+}

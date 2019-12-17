@@ -1,0 +1,27 @@
+{
+  "id" : "d2fc2f6d-1a33-40b7-b509-b95fca233a54",
+  "name" : "string_whitespace",
+  "request" : {
+    "url" : "/string/whitespace",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"    Now is the time for all good men to come to the aid of their country    \"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "d2fc2f6d-1a33-40b7-b509-b95fca233a54",
+  "persistent" : true,
+  "insertionIndex" : 542
+}

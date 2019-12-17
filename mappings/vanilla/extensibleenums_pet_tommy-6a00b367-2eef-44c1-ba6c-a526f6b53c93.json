@@ -1,0 +1,23 @@
+{
+  "id" : "6a00b367-2eef-44c1-ba6c-a526f6b53c93",
+  "name" : "extensibleenums_pet_tommy",
+  "request" : {
+    "url" : "/extensibleenums/pet/tommy",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJEYXlzT2ZXZWVrIjoiTW9uZGF5IiwiSW50RW51bSI6IjEiLCJuYW1lIjoiVG9tbXkgVG9tc29uIn0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6a00b367-2eef-44c1-ba6c-a526f6b53c93",
+  "persistent" : true,
+  "insertionIndex" : 285
+}

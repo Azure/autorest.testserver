@@ -1,0 +1,27 @@
+{
+  "id" : "27cc2e02-1759-428c-9820-ed115195f7c8",
+  "name" : "datetimerfc1123_max",
+  "request" : {
+    "url" : "/datetimerfc1123/max",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"Fri, 31 Dec 9999 23:59:59 GMT\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "27cc2e02-1759-428c-9820-ed115195f7c8",
+  "persistent" : true,
+  "insertionIndex" : 42
+}

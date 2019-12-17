@@ -1,0 +1,31 @@
+{
+  "id" : "1b8a2a42-96b1-4a3b-aef7-0863848e0eac",
+  "name" : "lro_putasync_retry_succeeded",
+  "request" : {
+    "url" : "/lro/putasync/retry/succeeded",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkFjY2VwdGVkIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/putasync/retry/succeeded/operationResults/200/",
+      "Location" : "http://localhost:3000/lro/putasync/retry/succeeded/operationResults/200/",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1b8a2a42-96b1-4a3b-aef7-0863848e0eac",
+  "persistent" : true,
+  "insertionIndex" : 708
+}

@@ -1,0 +1,28 @@
+{
+  "id" : "148c7196-ea7c-4733-b16c-b80ca504733d",
+  "name" : "additionalproperties_true",
+  "request" : {
+    "url" : "/additionalProperties/true",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"birthdate\": \"2017-12-13T02:29:51Z\", \"complexProperty\": {\"color\": \"Red\"}, \"id\": 1, \"name\": \"Puppy\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6MSwibmFtZSI6IlB1cHB5IiwiYmlydGhkYXRlIjoiMjAxNy0xMi0xM1QwMjoyOTo1MVoiLCJjb21wbGV4UHJvcGVydHkiOnsiY29sb3IiOiJSZWQifSwic3RhdHVzIjp0cnVlfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "148c7196-ea7c-4733-b16c-b80ca504733d",
+  "persistent" : true,
+  "insertionIndex" : 45
+}

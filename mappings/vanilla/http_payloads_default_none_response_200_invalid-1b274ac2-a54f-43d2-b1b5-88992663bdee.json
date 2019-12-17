@@ -1,0 +1,23 @@
+{
+  "id" : "1b274ac2-a54f-43d2-b1b5-88992663bdee",
+  "name" : "http_payloads_default_none_response_200_invalid",
+  "request" : {
+    "url" : "/http/payloads/default/none/response/200/invalid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzQ29kZSI6ICIyMDAiIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:28 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1b274ac2-a54f-43d2-b1b5-88992663bdee",
+  "persistent" : true,
+  "insertionIndex" : 376
+}

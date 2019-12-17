@@ -1,0 +1,27 @@
+{
+  "id" : "531db208-5289-4e3b-b886-bb82b74113c1",
+  "name" : "model-flatten_array",
+  "request" : {
+    "url" : "/model-flatten/array",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[{\"tags\": {\"tag1\": \"value1\", \"tag2\": \"value3\"}, \"location\": \"West US\"}, {\"location\": \"Building 44\"}]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "531db208-5289-4e3b-b886-bb82b74113c1",
+  "persistent" : true,
+  "insertionIndex" : 490
+}

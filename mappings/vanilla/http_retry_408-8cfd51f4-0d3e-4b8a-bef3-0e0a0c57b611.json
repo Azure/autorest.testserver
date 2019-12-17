@@ -1,0 +1,25 @@
+{
+  "id" : "8cfd51f4-0d3e-4b8a-bef3-0e0a0c57b611",
+  "name" : "http_retry_408",
+  "request" : {
+    "url" : "/http/retry/408",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "tries=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8cfd51f4-0d3e-4b8a-bef3-0e0a0c57b611",
+  "persistent" : true,
+  "scenarioName" : "scenario-retry-408",
+  "requiredScenarioState" : "scenario-retry-408-2",
+  "insertionIndex" : 392
+}

@@ -1,0 +1,22 @@
+{
+  "id" : "da359ead-1420-4218-bc2a-fdcb831c9c94",
+  "name" : "http_failure_server_501",
+  "request" : {
+    "url" : "/http/failure/server/501",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 501,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "da359ead-1420-4218-bc2a-fdcb831c9c94",
+  "persistent" : true,
+  "insertionIndex" : 387
+}

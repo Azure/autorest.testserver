@@ -1,0 +1,28 @@
+{
+  "id" : "949d2182-1bc4-4ab6-ab14-367691e6352d",
+  "name" : "http_redirect_307",
+  "request" : {
+    "url" : "/http/redirect/307",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 307,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/http/success/put/200",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "949d2182-1bc4-4ab6-ab14-367691e6352d",
+  "persistent" : true,
+  "insertionIndex" : 447
+}

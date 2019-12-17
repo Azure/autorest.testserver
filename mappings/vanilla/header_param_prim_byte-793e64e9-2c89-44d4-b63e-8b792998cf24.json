@@ -1,0 +1,30 @@
+{
+  "id" : "793e64e9-2c89-44d4-b63e-8b792998cf24",
+  "name" : "header_param_prim_byte",
+  "request" : {
+    "url" : "/header/param/prim/byte",
+    "method" : "POST",
+    "headers" : {
+      "value" : {
+        "equalTo" : "5ZWK6b2E5LiC54ub54uc76ex76Ss76ex76iM76ip"
+      },
+      "scenario" : {
+        "equalTo" : "valid"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:05 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "793e64e9-2c89-44d4-b63e-8b792998cf24",
+  "persistent" : true,
+  "insertionIndex" : 639
+}

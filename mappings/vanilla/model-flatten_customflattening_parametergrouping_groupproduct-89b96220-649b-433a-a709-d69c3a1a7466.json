@@ -1,0 +1,28 @@
+{
+  "id" : "89b96220-649b-433a-a709-d69c3a1a7466",
+  "name" : "model-flatten_customflattening_parametergrouping_groupproduct",
+  "request" : {
+    "url" : "/model-flatten/customFlattening/parametergrouping/groupproduct/",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"base_product_id\": \"123\", \"base_product_description\": \"product description\", \"details\": {\"max_product_display_name\": \"max name\", \"max_product_capacity\": \"Large\", \"max_product_image\": {\"@odata.value\": \"http://foo\"}}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJiYXNlX3Byb2R1Y3RfaWQiOiIxMjMiLCJiYXNlX3Byb2R1Y3RfZGVzY3JpcHRpb24iOiJwcm9kdWN0IGRlc2NyaXB0aW9uIiwiZGV0YWlscyI6eyJtYXhfcHJvZHVjdF9kaXNwbGF5X25hbWUiOiJtYXggbmFtZSIsIm1heF9wcm9kdWN0X2NhcGFjaXR5IjoiTGFyZ2UiLCJtYXhfcHJvZHVjdF9pbWFnZSI6eyJAb2RhdGEudmFsdWUiOiJodHRwOi8vZm9vIn19fQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "89b96220-649b-433a-a709-d69c3a1a7466",
+  "persistent" : true,
+  "insertionIndex" : 497
+}

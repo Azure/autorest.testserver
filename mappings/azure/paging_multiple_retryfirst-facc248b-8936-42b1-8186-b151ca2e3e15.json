@@ -1,0 +1,26 @@
+{
+  "id" : "facc248b-8936-42b1-8186-b151ca2e3e15",
+  "name" : "paging_multiple_retryfirst",
+  "request" : {
+    "url" : "/paging/multiple/retryfirst",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=PagingMultipleRetryFirst; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 23:52:03 GMT",
+      "Date" : "Thu, 18 Oct 2018 23:37:03 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "facc248b-8936-42b1-8186-b151ca2e3e15",
+  "persistent" : true,
+  "scenarioName" : "scenario-multiple-retryfirst",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-multiple-retryfirst-2",
+  "insertionIndex" : 924
+}

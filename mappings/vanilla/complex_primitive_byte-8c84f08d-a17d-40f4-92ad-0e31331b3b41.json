@@ -1,0 +1,23 @@
+{
+  "id" : "8c84f08d-a17d-40f4-92ad-0e31331b3b41",
+  "name" : "complex_primitive_byte",
+  "request" : {
+    "url" : "/complex/primitive/byte",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaWVsZCI6Ii8vNzkvQUQ2K2ZqMzlnPT0ifQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8c84f08d-a17d-40f4-92ad-0e31331b3b41",
+  "persistent" : true,
+  "insertionIndex" : 154
+}

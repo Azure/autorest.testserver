@@ -1,0 +1,27 @@
+{
+  "id" : "1f071f12-e4d4-4012-81dd-f0e972ed9b11",
+  "name" : "model-flatten_resourcecollection",
+  "request" : {
+    "url" : "/model-flatten/resourcecollection",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"productresource\": {\"location\": \"India\", \"properties\": {\"p.name\": \"Azure\", \"type\": \"Flat\"}}, \"arrayofresources\": [{\"tags\": {\"tag1\": \"value1\", \"tag2\": \"value3\"}, \"location\": \"West US\", \"properties\": {\"p.name\": \"Product1\", \"type\": \"Flat\"}}, {\"location\": \"East US\", \"properties\": {\"p.name\": \"Product2\", \"type\": \"Flat\"}}], \"dictionaryofresources\": {\"Resource1\": {\"tags\": {\"tag1\": \"value1\", \"tag2\": \"value3\"}, \"location\": \"West US\", \"properties\": {\"p.name\": \"Product1\", \"type\": \"Flat\"}}, \"Resource2\": {\"location\": \"Building 44\", \"properties\": {\"p.name\": \"Product2\", \"type\": \"Flat\"}}}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1f071f12-e4d4-4012-81dd-f0e972ed9b11",
+  "persistent" : true,
+  "insertionIndex" : 494
+}

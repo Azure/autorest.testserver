@@ -1,0 +1,22 @@
+{
+  "id" : "f9ce35bf-4bb3-4a54-bf10-53e218a5ffaf",
+  "name" : "http_failure_client_416",
+  "request" : {
+    "url" : "/http/failure/client/416",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 416,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f9ce35bf-4bb3-4a54-bf10-53e218a5ffaf",
+  "persistent" : true,
+  "insertionIndex" : 427
+}

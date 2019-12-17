@@ -1,0 +1,23 @@
+{
+  "id" : "6531435b-6bbb-4fa5-95be-697a5797573d",
+  "name" : "complex_polymorphism_valid",
+  "request" : {
+    "url" : "/complex/polymorphism/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaXNodHlwZSI6InNhbG1vbiIsImxvY2F0aW9uIjoiYWxhc2thIiwiaXN3aWxkIjp0cnVlLCJzcGVjaWVzIjoia2luZyIsImxlbmd0aCI6MSwic2libGluZ3MiOlt7ImZpc2h0eXBlIjoic2hhcmsiLCJhZ2UiOjYsImJpcnRoZGF5IjoiMjAxMi0wMS0wNVQwMTowMDowMFoiLCJsZW5ndGgiOjIwLCJzcGVjaWVzIjoicHJlZGF0b3IifSx7ImZpc2h0eXBlIjoic2F3c2hhcmsiLCJhZ2UiOjEwNSwiYmlydGhkYXkiOiIxOTAwLTAxLTA1VDAxOjAwOjAwWiIsImxlbmd0aCI6MTAsInBpY3R1cmUiOiIvLy8vLy80PSIsInNwZWNpZXMiOiJkYW5nZXJvdXMifSx7ImZpc2h0eXBlIjoiZ29ibGluIiwiYWdlIjoxLCJiaXJ0aGRheSI6IjIwMTUtMDgtMDhUMDA6MDA6MDBaIiwibGVuZ3RoIjozMCwic3BlY2llcyI6InNjYXJ5IiwiamF3c2l6ZSI6NSwiY29sb3IiOiJwaW5raXNoLWdyYXkifV19",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6531435b-6bbb-4fa5-95be-697a5797573d",
+  "persistent" : true,
+  "insertionIndex" : 171
+}

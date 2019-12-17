@@ -1,0 +1,23 @@
+{
+  "id" : "ddd3ceff-5d3b-40e7-a60f-35cb518ec186",
+  "name" : "dictionary_empty_get",
+  "request" : {
+    "url" : "/dictionary/empty",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "e30=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ddd3ceff-5d3b-40e7-a60f-35cb518ec186",
+  "persistent" : true,
+  "insertionIndex" : 254
+}

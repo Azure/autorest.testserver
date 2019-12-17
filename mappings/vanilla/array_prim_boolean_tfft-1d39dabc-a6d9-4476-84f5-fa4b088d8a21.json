@@ -1,0 +1,27 @@
+{
+  "id" : "1d39dabc-a6d9-4476-84f5-fa4b088d8a21",
+  "name" : "array_prim_boolean_tfft",
+  "request" : {
+    "url" : "/array/prim/boolean/tfft",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[true, false, false, true]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1d39dabc-a6d9-4476-84f5-fa4b088d8a21",
+  "persistent" : true,
+  "insertionIndex" : 54
+}
