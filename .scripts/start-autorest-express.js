@@ -34,7 +34,7 @@ async function main() {
   let running = false;
 
   const interactive = switches.indexOf('--interactive') > -1;
-  const showEx = switches.indexOf('--show-express') > -1;
+  const showEx = switches.indexOf('--show-messages') > -1;
   const verbose = switches.indexOf('--verbose') > -1 ? console.log : () => { };
 
   let exReady = new Promise((r, j) => {

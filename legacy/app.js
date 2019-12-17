@@ -511,7 +511,8 @@ app.use(bodyParser.json({strict: false}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('swagger', express.static(path.join(__dirname,'..' ,'swagger')));
+app.use('/__files',express.static(path.join(__dirname,'..','__files')));
+
 
 app.use('/', routes);
 app.use('/bool', new bool(coverage).router);

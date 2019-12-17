@@ -46,7 +46,7 @@ async function main() {
   let running = false;
 
   const interactive = switches.indexOf('--interactive') > -1;
-  const showWM = switches.indexOf('--show-wiremock') > -1;
+  const showWM = switches.indexOf('--show-messages') > -1;
   const verbose = switches.indexOf('--verbose') > -1 ? console.log : () => { };
 
   let wmReady = new Promise((r, j) => {
