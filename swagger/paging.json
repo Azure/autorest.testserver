@@ -16,6 +16,42 @@
     "application/json"
   ],
   "paths": {
+    "/paging/noitemname": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink"},
+        "operationId": "Paging_getNoItemNamePages",
+        "description": "A paging operation that must return result of the default 'value' node.",
+        "responses": {
+          "200": {
+            "description": "A list of products",
+            "schema": {
+              "$ref": "#/definitions/ProductResultValue"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
+    "/paging/nullnextlink": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": null, "itemName": "values" },
+        "operationId": "Paging_getNullNextLinkNamePages",
+        "description": "A paging operation that must ignore any kind of nextLink, and stop after page 1.",
+        "responses": {
+          "200": {
+            "description": "A list of products",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/single": {
       "get": {
         "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
@@ -500,6 +536,20 @@
     }
   },
   "definitions": {
+    "ProductResultValue": {
+      "type":  "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
     "ProductResult": {
       "type":  "object",
       "properties": {

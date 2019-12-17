@@ -29,6 +29,8 @@ var removeScenarioCookie = function(res) {
 }
 
 var paging = function(coverage) {
+  coverage['PagingNoItemName'] = 0;
+  coverage["PagingNextLinkNameNull"] = 0;
   coverage['PagingSingle'] = 0;
   coverage['PagingMultiple'] = 0;
   coverage['PagingOdataMultiple'] = 0;
@@ -42,6 +44,16 @@ var paging = function(coverage) {
   coverage['PagingMultipleLRO'] = 0;
   coverage['PagingCustomUrlPartialNextLink'] = 0;
   coverage["PagingCustomUrlPartialOperationNextLink"] = 0;
+
+  router.get('/noitemname', function(req, res, next) {
+    coverage["PagingNoItemName"]++;
+    res.status(200).end('{ "value" : [ {"properties":{"id": 1, "name": "Product" }}]}');
+  });
+
+  router.get('/nullnextlink', function(req, res, next) {
+    coverage["PagingNextLinkNameNull"]++;
+    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/idontexistraise404" }')
+  });
 
   router.get('/single', function(req, res, next) {
     coverage["PagingSingle"]++;
