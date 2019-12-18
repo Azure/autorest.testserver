@@ -34,6 +34,7 @@ async function main() {
   const command = cmdArgs.shift()
 
   let serverProc = undefined;
+  let cmdProc = undefined;
   let spResolve = undefined;
   let spReject = undefined;
   let running = false;
@@ -58,8 +59,16 @@ async function main() {
   // start the express process
   verbose('Starting Express Server.')
   const spResult = execute(process.execPath, [`${__dirname}/../legacy/startup/www.js`], {
-    onCreate: (process) => {
-      serverProc = process;
+    onCreate: (proc) => {
+      serverProc = proc;
+      proc.on('close', ()=>{
+        if( cmdProc && cmdProc.status === null ) {
+          cmdProc.kill();
+        }
+        if( interactive ) {
+          process.exit(0);
+        }
+      })
     },
     onStdOutData: (chunk) => {
       const c = chunk.toString().replace(/\s*$/, '');
@@ -84,8 +93,9 @@ async function main() {
 
   if (!interactive) {
     await execute(command, cmdArgs, {
-      onCreate: (process) => {
+      onCreate: (proc) => {
         verbose(`Started command: '${command} ${cmdArgs.join(' ')}'`);
+        cmdProc = proc;
         running = true;
       },
       onStdOutData: (chunk) => {
@@ -102,6 +112,7 @@ async function main() {
   } else {
     await queryUser('\n\nPress enter to stop testserver\n');
   }
+  cmdProc = undefined;
 
   // after the cmdline is done.
   // shutdown server process
@@ -117,7 +128,7 @@ async function main() {
   verbose('Waiting for Express to finish.');
 
   // force-kill server process
-  if (serverProc.status === null) {
+  if (serverProc && serverProc.status === null) {
     verbose('killing express');
     serverProc.kill();
   }
