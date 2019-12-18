@@ -1,0 +1,23 @@
+{
+  "id" : "3b3fcb3b-1c86-4c8c-84ff-d60002a298c2",
+  "name" : "datetimerfc1123_max_lowercase",
+  "request" : {
+    "url" : "/datetimerfc1123/max/lowercase",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "ImZyaSwgMzEgZGVjIDk5OTkgMjM6NTk6NTkgZ210Ig==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3b3fcb3b-1c86-4c8c-84ff-d60002a298c2",
+  "persistent" : true,
+  "insertionIndex" : 39
+}

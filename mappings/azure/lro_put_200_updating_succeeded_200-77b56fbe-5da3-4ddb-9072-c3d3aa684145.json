@@ -1,0 +1,23 @@
+{
+  "id" : "77b56fbe-5da3-4ddb-9072-c3d3aa684145",
+  "name" : "lro_put_200_updating_succeeded_200",
+  "request" : {
+    "url" : "/lro/put/200/updating/succeeded/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "77b56fbe-5da3-4ddb-9072-c3d3aa684145",
+  "persistent" : true,
+  "insertionIndex" : 669
+}

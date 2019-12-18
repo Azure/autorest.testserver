@@ -1,7 +1,11 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.7.8",
-  "main": "./startup/www.js",
+  "version": "2.9.3",
+  "main": "./legacy/startup/www.js",
+  "bin": {
+    "start-autorest-express": "./.scripts/start-autorest-express.js",
+    "start-autorest-wiremock": "./.scripts/start-autorest-wiremock.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Azure/autorest.testserver"
@@ -9,13 +13,21 @@
   "author": "Microsoft Corporation",
   "license": "MIT",
   "scripts": {
-    "start": "node ./startup/www",
-    "stop": "node ./startup/shutdown.js",
+    "start": "node ./legacy/startup/www",
+    "stop": "node ./legacy/startup/shutdown",
     "testci": "echo no tests",
     "publish-preview": "npm publish",
-    "coverage-push": "node ./coverage/app-immediate-push.js",
-    "coverage-show": "node ./coverage/app-show.js",
-    "show-results": "node ./coverage/app-show.js"
+    "coverage-push": "node ./legacy/coverage/app-immediate-push",
+    "coverage-show": "node ./legacy/coverage/app-show",
+    "show-results": "node ./legacy/coverage/app-show",
+    "build": "rimraf ./__files && cpy ./swagger/* ./__files && cd __files && shx ls *.json > files.txt",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "cpy-cli": "~2.0.0",
+    "mkdirp": "~0.5.1",
+    "rimraf": "~3.0.0",
+    "shx": "0.3.2"
   },
   "dependencies": {
     "azure-storage": "^2.4.0",
@@ -33,6 +45,8 @@
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
     "underscore": "*",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.19",
+    "wiremock": "2.25.0",
+    "chalk": "3.0.0"
   }
 }

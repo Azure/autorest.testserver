@@ -1,0 +1,23 @@
+{
+  "id" : "49318f55-3d3d-40ad-9678-1606fd056959",
+  "name" : "dictionary_prim_string_foonullfoo2",
+  "request" : {
+    "url" : "/dictionary/prim/string/foo.null.foo2",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogImZvbyIsICIxIjogbnVsbCwgIjIiOiAiZm9vMiIgfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "49318f55-3d3d-40ad-9678-1606fd056959",
+  "persistent" : true,
+  "insertionIndex" : 236
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "1f0a87d6-3345-40fc-93af-ea34163128a0",
+  "name" : "array_prim_base64url_valid",
+  "request" : {
+    "url" : "/array/prim/base64url/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "WyJZU0J6ZEhKcGJtY2dkR2hoZENCblpYUnpJR1Z1WTI5a1pXUWdkMmwwYUNCaVlYTmxOalIxY213IiwgImRHVnpkQ0J6ZEhKcGJtYyIsICJURzl5WlcwZ2FYQnpkVzAiXQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1f0a87d6-3345-40fc-93af-ea34163128a0",
+  "persistent" : true,
+  "insertionIndex" : 115
+}

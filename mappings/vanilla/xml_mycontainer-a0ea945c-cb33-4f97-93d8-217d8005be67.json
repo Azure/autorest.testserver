@@ -1,0 +1,26 @@
+{
+  "id" : "a0ea945c-cb33-4f97-93d8-217d8005be67",
+  "name" : "xml_mycontainer",
+  "request" : {
+    "url" : "/xml/mycontainer?comp=list&restype=container",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<EnumerationResults ContainerName=\"https://myaccount.blob.core.windows.net/mycontainer\">\n  <Blobs>\n    <Blob>\n      <Name>blob1.txt</Name>\n      <Url>https://myaccount.blob.core.windows.net/mycontainer/blob1.txt</Url>\n      <Properties>\n        <Last-Modified>Wed, 09 Sep 2009 09:20:02 GMT</Last-Modified>\n        <Etag>0x8CBFF45D8A29A19</Etag>\n        <Content-Length>100</Content-Length>\n        <Content-Type>text/html</Content-Type>\n        <Content-Encoding />\n        <Content-Language>en-US</Content-Language>\n        <Content-MD5 />\n        <Cache-Control>no-cache</Cache-Control>\n        <BlobType>BlockBlob</BlobType>\n        <LeaseStatus>unlocked</LeaseStatus>\n      </Properties>\n      <Metadata>\n        <Color>blue</Color>\n        <BlobNumber>01</BlobNumber>\n        <SomeMetadataName>SomeMetadataValue</SomeMetadataName>\n      </Metadata>\n    </Blob>\n    <Blob>\n      <Name>blob2.txt</Name>\n      <Snapshot>2009-09-09T09:20:03.0427659Z</Snapshot>\n      <Url>https://myaccount.blob.core.windows.net/mycontainer/blob2.txt?snapshot=2009-09-09T09%3a20%3a03.0427659Z</Url>\n      <Properties>\n        <Last-Modified>Wed, 09 Sep 2009 09:20:02 GMT</Last-Modified>\n        <Etag>0x8CBFF45D8B4C212</Etag>\n        <Content-Length>5000</Content-Length>\n        <Content-Type>application/octet-stream</Content-Type>\n        <Content-Encoding>gzip</Content-Encoding>\n        <Content-Language />\n        <Content-MD5 />\n        <Cache-Control />\n        <BlobType>BlockBlob</BlobType>\n      </Properties>\n      <Metadata>\n        <Color>green</Color>\n        <BlobNumber>02</BlobNumber>\n        <SomeMetadataName>SomeMetadataValue</SomeMetadataName>\n        <x-ms-invalid-name>nasdf$@#$$</x-ms-invalid-name>\n      </Metadata>\n    </Blob>\n    <Blob>\n      <Name>blob2.txt</Name>\n      <Snapshot>2009-09-09T09:20:03.1587543Z</Snapshot>\n      <Url>https://myaccount.blob.core.windows.net/mycontainer/blob2.txt?snapshot=2009-09-09T09%3a20%3a03.1587543Z</Url>\n      <Properties>\n        <Last-Modified>Wed, 09 Sep 2009 09:20:02 GMT</Last-Modified>\n        <Etag>0x8CBFF45D8B4C212</Etag>\n        <Content-Length>5000</Content-Length>\n        <Content-Type>application/octet-stream</Content-Type>\n        <Content-Encoding>gzip</Content-Encoding>\n        <Content-Language />\n        <Content-MD5 />\n        <Cache-Control />\n        <BlobType>BlockBlob</BlobType>\n      </Properties>\n      <Metadata>\n        <Color>green</Color>\n        <BlobNumber>02</BlobNumber>\n        <SomeMetadataName>SomeMetadataValue</SomeMetadataName>\n      </Metadata>\n    </Blob>\n    <Blob>\n      <Name>blob2.txt</Name>\n      <Url>https://myaccount.blob.core.windows.net/mycontainer/blob2.txt</Url>\n      <Properties>\n        <Last-Modified>Wed, 09 Sep 2009 09:20:02 GMT</Last-Modified>\n        <Etag>0x8CBFF45D8B4C212</Etag>\n        <Content-Length>5000</Content-Length>\n        <Content-Type>application/octet-stream</Content-Type>\n        <Content-Encoding>gzip</Content-Encoding>\n        <Content-Language />\n        <Content-MD5 />\n        <Cache-Control />\n        <BlobType>BlockBlob</BlobType>\n        <LeaseStatus>unlocked</LeaseStatus>\n      </Properties>\n      <Metadata>\n        <Color>green</Color>\n        <BlobNumber>02</BlobNumber>\n        <SomeMetadataName>SomeMetadataValue</SomeMetadataName>\n      </Metadata>\n    </Blob>\n    <Blob>\n      <Name>blob3.txt</Name>\n      <Url>https://myaccount.blob.core.windows.net/mycontainer/blob3.txt</Url>\n      <Properties>\n        <Last-Modified>Wed, 09 Sep 2009 09:20:03 GMT</Last-Modified>\n        <Etag>0x8CBFF45D911FADF</Etag>\n        <Content-Length>16384</Content-Length>\n        <Content-Type>image/jpeg</Content-Type>\n        <Content-Encoding />\n        <Content-Language />\n        <Content-MD5 />\n        <Cache-Control />\n        <x-ms-blob-sequence-number>3</x-ms-blob-sequence-number>\n        <BlobType>PageBlob</BlobType>\n        <LeaseStatus>locked</LeaseStatus>\n      </Properties>\n      <Metadata>\n        <Color>yellow</Color>\n        <BlobNumber>03</BlobNumber>\n        <SomeMetadataName>SomeMetadataValue</SomeMetadataName>\n      </Metadata>\n    </Blob>\n  </Blobs>\n  <NextMarker />\n</EnumerationResults>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a0ea945c-cb33-4f97-93d8-217d8005be67",
+  "persistent" : true,
+  "scenarioName" : "scenario-xml-mycontainer",
+  "requiredScenarioState" : "scenario-xml-mycontainer-2",
+  "insertionIndex" : 644
+}

@@ -1,0 +1,28 @@
+{
+  "id" : "8075594c-d1a6-4ede-9f3d-9351b7862e97",
+  "name" : "extensibleenums_pet_addpet",
+  "request" : {
+    "url" : "/extensibleenums/pet/addPet",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"name\": \"Retriever\", \"DaysOfWeek\": \"Friday\", \"IntEnum\": \"3\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJuYW1lIjoiUmV0cmlldmVyIiwiRGF5c09mV2VlayI6IkZyaWRheSIsIkludEVudW0iOiIzIn0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8075594c-d1a6-4ede-9f3d-9351b7862e97",
+  "persistent" : true,
+  "insertionIndex" : 288
+}

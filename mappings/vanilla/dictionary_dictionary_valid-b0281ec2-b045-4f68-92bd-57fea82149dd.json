@@ -1,0 +1,23 @@
+{
+  "id" : "b0281ec2-b045-4f68-92bd-57fea82149dd",
+  "name" : "dictionary_dictionary_valid",
+  "request" : {
+    "url" : "/dictionary/dictionary/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogeyIxIjogIm9uZSIsICIyIjogInR3byIsICIzIjogInRocmVlIn0sICIxIjogeyI0IjogImZvdXIiLCAiNSI6ICJmaXZlIiwgIjYiOiAic2l4In0sICIyIjogeyI3IjogInNldmVuIiwgIjgiOiAiZWlnaHQiLCAiOSI6ICJuaW5lIn19",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b0281ec2-b045-4f68-92bd-57fea82149dd",
+  "persistent" : true,
+  "insertionIndex" : 268
+}

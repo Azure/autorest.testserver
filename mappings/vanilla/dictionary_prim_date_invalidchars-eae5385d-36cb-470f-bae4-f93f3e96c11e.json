@@ -1,0 +1,23 @@
+{
+  "id" : "eae5385d-36cb-470f-bae4-f93f3e96c11e",
+  "name" : "dictionary_prim_date_invalidchars",
+  "request" : {
+    "url" : "/dictionary/prim/date/invalidchars",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogIjIwMTEtMDMtMjIiLCAiMSI6ICJkYXRlIn0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "eae5385d-36cb-470f-bae4-f93f3e96c11e",
+  "persistent" : true,
+  "insertionIndex" : 241
+}

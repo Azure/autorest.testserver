@@ -1,0 +1,25 @@
+{
+  "id" : "ec84cff6-0a58-41de-98d5-bf3f2753a487",
+  "name" : "paging_multiple_failure",
+  "request" : {
+    "url" : "/paging/multiple/failure",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAidmFsdWVzIiA6IFsgeyJwcm9wZXJ0aWVzIjp7ImlkIjogMSwgIm5hbWUiOiAiUHJvZHVjdCIgfX1dLCAibmV4dExpbmsiOiAiaHR0cDovL2xvY2FsaG9zdDozMDAwL3BhZ2luZy9tdWx0aXBsZS9mYWlsdXJlL3BhZ2UvMiIgfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 23:37:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ec84cff6-0a58-41de-98d5-bf3f2753a487",
+  "persistent" : true,
+  "scenarioName" : "scenario-multiple-failure",
+  "requiredScenarioState" : "scenario-multiple-failure-2",
+  "insertionIndex" : 973
+}

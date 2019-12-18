@@ -1,0 +1,27 @@
+{
+  "id" : "4eb0f4af-208d-4c6c-9808-335f88721a9e",
+  "name" : "http_failure_client_406",
+  "request" : {
+    "url" : "/http/failure/client/406",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 406,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4eb0f4af-208d-4c6c-9808-335f88721a9e",
+  "persistent" : true,
+  "insertionIndex" : 418
+}

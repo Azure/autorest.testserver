@@ -1,0 +1,23 @@
+{
+  "id" : "13609979-7133-48ae-845c-2f12328e0884",
+  "name" : "complex_primitive_float",
+  "request" : {
+    "url" : "/complex/primitive/float",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaWVsZDEiOjEuMDUsImZpZWxkMiI6LTAuMDAzfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "13609979-7133-48ae-845c-2f12328e0884",
+  "persistent" : true,
+  "insertionIndex" : 138
+}

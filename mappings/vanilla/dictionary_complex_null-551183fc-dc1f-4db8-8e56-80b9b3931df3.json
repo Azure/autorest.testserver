@@ -1,0 +1,25 @@
+{
+  "id" : "551183fc-dc1f-4db8-8e56-80b9b3931df3",
+  "name" : "dictionary_complex_null",
+  "request" : {
+    "url" : "/dictionary/complex/null",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "551183fc-dc1f-4db8-8e56-80b9b3931df3",
+  "persistent" : true,
+  "scenarioName" : "scenario-complex-null",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-complex-null-2",
+  "insertionIndex" : 261
+}

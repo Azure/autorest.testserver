@@ -1,0 +1,28 @@
+{
+  "id" : "e22dedcb-92ad-43ef-8825-16d460c2257f",
+  "name" : "additionalproperties_in_properties_with_additionalproperties_string",
+  "request" : {
+    "url" : "/additionalProperties/in/properties/with/additionalProperties/string",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"color\": \"red\", \"city\": \"Seattle\", \"food\": \"tikka masala\", \"id\": 5, \"name\": \"Funny\", \"@odata.location\": \"westus\", \"additionalProperties\": {\"height\": 5.61, \"weight\": 599.0, \"footsize\": 11.5}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJpZCI6NSwibmFtZSI6IkZ1bm55IiwiQG9kYXRhLmxvY2F0aW9uIjoid2VzdHVzIiwiYWRkaXRpb25hbFByb3BlcnRpZXMiOnsiaGVpZ2h0Ijo1LjYxLCJ3ZWlnaHQiOjU5OSwiZm9vdHNpemUiOjExLjV9LCJjb2xvciI6InJlZCIsImNpdHkiOiJTZWF0dGxlIiwiZm9vZCI6InRpa2thIG1hc2FsYSIsInN0YXR1cyI6dHJ1ZX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e22dedcb-92ad-43ef-8825-16d460c2257f",
+  "persistent" : true,
+  "insertionIndex" : 49
+}

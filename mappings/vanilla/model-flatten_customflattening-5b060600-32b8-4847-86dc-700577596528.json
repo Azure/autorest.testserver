@@ -1,0 +1,28 @@
+{
+  "id" : "5b060600-32b8-4847-86dc-700577596528",
+  "name" : "model-flatten_customflattening",
+  "request" : {
+    "url" : "/model-flatten/customFlattening",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"base_product_id\": \"123\", \"base_product_description\": \"product description\", \"details\": {\"max_product_display_name\": \"max name\", \"max_product_capacity\": \"Large\", \"max_product_image\": {\"generic_value\": \"https://generic\", \"@odata.value\": \"http://foo\"}}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJiYXNlX3Byb2R1Y3RfaWQiOiIxMjMiLCJiYXNlX3Byb2R1Y3RfZGVzY3JpcHRpb24iOiJwcm9kdWN0IGRlc2NyaXB0aW9uIiwiZGV0YWlscyI6eyJtYXhfcHJvZHVjdF9kaXNwbGF5X25hbWUiOiJtYXggbmFtZSIsIm1heF9wcm9kdWN0X2NhcGFjaXR5IjoiTGFyZ2UiLCJtYXhfcHJvZHVjdF9pbWFnZSI6eyJAb2RhdGEudmFsdWUiOiJodHRwOi8vZm9vIiwiZ2VuZXJpY192YWx1ZSI6Imh0dHBzOi8vZ2VuZXJpYyJ9fX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "5b060600-32b8-4847-86dc-700577596528",
+  "persistent" : true,
+  "insertionIndex" : 495
+}

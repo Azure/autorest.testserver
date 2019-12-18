@@ -1,0 +1,26 @@
+{
+  "id" : "4ea9b66b-229a-43d4-a50a-e69f60862141",
+  "name" : "lro_putsubresourceasync_operationresults_123",
+  "request" : {
+    "url" : "/lro/putsubresourceasync/operationresults/123",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogIlN1Y2NlZWRlZCJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4ea9b66b-229a-43d4-a50a-e69f60862141",
+  "persistent" : true,
+  "scenarioName" : "scenario-operationresults-123",
+  "requiredScenarioState" : "scenario-operationresults-123-2",
+  "insertionIndex" : 692
+}

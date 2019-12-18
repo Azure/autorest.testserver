@@ -1,0 +1,23 @@
+{
+  "id" : "9a1fa071-83aa-4ab5-b726-3e1c7f46e4b0",
+  "name" : "dictionary_complex_valid",
+  "request" : {
+    "url" : "/dictionary/complex/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogeyJpbnRlZ2VyIjogMSwgInN0cmluZyI6ICIyIn0sICIxIjogeyJpbnRlZ2VyIjogMywgInN0cmluZyI6ICI0In0sICIyIjogeyJpbnRlZ2VyIjogNSwgInN0cmluZyI6ICI2In19",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "9a1fa071-83aa-4ab5-b726-3e1c7f46e4b0",
+  "persistent" : true,
+  "insertionIndex" : 264
+}

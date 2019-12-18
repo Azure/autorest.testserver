@@ -1,0 +1,24 @@
+{
+  "id" : "11e66906-79c9-4a62-8f1d-40d156aa1fd1",
+  "name" : "xml_empty-list",
+  "request" : {
+    "url" : "/xml/empty-list",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<slideshow/>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "11e66906-79c9-4a62-8f1d-40d156aa1fd1",
+  "persistent" : true,
+  "insertionIndex" : 630
+}

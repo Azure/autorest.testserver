@@ -1,0 +1,23 @@
+{
+  "id" : "3cdf3a62-8a2b-4a2f-8af0-15d5cd2a4943",
+  "name" : "http_redirect_301",
+  "request" : {
+    "url" : "/http/redirect/301",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 301,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/http/success/head/200",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3cdf3a62-8a2b-4a2f-8af0-15d5cd2a4943",
+  "persistent" : true,
+  "insertionIndex" : 433
+}

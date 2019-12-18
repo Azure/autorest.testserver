@@ -1,0 +1,27 @@
+{
+  "id" : "82a703be-1dc4-4481-810d-61266acae963",
+  "name" : "datetimerfc1123_min",
+  "request" : {
+    "url" : "/datetimerfc1123/min",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"Mon, 01 Jan 0001 00:00:00 GMT\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "82a703be-1dc4-4481-810d-61266acae963",
+  "persistent" : true,
+  "insertionIndex" : 43
+}

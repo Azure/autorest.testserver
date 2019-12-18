@@ -1,0 +1,24 @@
+{
+  "id" : "af3b8d2f-dc6c-4409-981e-d64b4bcbd36a",
+  "name" : "lro_deleteasync_noretry_succeeded_operationresults_200",
+  "request" : {
+    "url" : "/lro/deleteasync/noretry/succeeded/operationResults/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogIlN1Y2NlZWRlZCJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "af3b8d2f-dc6c-4409-981e-d64b4bcbd36a",
+  "persistent" : true,
+  "insertionIndex" : 729
+}

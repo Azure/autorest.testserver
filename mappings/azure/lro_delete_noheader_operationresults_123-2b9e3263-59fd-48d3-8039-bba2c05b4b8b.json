@@ -1,0 +1,25 @@
+{
+  "id" : "2b9e3263-59fd-48d3-8039-bba2c05b4b8b",
+  "name" : "lro_delete_noheader_operationresults_123",
+  "request" : {
+    "url" : "/lro/delete/noheader/operationresults/123",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 204,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "2b9e3263-59fd-48d3-8039-bba2c05b4b8b",
+  "persistent" : true,
+  "scenarioName" : "scenario-operationresults-123",
+  "requiredScenarioState" : "scenario-operationresults-123-2",
+  "insertionIndex" : 732
+}

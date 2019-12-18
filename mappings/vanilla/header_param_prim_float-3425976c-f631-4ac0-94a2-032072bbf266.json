@@ -1,0 +1,30 @@
+{
+  "id" : "3425976c-f631-4ac0-94a2-032072bbf266",
+  "name" : "header_param_prim_float",
+  "request" : {
+    "url" : "/header/param/prim/float",
+    "method" : "POST",
+    "headers" : {
+      "value" : {
+        "equalTo" : "-3.0"
+      },
+      "scenario" : {
+        "equalTo" : "negative"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:04 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3425976c-f631-4ac0-94a2-032072bbf266",
+  "persistent" : true,
+  "insertionIndex" : 603
+}

@@ -1,0 +1,24 @@
+{
+  "id" : "75e0ea3f-d842-437b-8fe6-f8df14473a3b",
+  "name" : "lro_post_202_retry_200",
+  "request" : {
+    "url" : "/lro/post/202/retry/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/post/newuri/202/retry/200",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "75e0ea3f-d842-437b-8fe6-f8df14473a3b",
+  "persistent" : true,
+  "insertionIndex" : 702
+}

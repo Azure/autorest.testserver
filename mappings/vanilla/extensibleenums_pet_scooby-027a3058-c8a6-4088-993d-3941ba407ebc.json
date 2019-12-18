@@ -1,0 +1,23 @@
+{
+  "id" : "027a3058-c8a6-4088-993d-3941ba407ebc",
+  "name" : "extensibleenums_pet_scooby",
+  "request" : {
+    "url" : "/extensibleenums/pet/scooby",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJEYXlzT2ZXZWVrIjoiVGh1cnNkYXkiLCJJbnRFbnVtIjoiMi4xIiwibmFtZSI6IlNjb29ieSBTY2FyZmFjZSJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "027a3058-c8a6-4088-993d-3941ba407ebc",
+  "persistent" : true,
+  "insertionIndex" : 287
+}

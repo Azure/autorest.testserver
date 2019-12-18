@@ -1,0 +1,27 @@
+{
+  "id" : "be7d1394-fa18-4e86-976b-c113b85ef263",
+  "name" : "complex_primitive_duration",
+  "request" : {
+    "url" : "/complex/primitive/duration",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field\": \"P123DT22H14M12.011S\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "be7d1394-fa18-4e86-976b-c113b85ef263",
+  "persistent" : true,
+  "insertionIndex" : 153
+}

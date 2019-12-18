@@ -1,0 +1,25 @@
+{
+  "id" : "82bb7234-e7eb-46e2-9bf8-17533611e4af",
+  "name" : "lro_error_postasync_retry_invalidheader",
+  "request" : {
+    "url" : "/lro/error/postasync/retry/invalidheader",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "/foo",
+      "Location" : "/foo",
+      "Retry-After" : "/bar",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "82bb7234-e7eb-46e2-9bf8-17533611e4af",
+  "persistent" : true,
+  "insertionIndex" : 838
+}

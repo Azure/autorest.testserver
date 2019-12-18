@@ -1,0 +1,28 @@
+{
+  "id" : "dce71270-43f7-4e78-8450-7bcda275a756",
+  "name" : "http_redirect_307",
+  "request" : {
+    "url" : "/http/redirect/307",
+    "method" : "PATCH",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 307,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/http/success/patch/200",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dce71270-43f7-4e78-8450-7bcda275a756",
+  "persistent" : true,
+  "insertionIndex" : 451
+}

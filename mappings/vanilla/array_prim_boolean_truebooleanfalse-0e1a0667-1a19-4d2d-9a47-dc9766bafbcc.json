@@ -1,0 +1,23 @@
+{
+  "id" : "0e1a0667-1a19-4d2d-9a47-dc9766bafbcc",
+  "name" : "array_prim_boolean_truebooleanfalse",
+  "request" : {
+    "url" : "/array/prim/boolean/true.boolean.false",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "W3RydWUsICJib29sZWFuIiwgZmFsc2Vd",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0e1a0667-1a19-4d2d-9a47-dc9766bafbcc",
+  "persistent" : true,
+  "insertionIndex" : 101
+}

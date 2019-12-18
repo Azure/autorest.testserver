@@ -1,0 +1,27 @@
+{
+  "id" : "001441fa-90e8-4daa-b7e5-a11f15d2e197",
+  "name" : "array_prim_date-time_valid",
+  "request" : {
+    "url" : "/array/prim/date-time/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[\"2000-12-01T00:00:01.000Z\", \"1980-01-02T00:11:35.000Z\", \"1492-10-12T10:15:01.000Z\"]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "001441fa-90e8-4daa-b7e5-a11f15d2e197",
+  "persistent" : true,
+  "insertionIndex" : 73
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "2db9efc4-ecf0-476a-aa33-d96d4bfaf40e",
+  "name" : "model-flatten_resourcecollection",
+  "request" : {
+    "url" : "/model-flatten/resourcecollection",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJkaWN0aW9uYXJ5b2ZyZXNvdXJjZXMiOnsiUHJvZHVjdDEiOnsiaWQiOiIxIiwibG9jYXRpb24iOiJCdWlsZGluZyA0NCIsIm5hbWUiOiJSZXNvdXJjZTEiLCJwcm9wZXJ0aWVzIjp7InByb3Zpc2lvbmluZ1N0YXRlIjoiU3VjY2VlZGVkIiwicHJvdmlzaW9uaW5nU3RhdGVWYWx1ZXMiOiJPSyIsInAubmFtZSI6IlByb2R1Y3QxIiwidHlwZSI6IkZsYXQifSwidGFncyI6eyJ0YWcxIjoidmFsdWUxIiwidGFnMiI6InZhbHVlMyJ9LCJ0eXBlIjoiTWljcm9zb2Z0LldlYi9zaXRlcyJ9LCJQcm9kdWN0MiI6eyJpZCI6IjIiLCJuYW1lIjoiUmVzb3VyY2UyIiwibG9jYXRpb24iOiJCdWlsZGluZyA0NCJ9LCJQcm9kdWN0MyI6eyJpZCI6IjMiLCJuYW1lIjoiUmVzb3VyY2UzIn19LCJhcnJheW9mcmVzb3VyY2VzIjpbeyJpZCI6IjQiLCJsb2NhdGlvbiI6IkJ1aWxkaW5nIDQ0IiwibmFtZSI6IlJlc291cmNlNCIsInByb3BlcnRpZXMiOnsicHJvdmlzaW9uaW5nU3RhdGUiOiJTdWNjZWVkZWQiLCJwcm92aXNpb25pbmdTdGF0ZVZhbHVlcyI6Ik9LIiwicC5uYW1lIjoiUHJvZHVjdDQiLCJ0eXBlIjoiRmxhdCJ9LCJ0YWdzIjp7InRhZzEiOiJ2YWx1ZTEiLCJ0YWcyIjoidmFsdWUzIn0sInR5cGUiOiJNaWNyb3NvZnQuV2ViL3NpdGVzIn0seyJpZCI6IjUiLCJuYW1lIjoiUmVzb3VyY2U1IiwibG9jYXRpb24iOiJCdWlsZGluZyA0NCJ9LHsiaWQiOiI2IiwibmFtZSI6IlJlc291cmNlNiJ9XSwicHJvZHVjdHJlc291cmNlIjp7ImlkIjoiNyIsIm5hbWUiOiJSZXNvdXJjZTciLCJsb2NhdGlvbiI6IkJ1aWxkaW5nIDQ0In19",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "2db9efc4-ecf0-476a-aa33-d96d4bfaf40e",
+  "persistent" : true,
+  "insertionIndex" : 493
+}

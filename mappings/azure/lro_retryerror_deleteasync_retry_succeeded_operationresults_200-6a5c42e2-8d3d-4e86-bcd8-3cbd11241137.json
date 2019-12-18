@@ -1,0 +1,26 @@
+{
+  "id" : "6a5c42e2-8d3d-4e86-bcd8-3cbd11241137",
+  "name" : "lro_retryerror_deleteasync_retry_succeeded_operationresults_200",
+  "request" : {
+    "url" : "/lro/retryerror/deleteasync/retry/succeeded/operationResults/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogIlN1Y2NlZWRlZCIgfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "6a5c42e2-8d3d-4e86-bcd8-3cbd11241137",
+  "persistent" : true,
+  "scenarioName" : "scenario-operationResults-200",
+  "requiredScenarioState" : "scenario-operationResults-200-2",
+  "insertionIndex" : 789
+}

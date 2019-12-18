@@ -1,0 +1,27 @@
+{
+  "id" : "285b786e-8df3-47ec-a516-ae25ab27bda0",
+  "name" : "string_mbcs",
+  "request" : {
+    "url" : "/string/mbcs",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"\\u554a\\u9f44\\u4e02\\u72db\\u72dc\\uf9f1\\uf92c\\uf9f1\\ufa0c\\ufa29\\u02ca\\u301e\\u3021\\uffe4\\u2121\\u3231\\u2010\\u30fc\\ufe61\\ufe62\\ufe6b\\u3001\\u3013\\u2170\\u2179\\u2488\\u20ac\\u3220\\u3229\\u2160\\u216b\\uff01\\uffe3\\u3041\\u3093\\u30a1\\u30f6\\u0391\\ufe34\\u0410\\u042f\\u0430\\u044f\\u0101\\u0261\\u3105\\u3129\\u2500\\u254b\\ufe35\\ufe44\\ufe3b\\ufe31\\ufe33\\ufe34\\u2170\\u2179\\u0251\\ue7c7\\u0261\\u3007\\u303e\\u2ffb\\u2e81\\ue843\\u4723\\ue864\\u20ac\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "285b786e-8df3-47ec-a516-ae25ab27bda0",
+  "persistent" : true,
+  "insertionIndex" : 540
+}

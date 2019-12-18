@@ -1,0 +1,29 @@
+{
+  "id" : "39604533-f31c-4479-b3e1-35080ce361f8",
+  "name" : "formdata_stream_uploadfile",
+  "request" : {
+    "url" : "/formdata/stream/uploadfile",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "anything" : "anything"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "VGVzdCBmaWxl",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:28 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "39604533-f31c-4479-b3e1-35080ce361f8",
+  "persistent" : true,
+  "scenarioName" : "scenario-stream-uploadfile",
+  "requiredScenarioState" : "scenario-stream-uploadfile-3",
+  "newScenarioState" : "scenario-stream-uploadfile-4",
+  "insertionIndex" : 294
+}

@@ -1,0 +1,26 @@
+{
+  "id" : "f2ffdd11-46df-47dc-84aa-b5beb35654f5",
+  "name" : "dictionary_complex_empty",
+  "request" : {
+    "url" : "/dictionary/complex/empty",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "e30=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f2ffdd11-46df-47dc-84aa-b5beb35654f5",
+  "persistent" : true,
+  "scenarioName" : "scenario-complex-empty",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-complex-empty-2",
+  "insertionIndex" : 262
+}

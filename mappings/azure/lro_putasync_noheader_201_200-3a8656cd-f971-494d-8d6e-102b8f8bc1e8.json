@@ -1,0 +1,23 @@
+{
+  "id" : "3a8656cd-f971-494d-8d6e-102b8f8bc1e8",
+  "name" : "lro_putasync_noheader_201_200",
+  "request" : {
+    "url" : "/lro/putasync/noheader/201/200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3a8656cd-f971-494d-8d6e-102b8f8bc1e8",
+  "persistent" : true,
+  "insertionIndex" : 686
+}

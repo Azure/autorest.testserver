@@ -1,0 +1,28 @@
+{
+  "id" : "88a4dcfe-b6f8-4dd5-90ed-809ff49f2804",
+  "name" : "validation_constantsinpath_constant_value",
+  "request" : {
+    "url" : "/validation/constantsInPath/constant/value",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"child\": {\"constProperty\": \"constant\"}, \"constChild\": {\"constProperty\": \"constant\", \"constProperty2\": \"constant2\"}, \"constInt\": 0, \"constString\": \"constant\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJjaGlsZCI6eyJjb25zdFByb3BlcnR5IjoiY29uc3RhbnQifSwiY29uc3RDaGlsZCI6eyJjb25zdFByb3BlcnR5IjoiY29uc3RhbnQiLCJjb25zdFByb3BlcnR5MiI6ImNvbnN0YW50MiJ9LCJjb25zdEludCI6MCwiY29uc3RTdHJpbmciOiJjb25zdGFudCJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "88a4dcfe-b6f8-4dd5-90ed-809ff49f2804",
+  "persistent" : true,
+  "insertionIndex" : 617
+}

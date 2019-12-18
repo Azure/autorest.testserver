@@ -1,0 +1,27 @@
+{
+  "id" : "50077672-583d-4ae2-8fe8-3ccef89abd97",
+  "name" : "complex_primitive_string",
+  "request" : {
+    "url" : "/complex/primitive/string",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field\": \"goodrequest\", \"empty\": \"\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "50077672-583d-4ae2-8fe8-3ccef89abd97",
+  "persistent" : true,
+  "insertionIndex" : 145
+}

@@ -1,0 +1,22 @@
+{
+  "id" : "8a510631-d57c-43e8-b361-46f1b6f1f56e",
+  "name" : "datetimerfc1123_null",
+  "request" : {
+    "url" : "/datetimerfc1123/null",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8a510631-d57c-43e8-b361-46f1b6f1f56e",
+  "persistent" : true,
+  "insertionIndex" : 35
+}

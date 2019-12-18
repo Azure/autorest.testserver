@@ -1,0 +1,22 @@
+{
+  "id" : "a31a47d6-1c4f-4721-bfd0-bfa52eb70318",
+  "name" : "pathitem_nullable_globalstringpath_globalstringpath_pathitemstringpath_pathitemstringpath_localstringpath_localstringpath_globalstringquery_pathitemstringquery_localstringquery",
+  "request" : {
+    "url" : "/pathitem/nullable/globalStringPath/globalStringPath/pathItemStringPath/pathItemStringPath/localStringPath/localStringPath/globalStringQuery/pathItemStringQuery/localStringQuery?localStringQuery=localStringQuery&pathItemStringQuery=pathItemStringQuery&globalStringQuery=globalStringQuery",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a31a47d6-1c4f-4721-bfd0-bfa52eb70318",
+  "persistent" : true,
+  "insertionIndex" : 612
+}

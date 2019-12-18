@@ -1,0 +1,28 @@
+{
+  "id" : "8fad6429-c05b-48e8-895d-41bcf9e11ec9",
+  "name" : "http_redirect_303",
+  "request" : {
+    "url" : "/http/redirect/303",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 303,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "/http/success/get/200",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8fad6429-c05b-48e8-895d-41bcf9e11ec9",
+  "persistent" : true,
+  "insertionIndex" : 441
+}

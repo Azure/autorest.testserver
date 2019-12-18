@@ -1,0 +1,28 @@
+{
+  "id" : "c2ce4330-f4e0-488e-8347-cb5588541fbe",
+  "name" : "lro_putnonresource_202_200",
+  "request" : {
+    "url" : "/lro/putnonresource/202/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/putnonresource/operationresults",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "c2ce4330-f4e0-488e-8347-cb5588541fbe",
+  "persistent" : true,
+  "insertionIndex" : 694
+}

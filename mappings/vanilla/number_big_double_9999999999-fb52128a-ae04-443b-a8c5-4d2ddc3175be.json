@@ -1,0 +1,23 @@
+{
+  "id" : "fb52128a-ae04-443b-a8c5-4d2ddc3175be",
+  "name" : "number_big_double_9999999999",
+  "request" : {
+    "url" : "/number/big/double/99999999.99",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "OTk5OTk5OTkuOTk=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "fb52128a-ae04-443b-a8c5-4d2ddc3175be",
+  "persistent" : true,
+  "insertionIndex" : 512
+}

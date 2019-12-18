@@ -1,0 +1,22 @@
+{
+  "id" : "a0b11188-1f63-4c4f-acd0-729a1f91d6ac",
+  "name" : "customuri_test12_key1",
+  "request" : {
+    "url" : "/customuri/test12/key1?keyVersion=v1",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:26 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a0b11188-1f63-4c4f-acd0-729a1f91d6ac",
+  "persistent" : true,
+  "insertionIndex" : 179
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "e8c414da-7cec-45a3-a70b-b6ad75eaa0d3",
+  "name" : "complex_primitive_bool",
+  "request" : {
+    "url" : "/complex/primitive/bool",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field_true\": true, \"field_false\": false}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "e8c414da-7cec-45a3-a70b-b6ad75eaa0d3",
+  "persistent" : true,
+  "insertionIndex" : 143
+}

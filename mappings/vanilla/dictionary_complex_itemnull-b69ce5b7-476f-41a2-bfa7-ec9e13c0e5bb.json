@@ -1,0 +1,23 @@
+{
+  "id" : "b69ce5b7-476f-41a2-bfa7-ec9e13c0e5bb",
+  "name" : "dictionary_complex_itemnull",
+  "request" : {
+    "url" : "/dictionary/complex/itemnull",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogeyJpbnRlZ2VyIjogMSwgInN0cmluZyI6ICIyIn0sICIxIjogbnVsbCwgIjIiOiB7ImludGVnZXIiOiA1LCAic3RyaW5nIjogIjYifX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "b69ce5b7-476f-41a2-bfa7-ec9e13c0e5bb",
+  "persistent" : true,
+  "insertionIndex" : 271
+}

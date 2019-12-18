@@ -1,0 +1,27 @@
+{
+  "id" : "3425d1a0-65cf-4515-a865-f2f13e065319",
+  "name" : "complex_primitive_datetimerfc1123",
+  "request" : {
+    "url" : "/complex/primitive/datetimerfc1123",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field\": \"Mon, 01 Jan 0001 00:00:00 GMT\", \"now\": \"Mon, 18 May 2015 11:38:00 GMT\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3425d1a0-65cf-4515-a865-f2f13e065319",
+  "persistent" : true,
+  "insertionIndex" : 151
+}

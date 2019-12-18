@@ -1,0 +1,27 @@
+{
+  "id" : "4eedb013-39ed-47a1-9b5c-8d3f39c01219",
+  "name" : "http_failure_client_407",
+  "request" : {
+    "url" : "/http/failure/client/407",
+    "method" : "DELETE",
+    "bodyPatterns" : [ {
+      "equalToJson" : "true",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 407,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4eedb013-39ed-47a1-9b5c-8d3f39c01219",
+  "persistent" : true,
+  "insertionIndex" : 419
+}

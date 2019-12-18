@@ -1,0 +1,24 @@
+{
+  "id" : "ef510eb5-a615-4dc4-88ab-b1b0a80838a9",
+  "name" : "xml_root-list-single-item",
+  "request" : {
+    "url" : "/xml/root-list-single-item",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<bananas>\n    <banana>\n        <name>Cavendish</name>\n        <flavor>Sweet</flavor>\n        <expiration>2018-02-28T00:40:00.123Z</expiration>\n    </banana>\n</bananas>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ef510eb5-a615-4dc4-88ab-b1b0a80838a9",
+  "persistent" : true,
+  "insertionIndex" : 624
+}

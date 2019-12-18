@@ -1,0 +1,23 @@
+{
+  "id" : "348c9c8c-213e-49d6-b267-22e76b8c7110",
+  "name" : "array_array_itemnull",
+  "request" : {
+    "url" : "/array/array/itemnull",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "W1siMSIsICIyIiwgIjMiXSwgbnVsbCwgWyI3IiwgIjgiLCAiOSJdXQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "348c9c8c-213e-49d6-b267-22e76b8c7110",
+  "persistent" : true,
+  "insertionIndex" : 93
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "323f10f2-22e1-4a11-a3d1-5205c5280349",
+  "name" : "dictionary_prim_boolean_tfft",
+  "request" : {
+    "url" : "/dictionary/prim/boolean/tfft",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogdHJ1ZSwgIjEiOiBmYWxzZSwgIjIiOiBmYWxzZSwgIjMiOiB0cnVlIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "323f10f2-22e1-4a11-a3d1-5205c5280349",
+  "persistent" : true,
+  "insertionIndex" : 214
+}

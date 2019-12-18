@@ -1,0 +1,22 @@
+{
+  "id" : "c88aaf2e-b3e2-4669-92d2-a4d8ac6f6647",
+  "name" : "pathitem_nullable_globalstringpath_globalstringpath_pathitemstringpath_pathitemstringpath_localstringpath_localstringpath_globalstringquery_null_null",
+  "request" : {
+    "url" : "/pathitem/nullable/globalStringPath/globalStringPath/pathItemStringPath/pathItemStringPath/localStringPath/localStringPath/globalStringQuery/null/null?globalStringQuery=globalStringQuery",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "c88aaf2e-b3e2-4669-92d2-a4d8ac6f6647",
+  "persistent" : true,
+  "insertionIndex" : 615
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "8eca5304-2929-43c9-aa93-ac0c7aabd088",
+  "name" : "dictionary_prim_byte_valid",
+  "request" : {
+    "url" : "/dictionary/prim/byte/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"0\": \"////+g==\", \"1\": \"AQID\", \"2\": \"JSlD\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "8eca5304-2929-43c9-aa93-ac0c7aabd088",
+  "persistent" : true,
+  "insertionIndex" : 250
+}

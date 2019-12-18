@@ -1,0 +1,30 @@
+{
+  "id" : "61ff4b93-0289-41a0-895f-01729c3edff1",
+  "name" : "lro_put_200_accepted_canceled_200",
+  "request" : {
+    "url" : "/lro/put/200/accepted/canceled/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkFjY2VwdGVkIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "61ff4b93-0289-41a0-895f-01729c3edff1",
+  "persistent" : true,
+  "scenarioName" : "scenario-canceled-200",
+  "requiredScenarioState" : "scenario-canceled-200-3",
+  "insertionIndex" : 679
+}

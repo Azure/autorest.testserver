@@ -1,0 +1,34 @@
+{
+  "id" : "442fff8d-245d-444a-8c11-ea00fcbeee46",
+  "name" : "lro_retryerror_putasync_retry_succeeded",
+  "request" : {
+    "url" : "/lro/retryerror/putasync/retry/succeeded",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkNyZWF0aW5nIn0sICJpZCI6ICIxMDAiLCAibmFtZSI6ICJmb28iIH0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/retryerror/putasync/retry/succeeded/operationResults/200",
+      "Location" : "http://localhost:3000/lro/retryerror/putasync/retry/succeeded/operationResults/200",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "442fff8d-245d-444a-8c11-ea00fcbeee46",
+  "persistent" : true,
+  "scenarioName" : "scenario-retry-succeeded",
+  "requiredScenarioState" : "scenario-retry-succeeded-2",
+  "insertionIndex" : 773
+}

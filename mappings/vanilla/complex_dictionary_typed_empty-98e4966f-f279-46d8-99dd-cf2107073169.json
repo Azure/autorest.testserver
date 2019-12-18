@@ -1,0 +1,27 @@
+{
+  "id" : "98e4966f-f279-46d8-99dd-cf2107073169",
+  "name" : "complex_dictionary_typed_empty",
+  "request" : {
+    "url" : "/complex/dictionary/typed/empty",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"defaultProgram\": {}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "98e4966f-f279-46d8-99dd-cf2107073169",
+  "persistent" : true,
+  "insertionIndex" : 166
+}

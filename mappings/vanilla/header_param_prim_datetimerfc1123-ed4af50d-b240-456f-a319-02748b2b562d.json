@@ -1,0 +1,30 @@
+{
+  "id" : "ed4af50d-b240-456f-a319-02748b2b562d",
+  "name" : "header_param_prim_datetimerfc1123",
+  "request" : {
+    "url" : "/header/param/prim/datetimerfc1123",
+    "method" : "POST",
+    "headers" : {
+      "value" : {
+        "equalTo" : "Fri, 01 Jan 2010 12:34:56 GMT"
+      },
+      "scenario" : {
+        "equalTo" : "valid"
+      }
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:29:05 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "ed4af50d-b240-456f-a319-02748b2b562d",
+  "persistent" : true,
+  "insertionIndex" : 633
+}

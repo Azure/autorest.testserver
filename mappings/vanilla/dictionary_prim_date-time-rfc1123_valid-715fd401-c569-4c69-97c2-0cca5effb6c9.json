@@ -1,0 +1,23 @@
+{
+  "id" : "715fd401-c569-4c69-97c2-0cca5effb6c9",
+  "name" : "dictionary_prim_date-time-rfc1123_valid",
+  "request" : {
+    "url" : "/dictionary/prim/date-time-rfc1123/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyIwIjogIkZyaSwgMDEgRGVjIDIwMDAgMDA6MDA6MDEgR01UIiwgIjEiOiAiV2VkLCAwMiBKYW4gMTk4MCAwMDoxMTozNSBHTVQiLCAiMiI6ICJXZWQsIDEyIE9jdCAxNDkyIDEwOjE1OjAxIEdNVCJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "715fd401-c569-4c69-97c2-0cca5effb6c9",
+  "persistent" : true,
+  "insertionIndex" : 246
+}

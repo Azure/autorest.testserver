@@ -1,0 +1,29 @@
+{
+  "id" : "50165e8a-601e-4175-9bc5-8b14b1f60831",
+  "name" : "lro_putnonresourceasync_202_200",
+  "request" : {
+    "url" : "/lro/putnonresourceasync/202/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/putnonresourceasync/operationresults/123",
+      "Location" : "somethingBadWhichShouldNotBeUsed",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "50165e8a-601e-4175-9bc5-8b14b1f60831",
+  "persistent" : true,
+  "insertionIndex" : 697
+}

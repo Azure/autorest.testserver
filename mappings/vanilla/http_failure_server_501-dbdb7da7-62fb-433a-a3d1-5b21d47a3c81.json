@@ -1,0 +1,22 @@
+{
+  "id" : "dbdb7da7-62fb-433a-a3d1-5b21d47a3c81",
+  "name" : "http_failure_server_501",
+  "request" : {
+    "url" : "/http/failure/server/501",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 501,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dbdb7da7-62fb-433a-a3d1-5b21d47a3c81",
+  "persistent" : true,
+  "insertionIndex" : 388
+}

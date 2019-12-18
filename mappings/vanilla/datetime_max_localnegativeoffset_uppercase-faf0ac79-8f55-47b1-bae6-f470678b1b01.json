@@ -1,0 +1,23 @@
+{
+  "id" : "faf0ac79-8f55-47b1-bae6-f470678b1b01",
+  "name" : "datetime_max_localnegativeoffset_uppercase",
+  "request" : {
+    "url" : "/datetime/max/localnegativeoffset/uppercase",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "Ijk5OTktMTItMzFUMjM6NTk6NTkuOTk5OTk5OS0xNDowMCI=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:38:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "faf0ac79-8f55-47b1-bae6-f470678b1b01",
+  "persistent" : true,
+  "insertionIndex" : 23
+}

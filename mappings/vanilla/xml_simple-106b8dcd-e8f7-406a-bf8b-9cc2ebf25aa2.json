@@ -1,0 +1,24 @@
+{
+  "id" : "106b8dcd-e8f7-406a-bf8b-9cc2ebf25aa2",
+  "name" : "xml_simple",
+  "request" : {
+    "url" : "/xml/simple",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version='1.0' encoding='UTF-8'?>\n<slideshow\n        title=\"Sample Slide Show\"\n        date=\"Date of publication\"\n        author=\"Yours Truly\">\n    <slide type=\"all\">\n        <title>Wake up to WonderWidgets!</title>\n    </slide>\n\n    <slide type=\"all\">\n        <title>Overview</title>\n        <item>Why WonderWidgets are great</item>\n        <item></item>\n        <item>Who buys WonderWidgets</item>\n    </slide>\n</slideshow>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "106b8dcd-e8f7-406a-bf8b-9cc2ebf25aa2",
+  "persistent" : true,
+  "insertionIndex" : 618
+}

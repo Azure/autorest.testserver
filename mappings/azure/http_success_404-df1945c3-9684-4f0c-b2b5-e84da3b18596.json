@@ -1,0 +1,25 @@
+{
+  "id" : "df1945c3-9684-4f0c-b2b5-e84da3b18596",
+  "name" : "http_success_404",
+  "request" : {
+    "url" : "/http/success/404",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 404,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:55 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "df1945c3-9684-4f0c-b2b5-e84da3b18596",
+  "persistent" : true,
+  "scenarioName" : "scenario-success-404",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-success-404-2",
+  "insertionIndex" : 653
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "7bde9f92-f5e9-412c-9cc6-76fa406ed713",
+  "name" : "model-flatten_array",
+  "request" : {
+    "url" : "/model-flatten/array",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "W3siaWQiOiIxIiwibG9jYXRpb24iOiJCdWlsZGluZyA0NCIsIm5hbWUiOiJSZXNvdXJjZTEiLCJwcm9wZXJ0aWVzIjp7InByb3Zpc2lvbmluZ1N0YXRlIjoiU3VjY2VlZGVkIiwicHJvdmlzaW9uaW5nU3RhdGVWYWx1ZXMiOiJPSyIsInAubmFtZSI6IlByb2R1Y3QxIiwidHlwZSI6IkZsYXQifSwidGFncyI6eyJ0YWcxIjoidmFsdWUxIiwidGFnMiI6InZhbHVlMyJ9LCJ0eXBlIjoiTWljcm9zb2Z0LldlYi9zaXRlcyJ9LHsiaWQiOiIyIiwibmFtZSI6IlJlc291cmNlMiIsImxvY2F0aW9uIjoiQnVpbGRpbmcgNDQifSx7ImlkIjoiMyIsIm5hbWUiOiJSZXNvdXJjZTMifV0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7bde9f92-f5e9-412c-9cc6-76fa406ed713",
+  "persistent" : true,
+  "insertionIndex" : 489
+}

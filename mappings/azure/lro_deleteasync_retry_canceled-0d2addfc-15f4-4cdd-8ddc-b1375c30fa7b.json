@@ -1,0 +1,25 @@
+{
+  "id" : "0d2addfc-15f4-4cdd-8ddc-b1375c30fa7b",
+  "name" : "lro_deleteasync_retry_canceled",
+  "request" : {
+    "url" : "/lro/deleteasync/retry/canceled",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/deleteasync/retry/canceled/operationResults/200/",
+      "Location" : "http://localhost:3000/lro/deleteasync/retry/canceled/operationResults/200/",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0d2addfc-15f4-4cdd-8ddc-b1375c30fa7b",
+  "persistent" : true,
+  "insertionIndex" : 736
+}

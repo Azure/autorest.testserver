@@ -1,0 +1,22 @@
+{
+  "id" : "f1a8e2ff-699d-4265-b1d1-32a6bd142f9f",
+  "name" : "dictionary_array_null",
+  "request" : {
+    "url" : "/dictionary/array/null",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "f1a8e2ff-699d-4265-b1d1-32a6bd142f9f",
+  "persistent" : true,
+  "insertionIndex" : 273
+}

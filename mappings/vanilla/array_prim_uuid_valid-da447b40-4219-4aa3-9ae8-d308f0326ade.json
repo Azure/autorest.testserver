@@ -1,0 +1,27 @@
+{
+  "id" : "da447b40-4219-4aa3-9ae8-d308f0326ade",
+  "name" : "array_prim_uuid_valid",
+  "request" : {
+    "url" : "/array/prim/uuid/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[\"6dcc7237-45fe-45c4-8a6b-3a8a3f625652\", \"d1399005-30f7-40d6-8da6-dd7c89ad34db\", \"f42f6aa1-a5bc-4ddf-907e-5f915de43205\"]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "da447b40-4219-4aa3-9ae8-d308f0326ade",
+  "persistent" : true,
+  "insertionIndex" : 68
+}

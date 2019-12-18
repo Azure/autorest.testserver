@@ -1,0 +1,22 @@
+{
+  "id" : "9f85ba6a-1c5f-4291-be37-1a852fe8fae2",
+  "name" : "queries_date_2012-01-01",
+  "request" : {
+    "url" : "/queries/date/2012-01-01?dateQuery=2012-01-01",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "9f85ba6a-1c5f-4291-be37-1a852fe8fae2",
+  "persistent" : true,
+  "insertionIndex" : 582
+}

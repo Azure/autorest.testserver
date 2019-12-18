@@ -1,0 +1,29 @@
+{
+  "id" : "4cae9c61-c90b-4a41-b084-2a14748019c4",
+  "name" : "lro_putsubresource_202_200",
+  "request" : {
+    "url" : "/lro/putsubresource/202/200",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"properties\": {\"provisioningState\": \"{'additional_properties': {}, 'id': None, 'provisioning_state': None, 'provisioning_state_values': None}\"}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 202,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIkFjY2VwdGVkIn0sICJpZCI6ICIxMDAiLCAic3VicmVzb3VyY2UiOiAic3ViMSIgfQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/putsubresource/operationresults",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4cae9c61-c90b-4a41-b084-2a14748019c4",
+  "persistent" : true,
+  "insertionIndex" : 687
+}

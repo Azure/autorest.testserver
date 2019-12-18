@@ -1,0 +1,29 @@
+{
+  "id" : "0ba7fa79-24ec-41dc-a04b-4ea9efe3183d",
+  "name" : "formdata_stream_uploadfile",
+  "request" : {
+    "url" : "/formdata/stream/uploadfile",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "anything" : "anything"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "VXBsb2FkIGZpbGUgdGVzdCBjYXNl",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:28 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0ba7fa79-24ec-41dc-a04b-4ea9efe3183d",
+  "persistent" : true,
+  "scenarioName" : "scenario-stream-uploadfile",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-stream-uploadfile-2",
+  "insertionIndex" : 292
+}

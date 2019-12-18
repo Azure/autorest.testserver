@@ -1,0 +1,22 @@
+{
+  "id" : "fde9a3af-b7c0-4400-a008-30f915396d52",
+  "name" : "http_failure_client_401",
+  "request" : {
+    "url" : "/http/failure/client/401",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 401,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "fde9a3af-b7c0-4400-a008-30f915396d52",
+  "persistent" : true,
+  "insertionIndex" : 413
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "24abec08-61af-4abb-8aa3-6239c5f78abd",
+  "name" : "duration_positiveduration",
+  "request" : {
+    "url" : "/duration/positiveduration",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "\"P123DT22H14M12.011S\"",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "24abec08-61af-4abb-8aa3-6239c5f78abd",
+  "persistent" : true,
+  "insertionIndex" : 284
+}

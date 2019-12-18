@@ -1,0 +1,23 @@
+{
+  "id" : "5f492d5b-11f7-4008-8d42-b8d6b84a5e57",
+  "name" : "complex_polymorphism_complicated",
+  "request" : {
+    "url" : "/complex/polymorphism/complicated",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJmaXNodHlwZSI6InNtYXJ0X3NhbG1vbiIsImxvY2F0aW9uIjoiYWxhc2thIiwiaXN3aWxkIjp0cnVlLCJzcGVjaWVzIjoia2luZyIsImFkZGl0aW9uYWxQcm9wZXJ0eTEiOjEsImFkZGl0aW9uYWxQcm9wZXJ0eTIiOmZhbHNlLCJhZGRpdGlvbmFsUHJvcGVydHkzIjoiaGVsbG8iLCJhZGRpdGlvbmFsUHJvcGVydHk0Ijp7ImEiOjEsImIiOjJ9LCJhZGRpdGlvbmFsUHJvcGVydHk1IjpbMSwzXSwibGVuZ3RoIjoxLCJzaWJsaW5ncyI6W3siZmlzaHR5cGUiOiJzaGFyayIsImFnZSI6NiwiYmlydGhkYXkiOiIyMDEyLTAxLTA1VDAxOjAwOjAwWiIsImxlbmd0aCI6MjAsInNwZWNpZXMiOiJwcmVkYXRvciJ9LHsiZmlzaHR5cGUiOiJzYXdzaGFyayIsImFnZSI6MTA1LCJiaXJ0aGRheSI6IjE5MDAtMDEtMDVUMDE6MDA6MDBaIiwibGVuZ3RoIjoxMCwicGljdHVyZSI6Ii8vLy8vLzQ9Iiwic3BlY2llcyI6ImRhbmdlcm91cyJ9LHsiZmlzaHR5cGUiOiJnb2JsaW4iLCJhZ2UiOjEsImJpcnRoZGF5IjoiMjAxNS0wOC0wOFQwMDowMDowMFoiLCJsZW5ndGgiOjMwLCJzcGVjaWVzIjoic2NhcnkiLCJqYXdzaXplIjo1LCJjb2xvciI6InBpbmtpc2gtZ3JheSJ9XX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "5f492d5b-11f7-4008-8d42-b8d6b84a5e57",
+  "persistent" : true,
+  "insertionIndex" : 175
+}

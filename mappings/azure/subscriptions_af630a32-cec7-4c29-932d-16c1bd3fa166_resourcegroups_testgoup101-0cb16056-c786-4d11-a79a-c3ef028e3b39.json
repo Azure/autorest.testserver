@@ -1,0 +1,23 @@
+{
+  "id" : "0cb16056-c786-4d11-a79a-c3ef028e3b39",
+  "name" : "subscriptions_af630a32-cec7-4c29-932d-16c1bd3fa166_resourcegroups_testgoup101",
+  "request" : {
+    "urlPattern" : "/subscriptions/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/resourcegroups/testgoup101\\?api-version=2014-04-01-preview",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJuYW1lIjoidGVzdGdyb3VwMTAxIiwibG9jYXRpb24iOiJXZXN0IFVTIn0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:55 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "0cb16056-c786-4d11-a79a-c3ef028e3b39",
+  "persistent" : true,
+  "insertionIndex" : 646
+}

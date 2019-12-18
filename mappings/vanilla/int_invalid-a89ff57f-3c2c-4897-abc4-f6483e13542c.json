@@ -1,0 +1,23 @@
+{
+  "id" : "a89ff57f-3c2c-4897-abc4-f6483e13542c",
+  "name" : "int_invalid",
+  "request" : {
+    "url" : "/int/invalid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "MTIzamts",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a89ff57f-3c2c-4897-abc4-f6483e13542c",
+  "persistent" : true,
+  "insertionIndex" : 480
+}

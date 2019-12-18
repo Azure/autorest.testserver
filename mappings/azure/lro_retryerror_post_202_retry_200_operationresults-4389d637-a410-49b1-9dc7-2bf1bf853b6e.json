@@ -1,0 +1,26 @@
+{
+  "id" : "4389d637-a410-49b1-9dc7-2bf1bf853b6e",
+  "name" : "lro_retryerror_post_202_retry_200_operationresults",
+  "request" : {
+    "url" : "/lro/retryerror/post/202/retry/200/operationResults",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAicHJvcGVydGllcyI6IHsgInByb3Zpc2lvbmluZ1N0YXRlIjogIlN1Y2NlZWRlZCJ9LCAiaWQiOiAiMTAwIiwgIm5hbWUiOiAiZm9vIiB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4389d637-a410-49b1-9dc7-2bf1bf853b6e",
+  "persistent" : true,
+  "scenarioName" : "scenario-200-operationResults",
+  "requiredScenarioState" : "scenario-200-operationResults-2",
+  "insertionIndex" : 793
+}

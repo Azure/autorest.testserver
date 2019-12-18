@@ -1,0 +1,26 @@
+{
+  "id" : "287f43c7-7c30-404b-993e-e85f50d1d393",
+  "name" : "azurespecials_overwrite_x-ms-client-request-id_method",
+  "request" : {
+    "url" : "/azurespecials/overwrite/x-ms-client-request-id/method/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "x-ms-request-id" : "123",
+      "Date" : "Thu, 18 Oct 2018 21:55:00 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "287f43c7-7c30-404b-993e-e85f50d1d393",
+  "persistent" : true,
+  "scenarioName" : "scenario-x-ms-client-request-id-method",
+  "requiredScenarioState" : "scenario-x-ms-client-request-id-method-2",
+  "newScenarioState" : "scenario-x-ms-client-request-id-method-3",
+  "insertionIndex" : 1002
+}

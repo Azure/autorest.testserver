@@ -1,0 +1,27 @@
+{
+  "id" : "7ec603b9-9618-4764-ae2a-5628bbfb5d96",
+  "name" : "complex_polymorphism_valid",
+  "request" : {
+    "url" : "/complex/polymorphism/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"species\": \"king\", \"length\": 1.0, \"siblings\": [{\"species\": \"predator\", \"length\": 20.0, \"fishtype\": \"shark\", \"age\": 6, \"birthday\": \"2012-01-05T01:00:00.000Z\"}, {\"species\": \"dangerous\", \"length\": 10.0, \"fishtype\": \"sawshark\", \"age\": 105, \"birthday\": \"1900-01-05T01:00:00.000Z\", \"picture\": \"//////4=\"}, {\"species\": \"scary\", \"length\": 30.0, \"fishtype\": \"goblin\", \"age\": 1, \"birthday\": \"2015-08-08T00:00:00.000Z\", \"jawsize\": 5, \"color\": \"pinkish-gray\"}], \"fishtype\": \"salmon\", \"location\": \"alaska\", \"iswild\": true}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7ec603b9-9618-4764-ae2a-5628bbfb5d96",
+  "persistent" : true,
+  "insertionIndex" : 172
+}

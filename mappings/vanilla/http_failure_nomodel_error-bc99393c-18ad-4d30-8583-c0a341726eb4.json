@@ -1,0 +1,23 @@
+{
+  "id" : "bc99393c-18ad-4d30-8583-c0a341726eb4",
+  "name" : "http_failure_nomodel_error",
+  "request" : {
+    "url" : "/http/failure/nomodel/error",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "base64Body" : "eyJtZXNzYWdlIjoiTm9FcnJvck1vZGVsIiwic3RhdHVzIjo0MDB9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "bc99393c-18ad-4d30-8583-c0a341726eb4",
+  "persistent" : true,
+  "insertionIndex" : 456
+}

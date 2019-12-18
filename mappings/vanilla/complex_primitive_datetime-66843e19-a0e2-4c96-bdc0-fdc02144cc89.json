@@ -1,0 +1,27 @@
+{
+  "id" : "66843e19-a0e2-4c96-bdc0-fdc02144cc89",
+  "name" : "complex_primitive_datetime",
+  "request" : {
+    "url" : "/complex/primitive/datetime",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"field\": \"0001-01-01T00:00:00.000Z\", \"now\": \"2015-05-18T18:38:00.000Z\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "66843e19-a0e2-4c96-bdc0-fdc02144cc89",
+  "persistent" : true,
+  "insertionIndex" : 149
+}

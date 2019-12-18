@@ -1,0 +1,22 @@
+{
+  "id" : "3ceade70-b2af-4b62-bb9a-16acf2bb1e90",
+  "name" : "lro_error_putasync_retry_failed_operationresults_nostatuspayload",
+  "request" : {
+    "url" : "/lro/error/putasync/retry/failed/operationResults/nostatuspayload",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:54:58 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "3ceade70-b2af-4b62-bb9a-16acf2bb1e90",
+  "persistent" : true,
+  "insertionIndex" : 830
+}

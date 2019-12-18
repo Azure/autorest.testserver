@@ -1,0 +1,24 @@
+{
+  "id" : "150f14ad-e681-4c38-8656-324bb3998795",
+  "name" : "xml",
+  "request" : {
+    "url" : "/xml/?comp=list",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<EnumerationResults ServiceEndpoint=\"https://myaccount.blob.core.windows.net/\">\n  <MaxResults>3</MaxResults>\n  <Containers>\n    <Container>\n      <Name>audio</Name>\n      <Properties>\n        <Last-Modified>Wed, 26 Oct 2016 20:39:39 GMT</Last-Modified>\n        <Etag>0x8CACB9BD7C6B1B2</Etag>\n        <PublicAccess>container</PublicAccess>\n      </Properties>\n    </Container>\n    <Container>\n      <Name>images</Name>\n      <Properties>\n        <Last-Modified>Wed, 26 Oct 2016 20:39:39 GMT</Last-Modified>\n        <Etag>0x8CACB9BD7C1EEEC</Etag>\n      </Properties>\n    </Container>\n    <Container>\n      <Name>textfiles</Name>\n      <Properties>\n        <Last-Modified>Wed, 26 Oct 2016 20:39:39 GMT</Last-Modified>\n        <Etag>0x8CACB9BD7BACAC3</Etag>\n      </Properties>\n    </Container>\n  </Containers>\n  <NextMarker>video</NextMarker>\n</EnumerationResults>",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Content-Type" : "application/xml",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "150f14ad-e681-4c38-8656-324bb3998795",
+  "persistent" : true,
+  "insertionIndex" : 638
+}

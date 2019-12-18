@@ -1,0 +1,22 @@
+{
+  "id" : "dc78013b-e829-4e02-96d3-34a49cfc2d95",
+  "name" : "http_failure_client_410",
+  "request" : {
+    "url" : "/http/failure/client/410",
+    "method" : "HEAD"
+  },
+  "response" : {
+    "status" : 410,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "dc78013b-e829-4e02-96d3-34a49cfc2d95",
+  "persistent" : true,
+  "insertionIndex" : 421
+}

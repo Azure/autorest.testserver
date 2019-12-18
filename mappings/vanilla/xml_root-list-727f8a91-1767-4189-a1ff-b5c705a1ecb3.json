@@ -1,0 +1,25 @@
+{
+  "id" : "727f8a91-1767-4189-a1ff-b5c705a1ecb3",
+  "name" : "xml_root-list",
+  "request" : {
+    "url" : "/xml/root-list",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<?xml version='1.0' encoding='utf8'?>\n<bananas><banana><name>Cavendish</name><flavor>Sweet</flavor><expiration>2018-02-28T00:40:00.123Z</expiration></banana><banana><name>Plantain</name><flavor>Savory</flavor><expiration>2018-02-28T00:40:00.123Z</expiration></banana></bananas>"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "727f8a91-1767-4189-a1ff-b5c705a1ecb3",
+  "persistent" : true,
+  "insertionIndex" : 627
+}

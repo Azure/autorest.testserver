@@ -1,0 +1,23 @@
+{
+  "id" : "11dcc545-7048-47b9-aecc-d88470e34d77",
+  "name" : "string_enum_notexpandable",
+  "request" : {
+    "url" : "/string/enum/notExpandable",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "InJlZCBjb2xvciI=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "11dcc545-7048-47b9-aecc-d88470e34d77",
+  "persistent" : true,
+  "insertionIndex" : 544
+}

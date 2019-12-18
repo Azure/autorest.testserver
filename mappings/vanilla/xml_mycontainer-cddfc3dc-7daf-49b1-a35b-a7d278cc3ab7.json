@@ -1,0 +1,25 @@
+{
+  "id" : "cddfc3dc-7daf-49b1-a35b-a7d278cc3ab7",
+  "name" : "xml_mycontainer",
+  "request" : {
+    "url" : "/xml/mycontainer?comp=acl&restype=container",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<?xml version='1.0' encoding='utf8'?>\n<SignedIdentifiers><SignedIdentifier><Id>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</Id><AccessPolicy><Start>2009-09-28T08:49:37.123Z</Start><Expiry>2009-09-29T08:49:37.123Z</Expiry><Permission>rwd</Permission></AccessPolicy></SignedIdentifier></SignedIdentifiers>"
+    } ]
+  },
+  "response" : {
+    "status" : 201,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:32 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "cddfc3dc-7daf-49b1-a35b-a7d278cc3ab7",
+  "persistent" : true,
+  "insertionIndex" : 643
+}

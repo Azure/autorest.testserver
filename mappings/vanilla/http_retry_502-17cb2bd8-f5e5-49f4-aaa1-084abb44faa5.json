@@ -1,0 +1,27 @@
+{
+  "id" : "17cb2bd8-f5e5-49f4-aaa1-084abb44faa5",
+  "name" : "http_retry_502",
+  "request" : {
+    "url" : "/http/retry/502",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 502,
+    "base64Body" : "eyJtZXNzYWdlIjoiUmV0cnkgc2NlbmFyaW8gaW5pdGlhbCByZXF1ZXN0Iiwic3RhdHVzIjo1MDJ9",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "tries=502_get; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 17:54:29 GMT",
+      "Date" : "Thu, 18 Oct 2018 17:39:29 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "17cb2bd8-f5e5-49f4-aaa1-084abb44faa5",
+  "persistent" : true,
+  "scenarioName" : "scenario-retry-502",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-retry-502-2",
+  "insertionIndex" : 393
+}

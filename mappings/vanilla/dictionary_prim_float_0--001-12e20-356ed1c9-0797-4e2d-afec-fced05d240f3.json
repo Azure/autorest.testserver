@@ -1,0 +1,27 @@
+{
+  "id" : "356ed1c9-0797-4e2d-afec-fced05d240f3",
+  "name" : "dictionary_prim_float_0--001-12e20",
+  "request" : {
+    "url" : "/dictionary/prim/float/0--0.01-1.2e20",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"0\": 0.0, \"1\": -0.01, \"2\": -1.2e+20}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:27 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "356ed1c9-0797-4e2d-afec-fced05d240f3",
+  "persistent" : true,
+  "insertionIndex" : 227
+}

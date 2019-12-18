@@ -1,0 +1,25 @@
+{
+  "id" : "2b9fb578-7b4d-4884-8bec-f0d777dcd1bd",
+  "name" : "lro_deleteasync_retry_failed",
+  "request" : {
+    "url" : "/lro/deleteasync/retry/failed",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Azure-AsyncOperation" : "http://localhost:3000/lro/deleteasync/retry/failed/operationResults/200/",
+      "Location" : "http://localhost:3000/lro/deleteasync/retry/failed/operationResults/200/",
+      "Retry-After" : "0",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "2b9fb578-7b4d-4884-8bec-f0d777dcd1bd",
+  "persistent" : true,
+  "insertionIndex" : 739
+}

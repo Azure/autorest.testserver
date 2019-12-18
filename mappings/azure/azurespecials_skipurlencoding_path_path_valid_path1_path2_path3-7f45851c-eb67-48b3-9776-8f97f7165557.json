@@ -1,0 +1,22 @@
+{
+  "id" : "7f45851c-eb67-48b3-9776-8f97f7165557",
+  "name" : "azurespecials_skipurlencoding_path_path_valid_path1_path2_path3",
+  "request" : {
+    "url" : "/azurespecials/skipUrlEncoding/path/path/valid/path1/path2/path3",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 21:55:00 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "7f45851c-eb67-48b3-9776-8f97f7165557",
+  "persistent" : true,
+  "insertionIndex" : 990
+}

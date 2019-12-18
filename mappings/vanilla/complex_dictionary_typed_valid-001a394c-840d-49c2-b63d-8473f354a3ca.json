@@ -1,0 +1,23 @@
+{
+  "id" : "001a394c-840d-49c2-b63d-8473f354a3ca",
+  "name" : "complex_dictionary_typed_valid",
+  "request" : {
+    "url" : "/complex/dictionary/typed/valid",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyJkZWZhdWx0UHJvZ3JhbSI6eyJ0eHQiOiJub3RlcGFkIiwiYm1wIjoibXNwYWludCIsInhscyI6ImV4Y2VsIiwiZXhlIjoiIiwiIjpudWxsfX0=",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:21 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "001a394c-840d-49c2-b63d-8473f354a3ca",
+  "persistent" : true,
+  "insertionIndex" : 163
+}

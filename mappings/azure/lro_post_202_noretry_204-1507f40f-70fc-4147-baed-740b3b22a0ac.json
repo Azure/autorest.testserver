@@ -1,0 +1,28 @@
+{
+  "id" : "1507f40f-70fc-4147-baed-740b3b22a0ac",
+  "name" : "lro_post_202_noretry_204",
+  "request" : {
+    "url" : "/lro/post/202/noretry/204",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"location\": \"West US\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/post/202/noretry/204",
+      "Date" : "Thu, 18 Oct 2018 21:54:57 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "1507f40f-70fc-4147-baed-740b3b22a0ac",
+  "persistent" : true,
+  "insertionIndex" : 751
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "d3d3a7bc-8283-4f10-a046-3a45c88bdae3",
+  "name" : "array_dictionary_valid",
+  "request" : {
+    "url" : "/array/dictionary/valid",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "[{\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}]",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:20 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "d3d3a7bc-8283-4f10-a046-3a45c88bdae3",
+  "persistent" : true,
+  "insertionIndex" : 87
+}

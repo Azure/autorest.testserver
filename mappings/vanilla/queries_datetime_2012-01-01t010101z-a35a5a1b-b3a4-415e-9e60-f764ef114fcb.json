@@ -1,0 +1,22 @@
+{
+  "id" : "a35a5a1b-b3a4-415e-9e60-f764ef114fcb",
+  "name" : "queries_datetime_2012-01-01t010101z",
+  "request" : {
+    "url" : "/queries/datetime/2012-01-01T01%3A01%3A01Z?dateTimeQuery=2012-01-01T01%3A01%3A01.000Z",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:31 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a35a5a1b-b3a4-415e-9e60-f764ef114fcb",
+  "persistent" : true,
+  "insertionIndex" : 581
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "4967520a-157a-4a14-a141-2342b14d93a1",
+  "name" : "model-flatten_dictionary",
+  "request" : {
+    "url" : "/model-flatten/dictionary",
+    "method" : "PUT",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"Resource1\": {\"tags\": {\"tag1\": \"value1\", \"tag2\": \"value3\"}, \"location\": \"West US\", \"properties\": {\"p.name\": \"Product1\", \"type\": \"Flat\"}}, \"Resource2\": {\"location\": \"Building 44\", \"properties\": {\"p.name\": \"Product2\", \"type\": \"Flat\"}}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "4967520a-157a-4a14-a141-2342b14d93a1",
+  "persistent" : true,
+  "insertionIndex" : 492
+}

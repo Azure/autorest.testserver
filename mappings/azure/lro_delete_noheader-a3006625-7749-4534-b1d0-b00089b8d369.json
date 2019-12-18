@@ -1,0 +1,23 @@
+{
+  "id" : "a3006625-7749-4534-b1d0-b00089b8d369",
+  "name" : "lro_delete_noheader",
+  "request" : {
+    "url" : "/lro/delete/noheader",
+    "method" : "DELETE"
+  },
+  "response" : {
+    "status" : 202,
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Location" : "http://localhost:3000/lro/delete/noheader/operationresults/123",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "a3006625-7749-4534-b1d0-b00089b8d369",
+  "persistent" : true,
+  "insertionIndex" : 730
+}

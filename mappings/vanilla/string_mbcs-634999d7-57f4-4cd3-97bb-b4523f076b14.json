@@ -1,0 +1,23 @@
+{
+  "id" : "634999d7-57f4-4cd3-97bb-b4523f076b14",
+  "name" : "string_mbcs",
+  "request" : {
+    "url" : "/string/mbcs",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "IuWVium9hOS4gueLm+eLnO+nse+krO+nse+ojO+oqcuK44Ce44Ch77+k4oSh44ix4oCQ44O877mh77mi77mr44CB44CT4oWw4oW54pKI4oKs44ig44ip4oWg4oWr77yB77+j44GB44KT44Kh44O2zpHvuLTQkNCv0LDRj8SByaHjhIXjhKnilIDilYvvuLXvuYTvuLvvuLHvuLPvuLTihbDihbnJke6fh8mh44CH44C+4r+74rqB7qGD5Jyj7qGk4oKsIg==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Date" : "Thu, 18 Oct 2018 17:39:30 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "634999d7-57f4-4cd3-97bb-b4523f076b14",
+  "persistent" : true,
+  "insertionIndex" : 539
+}

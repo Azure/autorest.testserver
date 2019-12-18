@@ -1,0 +1,27 @@
+{
+  "id" : "301e2517-d1c6-4aa5-9607-89ab056aeedf",
+  "name" : "lro_putasync_noheader_operationresults_123",
+  "request" : {
+    "url" : "/lro/putasync/noheader/operationresults/123",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "base64Body" : "eyAic3RhdHVzIjogIkluUHJvZ3Jlc3MifQ==",
+    "headers" : {
+      "X-Powered-By" : "Express",
+      "Vary" : "Origin",
+      "Access-Control-Allow-Credentials" : "true",
+      "Access-Control-Expose-Headers" : "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After",
+      "Set-Cookie" : "scenario=LROPutAsyncNoHeaderInRetry; Max-Age=900; Path=/; Expires=Thu, 18 Oct 2018 22:09:56 GMT",
+      "Date" : "Thu, 18 Oct 2018 21:54:56 GMT",
+      "Connection" : "keep-alive"
+    }
+  },
+  "uuid" : "301e2517-d1c6-4aa5-9607-89ab056aeedf",
+  "persistent" : true,
+  "scenarioName" : "scenario-operationresults-123",
+  "requiredScenarioState" : "Started",
+  "newScenarioState" : "scenario-operationresults-123-2",
+  "insertionIndex" : 684
+}
