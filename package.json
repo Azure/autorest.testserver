@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "main": "./legacy/startup/www.js",
   "bin": {
     "start-autorest-express": "./.scripts/start-autorest-express.js",
@@ -46,6 +46,7 @@
     "socket.io-client": "^2.1.1",
     "underscore": "*",
     "xml2js": "^0.4.19",
-    "wiremock": "2.25.0"
+    "wiremock": "2.25.0",
+    "chalk": "3.0.0"
   }
 }

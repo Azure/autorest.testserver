@@ -2,6 +2,11 @@
 const { existsSync } = require('fs');
 const { resolve } = require('path');
 const { execute, queryUser, httpPost } = require('./process');
+const { yellow, red, green, white, gray, cyan} = require('chalk');
+
+function prepend( color,pText ,text) {
+  return text.replace( /^/gm, `${color(pText)}`)
+}
 
 // syntax:
 // > start-autorest-testserver <command-line...>
@@ -28,23 +33,23 @@ async function main() {
   }
   const command = cmdArgs.shift()
 
-  let exProc = undefined;
-  let exResolve = undefined;
-  let exReject = undefined;
+  let serverProc = undefined;
+  let spResolve = undefined;
+  let spReject = undefined;
   let running = false;
 
   const interactive = switches.indexOf('--interactive') > -1;
-  const showEx = switches.indexOf('--show-messages') > -1;
-  const verbose = switches.indexOf('--verbose') > -1 ? console.log : () => { };
+  const showMessages = switches.indexOf('--show-messages') > -1;
+  const verbose = switches.indexOf('--verbose') > -1 ? (text) => console.log(prepend( cyan.bold, '[TestServer]', text)) : () => { };
 
-  let exReady = new Promise((r, j) => {
-    exResolve = r;
-    exReject = j;
+  let isReady = new Promise((r, j) => {
+    spResolve = r;
+    spReject = j;
   })
 
   try {
     await execute(process.execPath, [`${__dirname}/../legacy/startup/shutdown.js`]);
-    verbose('Shutting down existing Express instance.') 
+    verbose('Shutting down existing Express instance.')
   } catch (e) {
     verbose('Express was not running previously.')
     // who cares.
@@ -52,41 +57,44 @@ async function main() {
 
   // start the express process
   verbose('Starting Express Server.')
-  const exResult = execute(process.execPath, [`${__dirname}/../legacy/startup/www.js`], {
+  const spResult = execute(process.execPath, [`${__dirname}/../legacy/startup/www.js`], {
     onCreate: (process) => {
-      exProc = process;
+      serverProc = process;
     },
     onStdOutData: (chunk) => {
-      const c = chunk.toString();
-      if (showEx) {
-        console.log(c);
+      const c = chunk.toString().replace(/\s*$/, '');
+      if (showMessages) {
+        console.log(prepend( gray, '[Express]', c));
       }
       if (/Server started/.exec(c)) {
-        exResolve();
+        spResolve();
       }
     },
     onStdErrData: (chunk) => {
-      if (showEx) {
-        console.log(chunk.toString());
+      const c = chunk.toString().replace(/\s*$/, '');
+      if (showMessages) {
+        console.log(prepend( yellow.dim, '[Express]', c ));
       }
     }
   });
 
   // when it's ready, run the command line
-  await exReady;
+  await isReady;
   verbose('Express is ready.')
 
   if (!interactive) {
     await execute(command, cmdArgs, {
       onCreate: (process) => {
-        verbose(`Started command: ${command} ${cmdArgs}`);
+        verbose(`Started command: '${command} ${cmdArgs.join(' ')}'`);
         running = true;
       },
       onStdOutData: (chunk) => {
-        console.log(chunk.toString());
+        const c = chunk.toString().replace(/\s*$/, '');
+        console.log(c);
       },
       onStdErrData: (chunk) => {
-        console.error(chunk.toString());
+        const c = chunk.toString().replace(/\s*$/, '');
+        console.error(c);
       }
     });
     running = false;
@@ -95,9 +103,8 @@ async function main() {
     await queryUser('\n\nPress enter to stop testserver\n');
   }
 
-
   // after the cmdline is done.
-  // shutdown express
+  // shutdown server process
   verbose('Shutting down Express.');
   try {
     await execute(process.execPath, [`${__dirname}/../legacy/startup/shutdown.js`]);
@@ -109,13 +116,13 @@ async function main() {
   // wait for it to close
   verbose('Waiting for Express to finish.');
 
-  // force-kill express
-  if (exProc.status === null) {
+  // force-kill server process
+  if (serverProc.status === null) {
     verbose('killing express');
-    exProc.kill();
+    serverProc.kill();
   }
 
-  await exResult;
+  await spResult;
   verbose('Exiting.');
 }
 async function start() {
