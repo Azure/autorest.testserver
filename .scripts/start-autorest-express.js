@@ -5,7 +5,7 @@ const { execute, queryUser, httpPost } = require('./process');
 const { yellow, red, green, white, gray, cyan} = require('chalk');
 
 function prepend( color,pText ,text) {
-  return text.replace( /^/gm, `${color(pText)}`)
+  return text.replace( /^/gm, `${color(pText)} `)
 }
 
 // syntax:
