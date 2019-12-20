@@ -16,6 +16,7 @@ var scenarioMap = {
   "9999999.999": "Positive",
   "-9999999.999": "Negative",
   "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
+  "begin!*'();:@&=+$,end": "UrlNonEncoded",
   "multibyte": "MultiByte",
   "empty": "Empty",
   "null": "Null",
@@ -99,7 +100,7 @@ var paths = function (coverage) {
 
     scenario = JSON.parse(scenario);
     wireParameter = JSON.parse(wireParameter);
-   
+
     if (test === null) {
       console.log("test was null\n");
       utils.send400(res, next, 'Unable to parse scenario \"\/paths\/' + type + '\/' + scenario + '\"');
