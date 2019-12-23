@@ -376,6 +376,38 @@
         }
       }
     },
+    "/paths/string/begin!*'();:@&=+$,end/{stringPath}": {
+      "get": {
+        "operationId": "paths_stringUrlNonEncoded",
+        "description": "Get 'begin!*'();:@&=+$,end",
+        "summary": "https://tools.ietf.org/html/rfc3986#appendix-A 'path' accept any 'pchar' not encoded",
+        "tags": [
+          "Path Operations"
+        ],
+        "parameters": [
+          {
+            "name": "stringPath",
+            "in": "path",
+            "description": "'begin!*'();:@&=+$,end' url encoded string value",
+            "type": "string",
+            "enum": [ "begin!*'();:@&=+$,end" ],
+            "required": true,
+            "x-ms-skip-url-encoding": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Received 'begin!*'();:@&=+$,end' url encoded string value"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/paths/string/empty/{stringPath}": {
       "get": {
         "operationId": "paths_stringEmpty",
