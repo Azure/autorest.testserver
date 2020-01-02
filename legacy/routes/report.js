@@ -8,7 +8,7 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
   const writeOutCoverageReport = (path, object) => {
     try {
       require("fs").writeFileSync(
-        require("path").join(__dirname, path), 
+        require("path").join(__dirname, path),
         JSON.stringify(object, null, 2));
     } catch (_) { }
   };
@@ -28,6 +28,11 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
   router.get('/azure', function(req, res, next) {
     writeOutCoverageReport(`../coverage/report-azure${getQualifiedSuffix(req)}`, azureCoverage);
     res.status(200).end(JSON.stringify(azureCoverage));
+  });
+
+  router.get('/optional', function(req, res, next) {
+    writeOutCoverageReport(`../coverage/report-optional${getQualifiedSuffix(req)}`, optionalCoverage);
+    res.status(200).end(JSON.stringify(optionalCoverage));
   });
 }
 

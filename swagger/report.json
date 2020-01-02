@@ -43,6 +43,38 @@
             }
           }
         }
+      },
+      "/report/optional": {
+        "get": {
+          "operationId": "getOptionalReport",
+          "description": "Get optional test coverage report",
+          "parameters": [
+            {
+              "name": "qualifier",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "If specified, qualifies the generated report further (e.g. '2.7' vs '3.5' in for Python). The only effect is, that generators that run all tests several times, can distinguish the generated reports."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The optional test coverage mapping",
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer"
+                }
+              }
+            },
+            "default": {
+              "description": "Unexpected error",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
       }
     },
     "definitions": {
