@@ -69,9 +69,6 @@ var datetime = function(coverage, optionalCoverage) {
     });
 
     router.put('/min/:type', function(req, res, next) {
-        console.log(req.body);
-        console.log(new Date(req.body).toString());
-
         if (req.params.type === 'utc') {
             if (new Date(req.body).toString() === new Date('0001-01-01T00:00:00Z').toString()) {
                 coverage["putDateTimeMinUtc"]++;
