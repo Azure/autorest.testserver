@@ -77,7 +77,7 @@ var datetime = function(coverage, optionalCoverage) {
                 utils.send400(res, next, "Did not like the value provided for min datetime in the req " + util.inspect(req.body));
             }
         } else if (req.params.type === 'localpositiveoffset') {
-            if (req.body === '0001-01-01T10:00:00Z' || new Date(req.body).toISOString() === new Date('0001-01-01T10:00:00.000Z').toISOString()) {
+            if (req.body === '0001-01-01T10:00:00Z' || req.body === '0001-01-01T10:00:00.000Z' || new Date(req.body).toString() === new Date('0001-01-01T00:00:00+14:00').toString()) {
                 optionalCoverage["putDateTimeMinLocalPositiveOffset"]++;
                 res.status(200).end();
             } else {
