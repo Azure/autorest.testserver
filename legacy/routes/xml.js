@@ -9,7 +9,7 @@ var parseXMLString = util.promisify(xml2js.parseString);
 var assert = require('assert');
 
 // Expect given request body. Otherwise, 400 with comparison is returned.
-var expectXmlBody = function (req, res, body) {
+var expectXmlBody = function (req, res, body, coverage, testname) {
   var rawBody = '';
   req.setEncoding('utf8');
   req.on('data', function(chunk) { rawBody += chunk });
@@ -25,6 +25,7 @@ var expectXmlBody = function (req, res, body) {
 
     try {
       assert.deepStrictEqual(actualParsedBody, expectedParsedBody);
+      coverage[testname]++;
       res.status(201).end();
     } catch (err) {
       res.status(400).header('Content-Type', 'text/plain').end(`
@@ -242,6 +243,32 @@ var body_properties_service =
 </StorageServiceProperties>`;
 
 var xmlService = function (coverage) {
+  coverage['StorageListContainers'] = 0;
+  coverage['StorageGetServiceProperties'] = 0;
+  coverage['StoragePutServiceProperties'] = 0;
+  coverage['StorageGetContainerACL'] = 0;
+  coverage['StorageListBlobs'] = 0;
+  coverage['StoragePutContainerACL'] = 0;
+  coverage['GetSimpleXML'] = 0;
+  coverage['PutSimpleXML'] = 0;
+  coverage['GetWrappedXMLList'] = 0;
+  coverage['PutWrappedXMLList'] = 0;
+  coverage['GetEmptyXMLList'] = 0;
+  coverage['PutEmptyXMLList'] = 0;
+  coverage['GetEmptyWrappedXMLList'] = 0;
+  coverage['PutEmptyWrappedXMLList'] = 0;
+  coverage['GetXMLListAtRoot'] = 0;
+  coverage['PutXMLListAtRoot'] = 0;
+  coverage['GetXMLListAtRootSingle'] = 0;
+  coverage['PutXMLListAtRootSingle'] = 0;
+  coverage['GetEmptyXMLListAtRoot'] = 0;
+  coverage['PutEmptyXMLListAtRoot'] = 0;
+  coverage['GetXMLEmptyNode'] = 0;
+  coverage['PutXMLEmptyNode'] = 0;
+  coverage['GetRootWithRefAndNoMeta'] = 0;
+  coverage['PutRootWithRefAndNoMeta'] = 0;
+  coverage['GetRootWithRefAndMeta'] = 0;
+  coverage['PutRootWithRefAndMeta'] = 0;
   coverage['jsonInputInXMLSwagger'] = 0;
   coverage['jsonOutputInXMLSwagger'] = 0;
 
@@ -254,7 +281,10 @@ var xmlService = function (coverage) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-containers2
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/enumerating-blob-resources
           // Swagger: Service_ListContainers
-          case undefined: sendXmlBody(res, body_list); break;
+          case undefined:
+            sendXmlBody(res, body_list);
+            coverage['StorageListContainers']++;
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -262,7 +292,10 @@ var xmlService = function (coverage) {
         switch(restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-blob-service-properties
           // Swagger: Service_GetServiceProperties
-          case "service": sendXmlBody(res, body_properties_service); break;
+          case "service":
+            sendXmlBody(res, body_properties_service);
+            coverage['StorageGetServiceProperties']++;
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -276,7 +309,9 @@ var xmlService = function (coverage) {
       case "properties":
         switch(restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-blob-service-properties
-          case "service": expectXmlBody(req, res, body_properties_service); break;
+          case "service":
+            expectXmlBody(req, res, body_properties_service, coverage, 'StoragePutServiceProperties');
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -291,7 +326,10 @@ var xmlService = function (coverage) {
       case "acl":
         switch(restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-container-acl
-          case "container": sendXmlBody(res, body_acl_container); break;
+          case "container":
+            sendXmlBody(res, body_acl_container);
+            coverage['StorageGetContainerACL']++;
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -300,7 +338,10 @@ var xmlService = function (coverage) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-blobs
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/enumerating-blob-resources
           // Swagger: Containers_ListBlobs
-          case "container": sendXmlBody(res, body_list_container); break;
+          case "container":
+            sendXmlBody(res, body_list_container);
+            coverage['StorageListBlobs']++;
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -314,7 +355,9 @@ var xmlService = function (coverage) {
       case "acl":
         switch(restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-container-acl
-          case "container": expectXmlBody(req, res, body_acl_container); break;
+          case "container":
+            expectXmlBody(req, res, body_acl_container, coverage, 'StoragePutContainerACL');
+            break;
           default: res.sendStatus(404); break;
         }
         break;
@@ -343,10 +386,11 @@ var xmlService = function (coverage) {
 
   router.get('/simple', function (req, res) {
     sendXmlBody(res, simpleBody);
+    coverage['GetSimpleXML']++;
   });
 
   router.put('/simple', function(req, res) {
-    expectXmlBody(req, res, simpleBody);
+    expectXmlBody(req, res, simpleBody, coverage, 'PutSimpleXML');
   });
 
 
@@ -364,10 +408,11 @@ var xmlService = function (coverage) {
 
   router.get('/wrapped-lists', function (req, res) {
     sendXmlBody(res, wrappedListsBody);
+    coverage['GetWrappedXMLList']++;
   });
 
   router.put('/wrapped-lists', function(req, res) {
-    expectXmlBody(req, res, wrappedListsBody);
+    expectXmlBody(req, res, wrappedListsBody, coverage, 'PutWrappedXMLList');
   });
 
 
@@ -377,10 +422,11 @@ var xmlService = function (coverage) {
 
   router.get('/empty-list', function (req, res) {
     sendXmlBody(res, emptyListBody);
+    coverage['GetEmptyXMLList']++;
   });
 
   router.put('/empty-list', function (req, res) {
-    expectXmlBody(req, res, emptyListBody);
+    expectXmlBody(req, res, emptyListBody, coverage, 'PutEmptyXMLList');
   });
 
 
@@ -393,10 +439,11 @@ var xmlService = function (coverage) {
 
   router.get('/empty-wrapped-lists', function (req, res) {
     sendXmlBody(res, emptyWrappedListsBody);
+    coverage['GetEmptyWrappedXMLList']++;
   });
 
   router.put('/empty-wrapped-lists', function (req, res) {
-    expectXmlBody(req, res, emptyWrappedListsBody);
+    expectXmlBody(req, res, emptyWrappedListsBody, coverage, 'PutEmptyWrappedXMLList');
   });
 
 
@@ -417,10 +464,11 @@ var xmlService = function (coverage) {
 
   router.get('/root-list', function (req, res) {
     sendXmlBody(res, rootListBody);
+    coverage['GetXMLListAtRoot']++;
   });
 
   router.put('/root-list', function(req, res) {
-    expectXmlBody(req, res, rootListBody);
+    expectXmlBody(req, res, rootListBody, coverage, 'PutXMLListAtRoot');
   });
 
 
@@ -436,10 +484,11 @@ var xmlService = function (coverage) {
 
   router.get('/root-list-single-item', function (req, res) {
     sendXmlBody(res, rootListSingleItemBody);
+    coverage['GetXMLListAtRootSingle']++;
   });
 
   router.put('/root-list-single-item', function(req, res) {
-    expectXmlBody(req, res, rootListSingleItemBody);
+    expectXmlBody(req, res, rootListSingleItemBody, coverage, 'PutXMLListAtRootSingle');
   });
 
 
@@ -449,10 +498,11 @@ var xmlService = function (coverage) {
 
   router.get('/empty-root-list', function (req, res) {
     sendXmlBody(res, emptyRootListBody);
+    coverage['GetEmptyXMLListAtRoot']++;
   });
 
   router.put('/empty-root-list', function(req, res) {
-    expectXmlBody(req, res, emptyRootListBody);
+    expectXmlBody(req, res, emptyRootListBody, coverage, 'PutEmptyXMLListAtRoot');
   });
 
 
@@ -466,10 +516,11 @@ var xmlService = function (coverage) {
 
   router.get('/empty-child-element', function (req, res) {
     sendXmlBody(res, emptyChildElementBody);
+    coverage['GetXMLEmptyNode']++;
   });
 
   router.put('/empty-child-element', function(req, res) {
-    expectXmlBody(req, res, emptyChildElementBody);
+    expectXmlBody(req, res, emptyChildElementBody, coverage, 'PutXMLEmptyNode');
   });
 
   const complexTypeRefComplexTypeWithNoXMLmeta =
@@ -482,11 +533,12 @@ var xmlService = function (coverage) {
   </RootWithRefAndNoMeta>`
 
   router.get('/complex-type-ref-no-meta', function (req, res) {
+    coverage['GetRootWithRefAndNoMeta']++;
     sendXmlBody(res, complexTypeRefComplexTypeWithNoXMLmeta);
   });
 
   router.put('/complex-type-ref-no-meta', function(req, res) {
-    expectXmlBody(req, res, complexTypeRefComplexTypeWithNoXMLmeta);
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithNoXMLmeta, coverage, 'PutRootWithRefAndNoMeta');
   });
 
   const complexTypeRefComplexTypeWithXMLmeta =
@@ -499,11 +551,12 @@ var xmlService = function (coverage) {
   </RootWithRefAndMeta>`
 
   router.get('/complex-type-ref-with-meta', function (req, res) {
+    coverage['GetRootWithRefAndMeta']++;
     sendXmlBody(res, complexTypeRefComplexTypeWithXMLmeta);
   });
 
   router.put('/complex-type-ref-with-meta', function(req, res) {
-    expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta);
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta, coverage, 'PutRootWithRefAndMeta');
   });
 
   router.get('/headers', function (req, res) {
