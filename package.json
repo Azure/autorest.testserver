@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "2.9.8",
+  "version": "2.9.9",
   "main": "./legacy/startup/www.js",
   "bin": {
     "start-autorest-express": "./.scripts/start-autorest-express.js",
