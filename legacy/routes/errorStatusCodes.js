@@ -51,7 +51,7 @@ var pathitem = function(coverage) {
         if (whatAction === 'stay') {
             coverage['expectedNoErrors']++;
             res.status(200).end(JSON.stringify(tommyPet));
-        } 
+        }
         else if(whatAction === 'jump'){
             res.status(500).end(JSON.stringify(sadCasper));
             coverage['expectedPetSadError']++;
@@ -73,7 +73,7 @@ var pathitem = function(coverage) {
             res.status(200).end(JSON.stringify(tommyPet));
         }
         else if(petId === 'django') {
-            res.status(202).end('Processing request');
+            res.status(202).end();
         }
         else if(petId === 'coyoteUgly'){
             coverage['animalNotFoundError']++;
@@ -82,10 +82,10 @@ var pathitem = function(coverage) {
         else if(petId === 'weirdAlYankovic'){
             coverage['linkNotFoundError']++;
             res.status(404).end(JSON.stringify(linkNotFoundError));
-        } 
+        }
         else if(petId === 'ringo'){
             coverage['stringError']++;
-            res.status(400).end(petId+stringError);
+            res.status(400).end(JSON.stringify(petId+stringError));
         }
         else if(petId === 'alien123'){
             coverage['intError']++;

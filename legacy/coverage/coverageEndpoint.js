@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var coverageEndpoint = function(coverage, optionalCoverage) {
+var coverageEndpoint = function(coverage, azurecoverage, optionalCoverage) {
     router.get('/', function(req, res, next) {
-        res.status(200).send(Object.assign({}, coverage, optionalCoverage)).end();
+        res.status(200).send(Object.assign({}, coverage, optionalCoverage, azurecoverage)).end();
     });
 
     router.post("/clear", function(req, res, next) {
