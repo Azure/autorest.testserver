@@ -20,7 +20,7 @@ var datetime = function(coverage, optionalCoverage) {
                 utils.send400(res, next, "Did not like the value provided for max datetime in the req " + util.inspect(req.body));
             }
         } else if (req.params.type === 'utc7ms') {
-            if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.9999999Z').toISOString()) {
+            if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.9999999Z').toISOString() && req.body.endsWith(".9999999Z")) {
                 optionalCoverage['putDateTimeMaxUtc7MS']++;
                 res.status(200).end();
             } else {
