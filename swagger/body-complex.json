@@ -1500,7 +1500,9 @@
           "enum": [
             "pink",
             "gray",
-            "brown"
+            "brown",
+            "RED",
+            "red"
           ],
           "x-ms-enum": {
             "name": "GoblinSharkColor",
