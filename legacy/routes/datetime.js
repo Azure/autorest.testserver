@@ -71,7 +71,11 @@ var datetime = function(coverage, optionalCoverage) {
             coverage[scenario + "Lowercase"]++;
             ret = ret.toLowerCase();
         } else if (req.params.case === 'uppercase') {
-            coverage[scenario + "Uppercase"]++;
+            if (scenario == "getDateTimeMaxUtc7MS") {
+                optionalCoverage[scenario + "Uppercase"]++;
+            } else {
+                coverage[scenario + "Uppercase"]++;
+            }
             ret = ret.toUpperCase();
         } else {
             utils.send400(res, next, 'Please provide a valid case for datetime case ' +
