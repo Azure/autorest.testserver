@@ -4,28 +4,37 @@ var util = require('util');
 var utils = require('../util/utils')
 
 var datetime = function(coverage, optionalCoverage) {
+    optionalCoverage['putDateTimeMaxUtc7MS'] = 0;
+    optionalCoverage['getDateTimeMaxUtc7MSUppercase'] = 0;
     optionalCoverage['putDateTimeMaxLocalPositiveOffset'] = 0;
     optionalCoverage['putDateTimeMaxLocalNegativeOffset']= 0;
     optionalCoverage['putDateTimeMinLocalPositiveOffset'] = 0;
     optionalCoverage['putDateTimeMinLocalNegativeOffset']= 0;
-        router.put('/max/:type', function(req, res, next) {
+
+    router.put('/max/:type', function(req, res, next) {
         if (req.params.type === 'utc') {
-            if (new Date(req.body).toString() === new Date('9999-12-31T23:59:59.9999999Z').toString()) {
+            if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.999Z').toISOString()) {
                 coverage['putDateTimeMaxUtc']++;
                 res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for max datetime in the req " + util.inspect(req.body));
             }
+        } else if (req.params.type === 'utc7ms') {
+            if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.9999999Z').toISOString() && req.body.endsWith(".9999999Z")) {
+                optionalCoverage['putDateTimeMaxUtc7MS']++;
+                res.status(200).end();
+            } else {
+                utils.send400(res, next, "Did not like the value provided for max datetime in the req " + util.inspect(req.body));
+            }
         } else if (req.params.type === 'localpositiveoffset') {
-            if (new Date(req.body).toString() === new Date('9999-12-31T09:59:59.9999999Z').toString()) {
+            if (new Date(req.body).toISOString() === new Date('9999-12-31T09:59:59.999Z').toISOString()) {
                 optionalCoverage['putDateTimeMaxLocalPositiveOffset']++;
                 res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for max datetime in the req " + util.inspect(req.body));
             }
         } else if (req.params.type === 'localnegativeoffset') {
-            if (new Date(req.body).toString() === new Date('9999-12-31T23:59:59.9999999-14:00').toString() ||
-                req.body === '10000-01-01T13:59:59.999Z') {
+            if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.999-14:00').toISOString()) {
                 optionalCoverage['putDateTimeMaxLocalNegativeOffset']++;
                 res.status(200).end();
             } else {
@@ -43,13 +52,16 @@ var datetime = function(coverage, optionalCoverage) {
         var scenario;
         if (req.params.type === 'utc') {
             scenario = "getDateTimeMaxUtc";
+            ret = '"9999-12-31T23:59:59.999Z"';
+        } else if (req.params.type === 'utc7ms') {
+            scenario = "getDateTimeMaxUtc7MS";
             ret = '"9999-12-31T23:59:59.9999999Z"';
         } else if (req.params.type === 'localpositiveoffset') {
             scenario = "getDateTimeMaxLocalPositiveOffset";
-            ret = '"9999-12-31T23:59:59.9999999+14:00"';
+            ret = '"9999-12-31T23:59:59.999+14:00"';
         } else if (req.params.type === 'localnegativeoffset') {
             scenario = "getDateTimeMaxLocalNegativeOffset";
-            ret = '"9999-12-31T23:59:59.9999999-14:00"';
+            ret = '"9999-12-31T23:59:59.999-14:00"';
         } else {
             utils.send400(res, next, 'Please provide a valid datetime type \'utc\', ' +
                 '\'localpositiveoffset\', \'localnegativeoffset\' and not ' +
@@ -70,21 +82,21 @@ var datetime = function(coverage, optionalCoverage) {
 
     router.put('/min/:type', function(req, res, next) {
         if (req.params.type === 'utc') {
-            if (new Date(req.body).toString() === new Date('0001-01-01T00:00:00Z').toString()) {
+            if (new Date(req.body).toISOString() === new Date('0001-01-01T00:00:00Z').toISOString()) {
                 coverage["putDateTimeMinUtc"]++;
                 res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for min datetime in the req " + util.inspect(req.body));
             }
         } else if (req.params.type === 'localpositiveoffset') {
-            if (req.body === '0001-01-01T10:00:00Z' || req.body === '0001-01-01T10:00:00.000Z' || new Date(req.body).toString() === new Date('0001-01-01T00:00:00+14:00').toString()) {
+            if (new Date(req.body).toISOString() === new Date('0001-01-01T00:00:00+14:00').toISOString()) {
                 optionalCoverage["putDateTimeMinLocalPositiveOffset"]++;
                 res.status(200).end();
             } else {
                 utils.send400(res, next, "Did not like the value provided for min datetime in the req " + util.inspect(req.body));
             }
         } else if (req.params.type === 'localnegativeoffset') {
-            if (new Date(req.body).toString() === new Date('0001-01-01T14:00:00Z').toString()) {
+            if (new Date(req.body).toISOString() === new Date('0001-01-01T14:00:00Z').toISOString()) {
                 optionalCoverage["putDateTimeMinLocalNegativeOffset"]++;
                 res.status(200).end();
             } else {
@@ -120,13 +132,13 @@ var datetime = function(coverage, optionalCoverage) {
             res.status(200).end();
         } else if (req.params.scenario === 'invalid') {
             coverage["getDateTimeInvalid"]++;
-            res.status(200).end('"201O-18-90D00:89:56.999AAAAX"');
+            res.status(200).end('"201O-18-90D00:89:56.9AX"');
         } else if (req.params.scenario === 'overflow') {
             coverage["getDateTimeOverflow"]++;
-            res.status(200).end('"9999-12-31T23:59:59.9999999-14:00"');
+            res.status(200).end('"9999-12-31T23:59:59.999-14:00"');
         } else if (req.params.scenario === 'underflow') {
             coverage["getDateTimeUnderflow"]++;
-            res.status(200).end('"0000-00-00T00:00:00.0000000+00:00"');
+            res.status(200).end('"0000-00-00T00:00:00.000+00:00"');
         } else {
             res.status(400).send('Request path must contain a valid scenario: ' +
                 '"null", "invaliddate", "overflowdate", "underflowdate". Provided value is : ', +
