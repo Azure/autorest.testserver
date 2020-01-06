@@ -55,7 +55,7 @@ var datetime = function(coverage, optionalCoverage) {
             ret = '"9999-12-31T23:59:59.999Z"';
         } else if (req.params.type === 'utc7ms') {
             scenario = "getDateTimeMaxUtc7MS";
-            ret = '"9999-12-31T23:59:59.999Z"';
+            ret = '"9999-12-31T23:59:59.9999999Z"';
         } else if (req.params.type === 'localpositiveoffset') {
             scenario = "getDateTimeMaxLocalPositiveOffset";
             ret = '"9999-12-31T23:59:59.999+14:00"';
