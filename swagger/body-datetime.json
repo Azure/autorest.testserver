@@ -103,7 +103,36 @@
     "/datetime/max/utc": {
       "put": {
         "operationId": "datetime_putUtcMaxDateTime",
+        "description": "Put max datetime value 9999-12-31T23:59:59.999Z",
+        "parameters": [
+          {
+            "name": "datetimeBody",
+            "in": "body",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The max datetime value 9999-12-31T23:59:59.999Z"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/datetime/max/utc7ms": {
+      "put": {
+        "operationId": "datetime_putUtcMaxDateTime7Digits",
         "description": "Put max datetime value 9999-12-31T23:59:59.9999999Z",
+        "summary": "This is against the recommendation that asks for 3 digits, but allow to test what happens in that scenario",
         "parameters": [
           {
             "name": "datetimeBody",
@@ -131,10 +160,10 @@
     "/datetime/max/utc/lowercase": {
       "get": {
         "operationId": "datetime_getUtcLowercaseMaxDateTime",
-        "description": "Get max datetime value 9999-12-31t23:59:59.9999999z",
+        "description": "Get max datetime value 9999-12-31t23:59:59.999z",
         "responses": {
           "200": {
-            "description": "The max datetime value 9999-12-31t23:59:59.9999999z",
+            "description": "The max datetime value 9999-12-31t23:59:59.999z",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -152,6 +181,27 @@
     "/datetime/max/utc/uppercase": {
       "get": {
         "operationId": "datetime_getUtcUppercaseMaxDateTime",
+        "description": "Get max datetime value 9999-12-31T23:59:59.999Z",
+        "responses": {
+          "200": {
+            "description": "The max datetime value 9999-12-31T23:59:59.999Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/datetime/max/utc7ms/uppercase": {
+      "get": {
+        "operationId": "datetime_getUtcUppercaseMaxDateTime7Digits",
         "description": "Get max datetime value 9999-12-31T23:59:59.9999999Z",
         "responses": {
           "200": {
@@ -173,7 +223,7 @@
     "/datetime/max/localpositiveoffset": {
       "put": {
         "operationId": "datetime_putLocalPositiveOffsetMaxDateTime",
-        "description": "Put max datetime value with positive numoffset 9999-12-31t23:59:59.9999999+14:00",
+        "description": "Put max datetime value with positive numoffset 9999-12-31t23:59:59.999+14:00",
         "parameters": [
           {
             "name": "datetimeBody",
@@ -187,7 +237,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The max datetime value with positive num offset 9999-12-31T23:59:59.9999999+14:00"
+            "description": "The max datetime value with positive num offset 9999-12-31T23:59:59.999+14:00"
           },
           "default": {
             "description": "Unexpected error",
@@ -201,10 +251,10 @@
     "/datetime/max/localpositiveoffset/lowercase": {
       "get": {
         "operationId": "datetime_getLocalPositiveOffsetLowercaseMaxDateTime",
-        "description": "Get max datetime value with positive num offset 9999-12-31t23:59:59.9999999+14:00",
+        "description": "Get max datetime value with positive num offset 9999-12-31t23:59:59.999+14:00",
         "responses": {
           "200": {
-            "description": "The max datetime value 9999-12-31t23:59:59.9999999+14:00",
+            "description": "The max datetime value 9999-12-31t23:59:59.999+14:00",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -222,10 +272,10 @@
     "/datetime/max/localpositiveoffset/uppercase": {
       "get": {
         "operationId": "datetime_getLocalPositiveOffsetUppercaseMaxDateTime",
-        "description": "Get max datetime value with positive num offset 9999-12-31T23:59:59.9999999+14:00",
+        "description": "Get max datetime value with positive num offset 9999-12-31T23:59:59.999+14:00",
         "responses": {
           "200": {
-            "description": "The max datetime value 9999-12-31T23:59:59.9999999+14:00",
+            "description": "The max datetime value 9999-12-31T23:59:59.999+14:00",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -243,7 +293,7 @@
     "/datetime/max/localnegativeoffset": {
       "put": {
         "operationId": "datetime_putLocalNegativeOffsetMaxDateTime",
-        "description": "Put max datetime value with positive numoffset 9999-12-31t23:59:59.9999999-14:00",
+        "description": "Put max datetime value with positive numoffset 9999-12-31t23:59:59.999-14:00",
         "parameters": [
           {
             "name": "datetimeBody",
@@ -257,7 +307,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The max datetime value with positive num offset 9999-12-31T23:59:59.9999999+14:00"
+            "description": "The max datetime value with positive num offset 9999-12-31T23:59:59.999+14:00"
           },
           "default": {
             "description": "Unexpected error",
@@ -271,10 +321,10 @@
     "/datetime/max/localnegativeoffset/uppercase": {
       "get": {
         "operationId": "datetime_getLocalNegativeOffsetUppercaseMaxDateTime",
-        "description": "Get max datetime value with positive num offset 9999-12-31T23:59:59.9999999-14:00",
+        "description": "Get max datetime value with positive num offset 9999-12-31T23:59:59.999-14:00",
         "responses": {
           "200": {
-            "description": "The max datetime value 9999-12-31T23:59:59.9999999-14:00",
+            "description": "The max datetime value 9999-12-31T23:59:59.999-14:00",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -292,10 +342,10 @@
     "/datetime/max/localnegativeoffset/lowercase": {
       "get": {
         "operationId": "datetime_getLocalNegativeOffsetLowercaseMaxDateTime",
-        "description": "Get max datetime value with positive num offset 9999-12-31t23:59:59.9999999-14:00",
+        "description": "Get max datetime value with positive num offset 9999-12-31t23:59:59.999-14:00",
         "responses": {
           "200": {
-            "description": "The max datetime value 9999-12-31t23:59:59.9999999-14:00",
+            "description": "The max datetime value 9999-12-31t23:59:59.999-14:00",
             "schema": {
               "type": "string",
               "format": "date-time"
