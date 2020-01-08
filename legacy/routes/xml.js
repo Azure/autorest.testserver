@@ -576,7 +576,7 @@ var xmlService = function (coverage) {
 
   router.get('/jsonoutput', function (req, res, next) {
     coverage['jsonOutputInXMLSwagger']++;
-    res.status(200).end('{ "id": 42 }');
+    res.status(200).json({ "id": 42 });
   });
 };
 

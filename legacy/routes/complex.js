@@ -24,19 +24,19 @@ var complex = function (coverage) {
   router.get('/basic/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexBasicValid']++;
-      res.status(200).end('{ "id": 2, "name": "abc", "color": "YELLOW" }');
+      res.status(200).type('json').end('{ "id": 2, "name": "abc", "color": "YELLOW" }');
     } else if (req.params.scenario === 'empty') {
       coverage['getComplexBasicEmpty']++;
-      res.status(200).end('{ }');
+      res.status(200).type('json').end('{ }');
     } else if (req.params.scenario === 'notprovided') {
       coverage['getComplexBasicNotProvided']++;
       res.status(200).end();
     } else if (req.params.scenario === 'null') {
       coverage['getComplexBasicNull']++;
-      res.status(200).end('{ "id": null, "name": null }');
+      res.status(200).type('json').end('{ "id": null, "name": null }');
     } else if (req.params.scenario === 'invalid') {
       coverage['getComplexBasicInvalid']++;
-      res.status(200).end('{ "id": "a", "name": "abc" }');
+      res.status(200).type('json').end('{ "id": "a", "name": "abc" }');
     } else {
       res.status(400).send('Request scenario must be valid, empty, null, notprovided, or invalid.');
     }
@@ -150,37 +150,37 @@ var complex = function (coverage) {
   router.get('/primitive/:scenario', function (req, res, next) {
     if (req.params.scenario === 'integer') {
       coverage['getComplexPrimitiveInteger']++;
-      res.status(200).end(JSON.stringify(intBody));
+      res.status(200).json(intBody);
     } else if (req.params.scenario === 'long') {
       coverage['getComplexPrimitiveLong']++;
-      res.status(200).end(JSON.stringify(longBody));
+      res.status(200).json(longBody);
     } else if (req.params.scenario === 'float') {
       coverage['getComplexPrimitiveFloat']++;
-      res.status(200).end(JSON.stringify(floatBody));
+      res.status(200).json(floatBody);
     } else if (req.params.scenario === 'double') {
       coverage['getComplexPrimitiveDouble']++;
-      res.status(200).end(JSON.stringify(doubleBody));
+      res.status(200).json(doubleBody);
     } else if (req.params.scenario === 'bool') {
       coverage['getComplexPrimitiveBool']++;
-      res.status(200).end(JSON.stringify(boolBody));
+      res.status(200).json(boolBody);
     } else if (req.params.scenario === 'string') {
       coverage['getComplexPrimitiveString']++;
-      res.status(200).end(JSON.stringify(stringBody));
+      res.status(200).json(stringBody);
     } else if (req.params.scenario === 'date') {
       coverage['getComplexPrimitiveDate']++;
-      res.status(200).end(JSON.stringify(dateBody));
+      res.status(200).json(dateBody);
     } else if (req.params.scenario === 'datetime') {
       coverage['getComplexPrimitiveDateTime']++;
-      res.status(200).end(JSON.stringify(datetimeBody));
+      res.status(200).json(datetimeBody);
     } else if (req.params.scenario === 'datetimerfc1123') {
       coverage['getComplexPrimitiveDateTimeRfc1123']++;
-      res.status(200).end(JSON.stringify(datetimeRfc1123Body));
+      res.status(200).json(datetimeRfc1123Body);
     } else if (req.params.scenario === 'duration') {
       coverage['getComplexPrimitiveDuration']++;
-      res.status(200).end(JSON.stringify(durationBody));
+      res.status(200).json(durationBody);
     } else if (req.params.scenario === 'byte') {
       coverage['getComplexPrimitiveByte']++;
-      res.status(200).end(byteBody);
+      res.status(200).type('json').end(byteBody);
     } else {
       utils.send400(res, next, 'Must provide a valid primitive type scenario.');
     }
@@ -213,13 +213,13 @@ var complex = function (coverage) {
   router.get('/array/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexArrayValid']++;
-      res.status(200).end(arrayValidBody);
+      res.status(200).type('json').end(arrayValidBody);
     } else if (req.params.scenario === 'empty') {
       coverage['getComplexArrayEmpty']++;
-      res.status(200).end('{"array":[]}');
+      res.status(200).type('json').end('{"array":[]}');
     } else if (req.params.scenario === 'notprovided') {
       coverage['getComplexArrayNotProvided']++;
-      res.status(200).end('{}');
+      res.status(200).type('json').end('{}');
     } else {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
@@ -252,16 +252,16 @@ var complex = function (coverage) {
   router.get('/dictionary/typed/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexDictionaryValid']++;
-      res.status(200).end(dictionaryValidBody);
+      res.status(200).type('json').end(dictionaryValidBody);
     } else if (req.params.scenario === 'empty') {
       coverage['getComplexDictionaryEmpty']++;
-      res.status(200).end('{"defaultProgram":{}}');
+      res.status(200).type('json').end('{"defaultProgram":{}}');
     } else if (req.params.scenario === 'null') {
       coverage['getComplexDictionaryNull']++;
-      res.status(200).end('{"defaultProgram":null}');
+      res.status(200).type('json').end('{"defaultProgram":null}');
     } else if (req.params.scenario === 'notprovided') {
       coverage['getComplexDictionaryNotProvided']++;
-      res.status(200).end('{}');
+      res.status(200).type('json').end('{}');
     } else {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
@@ -299,7 +299,7 @@ var complex = function (coverage) {
   router.get('/inheritance/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexInheritanceValid']++;
-      res.status(200).end(siamese);
+      res.status(200).type('json').end(siamese);
     } else {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
@@ -539,19 +539,19 @@ var complex = function (coverage) {
   coverage['getComplexPolymorphismDotSyntax'] = 0;
   router.get('/polymorphism/dotsyntax', function (req, res, next) {
     coverage['getComplexPolymorphismDotSyntax']++;
-    res.status(200).end(JSON.stringify(dotSalmon));
+    res.status(200).json(dotSalmon);
   });
 
   coverage['getComposedWithDiscriminator'] = 0;
   router.get('/polymorphism/composedWithDiscriminator', function (req, res, next) {
     coverage['getComposedWithDiscriminator']++;
-    res.status(200).end(JSON.stringify(dotFishMarketWithDiscriminator));
+    res.status(200).json(dotFishMarketWithDiscriminator);
   });
 
   coverage['getComposedWithoutDiscriminator'] = 0;
   router.get('/polymorphism/composedWithoutDiscriminator', function (req, res, next) {
     coverage['getComposedWithoutDiscriminator']++;
-    res.status(200).end(JSON.stringify(dotFishMarketWithoutDiscriminator));
+    res.status(200).json(dotFishMarketWithoutDiscriminator);
   });
 
   router.put('/polymorphism/:scenario', function (req, res, next) {
@@ -578,7 +578,7 @@ var complex = function (coverage) {
       console.log(JSON.stringify(regularSalmon, null, 4));
       if (_.isEqual(utils.coerceDate(req.body), regularSalmon)) {
         coverage['putComplexPolymorphismNoDiscriminator']++;
-        res.status(200).end(JSON.stringify(regularSalmonWithoutDiscriminator));
+        res.status(200).json(regularSalmonWithoutDiscriminator);
       } else {
         utils.send400(res, next, "Did not like complex polymorphism req " + util.inspect(req.body));
       }
@@ -590,10 +590,10 @@ var complex = function (coverage) {
   router.get('/polymorphism/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexPolymorphismValid']++;
-      res.status(200).end(JSON.stringify(rawFish));
+      res.status(200).json(rawFish);
     } else if (req.params.scenario === 'complicated') {
       coverage['getComplexPolymorphismComplicated']++;
-      res.status(200).end(JSON.stringify(rawSalmon));
+      res.status(200).json(rawSalmon);
     } else {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
@@ -685,7 +685,7 @@ var complex = function (coverage) {
   router.get('/polymorphicrecursive/:scenario', function (req, res, next) {
     if (req.params.scenario === 'valid') {
       coverage['getComplexPolymorphicRecursiveValid']++;
-      res.status(200).end(JSON.stringify(bigfishRaw));
+      res.status(200).json(bigfishRaw);
     } else {
       utils.send400(res, next, 'Must provide a valid scenario.');
     }
@@ -693,7 +693,7 @@ var complex = function (coverage) {
 
   router.get('/readonlyproperty/valid', function (req, res, next) {
     coverage['getComplexReadOnlyPropertyValid']++;
-    res.status(200).end(JSON.stringify({ "id": "1234", "size": 2 }));
+    res.status(200).json({ "id": "1234", "size": 2 });
   });
 
   router.put('/readonlyproperty/valid', function (req, res, next) {

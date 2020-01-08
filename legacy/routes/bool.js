@@ -27,16 +27,16 @@ var bool = function(coverage) {
     router.get('/:scenario', function(req, res, next) {
         if (req.params.scenario === 'true') {
             coverage['getBoolTrue']++;
-            res.status(200).end('true');
+            res.status(200).type('json').end('true');
         } else if (req.params.scenario === 'false') {
             coverage['getBoolFalse']++;
-            res.status(200).end('false');
+            res.status(200).type('json').end('false');
         } else if (req.params.scenario === 'null') {
             coverage['getBoolNull']++;
             res.status(200).end();
         } else if (req.params.scenario === 'invalid') {
             coverage['getBoolInvalid']++;
-            res.status(200).end('true1');
+            res.status(200).type('json').end('true1');
         } else {
             res.status(400).send('Request path must contain true or false');
         }

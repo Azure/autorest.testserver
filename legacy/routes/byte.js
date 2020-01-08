@@ -26,13 +26,13 @@ var byte = function(coverage) {
             res.status(200).end();
         } else if (req.params.scenario === 'empty') {
             coverage['getByteEmpty']++;
-            res.status(200).end('\"\"');
+            res.status(200).type('json').end('\"\"');
         } else if (req.params.scenario === 'nonAscii') {
             coverage['getByteNonAscii']++;
-            res.status(200).end('\"' + bytes.toString('base64') + '\"');
+            res.status(200).type('json').end('\"' + bytes.toString('base64') + '\"');
         } else if (req.params.scenario === 'invalid') {
             coverage['getByteInvalid']++;
-            res.status(200).end('\"::::SWAGGER::::\"');
+            res.status(200).type('json').end('\"::::SWAGGER::::\"');
         } else {
             res.status(400).send('Request path must contain null or empty or nonAscii or invalid');
         }

@@ -47,13 +47,13 @@ var lros = function (coverage) {
   coverage['CustomHeaderPostSucceeded'] = 0;
   router.put('/put/200/succeeded', function (req, res, next) {
     coverage['LROPutInlineComplete']++;
-    res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
   });
 
   coverage['LROPut200InlineCompleteNoState'] = 0;
   router.put('/put/200/succeeded/nostate', function (req, res, next) {
     coverage['LROPut200InlineCompleteNoState']++;
-    res.status(200).end('{"id": "100", "name": "foo" }');
+    res.status(200).type('json').end('{"id": "100", "name": "foo" }');
   });
 
   coverage['LROPut202Retry200'] = 0;
@@ -68,7 +68,7 @@ var lros = function (coverage) {
 
   router.get('/put/202/retry/operationResults/200', function (req, res, next) {
     coverage['LROPut202Retry200']++;
-    res.status(200).end('{"id": "100", "name": "foo" }');
+    res.status(200).type('json').end('{"id": "100", "name": "foo" }');
   });
 
   coverage['LROPutSucceededWithBody'] = 0; // /put/201/creating/succeeded/200
@@ -166,7 +166,7 @@ var lros = function (coverage) {
 
     var scenario = getLROAsyncScenarioName("putasync", retry, finalState);
     if (scenario) {
-      res.status(200).end('{ "properties": { "provisioningState": "' + finalState + '"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "' + finalState + '"}, "id": "100", "name": "foo" }');
     } else {
       utils.send400(res, next, 'Unable to parse "putAsync" scenario with retry: "' + retry + '", finalState: "' + finalState + '"');
     }
@@ -222,7 +222,7 @@ var lros = function (coverage) {
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -238,7 +238,7 @@ var lros = function (coverage) {
 
   router.get('/putasync/noheader/201/200', function (req, res, next) {
     coverage['LROPutAsyncNoHeaderInRetry']++;
-    res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/putasync/noheader/operationresults/123', function (req, res, next) {
@@ -246,10 +246,10 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).end('{ "status": "InProgress"}');
+      res.status(200).type('json').end('{ "status": "InProgress"}');
     } else {
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded"}');
+      res.status(200).type('json').end('{ "status": "Succeeded"}');
     }
   });
 
@@ -290,11 +290,11 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).end('{ "status": "InProgress"}');
+      res.status(200).type('json').end('{ "status": "InProgress"}');
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded"}');
+      res.status(200).type('json').end('{ "status": "Succeeded"}');
     }
   });
 
@@ -316,7 +316,7 @@ var lros = function (coverage) {
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "subresource": "sub1" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "subresource": "sub1" }');
     }
   });
 
@@ -331,7 +331,7 @@ var lros = function (coverage) {
   });
 
   router.get('/putsubresourceasync/202/200', function (req, res, next) {
-    res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "subresource": "sub1" }');
+    res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "subresource": "sub1" }');
   });
 
   router.get('/putsubresourceasync/operationresults/123', function (req, res, next) {
@@ -340,10 +340,10 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).end('{ "status": "InProgress"}');
+      res.status(200).type('json').end('{ "status": "InProgress"}');
     } else {
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded"}');
+      res.status(200).type('json').end('{ "status": "Succeeded"}');
     }
   });
 
@@ -365,7 +365,7 @@ var lros = function (coverage) {
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
-      res.status(200).end('{ "name": "sku" , "id": "100" }');
+      res.status(200).type('json').end('{ "name": "sku" , "id": "100" }');
     }
   });
 
@@ -380,7 +380,7 @@ var lros = function (coverage) {
   });
 
   router.get('/putnonresourceasync/202/200', function (req, res, next) {
-    res.status(200).end('{ "name": "sku" , "id": "100" }');
+    res.status(200).type('json').end('{ "name": "sku" , "id": "100" }');
   });
 
   router.get('/putnonresourceasync/operationresults/123', function (req, res, next) {
@@ -388,11 +388,11 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).end('{ "status": "InProgress"}');
+      res.status(200).type('json').end('{ "status": "InProgress"}');
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
-      res.status(200).end('{ "status": "Succeeded"}');
+      res.status(200).type('json').end('{ "status": "Succeeded"}');
     }
   });
 
@@ -610,7 +610,7 @@ var lros = function (coverage) {
     if (scenario) {
       coverage[scenario]++;
       if (finalCode === 200) {
-        res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+        res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
       } else {
         res.status(finalCode).end();
       }
@@ -633,7 +633,7 @@ var lros = function (coverage) {
   router.get('/post/payload/200', function (req, res, next) {
     var scenario = 'LROPost200';
     coverage[scenario]++;
-    res.status(200).end('{"id":"1", "name":"product"}');
+    res.status(200).type('json').end('{"id":"1", "name":"product"}');
   });
 
   // Initial call is 202 with no body and Location and Azure-AsyncOperation
@@ -650,10 +650,10 @@ var lros = function (coverage) {
     res.set(headers).status(202).end('');
   });
   router.get('/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl', function (req, res, next) {
-    res.status(200).end('{ "status": "succeeded"} ');
+    res.status(200).type('json').end('{ "status": "succeeded"} ');
   });
   router.get('/LROPostDoubleHeadersFinalLocationGet/location', function (req, res, next) {
-    res.status(200).end('{ "id": "100", "name": "foo" }');
+    res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
     coverage['LROPostDoubleHeadersFinalLocationGet']++;
   });
 
@@ -670,7 +670,7 @@ var lros = function (coverage) {
     res.set(headers).status(202).end('');
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl', function (req, res, next) {
-    res.status(200).end('{ "status": "succeeded", "id": "100"} ');
+    res.status(200).type('json').end('{ "status": "succeeded", "id": "100"} ');
     coverage['LROPostDoubleHeadersFinalAzureHeaderGet']++;
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGet/location', function (req, res, next) {
@@ -690,7 +690,7 @@ var lros = function (coverage) {
     res.set(headers).status(202).end('');
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGetDefault/asyncOperationUrl', function (req, res, next) {
-    res.status(200).end('{ "status": "succeeded", "id": "100"} ');
+    res.status(200).type('json').end('{ "status": "succeeded", "id": "100"} ');
     coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault']++;
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGetDefault/location', function (req, res, next) {
@@ -770,11 +770,11 @@ var lros = function (coverage) {
     var scenario = getLROAsyncScenarioName(operation, retry, finalState);
     console.log('In scenario: ' + scenario + '\n');
 
-    //res.status(200).end('{ "id": "100", "name": "foo" }');
+    //res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
 
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).end('{ "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
@@ -790,7 +790,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -821,7 +821,7 @@ var lros = function (coverage) {
       } else {
         coverage[scenario]++;
         removeScenarioCookie(res);
-        res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+        res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
       }
     } else {
       utils.send400(res, next, 'Unable to parse "put" scenario with initialCode: "201" initialState: "Creating", finalState: "Succeeded", finalCode: "200"');
@@ -844,7 +844,7 @@ var lros = function (coverage) {
       res.set(headers).status(500).end();
     } else {
       removeScenarioCookie(res);
-      res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -856,7 +856,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -868,7 +868,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded" }');
+      res.status(200).type('json').end('{ "status": "Succeeded" }');
     }
   });
 
@@ -897,7 +897,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -926,7 +926,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -956,7 +956,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded" }');
+      res.status(200).type('json').end('{ "status": "Succeeded" }');
     }
   });
 
@@ -998,7 +998,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     }
   });
 
@@ -1029,7 +1029,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "status": "Succeeded" }');
+      res.status(200).type('json').end('{ "status": "Succeeded" }');
     }
   });
 
@@ -1041,7 +1041,7 @@ var lros = function (coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "name": "sku" , "id": "100" }');
+      res.status(200).type('json').end('{ "name": "sku" , "id": "100" }');
     }
   });
 
@@ -1081,7 +1081,7 @@ var lros = function (coverage) {
       'Location': pollingUri,
       'Retry-After': 0
     };
-    res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/nonretryerror/putasync/retry/failed/operationResults/400', function (req, res, next) {
@@ -1182,16 +1182,16 @@ var lros = function (coverage) {
       'Location': pollingUri,
       'Retry-After': 0
     };
-    res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/error/putasync/retry/nostatus', function (req, res, next) {
-    res.status(200).end('{ }');
+    res.status(200).type('json').end('{ }');
   });
 
   router.get('/error/putasync/retry/failed/operationResults/nostatus', function (req, res, next) {
     coverage['LROErrorPutAsyncNoPollingStatus']++;
-    res.status(200).end('{ }');
+    res.status(200).type('json').end('{ }');
   });
 
   coverage['LROErrorPutAsyncNoPollingStatusPayload'] = 0;
@@ -1202,7 +1202,7 @@ var lros = function (coverage) {
       'Location': pollingUri,
       'Retry-After': 0
     };
-    res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/error/putasync/retry/nostatuspayload', function (req, res, next) {
@@ -1217,11 +1217,11 @@ var lros = function (coverage) {
   coverage['LROErrorPut200InvalidJson'] = 0;
   router.put('/error/put/200/invalidjson', function (req, res, next) {
     coverage['LROErrorPut200InvalidJson']++;
-    res.status(200).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo"');
+    res.status(200).type('json').end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo"');
   });
 
   router.get('/error/put/200/invalidjson', function (req, res, next) {
-    res.status(200).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo"');
+    res.status(200).type('json').end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo"');
   });
 
   coverage['LROErrorPutAsyncInvalidHeader'] = 0;
@@ -1233,7 +1233,7 @@ var lros = function (coverage) {
       'Location': pollingUri,
       'Retry-After': '/bar'
     };
-    res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   coverage['LROErrorPutAsyncInvalidJsonPolling'] = 0;
@@ -1244,12 +1244,12 @@ var lros = function (coverage) {
       'Location': pollingUri,
       'Retry-After': 0
     };
-    res.status(200).set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
+    res.status(200).type('json').set(headers).end('{ "properties": { "provisioningState": "Creating"}, "id": "100", "name": "foo" }');
   });
 
   router.get('/error/putasync/retry/failed/operationResults/invalidjsonpolling', function (req, res, next) {
     coverage['LROErrorPutAsyncInvalidJsonPolling']++;
-    res.status(200).end('{ "status": "Accepted"');
+    res.status(200).type('json').end('{ "status": "Accepted"');
   });
 
   coverage['LROErrorDeleteNoLocation'] = 0;
@@ -1282,7 +1282,7 @@ var lros = function (coverage) {
 
   router.get('/error/deleteasync/retry/failed/operationResults/nostatus', function (req, res, next) {
     coverage['LROErrorDeleteAsyncNoPollingStatus']++;
-    res.status(200).end('{ }');
+    res.status(200).type('json').end('{ }');
   });
 
   coverage['LROErrorDeleteAsyncInvalidHeader'] = 0;
@@ -1310,7 +1310,7 @@ var lros = function (coverage) {
 
   router.get('/error/deleteasync/retry/failed/operationResults/invalidjsonpolling', function (req, res, next) {
     coverage['LROErrorDeleteAsyncInvalidJsonPolling']++;
-    res.status(200).end('{ "status": "Accepted"');
+    res.status(200).type('json').end('{ "status": "Accepted"');
   });
 
   coverage['LROErrorPostNoLocation'] = 0;
@@ -1371,7 +1371,7 @@ var lros = function (coverage) {
 
   router.get('/error/postasync/retry/failed/operationResults/invalidjsonpolling', function (req, res, next) {
     coverage['LROErrorPostAsyncInvalidJsonPolling']++;
-    res.status(200).end('{ "status": "Accepted"');
+    res.status(200).type('json').end('{ "status": "Accepted"');
   });
 
   router.put('/customheader/putasync/retry/succeeded', function (req, res, next) {
@@ -1393,7 +1393,7 @@ var lros = function (coverage) {
     var header = req.get("x-ms-client-request-id");
     var scenario = 'CustomHeaderPutAsyncSucceded';
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     } else {
       utils.send400(res, next, 'Did not receive the correct x-ms-client-request-id header in get: "' + header);
     }
@@ -1415,7 +1415,7 @@ var lros = function (coverage) {
       } else {
         removeScenarioCookie(res);
         coverage[scenario]++;
-        res.status(200).end('{ "status": "Succeeded"}');
+        res.status(200).type('json').end('{ "status": "Succeeded"}');
       }
     } else {
       utils.send400(res, next, 'Did not receive the correct x-ms-client-request-id header in get: "' + header);
@@ -1453,7 +1453,7 @@ var lros = function (coverage) {
       } else {
         removeScenarioCookie(res);
         coverage[scenario]++;
-        res.status(200).end('{ "status": "Succeeded"}');
+        res.status(200).type('json').end('{ "status": "Succeeded"}');
       }
     } else {
       utils.send400(res, next, 'Did not receive the correct x-ms-client-request-id header in get: "' + header);
@@ -1475,7 +1475,7 @@ var lros = function (coverage) {
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
       coverage[scenario]++;
-      res.status(200).end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+      res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
     } else {
       utils.send400(res, next, 'Did not receive the correct x-ms-client-request-id header in get: "' + header);
     }

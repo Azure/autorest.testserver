@@ -22,17 +22,17 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
 
   router.get('/', function(req, res, next) {
     writeOutCoverageReport(`../coverage/report-vanilla${getQualifiedSuffix(req)}`, coverage);
-    res.status(200).end(JSON.stringify(coverage));
+    res.status(200).json(coverage);
   });
 
   router.get('/azure', function(req, res, next) {
     writeOutCoverageReport(`../coverage/report-azure${getQualifiedSuffix(req)}`, azureCoverage);
-    res.status(200).end(JSON.stringify(azureCoverage));
+    res.status(200).json(azureCoverage);
   });
 
   router.get('/optional', function(req, res, next) {
     writeOutCoverageReport(`../coverage/report-optional${getQualifiedSuffix(req)}`, optionalCoverage);
-    res.status(200).end(JSON.stringify(optionalCoverage));
+    res.status(200).json(optionalCoverage);
   });
 }
 

@@ -32,7 +32,7 @@ var modelFlatten = function (coverage) {
           name: 'Resource3'
         }
       ];
-      res.status(200).end(JSON.stringify(result));
+      res.status(200).json(result);
     } else if (req.params.type === 'dictionary') {
       coverage['getModelFlattenDictionary']++;
       var result = {
@@ -59,7 +59,7 @@ var modelFlatten = function (coverage) {
           name: 'Resource3'
         }
       };
-      res.status(200).end(JSON.stringify(result));
+      res.status(200).json(result);
     } else if (req.params.type === 'resourcecollection') {
       coverage['getModelFlattenResourceCollection']++;
       var result = {
@@ -117,7 +117,7 @@ var modelFlatten = function (coverage) {
           location: 'Building 44'
         }
       };
-      res.status(200).end(JSON.stringify(result));
+      res.status(200).json(result);
     } else {
       utils.send400(res, next, "Request path must contain 'array', 'dictionary' or 'resourcecollection'");
     }
@@ -157,7 +157,7 @@ var modelFlatten = function (coverage) {
         'generic_value': "https://generic"
       }
     }
-  };                      
+  };
   router.put('/:type', function (req, res, next) {
     if (req.body) {
       if (req.params.type === 'array') {
@@ -184,7 +184,7 @@ var modelFlatten = function (coverage) {
       } else if (req.params.type === 'customFlattening') {
         if (_.isEqual(req.body, customFlattenBodyWithInheritedProperty)) {
           coverage['putModelFlattenCustomBase']++;
-          res.status(200).end(JSON.stringify(customFlattenBodyWithInheritedProperty));
+          res.status(200).json(customFlattenBodyWithInheritedProperty);
         } else {
           utils.send400(res, next, "The received body '" + JSON.stringify(req.body) + "' did not match the expected body '" + JSON.stringify(customFlattenBody) + "'.");
         }
@@ -199,7 +199,7 @@ var modelFlatten = function (coverage) {
       if (req.params.type === 'customFlattening') {
         if (_.isEqual(req.body, customFlattenBody)) {
           coverage['postModelFlattenCustomParameter']++;
-          res.status(200).end(JSON.stringify(customFlattenBody));
+          res.status(200).json(customFlattenBody);
         } else {
           utils.send400(res, next, "The received body '" + JSON.stringify(req.body) + "' did not match the expected body '" + JSON.stringify(customFlattenBody) + "'.");
         }
@@ -213,9 +213,9 @@ var modelFlatten = function (coverage) {
     if (req.body) {
       if (_.isEqual(req.body, customFlattenBody) && req.params.name === 'groupproduct') {
         coverage['putModelFlattenCustomGroupedParameter']++;
-        res.status(200).end(JSON.stringify(customFlattenBody));
+        res.status(200).json(customFlattenBody);
       } else {
-        utils.send400(res, next, "The received body '" + JSON.stringify(req.body) + "' did not match the expected body '" + JSON.stringify(customFlattenBody) + 
+        utils.send400(res, next, "The received body '" + JSON.stringify(req.body) + "' did not match the expected body '" + JSON.stringify(customFlattenBody) +
           "'. Or the path parameter name does not have the value 'groupproduct'");
       }
     } else {
