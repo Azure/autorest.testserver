@@ -12,14 +12,14 @@ var specials = function (coverage) {
       coverage["ConstantsInPath"]++;
       res.status(200).end();
   });
-  
+
   router.post('/constantsInPath/constant/value', function (req, res, next) {
-    if (req.body && req.body.constString === 'constant' && req.body.constInt === 0 
-        && req.body.child && req.body.child.constProperty === 'constant' 
+    if (req.body && req.body.constString === 'constant' && req.body.constInt === 0
+        && req.body.child && req.body.child.constProperty === 'constant'
         && req.body.constChild.constProperty === 'constant'
         && req.body.constChild.constProperty2 === 'constant2') {
         coverage["ConstantsInBody"]++;
-        res.status(200).end(JSON.stringify(req.body));
+        res.status(200).json(req.body);
       } else {
         utils.send400(res, next, "Constant values were not present in the body '" + util.inspect(req.body) + "'");
       }

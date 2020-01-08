@@ -78,7 +78,7 @@ var additionalProperties = function (coverage) {
         coverage["additionalPropertiesTrue"]++;
         let resBody = JSON.parse(JSON.stringify(apTrue));
         resBody.status = true;
-        res.status(200).end(JSON.stringify(resBody));
+        res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }
@@ -88,7 +88,7 @@ var additionalProperties = function (coverage) {
         coverage["additionalPropertiesSubclass"]++;
         let resBody = JSON.parse(JSON.stringify(apSubclass));
         resBody.status = true;
-        res.status(200).end(JSON.stringify(resBody));
+        res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }
@@ -98,7 +98,7 @@ var additionalProperties = function (coverage) {
       coverage["additionalPropertiesTypeObject"]++;
       let resBody = JSON.parse(JSON.stringify(apObject));
       resBody.status = true;
-      res.status(200).end(JSON.stringify(resBody));
+      res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }
@@ -108,7 +108,7 @@ var additionalProperties = function (coverage) {
       coverage["additionalPropertiesTypeString"]++;
       let resBody = JSON.parse(JSON.stringify(apString));
       resBody.status = true;
-      res.status(200).end(JSON.stringify(resBody));
+      res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }
@@ -118,7 +118,7 @@ var additionalProperties = function (coverage) {
       coverage["additionalPropertiesInProperties"]++;
       let resBody = JSON.parse(JSON.stringify(apInProperties));
       resBody.status = true;
-      res.status(200).end(JSON.stringify(resBody));
+      res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }
@@ -128,7 +128,7 @@ var additionalProperties = function (coverage) {
       coverage["additionalPropertiesInPropertiesWithAPTypeString"]++;
       let resBody = JSON.parse(JSON.stringify(apInPropertiesWithAPString));
       resBody.status = true;
-      res.status(200).end(JSON.stringify(resBody));
+      res.status(200).json(resBody);
     } else {
       utils.send400(res, next, "Did not like additionalProperties req " + util.inspect(req.body));
     }

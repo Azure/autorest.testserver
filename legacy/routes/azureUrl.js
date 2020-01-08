@@ -20,7 +20,7 @@ var azureUrl = function (coverage) {
     } else {
       coverage['SubscriptionIdAndApiVersion']++;
       var result = {name: 'testgroup101', location: 'West US'};
-      res.status(200).end(JSON.stringify(result));
+      res.status(200).json(result);
     }
   });
 }

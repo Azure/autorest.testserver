@@ -15,7 +15,7 @@ var duration = function(coverage, optionalCoverage) {
             // res.status(200).end();
         // } else {
             // utils.send400(res, next, "Did not like the value provided for negative duration " + util.inspect(req.body));
-        // }        
+        // }
     // });
 
     router.put('/positiveduration', function(req, res, next) {
@@ -28,21 +28,21 @@ var duration = function(coverage, optionalCoverage) {
             utils.send400(res, next, "Did not like the value provided for positive duration " + util.inspect(req.body));
         }
     });
-    
+
     router.get('/:scenario', function(req, res, next) {
         if (req.params.scenario === 'null') {
             coverage["getDurationNull"]++;
             res.status(200).end();
         } else if (req.params.scenario === 'invalid') {
             coverage["getDurationInvalid"]++;
-            res.status(200).end('"123ABC"');
+            res.status(200).type('json').end('"123ABC"');
         } else if (req.params.scenario === 'positiveduration') {
             coverage["getDurationPositive"]++;
-            res.status(200).end('"P3Y6M4DT12H30M5S"');
+            res.status(200).type('json').end('"P3Y6M4DT12H30M5S"');
         //TODO: It looks like ISO8601 doesn't cover negative durations (so there is no standard)... omitting for now
         // } else if (req.params.scenario === 'negativeduration') {
             // coverage["getDurationNegative"]++;
-            // res.status(200).end('"-P3Y6M4DT12H30M5S"');
+            // res.status(200).type('json').end('"-P3Y6M4DT12H30M5S"');
         } else {
             res.status(400).send('Request path must contain a valid scenario: ' +
                 '"null", "invalid", "positiveduration", "negativeduration". Provided value is : ', +

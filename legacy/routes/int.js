@@ -52,25 +52,25 @@ var integer = function(coverage) {
             res.status(200).end();
         } else if (req.params.scenario === 'invalid') {
             coverage['getIntegerInvalid']++;
-            res.status(200).end('123jkl');
+            res.status(200).type('json').end('123jkl');
         } else if (req.params.scenario === 'overflowint32') {
             coverage['getIntegerOverflow']++;
-            res.status(200).end('2147483656');
+            res.status(200).type('json').end('2147483656');
         } else if (req.params.scenario === 'underflowint32') {
             coverage['getIntegerUnderflow']++;
-            res.status(200).end('-2147483656');
+            res.status(200).type('json').end('-2147483656');
         } else if (req.params.scenario === 'overflowint64') {
             coverage['getLongOverflow']++;
-            res.status(200).end('9223372036854775910');
+            res.status(200).type('json').end('9223372036854775910');
         } else if (req.params.scenario === 'underflowint64') {
             coverage['getLongUnderflow']++;
-            res.status(200).end('-9223372036854775910');
+            res.status(200).type('json').end('-9223372036854775910');
         } else if (req.params.scenario === 'unixtime') {
             coverage['getUnixTime']++;
-            res.status(200).end('1460505600');
+            res.status(200).type('json').end('1460505600');
         } else if (req.params.scenario === 'invalidunixtime') {
             coverage['getInvalidUnixTime']++;
-            res.status(200).end('123jkl');
+            res.status(200).type('json').end('123jkl');
         } else if (req.params.scenario === 'nullunixtime') {
             coverage['getNullUnixTime']++;
             res.status(200).end();
@@ -78,7 +78,7 @@ var integer = function(coverage) {
             res.status(400).send('Request path must contain true or false');
         }
     });
-    
+
     router.put('/unixtime', function(req, res, next) {
           if (req.body != 1460505600) {
               utils.send400(res, next, "Did not like the value provided for unixtime in the req " + util.inspect(req.body));

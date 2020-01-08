@@ -8,12 +8,12 @@ var string = function (coverage) {
   var base64String    = "YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjQ=";
   var base64UrlString = "YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw";
   var RefColorConstant = { "field1": "Sample String" };
-  
+
   router.put('/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null') {
       if (req.body === undefined || (req.body && Object.keys(req.body).length === 0 && req.headers['content-length'] === '0')) {
         coverage['putStringNull']++;
-        res.status(200).end(); 
+        res.status(200).end();
       } else {
         utils.send400(res, next, "Did not like null req '" + util.inspect(req) + "'");
       }
@@ -50,17 +50,17 @@ var string = function (coverage) {
       utils.send400(res, next, 'Request path must contain true or false');
     }
   });
-  
+
   router.get('/:scenario', function (req, res, next) {
     if (req.params.scenario === 'null') {
       coverage['getStringNull']++;
       res.status(200).end();
     } else if (req.params.scenario === 'base64Encoding') {
       coverage['getStringBase64Encoded']++;
-      res.status(200).end('"' + base64String + '"');
+      res.status(200).type('json').end('"' + base64String + '"');
     } else if (req.params.scenario === 'base64UrlEncoding') {
       coverage['getStringBase64UrlEncoded']++;
-      res.status(200).end('"' + base64UrlString + '"');
+      res.status(200).type('json').end('"' + base64UrlString + '"');
     } else if (req.params.scenario === 'nullBase64UrlEncoding') {
       coverage['getStringNullBase64UrlEncoding']++;
       res.status(200).end();
@@ -69,24 +69,24 @@ var string = function (coverage) {
       res.status(200).end();
     } else if (req.params.scenario === 'empty') {
       coverage['getStringEmpty']++;
-      res.status(200).end('\"\"');
+      res.status(200).type('json').end('\"\"');
     } else if (req.params.scenario === 'mbcs') {
       coverage['getStringMultiByteCharacters']++;
-      res.status(200).end('"' + constants.MULTIBYTE_BUFFER_BODY + '"');
+      res.status(200).type('json').end('"' + constants.MULTIBYTE_BUFFER_BODY + '"');
     } else if (req.params.scenario === 'whitespace') {
       coverage['getStringWithLeadingAndTrailingWhitespace']++;
-      res.status(200).end('\"    Now is the time for all good men to come to the aid of their country    \"');
+      res.status(200).type('json').end('\"    Now is the time for all good men to come to the aid of their country    \"');
     } else {
       res.status(400).end('Request path must contain null or empty or mbcs or whitespace');
     }
 
   });
-  
+
   router.get('/enum/notExpandable', function (req, res, next) {
     coverage['getEnumNotExpandable']++;
-    res.status(200).end('"red color"');
+    res.status(200).type('json').end('"red color"');
   });
-  
+
   router.put('/enum/notExpandable', function (req, res, next) {
     if (req.body === 'red color') {
       coverage['putEnumNotExpandable']++;
@@ -97,9 +97,9 @@ var string = function (coverage) {
 	});
    router.get('/enum/notExpandable', function (req, res, next) {
     coverage['getEnumNotExpandable']++;
-    res.status(200).end('"red color"');
+    res.status(200).type('json').end('"red color"');
   });
-  
+
   router.put('/enum/notExpandable', function (req, res, next) {
     if (req.body === 'red color') {
       coverage['putEnumNotExpandable']++;
@@ -110,7 +110,7 @@ var string = function (coverage) {
     });
     router.get('/enum/Referenced', function (req, res, next) {
       coverage['getEnumReferenced']++;
-      res.status(200).end('"red color"');
+      res.status(200).type('json').end('"red color"');
     });
 
     router.put('/enum/Referenced', function (req, res, next) {
@@ -123,7 +123,7 @@ var string = function (coverage) {
     });
     router.get('/enum/ReferencedConstant', function (req, res, next) {
       coverage['getEnumReferencedConstant']++;
-      res.status(200).end(JSON.stringify(RefColorConstant));
+      res.status(200).json(RefColorConstant);
     });
 
     router.put('/enum/ReferencedConstant', function (req, res, next) {

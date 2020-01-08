@@ -47,33 +47,33 @@ var number = function(coverage, optCoverage) {
         if (req.params.format === 'float') {
             if (req.params.value === '3.402823e+20') {
                 coverage['getFloatBigScientificNotation']++;
-                res.status(200).end('3.402823e+20');
+                res.status(200).type('json').end('3.402823e+20');
             } else {
                 utils.send400(res, next, "Did not like the value provided for big float in the req " + util.inspect(req.params.value));
             }
         } else if (req.params.format === 'double') {
             if (req.params.value === '2.5976931e+101') {
                 coverage['getDoubleBigScientificNotation']++;
-                res.status(200).end('2.5976931e+101');
+                res.status(200).type('json').end('2.5976931e+101');
             } else if (req.params.value === '99999999.99') {
                 coverage['getDoubleBigPositiveDecimal']++;
-                res.status(200).end('99999999.99');
+                res.status(200).type('json').end('99999999.99');
             } else if (req.params.value === '-99999999.99') {
                 coverage['getDoubleBigNegativeDecimal']++;
-                res.status(200).end('-99999999.99');
+                res.status(200).type('json').end('-99999999.99');
             } else {
                 utils.send400(res, next, "Did not understand the value provided for big double in the req " + util.inspect(req.params.value));
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e+101') {
                 optCoverage['getDecimalBig']++;
-                res.status(200).end('2.5976931e+101');
+                res.status(200).type('json').end('2.5976931e+101');
             } else if (req.params.value === '99999999.99') {
                 optCoverage['getDecimalBigPositiveDecimal']++;
-                res.status(200).end('99999999.99');
+                res.status(200).type('json').end('99999999.99');
             } else if (req.params.value === '-99999999.99') {
                 optCoverage['getDecimalBigNegativeDecimal']++;
-                res.status(200).end('-99999999.99');
+                res.status(200).type('json').end('-99999999.99');
             } else {
                 utils.send400(res, next, "Did not understand the value provided for big decimal in the req " + util.inspect(req.params.value));
             }
@@ -113,21 +113,21 @@ var number = function(coverage, optCoverage) {
         if (req.params.format === 'float') {
             if (req.params.value === '3.402823e-20') {
                 coverage['getFloatSmallScientificNotation']++;
-                res.status(200).end('3.402823e-20');
+                res.status(200).type('json').end('3.402823e-20');
             } else {
                 utils.send400(res, next, "Did not like the value provided for small float in the req " + util.inspect(req.params.value));
             }
         } else if (req.params.format === 'double') {
             if (req.params.value === '2.5976931e-101') {
                 coverage['getDoubleSmallScientificNotation']++;
-                res.status(200).end('2.5976931e-101');
+                res.status(200).type('json').end('2.5976931e-101');
             } else {
                 utils.send400(res, next, "Did not like the value provided for small double in the req " + util.inspect(req.params.value));
             }
 		} else if (req.params.format === 'decimal') {
             if (req.params.value === '2.5976931e-101') {
                 optCoverage['getDecimalSmall']++;
-                res.status(200).end('2.5976931e-101');
+                res.status(200).type('json').end('2.5976931e-101');
             } else {
                 utils.send400(res, next, "Did not like the value provided for small decimal in the req " + util.inspect(req.params.value));
             }
@@ -142,13 +142,13 @@ var number = function(coverage, optCoverage) {
             res.status(200).end();
         } else if (req.params.scenario === 'invalidfloat') {
             coverage['getFloatInvalid']++;
-            res.status(200).end('2147483656.090096789909j');
+            res.status(200).type('json').end('2147483656.090096789909j');
         } else if (req.params.scenario === 'invaliddouble') {
             coverage['getDoubleInvalid']++;
-            res.status(200).end('9223372036854775910.980089k');
+            res.status(200).type('json').end('9223372036854775910.980089k');
 		} else if (req.params.scenario === 'invaliddecimal') {
 			optCoverage['getDecimalInvalid']++;
-            res.status(200).end('9223372036854775910.980089k');
+            res.status(200).type('json').end('9223372036854775910.980089k');
         } else {
             res.status(400).send('Request path must contain true or false');
         }

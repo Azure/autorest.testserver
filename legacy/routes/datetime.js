@@ -81,7 +81,7 @@ var datetime = function(coverage, optionalCoverage) {
             utils.send400(res, next, 'Please provide a valid case for datetime case ' +
                 '\'uppercase\', \'lowercase\' and not ' + util.inspect(req.params.case));
         }
-        res.status(200).end(ret);
+        res.status(200).type('json').end(ret);
     });
 
     router.put('/min/:type', function(req, res, next) {
@@ -116,13 +116,13 @@ var datetime = function(coverage, optionalCoverage) {
     router.get('/min/:type', function(req, res, next) {
         if (req.params.type === 'utc') {
             coverage["getDateTimeMinUtc"]++;
-            res.status(200).end('"0001-01-01T00:00:00Z"');
+            res.status(200).type('json').end('"0001-01-01T00:00:00Z"');
         } else if (req.params.type === 'localpositiveoffset') {
             coverage["getDateTimeMinLocalPositiveOffset"]++;
-            res.status(200).end('"0001-01-01T00:00:00+14:00"');
+            res.status(200).type('json').end('"0001-01-01T00:00:00+14:00"');
         } else if (req.params.type === 'localnegativeoffset') {
             coverage["getDateTimeMinLocalNegativeOffset"]++;
-            res.status(200).end('"0001-01-01T00:00:00-14:00"');
+            res.status(200).type('json').end('"0001-01-01T00:00:00-14:00"');
         } else {
             utils.send400(res, next, 'Please provide a valid datetime type \'utc\', ' +
                 '\'localpositiveoffset\', \'localnegativeoffset\' and not ' +
@@ -136,13 +136,13 @@ var datetime = function(coverage, optionalCoverage) {
             res.status(200).end();
         } else if (req.params.scenario === 'invalid') {
             coverage["getDateTimeInvalid"]++;
-            res.status(200).end('"201O-18-90D00:89:56.9AX"');
+            res.status(200).type('json').end('"201O-18-90D00:89:56.9AX"');
         } else if (req.params.scenario === 'overflow') {
             coverage["getDateTimeOverflow"]++;
-            res.status(200).end('"9999-12-31T23:59:59.999-14:00"');
+            res.status(200).type('json').end('"9999-12-31T23:59:59.999-14:00"');
         } else if (req.params.scenario === 'underflow') {
             coverage["getDateTimeUnderflow"]++;
-            res.status(200).end('"0000-00-00T00:00:00.000+00:00"');
+            res.status(200).type('json').end('"0000-00-00T00:00:00.000+00:00"');
         } else {
             res.status(400).send('Request path must contain a valid scenario: ' +
                 '"null", "invaliddate", "overflowdate", "underflowdate". Provided value is : ', +

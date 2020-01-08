@@ -552,7 +552,7 @@ var httpResponses = function(coverage, optionalCoverage) {
             coverage[scenario]++;
             if (req.params.type === 'valid') {
                 if (code === 200 ) {
-                    res.status(200).end('{ "statusCode": "200" }');
+                    res.status(200).type('json').end('{ "statusCode": "200" }');
                 } else if (code === 201) {
                     res.status(201).end('{ "statusCode": "201" , "textStatusCode": "Created" }');
                 } else {
@@ -576,7 +576,7 @@ var httpResponses = function(coverage, optionalCoverage) {
             coverage[scenario]++;
             if (req.params.type === 'valid') {
                 if (code === 200 ) {
-                    res.status(200).end('{ "statusCode": "200" }');
+                    res.status(200).type('json').end('{ "statusCode": "200" }');
                 } else if (code === 201) {
                     res.status(201).end('{ "httpCode": "201" }');
                 } else if (code === 404) {

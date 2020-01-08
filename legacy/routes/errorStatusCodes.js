@@ -50,14 +50,14 @@ var pathitem = function(coverage) {
         console.log('Inside action: "' + whatAction +'"\n');
         if (whatAction === 'stay') {
             coverage['expectedNoErrors']++;
-            res.status(200).end(JSON.stringify(tommyPet));
+            res.status(200).json(tommyPet);
         }
         else if(whatAction === 'jump'){
-            res.status(500).end(JSON.stringify(sadCasper));
+            res.status(500).json(sadCasper);
             coverage['expectedPetSadError']++;
         }
         else if(whatAction === 'fetch'){
-            res.status(404).end(JSON.stringify(hungryScooby));
+            res.status(404).json(hungryScooby);
             coverage['expectedPetHungryError']++;
         }
         else{
@@ -70,26 +70,26 @@ var pathitem = function(coverage) {
         console.log('Inside petfinder for '+petId+'\n');
         if (petId === 'tommy') {
             coverage['expectedNoErrors']++;
-            res.status(200).end(JSON.stringify(tommyPet));
+            res.status(200).json(tommyPet);
         }
         else if(petId === 'django') {
             res.status(202).end();
         }
         else if(petId === 'coyoteUgly'){
             coverage['animalNotFoundError']++;
-            res.status(404).end(JSON.stringify(animalNotFoundError));
+            res.status(404).json(animalNotFoundError);
         }
         else if(petId === 'weirdAlYankovic'){
             coverage['linkNotFoundError']++;
-            res.status(404).end(JSON.stringify(linkNotFoundError));
+            res.status(404).json(linkNotFoundError);
         }
         else if(petId === 'ringo'){
             coverage['stringError']++;
-            res.status(400).end(JSON.stringify(petId+stringError));
+            res.status(400).json(petId+stringError);
         }
         else if(petId === 'alien123'){
             coverage['intError']++;
-            res.status(501).end(JSON.stringify(intError));
+            res.status(501).json(intError);
         }
         else {
             res.status(402).end("That's all folks!!");
