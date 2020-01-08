@@ -47,58 +47,58 @@ var paging = function(coverage) {
 
   router.get('/noitemname', function(req, res, next) {
     coverage["PagingNoItemName"]++;
-    res.status(200).end('{ "value" : [ {"properties":{"id": 1, "name": "Product" }}]}');
+    res.status(200).json({ "value" : [ {"properties":{"id": 1, "name": "Product" }}]});
   });
 
   router.get('/nullnextlink', function(req, res, next) {
     coverage["PagingNextLinkNameNull"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/idontexistraise404" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/idontexistraise404" });
   });
 
   router.get('/single', function(req, res, next) {
     coverage["PagingSingle"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}]}');
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}]});
   });
 
   router.get('/multiple', function(req, res, next) {
 
     coverage["PagingMultiple"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/page/2" });
   });
 
   router.get('/multiple/page/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/page/' + (++req.params.pagenumber) + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/" + (++req.params.pagenumber) });
     } else {
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ]});
     }
   });
 
   router.get('/multiple/odata', function(req, res, next) {
 
     coverage["PagingOdataMultiple"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "odata.nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/odata/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "odata.nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/odata/page/2" });
   });
 
   router.get('/multiple/odata/page/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ], "odata.nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/odata/page/' + (++req.params.pagenumber) + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ], "odata.nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/odata/page/" + (++req.params.pagenumber) });
     } else {
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ]});
     }
   });
 
   router.get('/multiple/withpath/:offset', function(req, res, next) {
 
     coverage["PagingMultiplePath"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"' + 'http://localhost:' + utils.getPort() + '/paging/multiple/withpath/page/' + req.params.offset + '/2" }');
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/' + req.params.offset + '/2" });
   });
 
   router.get('/multiple/withpath/page/:offset/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + (parseInt(req.params.pagenumber) + parseInt(req.params.offset)) + ', "name": "product"}} ], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/withpath/page/' + req.params.offset + "/" + (++req.params.pagenumber) + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber) + parseInt(req.params.offset), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/" + req.params.offset + "/" + ++req.params.pagenumber});
     } else {
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + (parseInt(req.params.pagenumber) + parseInt(req.params.offset)) + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber) + parseInt(req.params.offset), "name": "product"}} ]});
     }
   });
 
@@ -110,12 +110,12 @@ var paging = function(coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/page/2" }')
+      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/2" });
     }
   });
 
   router.get('/multiple/retrysecond', function(req, res, next) {
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/retrysecond/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/2" });
   });
 
   router.get('/multiple/retrysecond/page/:pagenumber', function(req, res, next) {
@@ -127,12 +127,12 @@ var paging = function(coverage) {
       } else {
         coverage[scenario]++;
         removeScenarioCookie(res);
-        res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/retrysecond/page/3" }')
+        res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/3" });
       }
     } else if (req.params.pagenumber < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/retrysecond/page/' + (++req.params.pagenumber) + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/" + (++req.params.pagenumber)});
     } else {
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + req.params.pagenumber + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ]});
     }
   });
 
@@ -141,7 +141,7 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else {
-      res.status(200).end('{ "values": [ {"properties":{"id" : 1, "name": "product"}} ], "odata.nextLink": "next?page=2"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : 1, "name": "product"}} ], "odata.nextLink": "next?page=2"});
     }
   });
 
@@ -150,11 +150,11 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else if(req.query.page < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + req.query.page + ', "name": "product"}} ], "odata.nextLink": "next?page=' + ++req.query.page + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : req.query.page, "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
     }
     else {
       coverage["PagingFragment"]++;
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + req.query.page + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : req.query.page, "name": "product"}} ]});
     }
   });
 
@@ -163,7 +163,7 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else {
-      res.status(200).end('{ "values": [ {"properties":{"id" : 1, "name": "product"}} ], "odata.nextLink": "next?page=2"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : 1, "name": "product"}} ], "odata.nextLink": "next?page=2"});
     }
   });
 
@@ -172,10 +172,10 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else if(req.query.page < 10) {
-      res.status(200).end('{ "values": [ {"properties":{"id" : ' + req.query.page + ', "name": "product"}} ], "odata.nextLink": "next?page=' + ++req.query.page + '"}');
+      res.status(200).json({ "values": [ {"properties":{"id" : req.query.page, "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
     }
     else {
-      res.status(200).end('{"values": [ {"properties":{"id" : ' + req.query.page + ', "name": "product"}} ]}');
+      res.status(200).json({"values": [ {"properties":{"id" : req.query.page, "name": "product"}} ]});
     }
   });
 
@@ -187,51 +187,51 @@ var paging = function(coverage) {
       'Location': 'http://localhost:' + utils.getPort() + '/paging/multiple',
       'Retry-After': 0
     };
-    res.set(headers).status(202).end('{ "status": "Accepted"}');
+    res.set(headers).status(202).json({ "status": "Accepted"});
   });
 
   router.get('/multiple/lro/200', function (req, res, next) {
     coverage['PagingMultipleLRO']++;
-    res.status(200).end('{ "status": "Succeeded"}');
+    res.status(200).json({ "status": "Succeeded"});
   });
 
   /*** NEGATIVE TESTS HERE ***/
   router.get('/single/failure', function(req, res, next) {
     coverage["PagingSingleFailure"]++;
-    res.status(400).end('{"status": 400, "message": "Expected single failure test."}');
+    res.status(400).json({"status": 400, "message": "Expected single failure test."});
   });
 
   router.get('/multiple/failure', function(req, res, next) {
     coverage["PagingMultipleFailure"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "' + 'http://localhost:' + utils.getPort() + '/paging/multiple/failure/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/failure/page/2" });
   });
 
   router.get('/multiple/failure/page/:pagenumber', function(req, res, next) {
-    res.status(400).end('{"status": 400, "message": "Expected single failure test."}');
+    res.status(400).json({"status": 400, "message": "Expected single failure test."});
   });
 
   router.get('/multiple/failureuri', function(req, res, next) {
     coverage["PagingMultipleFailureUri"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "*&*#&$" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "*&*#&$" });
   });
 
   /** CUSTOM URL **/
   router.get('/customurl/partialnextlink', function(req, res, next) {
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "/paging/customurl/partialnextlink/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "/paging/customurl/partialnextlink/page/2" });
   });
 
   router.get('/customurl/partialnextlink/page/2', function(req, res, next) {
     coverage["PagingCustomUrlPartialNextLink"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 2, "name": "Product" }}]}');
+    res.status(200).json({ "values" : [ {"properties":{"id": 2, "name": "Product" }}]});
   });
 
   router.get('/customurl/partialnextlinkop', function(req, res, next) {
-    res.status(200).end('{ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "partialnextlinkop/page/2" }')
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "partialnextlinkop/page/2" });
   });
 
   router.get('/customurl/partialnextlinkop/page/2', function(req, res, next) {
     coverage["PagingCustomUrlPartialOperationNextLink"]++;
-    res.status(200).end('{ "values" : [ {"properties":{"id": 2, "name": "Product" }}]}');
+    res.status(200).json({ "values" : [ {"properties":{"id": 2, "name": "Product" }}]});
   });
 
 };
