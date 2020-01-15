@@ -91,7 +91,7 @@ var paging = function(coverage) {
   router.get('/multiple/withpath/:offset', function(req, res, next) {
 
     coverage["PagingMultiplePath"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/' + req.params.offset + '/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/" + req.params.offset + "/2" });
   });
 
   router.get('/multiple/withpath/page/:offset/:pagenumber', function(req, res, next) {
