@@ -1,3 +1,6 @@
+var express = require('express');
+
+var serverPort = 0;
 
 exports = module.exports;
 
@@ -15,8 +18,13 @@ exports.coerceDate = function(targetObject) {
   return JSON.parse(stringRep);
 };
 
+exports.setPort = function(port)
+{
+  serverPort = port;
+}
+
 exports.getPort = function () {
-	return process.env.PORT || 3000;
+	return serverPort;
 }
 
 exports.toPascalCase = function(input) {
