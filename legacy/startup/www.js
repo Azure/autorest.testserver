@@ -5,6 +5,7 @@
  */
 
 var app = require('../app');
+var utils = require('../util/utils.js');
 var debug = require('debug')('server:server');
 var http = require('http');
 var Constants = require('../util/constants')
@@ -100,4 +101,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
   console.log('Server started at port ' + addr.port);
+  utils.setPort(addr.port);
 }
