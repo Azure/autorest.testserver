@@ -68,9 +68,9 @@ var paging = function(coverage) {
 
   router.get('/multiple/page/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/" + (++req.params.pagenumber) });
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/" + (++req.params.pagenumber) });
     } else {
-      res.status(200).json({"values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ]});
+      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
     }
   });
 
@@ -130,9 +130,9 @@ var paging = function(coverage) {
         res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/3" });
       }
     } else if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/" + (++req.params.pagenumber)});
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/" + (++req.params.pagenumber)});
     } else {
-      res.status(200).json({"values": [ {"properties":{"id" : req.params.pagenumber, "name": "product"}} ]});
+      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
     }
   });
 
@@ -150,11 +150,11 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else if(req.query.page < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : req.query.page, "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.query.page), "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
     }
     else {
       coverage["PagingFragment"]++;
-      res.status(200).json({"values": [ {"properties":{"id" : req.query.page, "name": "product"}} ]});
+      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.query.page), "name": "product"}} ]});
     }
   });
 
@@ -172,10 +172,10 @@ var paging = function(coverage) {
       res.status(400).end("Required path and query parameters are not present");
     }
     else if(req.query.page < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : req.query.page, "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.query.page), "name": "product"}} ], "odata.nextLink": "next?page=" + ++req.query.page});
     }
     else {
-      res.status(200).json({"values": [ {"properties":{"id" : req.query.page, "name": "product"}} ]});
+      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.query.page), "name": "product"}} ]});
     }
   });
 
