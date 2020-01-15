@@ -42,7 +42,6 @@ var additionalProperties = require('./routes/additionalProperties.js');
 var coverageEndpoint = require('./coverage/coverageEndpoint.js');
 
 var xml = require('./routes/xml.js'); // XML serialization
-var utils = require('./util/utils.js');
 var cors = require('cors');
 var app = express();
 
@@ -560,10 +559,6 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.end(JSON.stringify(err));
-});
-
-var listener = app.listen(process.env.PORT || 3000, function() {
-  utils.setPort(listener.address().port);
 });
 
 module.exports = app;
