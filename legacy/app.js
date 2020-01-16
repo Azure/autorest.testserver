@@ -290,6 +290,7 @@ var coverage = {
   "UrlPathsDoublePositive": 0,
   "UrlPathsDoubleNegative": 0,
   "UrlPathsStringUrlEncoded": 0,
+  "UrlPathsStringUrlNonEncoded": 0,
   "UrlPathsStringEmpty": 0,
   "UrlPathsEnumValid":0,
   "UrlPathsByteMultiByte": 0,
