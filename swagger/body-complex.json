@@ -1506,7 +1506,22 @@
           ],
           "x-ms-enum": {
             "name": "GoblinSharkColor",
-            "modelAsString": true
+            "modelAsString": true,
+            "values": [{
+              "value": "pink"
+            },{
+              "value": "gray"
+            },{
+              "value": "brown"
+            },{
+              "value": "RED",
+              "description": "Uppercase RED",
+              "name": "upperRed"
+            },{
+              "value": "red",
+              "description": "Lowercase RED",
+              "name": "lowerRed"
+            }]
           },
           "default": "gray"
         }
