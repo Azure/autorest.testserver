@@ -25,8 +25,7 @@
                         "schema": {
                             "description": "The null byte value",
                             "type": "string",
-                            "format":  "byte",
-                            "enum": [null]
+                            "format":  "byte"
                         }
                     },
                     "default": {
@@ -51,8 +50,7 @@
                         "schema": {
                             "description": "The empty byte value ''",
                             "type": "string",
-                            "format":  "byte",
-                            "enum": [""]
+                            "format":  "byte"
                         }
                     },
                     "default": {
@@ -151,8 +149,7 @@
             "type":  "object",
             "properties": {
                 "status": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "string"
                 },
                 "message": {
                     "type": "string"
