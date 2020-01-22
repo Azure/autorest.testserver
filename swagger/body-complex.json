@@ -20,6 +20,11 @@
       "get": {
         "operationId": "basic_getValid",
         "description": "Get complex type {id: 2, name: 'abc', color: 'YELLOW'}",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Get complex type {id: 2, name: 'abc', color: 'YELLOW'}",
@@ -1771,7 +1776,7 @@
       "description": "API ID.",
       "required": true,
       "type": "string",
-      "enum": [ "2014-04-01-preview" ]
+      "enum": [ "2016-02-29" ]
     }
   }
 }
