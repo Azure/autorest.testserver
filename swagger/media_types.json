@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0-preview",
+    "title": "Media Types Client",
+    "description": "Play with produces/consumes and media-types in general."
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/mediatypes/analyze": {
+      "post": {
+        "description": "Analyze body, that could be different media types.",
+        "operationId": "AnalyzeBody",
+        "consumes": [
+          "application/pdf",
+          "application/json",
+          "image/jpeg",
+          "image/png",
+          "image/tiff"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/SourcePath"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received correct format",
+            "type": "object",
+            "format": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SourcePath": {
+      "description": "Uri or local path to source data.",
+      "type": "object",
+      "properties": {
+        "source": {
+          "description": "File source path.",
+          "maxLength": 2048,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    }
+  }
+}
