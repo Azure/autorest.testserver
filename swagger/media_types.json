@@ -32,8 +32,10 @@
         "responses": {
           "200": {
             "description": "Received correct format",
-            "type": "object",
-            "format": "string"
+            "schema": {
+              "type": "object",
+              "format": "string"
+            }
           }
         }
       }
