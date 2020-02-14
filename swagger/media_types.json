@@ -33,8 +33,7 @@
           "200": {
             "description": "Received correct format",
             "schema": {
-              "type": "object",
-              "format": "string"
+              "type": "string"
             }
           }
         }
