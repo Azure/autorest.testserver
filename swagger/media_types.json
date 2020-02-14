@@ -24,9 +24,11 @@
 				"produces": [
 					"application/json"
 				],
-				"parameters": [{
-					"$ref": "#/parameters/Input"
-				}],
+				"parameters": [
+					{
+						"$ref": "#/parameters/Input"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "Received correct format",
