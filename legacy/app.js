@@ -40,6 +40,7 @@ var extensibleEnums = require('./routes/extensibleEnums.js');
 var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
 var coverageEndpoint = require('./coverage/coverageEndpoint.js');
+var mediatypes = require('./routes/mediatypes');
 
 var xml = require('./routes/xml.js'); // XML serialization
 var cors = require('cors');
@@ -507,6 +508,7 @@ app.set('view engine', 'pug');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
+app.use(bodyParser.text({ type: '*/pdf' })); // Technically, PDF is not text, but that simplifies tests
 app.use(bodyParser.json({strict: false}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -547,6 +549,7 @@ app.use('/customUri', new customUri(coverage).router);
 app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
+app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
 app.use('/coverage', new coverageEndpoint(coverage, azurecoverage, optionalCoverage).router);
 
