@@ -1771,7 +1771,7 @@
       "description": "API ID.",
       "required": true,
       "type": "string",
-      "enum": [ "2014-04-01-preview" ]
+      "enum": [ "2016-02-29" ]
     }
   }
 }
