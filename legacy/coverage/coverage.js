@@ -95,27 +95,25 @@ async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
 }
 
 async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey) {
-    if (!githubToken || githubToken === "skip") {
-      console.log("Skipping GitHub comment")
-      return;
-    }
+    const postComment = githubToken && githubToken !== "skip";
+    if (postComment) {
+      // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
+      try {
+          // try deriving PR associated with last commit
+          const lastCommitMessage = require("child_process").execSync("git log -1 --pretty=%B").toString();
+          const pr = +(/\(\#(\d+)\)/g.exec(lastCommitMessage) || [])[1];
+          if (isNaN(pr)) throw `Could not deduce PR number from commit message ${JSON.stringify(lastCommitMessage)}`;
 
-    // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
-    try {
-        // try deriving PR associated with last commit
-        const lastCommitMessage = require("child_process").execSync("git log -1 --pretty=%B").toString();
-        const pr = +(/\(\#(\d+)\)/g.exec(lastCommitMessage) || [])[1];
-        if (isNaN(pr)) throw `Could not deduce PR number from commit message ${JSON.stringify(lastCommitMessage)}`;
-
-        const version = getPublishedPackageVersion();
-        const ghClient = new GitHubCiClient(repo, githubToken);
-        await ghClient.createComment(pr, `${commentIndicatorPublish}
-# 🤖 AutoRest automatic publish job 🤖
-## success (version: ${version})
-<!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`);
-    } catch(e) {
-        console.log("Posting 'published' comment to GitHub failed.");
-        console.log(e);
+          const version = getPublishedPackageVersion();
+          const ghClient = new GitHubCiClient(repo, githubToken);
+          await ghClient.createComment(pr, `${commentIndicatorPublish}
+  # 🤖 AutoRest automatic publish job 🤖
+  ## success (version: ${version})
+  <!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`);
+      } catch(e) {
+          console.log("Posting 'published' comment to GitHub failed.");
+          console.log(e);
+      }
     }
 
     const comment = await collectCoverage();
