@@ -49,7 +49,7 @@ async function collectCoverage() {
         }
         comment += "\n\n";
     }
-    
+
     const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
     return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
 }
@@ -95,6 +95,11 @@ async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
 }
 
 async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey) {
+    if (!githubToken || githubToken === "skip") {
+      console.log("Skipping GitHub comment")
+      return;
+    }
+
     // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
     try {
         // try deriving PR associated with last commit
