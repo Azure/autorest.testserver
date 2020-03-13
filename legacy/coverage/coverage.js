@@ -50,11 +50,11 @@ async function collectCoverage() {
         comment += "\n\n";
     }
 
-    const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
+    const testServerVersion = require(join(coverageFolder, "..", "..", "package.json")).version;
     return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
 }
 function getPublishedPackageVersion() {
-    return require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
+    return require(join(__dirname, "..", "..", "..", "..", "..", "package.json")).version;
 }
 async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment) {
     const version = getPublishedPackageVersion();
