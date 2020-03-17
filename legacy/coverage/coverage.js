@@ -10,17 +10,17 @@ async function collectCoverage() {
     // search for reports
     const coverageFolder = __dirname;
     const report = {};
-    const getWorstCaseReport = (category) => {
+    const getMergedReport = (category) => {
         const reports = readdirSync(coverageFolder).filter(f => f.startsWith(`report-${category}`) && f.endsWith(".json")).map(f => require(join(coverageFolder, f)));
         const result = {};
         for (const feature of [].concat.apply([], reports.map(r => Object.keys(r)))) {
-            result[feature] = Math.min(...reports.map(r => r[feature] || 0));
+            result[feature] = Math.max(...reports.map(r => r[feature] || 0));
         }
         return result;
     };
 
-    report.General = getWorstCaseReport("vanilla");
-    report.Azure = getWorstCaseReport("azure");
+    report.General = getMergedReport("vanilla");
+    report.Azure = getMergedReport("azure");
     if (Object.keys(report).every(cat => Object.keys(report[cat]).length === 0)) throw "no report";
 
     // post report
