@@ -41,6 +41,7 @@ var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
 var coverageEndpoint = require('./coverage/coverageEndpoint.js');
 var mediatypes = require('./routes/mediatypes');
+var multiapi = require('./routes/multiapi');
 
 var xml = require('./routes/xml.js'); // XML serialization
 var cors = require('cors');
@@ -551,6 +552,7 @@ app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
+app.use('/multiapi', new multiapi(coverage).router);
 app.use('/coverage', new coverageEndpoint(coverage, azurecoverage, optionalCoverage).router);
 
 // catch 404 and forward to error handler
