@@ -39,7 +39,6 @@ var customUri = require('./routes/customUri.js');
 var extensibleEnums = require('./routes/extensibleEnums.js');
 var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
-var coverageEndpoint = require('./coverage/coverageEndpoint.js');
 var mediatypes = require('./routes/mediatypes');
 var multiapi = require('./routes/multiapi');
 
@@ -553,7 +552,6 @@ app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
 app.use('/multiapi', new multiapi(coverage).router);
-app.use('/coverage', new coverageEndpoint(coverage, azurecoverage, optionalCoverage).router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
