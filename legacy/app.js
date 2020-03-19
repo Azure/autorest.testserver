@@ -551,7 +551,7 @@ app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
-app.use('/multiapi', new multiapi(coverage, optionalCoverage).router);
+app.use('/multiapi', new multiapi(optionalCoverage).router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

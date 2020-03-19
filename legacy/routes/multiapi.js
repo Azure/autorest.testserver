@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var utils = require('../util/utils');
 
-var multiapi = function(coverage, optionalCoverage) {
+var multiapi = function(optionalCoverage) {
     optionalCoverage['putTestOneApiVersionOne'] = 0;
     optionalCoverage['putTestOneApiVersionTwo'] = 0;
     optionalCoverage['getTestTwoApiVersionOne'] = 0;
