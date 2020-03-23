@@ -9,9 +9,6 @@
     "produces": [
         "application/json"
     ],
-    "consumes": [
-        "application/json"
-    ],
     "paths": {
         "/multiapi/testOneEndpoint": {
             "put": {
@@ -20,12 +17,18 @@
                 "x-ms-request-id": "request-id",
                 "parameters": [
                     {
-                        "name": "parameterOne",
-                        "in": "body",
-                        "description": "A ModelOne parameter",
-                        "schema": {
-                            "$ref": "#/definitions/ModelOne"
-                        }
+                        "name": "id",
+                        "in": "query",
+                        "description": "An int parameter",
+                        "type": "integer",
+                        "format": "int32",
+                        "required": true
+                    },
+                    {
+                        "name": "message",
+                        "in": "query",
+                        "description": "An optional string parameter",
+                        "type": "string"
                     },
                     {
                         "$ref": "#/parameters/ApiVersionParameter"
@@ -73,20 +76,6 @@
             "type":  "object",
             "properties": {
                 "status": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
-        },
-        "ModelOne": {
-            "type": "object",
-            "description": "Only exists in api version 1.0.0",
-            "required": ["id"],
-            "properties": {
-                "id": {
                     "type": "integer",
                     "format": "int32"
                 },

@@ -9,8 +9,9 @@ var multiapi = function(optionalCoverage) {
     optionalCoverage['getTestTwoApiVersionTwo'] = 0;
     optionalCoverage['getTestTwoApiVersionThree'] = 0;
     optionalCoverage['putTestThreeApiVersionTwo'] = 0;
-    optionalCoverage['putTestFourApiVersionTwo'] = 0;
-    optionalCoverage['putTestFourApiVersionThree'] = 0;
+    optionalCoverage['postTestFourApiVersionTwo'] = 0;
+    optionalCoverage['postTestFourApiVersionThreeJSON'] = 0;
+    optionalCoverage['postTestFourApiVersionThreePDF'] = 0;
     optionalCoverage['putTestFiveApiVersionThree'] = 0;
 
     router.put('/testOneEndpoint', function (req, res, next) {
@@ -46,13 +47,32 @@ var multiapi = function(optionalCoverage) {
             utils.send400(res, next, "The api version of testThree is not supported: " + req.query['api-version']);
         }
     });
-    router.put('/two/testFourEndpoint', function(req, res, next) {
+    router.post('/two/testFourEndpoint', function(req, res, next) {
         if (req.query["api-version"] == '2.0.0') {
-            optionalCoverage['putTestFourApiVersionTwo']++;
+            optionalCoverage['postTestFourApiVersionTwo']++;
             res.status(200).end();
         } else if (req.query["api-version"] == '3.0.0') {
-            optionalCoverage['putTestFourApiVersionThree']++;
-            res.status(200).end();
+            let content_type = req.headers["content-type"];
+            let body = req.body;
+            console.log("Content-Type: "+content_type);
+            console.log("Body: "+body);
+
+            // JSON will expect to find a 'source' key
+            if (content_type === 'application/json' && 'source' in body) {
+                console.log("in if")
+                optionalCoverage['postTestFourApiVersionThreeJSON']++;
+                res.status(200).end();
+            }
+            // PDF will expect to see the 3 bytes PDF
+            else if (content_type === 'application/pdf' && body === "PDF") {
+                console.log("in else if")
+                optionalCoverage['postTestFourApiVersionThreePDF']
+                res.status(200).end();
+            }
+            else{
+                console.log("else")
+                utils.send400(res, next, 'Did not receive what I was expecting');
+            }
         } else {
             utils.send400(res, next, "The api version of testFour is not supported: " + req.query['api-version']);
         }

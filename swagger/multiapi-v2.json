@@ -9,22 +9,25 @@
     "produces": [
         "application/json"
     ],
-    "consumes": [
-        "application/json"
-    ],
     "paths": {
         "/multiapi/testOneEndpoint": {
             "put": {
                 "operationId": "testOne",
                 "description": "TestOne should be in an SecondVersionOperationsMixin. Returns ModelTwo",
                 "parameters": [
+                   {
+                        "name": "id",
+                        "in": "query",
+                        "description": "An int parameter",
+                        "type": "integer",
+                        "format": "int32",
+                        "required": true
+                    },
                     {
-                        "name": "parameterOne",
-                        "in": "body",
-                        "description": "A ModelTwo parameter",
-                        "schema": {
-                            "$ref": "#/definitions/ModelTwo"
-                        }
+                        "name": "message",
+                        "in": "query",
+                        "description": "An optional string parameter",
+                        "type": "string"
                     },
                     {
                         "$ref": "#/parameters/ApiVersionParameter"
@@ -48,6 +51,9 @@
         },
         "/multiapi/one/testTwoEndpoint": {
             "get": {
+                "consumes": [
+                    "application/json"
+                ],
                 "operationId": "OperationGroupOne_testTwo",
                 "description": "TestTwo should be in OperationGroupOneOperations. Takes in ModelTwo and ouputs ModelTwo",
                 "parameters": [
@@ -102,14 +108,14 @@
             }
         },
         "/multiapi/two/testFourEndpoint": {
-            "put": {
+            "post": {
                 "operationId": "OperationGroupTwo_testFour",
                 "description": "TestFour should be in OperationGroupTwoOperations.",
                 "x-ms-request-id": "request-id",
                 "parameters": [
                     {
                         "name": "parameterOne",
-                        "in": "path",
+                        "in": "query",
                         "description": "A boolean parameter",
                         "type": "boolean",
                         "required": true

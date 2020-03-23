@@ -9,12 +9,13 @@
     "produces": [
         "application/json"
     ],
-    "consumes": [
-        "application/json"
-    ],
+
     "paths": {
         "/multiapi/one/testTwoEndpoint": {
             "get": {
+                "consumes": [
+                    "application/json"
+                ],
                 "operationId": "OperationGroupOne_testTwo",
                 "description": "TestTwo should be in OperationGroupOneOperations. Takes in ModelThree and ouputs ModelThree",
                 "parameters": [
@@ -47,11 +48,21 @@
             }
         },
         "/multiapi/two/testFourEndpoint": {
-            "put": {
+            "post": {
+                "consumes": [
+                    "application/pdf",
+                    "application/json",
+                    "image/jpeg",
+                    "image/png",
+                    "image/tiff"
+                ],
                 "operationId": "OperationGroupTwo_testFour",
                 "description": "TestFour should be in OperationGroupTwoOperations",
                 "x-ms-request-id": "request-id",
                 "parameters": [
+                    {
+						"$ref": "#/parameters/Input"
+					},
                     {
                         "$ref": "#/parameters/ApiVersionParameter"
                     }
@@ -71,6 +82,9 @@
         },
         "/multiapi/two/testFiveEndpoint": {
             "put": {
+                "consumes": [
+                    "application/json"
+                ],
                 "operationId": "OperationGroupTwo_testFive",
                 "description": "TestFive should be in OperationGroupTwoOperations.",
                 "parameters": [
@@ -113,7 +127,19 @@
                     "type": "string"
                 }
             }
-        }
+        },
+        "SourcePath": {
+			"description": "Uri or local path to source data.",
+			"type": "object",
+			"properties": {
+				"source": {
+					"description": "File source path.",
+					"maxLength": 2048,
+					"minLength": 0,
+					"type": "string"
+				}
+			}
+		}
     },
     "parameters": {
         "ApiVersionParameter": {
@@ -123,6 +149,15 @@
             "type": "string",
             "description": "The API version to use for this operation.",
             "minLength": 1
-        }
+        },
+        "Input": {
+			"name": "input",
+			"description": "Input parameter.",
+			"x-ms-parameter-location": "method",
+			"in": "body",
+			"schema": {
+				"$ref": "#/definitions/SourcePath"
+			}
+		}
     }
 }
