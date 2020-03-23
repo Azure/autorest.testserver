@@ -680,7 +680,8 @@ var lros = function (coverage) {
   // Initial call is 202 with no body and Location and Azure-AsyncOperation
   // No configuration, should follow Azure-AsyncOperation
   // Then, should poll Azure-AsyncOperation and see it's done
-  // VM capture before 2018-04-01
+  // Then, should do final GET on the initial Location
+  // THIS TEST USED TO EXPECT YOU TO POLL "Azure-AsyncOperation" BUT autorestv3 DEFAULT IS NOW THE ARM ONE
   coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault'] = 0;
   router.post('/LROPostDoubleHeadersFinalAzureHeaderGetDefault', function (req, res, next) {
     var headers = {
@@ -690,11 +691,11 @@ var lros = function (coverage) {
     res.set(headers).status(202).end('');
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGetDefault/asyncOperationUrl', function (req, res, next) {
-    res.status(200).type('json').end('{ "status": "succeeded", "id": "100"} ');
-    coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault']++;
+    res.status(200).type('json').end('{ "status": "succeeded"} ');
   });
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGetDefault/location', function (req, res, next) {
-    utils.send400(res, next, "You must NOT do a final GET on Location in LROPostDoubleHeadersFinalAzureHeaderGetDefault");
+    res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
+    coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault']++;
   });
 
   coverage['LROPostAsyncRetrySucceeded'] = 0;
