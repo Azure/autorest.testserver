@@ -1231,7 +1231,6 @@
       "description": "An enumeration of blobs",
       "type": "object",
       "required": [
-        "ServiceEndpoint",
         "ContainerName",
         "Prefix",
         "Marker",
