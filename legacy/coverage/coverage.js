@@ -56,8 +56,10 @@ async function collectCoverage() {
 function getPublishedPackageVersion() {
     return require(join(__dirname, "..", "..", "..", "..", "..", "package.json")).version;
 }
-async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment) {
-    const version = getPublishedPackageVersion();
+async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version) {
+    if (!version) {
+        version = getPublishedPackageVersion();
+    }
 
     const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
     const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
@@ -87,14 +89,14 @@ async function show(repo, pr, token) {
     await ghClient.createComment(pr, comment);
 }
 
-async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
+async function push(repo, pr, token, azStorageAccount, azStorageAccessKey, version) {
     const ghClient = new GitHubCiClient(repo, token);
     // try pushing coverage
     const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
-    if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message);
+    if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message, version);
 }
 
-async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey) {
+async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey, version) {
     const postComment = githubToken && githubToken !== "skip";
     if (postComment) {
       // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
@@ -104,7 +106,9 @@ async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorage
           const pr = +(/\(\#(\d+)\)/g.exec(lastCommitMessage) || [])[1];
           if (isNaN(pr)) throw `Could not deduce PR number from commit message ${JSON.stringify(lastCommitMessage)}`;
 
-          const version = getPublishedPackageVersion();
+          if (!version) {
+            version = getPublishedPackageVersion();
+          }
           const ghClient = new GitHubCiClient(repo, githubToken);
           await ghClient.createComment(pr, `${commentIndicatorPublish}
   # 🤖 AutoRest automatic publish job 🤖
@@ -117,7 +121,7 @@ async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorage
     }
 
     const comment = await collectCoverage();
-    await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment);
+    await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version);
 }
 
 module.exports = { show, push, immediatePush };
