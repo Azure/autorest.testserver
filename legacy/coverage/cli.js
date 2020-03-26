@@ -17,6 +17,7 @@ const ref = args[1];
 const githubToken = args[2];
 const azStorageAccount = args[3];
 const azStorageAccessKey = args[4];
+const version = args[5];
 if (!repo || !ref || !githubToken) throw "too few arguments";
 
 const pr = ref.split('/')[2];
@@ -27,5 +28,6 @@ module.exports = {
     githubToken,
     azStorageAccount,
     azStorageAccessKey,
-    pr
+    pr,
+    version
 };
