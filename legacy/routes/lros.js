@@ -771,8 +771,6 @@ var lros = function (coverage) {
     var scenario = getLROAsyncScenarioName(operation, retry, finalState);
     console.log('In scenario: ' + scenario + '\n');
 
-    //res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
-
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
       res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
@@ -780,6 +778,7 @@ var lros = function (coverage) {
       removeScenarioCookie(res);
       coverage[scenario]++;
       var outStr = '{ "status": "' + finalState + '", "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }';
+      res.status(code).end(outStr);
     }
   });
 
