@@ -773,7 +773,7 @@ var lros = function (coverage) {
 
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
+      res.status(500).end();
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
