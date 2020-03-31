@@ -42,6 +42,7 @@ var additionalProperties = require('./routes/additionalProperties.js');
 var mediatypes = require('./routes/mediatypes');
 var multiapi = require('./routes/multiapi');
 var objectType = require('./routes/objectType.js');
+var nonStringEnums = require('./routes/nonStringEnums.js');
 
 var xml = require('./routes/xml.js'); // XML serialization
 var cors = require('cors');
@@ -554,6 +555,7 @@ app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
 app.use('/multiapi', new multiapi(optionalCoverage).router);
 app.use('/objectType', new objectType(coverage).router);
+app.use('/nonStringEnums', new nonStringEnums(coverage).router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
