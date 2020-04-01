@@ -24,7 +24,7 @@ var nonStringEnums = function(coverage) {
     });
     router.put('/float/put', function(req, res, next) {
         let body = req.body;
-        if (body == '200') {
+        if (body == '200.0') {
             coverage['NonStringEnumsPostFloat']++;
             res.status(200).json("Nice job posting a float enum");
         }
@@ -34,7 +34,7 @@ var nonStringEnums = function(coverage) {
     });
     router.get('/float/get', function(req, res, next) {
         coverage['NonStringEnumsGetFloat']++;
-        res.status(200).type('json').end('429');
+        res.status(200).type('json').end('429.1');
     });
 }
 
