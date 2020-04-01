@@ -93,7 +93,7 @@
 	},
 	"definitions": {
 		"IntEnum": {
-            "x-ms-enum": { "name": "IntEnum", "modelAsString": false},
+            "x-ms-enum": { "name": "IntEnum", "modelAsString": true},
             "description": "List of integer enums",
             "type": "integer",
             "enum": [
@@ -105,16 +105,16 @@
             ]
         },
         "FloatEnum": {
-            "x-ms-enum": { "name": "FloatEnum", "modelAsString": false},
+            "x-ms-enum": { "name": "FloatEnum", "modelAsString": true},
             "description": "List of float enums",
             "type": "number",
             "format": "float",
             "enum": [
-                200,
-                403,
-                405,
-                406,
-                429
+                200.0,
+                403.4,
+                405.3,
+                406.2,
+                429.1
             ]
         }
 	}
