@@ -105,7 +105,7 @@
             ]
         },
         "FloatEnum": {
-            "x-ms-enum": { "name": "FloatEnum", "modelAsString": false},
+            "x-ms-enum": { "name": "FloatEnum", "modelAsString": true},
             "description": "List of float enums",
             "type": "number",
             "format": "float",
