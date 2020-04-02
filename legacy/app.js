@@ -457,8 +457,6 @@ var coverage = {
   "HeaderResponseDateTimeRfc1123Min": 0,
   "HeaderResponseBytesValid": 0,
   "HeaderResponseDurationValid": 0,
-  "FormdataStreamUploadFile": 0,
-  "StreamUploadFile": 0,
   "ConstantsInPath": 0,
   "ConstantsInBody": 0,
   "CustomBaseUri": 0,
