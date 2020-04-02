@@ -537,7 +537,7 @@ app.use('/pathitem', new pathitem(coverage).router);
 app.use('/header', new header(coverage, optionalCoverage).router);
 app.use('/reqopt', new reqopt(coverage).router);
 app.use('/files', new files(coverage).router);
-app.use('/formdata', new formData(coverage).router);
+app.use('/formdata', new formData(optionalCoverage).router);
 app.use('/http', new httpResponses(coverage, optionalCoverage).router);
 app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
