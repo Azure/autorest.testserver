@@ -73,7 +73,8 @@
           "200": {
             "description": "The empty String value",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [""]
             }
           },
           "default": {
@@ -92,7 +93,8 @@
             "name": "stringBody",
             "in": "body",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [""]
             },
             "required": true
           }

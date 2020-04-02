@@ -42,6 +42,7 @@ var additionalProperties = require('./routes/additionalProperties.js');
 var mediatypes = require('./routes/mediatypes');
 var multiapi = require('./routes/multiapi');
 var objectType = require('./routes/objectType.js');
+var nonStringEnums = require('./routes/nonStringEnums.js');
 
 var xml = require('./routes/xml.js'); // XML serialization
 var cors = require('cors');
@@ -536,7 +537,7 @@ app.use('/pathitem', new pathitem(coverage).router);
 app.use('/header', new header(coverage, optionalCoverage).router);
 app.use('/reqopt', new reqopt(coverage).router);
 app.use('/files', new files(coverage).router);
-app.use('/formdata', new formData(coverage).router);
+app.use('/formdata', new formData(optionalCoverage).router);
 app.use('/http', new httpResponses(coverage, optionalCoverage).router);
 app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
@@ -554,6 +555,7 @@ app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
 app.use('/multiapi', new multiapi(optionalCoverage).router);
 app.use('/objectType', new objectType(coverage).router);
+app.use('/nonStringEnums', new nonStringEnums(coverage).router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
