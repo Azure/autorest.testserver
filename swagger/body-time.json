@@ -45,6 +45,7 @@
             {
               "name": "timeBody",
               "in": "body",
+              "description": "Put time value \"08:07:56\" in parameter to pass testserver",
               "schema": {
                 "type": "string",
                 "format": "time"
