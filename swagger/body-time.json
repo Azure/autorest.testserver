@@ -19,7 +19,7 @@
       "/time/get": {
         "get": {
           "operationId": "time_get",
-          "description": "Get time value",
+          "description": "Get time value \"11:34:56\"",
           "responses": {
             "200": {
               "description": "The time value",
@@ -40,7 +40,7 @@
       "/time/put": {
         "put": {
           "operationId": "time_put",
-          "description": "Put time value",
+          "description": "Put time value \"08:07:56\"",
           "parameters": [
             {
               "name": "timeBody",
