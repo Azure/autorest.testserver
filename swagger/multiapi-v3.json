@@ -11,6 +11,24 @@
     ],
 
     "paths": {
+        "/multiapi/paging": {
+            "get": {
+              "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+              "operationId": "testPaging",
+              "description": "Returns ModelThree with optionalProperty 'paged'",
+              "responses": {
+                "200": {
+                  "description": "Initial response. Will return a ModelThree with optionalProperty 'paged'",
+                  "schema": {
+                    "$ref": "#/definitions/PagingResult"
+                  }
+                },
+                "default": {
+                  "description": "Unexpected error"
+                }
+              }
+            }
+        },
         "/multiapi/one/testTwoEndpoint": {
             "get": {
                 "consumes": [
@@ -139,7 +157,21 @@
 					"type": "string"
 				}
 			}
-		}
+        },
+        "PagingResult": {
+            "type":  "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ModelThree"
+                }
+              },
+              "nextLink": {
+                "type": "string"
+              }
+            }
+        }
     },
     "parameters": {
         "ApiVersionParameter": {
