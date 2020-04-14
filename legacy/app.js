@@ -557,7 +557,7 @@ app.use('/multiapi', new multiapi(optionalCoverage).router);
 app.use('/objectType', new objectType(coverage).router);
 app.use('/nonStringEnums', new nonStringEnums(coverage).router)
 app.use('/time', new time(coverage).router)
-app.use('/multipleInheritance', new multipleInheritance(optionalCoverage).router)
+app.use('/multipleInheritance', new multipleInheritance(coverage).router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
