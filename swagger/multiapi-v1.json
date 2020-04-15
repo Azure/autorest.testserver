@@ -47,6 +47,43 @@
                 }
             }
         },
+        "/multiapi/lro": {
+            "put": {
+              "x-ms-long-running-operation": true,
+              "operationId": "testLRO",
+              "description": "Put in whatever shape of Product you want, will return a Product with id equal to 100",
+              "tags": [
+                "LRO Operations"
+              ],
+              "parameters": [
+                {
+                  "name": "product",
+                  "description": "Product to put",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Product"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Initial response with Product ID = 100",
+                  "schema": {
+                    "$ref": "#/definitions/Product"
+                  }
+                },
+                "204": {
+                  "description": "Final response"
+                },
+                "default": {
+                  "description": "Unexpected error",
+                  "schema": {
+                    "$ref": "#/definitions/Error"
+                  }
+                }
+              }
+            }
+          },
         "/multiapi/one/testTwoEndpoint": {
             "get": {
                 "operationId": "OperationGroupOne_testTwo",
@@ -81,6 +118,16 @@
                 },
                 "message": {
                     "type": "string"
+                }
+            }
+        },
+        "Product": {
+            "x-ms-azure-resource": true,
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         }
