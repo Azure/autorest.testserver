@@ -445,7 +445,7 @@
           "description": "This should appear as a method parameter, use value '2.0'",
           "type": "string",
           "required": true,
-          "enum": [ "2.0" ],
+          "enum": [ "2.0", "3.0" ],
           "x-ms-api-version": false
         }
       ],
