@@ -13,6 +13,8 @@ var multiapi = function(optionalCoverage) {
     optionalCoverage['MultiapiPostTestFourApiVersionThreeJSON'] = 0;
     optionalCoverage['MultiapiPostTestFourApiVersionThreePDF'] = 0;
     optionalCoverage['MultiapiPutTestFiveApiVersionThree'] = 0;
+    optionalCoverage['MultiapiLRO'] = 0;
+    optionalCoverage['MultiapiPaging'] = 0;
 
     router.put('/testOneEndpoint', function (req, res, next) {
         if (req.query["api-version"] === '1.0.0') {
@@ -25,6 +27,18 @@ var multiapi = function(optionalCoverage) {
             utils.send400(res, next, "The api version of the operation mixin is not supported: " + req.query['api-version']);
         }
     });
+
+    // LRO
+    router.put('/lro', function (req, res, next) {
+        optionalCoverage['MultiapiLRO']++;
+        res.status(200).type('json').end('{ "id": "100" }');
+    });
+
+    router.get('/paging', function(req, res, next) {
+        optionalCoverage["MultiapiPaging"]++;
+        res.status(200).json({ "values" : [ {"optionalProperty": "paged" }]});
+    });
+
     router.get('/one/testTwoEndpoint', function(req, res, next) {
         if (req.query["api-version"] == '1.0.0') {
             optionalCoverage['MultiapiGetTestTwoApiVersionOne']++;
