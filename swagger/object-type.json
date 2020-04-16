@@ -14,10 +14,10 @@
         "/objectType/get": {
             "get": {
                 "operationId": "get",
-                "description": "Basic get that returns an object",
+                "description": "Basic get that returns an object. Returns object { 'message': 'An object was successfully returned' }",
                 "responses": {
                     "200": {
-                        "description": "The empty return value of testOne",
+                        "description": "Returns object { 'message': 'An object was successfully returned' }",
                         "schema": {
                             "$ref": "#/definitions/Object"
                         }
@@ -34,10 +34,11 @@
         "/objectType/put": {
             "put": {
                 "operationId": "put",
-                "description": "Basic put that puts an object",
+                "description": "Basic put that puts an object. Pass in an object with 'foo' in it, i.e. {'foo': 'bar'}",
                 "parameters": [
                     {
                         "name": "putObject",
+                        "description": "Pass in an object with 'foo' in it, i.e. {'foo': 'bar'}",
                         "in": "body",
                         "required": true,
                         "schema": {
