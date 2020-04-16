@@ -34,11 +34,11 @@
         "/objectType/put": {
             "put": {
                 "operationId": "put",
-                "description": "Basic put that puts an object. Pass in {'foo': 'bar'}",
+                "description": "Basic put that puts an object. Pass in {'foo': 'bar'} to get a 200 and anything else to get an object error.",
                 "parameters": [
                     {
                         "name": "putObject",
-                        "description": "Pass in {'foo': 'bar'}",
+                        "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
                         "in": "body",
                         "required": true,
                         "schema": {
