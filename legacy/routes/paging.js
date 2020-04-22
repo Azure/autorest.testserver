@@ -33,6 +33,7 @@ var paging = function(coverage) {
   coverage["PagingNextLinkNameNull"] = 0;
   coverage['PagingSingle'] = 0;
   coverage['PagingMultiple'] = 0;
+  coverage['PagingMultipleWithQueryParameters'] = 0;
   coverage['PagingOdataMultiple'] = 0;
   coverage['PagingMultiplePath'] = 0;
   coverage['PagingMultipleRetryFirst'] = 0;
@@ -64,6 +65,26 @@ var paging = function(coverage) {
 
     coverage["PagingMultiple"]++;
     res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/page/2" });
+  });
+
+  router.get('/multiple/getWithQueryParams', function(req, res, next) {
+    // No coverage added here, gets added in next operation nextOperationWithQueryParams
+    if (req.query['requiredQueryParameter'] == '100' && req.query['queryConstant'] == 'true') {
+      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/nextOperationWithQueryParams" });
+    }
+    else{
+        utils.send400(res, next, 'The query parameters to getWithQueryParams were not passed correctly');
+    }
+  });
+
+  router.get('/multiple/nextOperationWithQueryParams', function(req, res, next) {
+    if (Object.keys(req.query).length <= 1 && req.query['queryConstant'] === 'true') {
+      coverage["PagingMultipleWithQueryParameters"]++;
+      res.status(200).json({ "values" : [ {"properties":{"id": 2, "name": "Product" }}]});
+    }
+    else{
+        utils.send400(res, next, 'The query parameters to nextOperationWithQueryParams were not passed correctly');
+    }
   });
 
   router.get('/multiple/page/:pagenumber', function(req, res, next) {
