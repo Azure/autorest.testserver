@@ -69,7 +69,7 @@ var paging = function(coverage) {
 
   router.get('/multiple/getWithQueryParams', function(req, res, next) {
     // No coverage added here, gets added in next operation nextOperationWithQueryParams
-    if (req.query['requiredQueryParameter'] == '100') {
+    if (req.query['requiredQueryParameter'] == '100' && req.query['queryConstant'] == 'true') {
       res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/nextOperationWithQueryParams" });
     }
     else{

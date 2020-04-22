@@ -134,15 +134,13 @@
           },
           {
             "name": "queryConstant",
-            "in": "body",
-            "description": "A constant. Will be passed as a query parameter to nextOperationWithQueryParams",
+            "in": "query",
+            "description": "A constant. Must be True and will be passed as a query parameter to nextOperationWithQueryParams",
             "required": true,
-            "schema": {
-              "type": "boolean",
-              "enum": [
-                true
-              ]
-            }
+            "type": "boolean",
+            "enum": [
+              true
+            ]
           }
 		    ],
         "responses": {
@@ -167,9 +165,12 @@
           {
             "name": "queryConstant",
             "in": "query",
-            "description": "A required boolean query parameter. Pass in True. This is a constant parameter in the initial function getWithQueryParams",
+            "description": "A constant. Must be True",
             "required": true,
-            "type": "boolean"
+            "type": "boolean",
+            "enum": [
+              true
+            ]
           }
 		    ],
         "responses": {
