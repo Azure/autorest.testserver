@@ -83,7 +83,7 @@ var paging = function(coverage) {
       res.status(200).json({ "values" : [ {"properties":{"id": 2, "name": "Product" }}]});
     }
     else{
-        utils.send400(res, next, 'The query parameters to getWithQueryParams were not passed correctly');
+        utils.send400(res, next, 'The query parameters to nextOperationWithQueryParams were not passed correctly');
     }
   });
 
