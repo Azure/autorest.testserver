@@ -119,6 +119,85 @@
         }
       }
     },
+    "/paging/multiple/getWithQueryParams": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values", "operationName": "Paging_nextOperationWithQueryParams" },
+        "operationId": "Paging_getWithQueryParams",
+        "description": "A paging operation that includes a next operation. It has different query parameters than it's next operation nextOperationWithQueryParams has. Returns a ProductResult",
+        "parameters": [
+          {
+            "name": "client-request-id",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "requiredQueryParameter",
+            "in": "query",
+            "description": "A required integer query parameter. Put in value '100' to pass test.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "optionalQueryParameter",
+            "in": "query",
+            "description": "An optional string query parameter. Put in 'optional' to pass test",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "next",
+            "in": "body",
+            "description": "A constant. Will be passed as a query parameter to nextOperationWithQueryParams",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ]
+            }
+          }
+		    ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
+    "/paging/multiple/nextOperationWithQueryParams": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "operationId": "Paging_nextOperationWithQueryParams",
+        "description": "Next operation for getWithQueryParams. Pass in next=True to pass test. Returns a ProductResult",
+        "parameters": [
+          {
+            "name": "next",
+            "in": "query",
+            "description": "A required boolean query parameter. Pass in True. This is a constant parameter in the initial function getWithQueryParams",
+            "required": true,
+            "type": "boolean"
+          }
+		    ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/multiple/odata": {
       "get": {
         "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values" },
