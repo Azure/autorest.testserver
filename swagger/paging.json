@@ -126,12 +126,6 @@
         "description": "A paging operation that includes a next operation. It has different query parameters than it's next operation nextOperationWithQueryParams has. Returns a ProductResult",
         "parameters": [
           {
-            "name": "client-request-id",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "requiredQueryParameter",
             "in": "query",
             "description": "A required integer query parameter. Put in value '100' to pass test.",
