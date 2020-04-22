@@ -123,7 +123,7 @@
       "get": {
         "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values", "operationName": "Paging_nextOperationWithQueryParams" },
         "operationId": "Paging_getWithQueryParams",
-        "description": "A paging operation that includes a next operation. It has different query parameters than it's next operation nextOperationWithQueryParams has. Returns a ProductResult",
+        "description": "A paging operation that includes a next operation. It has a different query parameter from it's next operation nextOperationWithQueryParams. Returns a ProductResult",
         "parameters": [
           {
             "name": "requiredQueryParameter",
@@ -133,14 +133,7 @@
             "type": "integer"
           },
           {
-            "name": "optionalQueryParameter",
-            "in": "query",
-            "description": "An optional string query parameter. Put in 'optional' to pass test",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "next",
+            "name": "queryConstant",
             "in": "body",
             "description": "A constant. Will be passed as a query parameter to nextOperationWithQueryParams",
             "required": true,
@@ -172,7 +165,7 @@
         "description": "Next operation for getWithQueryParams. Pass in next=True to pass test. Returns a ProductResult",
         "parameters": [
           {
-            "name": "next",
+            "name": "queryConstant",
             "in": "query",
             "description": "A required boolean query parameter. Pass in True. This is a constant parameter in the initial function getWithQueryParams",
             "required": true,
