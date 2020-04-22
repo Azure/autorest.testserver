@@ -95,14 +95,6 @@ var paging = function(coverage) {
     }
   });
 
-  router.get('/multiple/page/:pagenumber', function(req, res, next) {
-    if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/" + (++req.params.pagenumber) });
-    } else {
-      res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
-    }
-  });
-
   router.get('/multiple/odata', function(req, res, next) {
 
     coverage["PagingOdataMultiple"]++;
