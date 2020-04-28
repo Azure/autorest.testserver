@@ -1418,8 +1418,7 @@ var lros = function (coverage) {
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
       var headers = {
-        'Azure-AsyncOperation': pollingUri,
-        'Location': pollingUri
+        'Azure-AsyncOperation': pollingUri
       };
       headers['Retry-After'] = 0;
       res.set(headers).status(202).end('{ "properties": { "provisioningState": "Accepted"}, "id": "100", "name": "foo" }');
@@ -1434,8 +1433,7 @@ var lros = function (coverage) {
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
       var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
       var headers = {
-        'Azure-AsyncOperation': pollingUri,
-        'Location': pollingUri
+        'Azure-AsyncOperation': pollingUri
       };
       headers['Retry-After'] = 0;
       if (!hasScenarioCookie(req, scenario)) {
