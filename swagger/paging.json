@@ -119,6 +119,73 @@
         }
       }
     },
+    "/paging/multiple/getWithQueryParams": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values", "operationName": "Paging_nextOperationWithQueryParams" },
+        "operationId": "Paging_getWithQueryParams",
+        "description": "A paging operation that includes a next operation. It has a different query parameter from it's next operation nextOperationWithQueryParams. Returns a ProductResult",
+        "parameters": [
+          {
+            "name": "requiredQueryParameter",
+            "in": "query",
+            "description": "A required integer query parameter. Put in value '100' to pass test.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "queryConstant",
+            "in": "query",
+            "description": "A constant. Must be True and will be passed as a query parameter to nextOperationWithQueryParams",
+            "required": true,
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+		    ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
+    "/paging/multiple/nextOperationWithQueryParams": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "operationId": "Paging_nextOperationWithQueryParams",
+        "description": "Next operation for getWithQueryParams. Pass in next=True to pass test. Returns a ProductResult",
+        "parameters": [
+          {
+            "name": "queryConstant",
+            "in": "query",
+            "description": "A constant. Must be True",
+            "required": true,
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+		    ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/multiple/odata": {
       "get": {
         "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values" },

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var utils = require('../util/utils')
+var utils = require('../util/utils');
+var _ = require('underscore');
 
 var objectType = function(coverage) {
     coverage['ObjectTypeResponse'] = 0;
@@ -16,7 +17,7 @@ var objectType = function(coverage) {
         let body = req.body;
         console.log("Body: "+body);
 
-        if ("foo" in body) {
+        if (_.isEqual(body, {"foo": "bar"})) {
             coverage['ObjectTypePut']++;
             res.status(200).end();
         } else {
