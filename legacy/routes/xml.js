@@ -16,6 +16,7 @@ var expectXmlBody = function (req, res, body, coverage, testname) {
   req.on('end', async function() {
     var actualParsedBody, expectedParsedBody;
     try {
+      rawBody = utils.coerceDateXml(rawBody);
       actualParsedBody = await parseXMLString(rawBody);
       expectedParsedBody = await parseXMLString(body);
     } catch (err) {
@@ -202,8 +203,8 @@ var body_acl_container =
   <SignedIdentifier>
     <Id>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</Id>
     <AccessPolicy>
-      <Start>${new Date('2009-09-28T08:49:37.123Z').toISOString()}</Start>
-      <Expiry>${new Date('2009-09-29T08:49:37.123Z').toISOString()}</Expiry>
+      <Start>2009-09-28T08:49:37.123Z</Start>
+      <Expiry>2009-09-29T08:49:37.123Z</Expiry>
       <Permission>rwd</Permission>
     </AccessPolicy>
   </SignedIdentifier>
@@ -453,12 +454,12 @@ var xmlService = function (coverage) {
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
+        <expiration>2018-02-28T00:40:00.123Z</expiration>
     </banana>
     <banana>
         <name>Plantain</name>
         <flavor>Savory</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
+        <expiration>2018-02-28T00:40:00.123Z</expiration>
     </banana>
 </bananas>`
 
@@ -478,7 +479,7 @@ var xmlService = function (coverage) {
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
-        <expiration>${new Date('2018-02-28T00:40:00.123Z').toISOString()}</expiration>
+        <expiration>2018-02-28T00:40:00.123Z</expiration>
     </banana>
 </bananas>`
 
@@ -511,7 +512,7 @@ var xmlService = function (coverage) {
 <banana>
   <name>Unknown Banana</name>
   <flavor></flavor>
-  <expiration>${new Date('2012-02-24T00:53:52.789Z').toISOString()}</expiration>
+  <expiration>2012-02-24T00:53:52.789Z</expiration>
 </banana>`
 
   router.get('/empty-child-element', function (req, res) {
