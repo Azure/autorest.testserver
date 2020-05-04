@@ -60,7 +60,6 @@ var complex = function (coverage) {
   var datetimeRfc1123BodyAlternateWithSpaces = { "field": "Mon, 01 Jan    1 00:00:00 GMT", "now": "Mon, 18 May 2015 11:38:00 GMT" };
   var durationBody = { "field": "P123DT22H14M12.011S" };
   var durationBodyAlternate = { "field": "P123DT22H14M12.010999999998603S" };
-  var datetimeBodyExact = { "field": "0001-01-01T00:00:00.000Z", "now": "2015-05-18T18:38:00.000Z" };
   var byteString = new Buffer([255, 254, 253, 252, 0, 250, 249, 248, 247, 246]).toString('base64');
   var byteBody = '{"field":"' + byteString + '"}';
   router.put('/primitive/:scenario', function (req, res, next) {
@@ -115,7 +114,7 @@ var complex = function (coverage) {
         utils.send400(res, next, "Did not like date req " + util.inspect(req.body));
       }
     } else if (req.params.scenario === 'datetime') {
-      if (_.isEqual(req.body, datetimeBody) || _.isEqual(req.body, datetimeBodyExact)) {
+      if (_.isEqual(utils.coerceDate(req.body), datetimeBody)) {
         coverage['putComplexPrimitiveDateTime']++;
         res.status(200).end();
       } else {
