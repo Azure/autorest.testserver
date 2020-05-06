@@ -318,8 +318,7 @@ var array = function (coverage) {
       }
     } else if (req.params.type == 'date-time') {
       if (req.params.scenario === 'valid') {
-        if ((_.isEqual(req.body, ['2000-12-01T00:00:01Z', '1980-01-02T00:11:35Z', '1492-10-12T10:15:01Z'])) ||
-                    (_.isEqual(req.body, ['2000-12-01T00:00:01.000Z', '1980-01-02T00:11:35.000Z', '1492-10-12T10:15:01.000Z']))) {
+        if (_.isEqual(utils.coerceDate(req.body), ['2000-12-01T00:00:01Z', '1980-01-02T00:11:35Z', '1492-10-12T10:15:01Z'])) {
           coverage['putArrayDateTimeValid']++;
           res.status(200).end();
         } else {

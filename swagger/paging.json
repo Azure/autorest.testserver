@@ -158,7 +158,7 @@
     },
     "/paging/multiple/nextOperationWithQueryParams": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "x-ms-pageable": { "nextLinkName": null, "itemName": "values" },
         "operationId": "Paging_nextOperationWithQueryParams",
         "description": "Next operation for getWithQueryParams. Pass in next=True to pass test. Returns a ProductResult",
         "parameters": [
