@@ -5,6 +5,7 @@ var utils = require('../util/utils')
 var mediatypes = function(coverage) {
     coverage['MediaTypeJson'] = 0;
     coverage['MediaTypePdf'] = 0;
+    coverage['MediaTypeWithEncoding'] = 0;
 
     router.post('/analyze', function(req, res, next) {
         let content_type = req.headers["content-type"];
@@ -26,6 +27,17 @@ var mediatypes = function(coverage) {
             utils.send400(res, next, 'Did not received what I was expecting');
         }
     });
+    router.post('/contentTypeWithEncoding', function(req, res, next) {
+        let content_type = req.headers["content-type"];
+        if (content_type === 'text/plain; encoding=UTF-8') {
+            coverage['MediaTypeWithEncoding']++;
+            res.status(200).json("Nice job sending content type with encoding");
+        }
+        else{
+            utils.send400(res, next, 'Did not receive what I was expecting');
+        }
+    });
+
 }
 
 mediatypes.prototype.router = router;
