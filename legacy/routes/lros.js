@@ -698,6 +698,24 @@ var lros = function (coverage) {
     coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault']++;
   });
 
+  coverage['LROPostAndGetList'] = 0;
+  router.post('/list', function (req, res, next) {
+    var headers = {
+      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/list/pollingGet',
+      'Location': 'http://localhost:' + utils.getPort() + '/lro/list/finalGet'
+    };
+    res.set(headers).status(202).end();
+  });
+
+  router.get('/list/pollingGet', function (req, res, next) {
+    res.status(200).end('{ "status": "Succeeded" }');
+  });
+
+  router.get('/list/finalGet', function (req, res, next) {
+    coverage['LROPostAndGetList']++;
+    res.status(200).type('json').end('[{ "id": "100", "name": "foo" }]');
+  });
+
   coverage['LROPostAsyncRetrySucceeded'] = 0;
   coverage['LROPostAsyncNoRetrySucceeded'] = 0;
   coverage['LROPostAsyncRetryFailed'] = 0;
