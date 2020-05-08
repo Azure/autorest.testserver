@@ -175,7 +175,7 @@ var specials = function (coverage) {
           utils.send400(res, next, 'Unexpected query values for scenario "' + scenario + '": "' + util.inspect(req.query) + '"');
         }
   });
-  
+
   router.get('/odata/filter', function (req, res, next) {
         var scenario = 'AzureODataFilter';
         if (req.query['$filter'] !== "id gt 5 and name eq 'foo'") {
@@ -188,7 +188,7 @@ var specials = function (coverage) {
           utils.send400(res, next, 'Unexpected $top value for "' + scenario + '": expect "id" actual "' + req.query['$orderby'] + '"');
         }
         coverage[scenario]++;
-        res.status(200).end();        
+        res.status(200).end();
   });
 
   router.get('/overwrite/x-ms-client-request-id/method/', function (req, res, next) {
@@ -218,7 +218,7 @@ var specials = function (coverage) {
           res.set(headers).status(200).end();
         }
   });
-  
+
   router.post('/customNamedRequestId', function (req, res, next) {
         var headers = {
           'foo-request-id': '123'
@@ -230,7 +230,7 @@ var specials = function (coverage) {
           res.set(headers).status(200).end();
         }
   });
-  
+
   router.post('/customNamedRequestIdParamGrouping', function (req, res, next) {
         var headers = {
           'foo-request-id': '123'
@@ -242,7 +242,7 @@ var specials = function (coverage) {
           res.set(headers).status(200).end();
         }
   });
-  
+
   router.head('/customNamedRequestIdHead', function (req, res, next) {
         var headers = {
           'foo-request-id': '123'

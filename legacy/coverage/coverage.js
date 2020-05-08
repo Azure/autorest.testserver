@@ -10,17 +10,17 @@ async function collectCoverage() {
     // search for reports
     const coverageFolder = __dirname;
     const report = {};
-    const getWorstCaseReport = (category) => {
+    const getMergedReport = (category) => {
         const reports = readdirSync(coverageFolder).filter(f => f.startsWith(`report-${category}`) && f.endsWith(".json")).map(f => require(join(coverageFolder, f)));
         const result = {};
         for (const feature of [].concat.apply([], reports.map(r => Object.keys(r)))) {
-            result[feature] = Math.min(...reports.map(r => r[feature] || 0));
+            result[feature] = Math.max(...reports.map(r => r[feature] || 0));
         }
         return result;
     };
 
-    report.General = getWorstCaseReport("vanilla");
-    report.Azure = getWorstCaseReport("azure");
+    report.General = getMergedReport("vanilla");
+    report.Azure = getMergedReport("azure");
     if (Object.keys(report).every(cat => Object.keys(report[cat]).length === 0)) throw "no report";
 
     // post report
@@ -49,15 +49,17 @@ async function collectCoverage() {
         }
         comment += "\n\n";
     }
-    
-    const testServerVersion = require(join(coverageFolder, "..", "package.json")).version;
+
+    const testServerVersion = require(join(coverageFolder, "..", "..", "package.json")).version;
     return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
 }
 function getPublishedPackageVersion() {
-    return require(join(__dirname, "..", "..", "..", "..", "package.json")).version;
+    return require(join(__dirname, "..", "..", "..", "..", "..", "package.json")).version;
 }
-async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment) {
-    const version = getPublishedPackageVersion();
+async function pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version) {
+    if (!version) {
+        version = getPublishedPackageVersion();
+    }
 
     const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
     const container = await new Promise((res, rej) => blobSvc.createContainerIfNotExists(
@@ -87,34 +89,39 @@ async function show(repo, pr, token) {
     await ghClient.createComment(pr, comment);
 }
 
-async function push(repo, pr, token, azStorageAccount, azStorageAccessKey) {
+async function push(repo, pr, token, azStorageAccount, azStorageAccessKey, version) {
     const ghClient = new GitHubCiClient(repo, token);
     // try pushing coverage
     const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
-    if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message);
+    if (coverageComment) await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message, version);
 }
 
-async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey) {
-    // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
-    try {
-        // try deriving PR associated with last commit
-        const lastCommitMessage = require("child_process").execSync("git log -1 --pretty=%B").toString();
-        const pr = +(/\(\#(\d+)\)/g.exec(lastCommitMessage) || [])[1];
-        if (isNaN(pr)) throw `Could not deduce PR number from commit message ${JSON.stringify(lastCommitMessage)}`;
+async function immediatePush(repo, ref, githubToken, azStorageAccount, azStorageAccessKey, version) {
+    const postComment = githubToken && githubToken !== "skip";
+    if (postComment) {
+      // try posting "published" comment on GitHub (IMPORTANT: this assumes that this script is only run after successful publish!)
+      try {
+          // try deriving PR associated with last commit
+          const lastCommitMessage = require("child_process").execSync("git log -1 --pretty=%B").toString();
+          const pr = +(/\(\#(\d+)\)/g.exec(lastCommitMessage) || [])[1];
+          if (isNaN(pr)) throw `Could not deduce PR number from commit message ${JSON.stringify(lastCommitMessage)}`;
 
-        const version = getPublishedPackageVersion();
-        const ghClient = new GitHubCiClient(repo, githubToken);
-        await ghClient.createComment(pr, `${commentIndicatorPublish}
-# 🤖 AutoRest automatic publish job 🤖
-## success (version: ${version})
-<!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`);
-    } catch(e) {
-        console.log("Posting 'published' comment to GitHub failed.");
-        console.log(e);
+          if (!version) {
+            version = getPublishedPackageVersion();
+          }
+          const ghClient = new GitHubCiClient(repo, githubToken);
+          await ghClient.createComment(pr, `${commentIndicatorPublish}
+  # 🤖 AutoRest automatic publish job 🤖
+  ## success (version: ${version})
+  <!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`);
+      } catch(e) {
+          console.log("Posting 'published' comment to GitHub failed.");
+          console.log(e);
+      }
     }
 
     const comment = await collectCoverage();
-    await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment);
+    await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version);
 }
 
 module.exports = { show, push, immediatePush };

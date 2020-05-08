@@ -12,9 +12,13 @@ exports.send400 = function(res, next, msg) {
   return exports.sendError(400, res, next, msg);
 };
 
+exports.coerceDateXml = function(xml) {
+  return xml.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d\.\d\d\d)\d{0,4}([Zz]|[+-]00:00)/g, "$1Z");
+};
+
 exports.coerceDate = function(targetObject) {
   var stringRep = JSON.stringify(targetObject);
-  stringRep = stringRep.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d)\.\d\d\d[Zz]/g, "$1Z");
+  stringRep = stringRep.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d)\.\d{3,7}([Zz]|[+-]00:00)/g, "$1Z");
   return JSON.parse(stringRep);
 };
 

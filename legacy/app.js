@@ -39,7 +39,12 @@ var customUri = require('./routes/customUri.js');
 var extensibleEnums = require('./routes/extensibleEnums.js');
 var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
-var coverageEndpoint = require('./coverage/coverageEndpoint.js');
+var mediatypes = require('./routes/mediatypes');
+var multiapi = require('./routes/multiapi');
+var objectType = require('./routes/objectType.js');
+var nonStringEnums = require('./routes/nonStringEnums.js');
+var time = require('./routes/time.js');
+var multipleInheritance = require('./routes/multipleInheritance.js');
 
 var xml = require('./routes/xml.js'); // XML serialization
 var cors = require('cors');
@@ -454,8 +459,6 @@ var coverage = {
   "HeaderResponseDateTimeRfc1123Min": 0,
   "HeaderResponseBytesValid": 0,
   "HeaderResponseDurationValid": 0,
-  "FormdataStreamUploadFile": 0,
-  "StreamUploadFile": 0,
   "ConstantsInPath": 0,
   "ConstantsInBody": 0,
   "CustomBaseUri": 0,
@@ -507,6 +510,7 @@ app.set('view engine', 'pug');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
+app.use(bodyParser.text({ type: '*/pdf' })); // Technically, PDF is not text, but that simplifies tests
 app.use(bodyParser.json({strict: false}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -533,7 +537,7 @@ app.use('/pathitem', new pathitem(coverage).router);
 app.use('/header', new header(coverage, optionalCoverage).router);
 app.use('/reqopt', new reqopt(coverage).router);
 app.use('/files', new files(coverage).router);
-app.use('/formdata', new formData(coverage).router);
+app.use('/formdata', new formData(optionalCoverage).router);
 app.use('/http', new httpResponses(coverage, optionalCoverage).router);
 app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
@@ -547,8 +551,13 @@ app.use('/customUri', new customUri(coverage).router);
 app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
+app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);
-app.use('/coverage', new coverageEndpoint(coverage, azurecoverage, optionalCoverage).router);
+app.use('/multiapi', new multiapi(optionalCoverage).router);
+app.use('/objectType', new objectType(coverage).router);
+app.use('/nonStringEnums', new nonStringEnums(coverage).router)
+app.use('/time', new time(coverage).router)
+app.use('/multipleInheritance', new multipleInheritance(coverage).router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

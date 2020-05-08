@@ -23,8 +23,7 @@
           "200": {
             "description": "The null String value",
             "schema": {
-              "type": "string",
-              "enum": [ null ]
+              "type": "string"
             }
           },
           "default": {
@@ -43,8 +42,7 @@
             "name": "stringBody",
             "in": "body",
             "schema": {
-              "type": "string",
-              "enum": [ null ]
+              "type": "string"
             }
           }
         ],
@@ -76,7 +74,7 @@
             "description": "The empty String value",
             "schema": {
               "type": "string",
-              "enum": [ "" ]
+              "enum": [""]
             }
           },
           "default": {
@@ -96,7 +94,7 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [ "" ]
+              "enum": [""]
             },
             "required": true
           }

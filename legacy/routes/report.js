@@ -34,6 +34,19 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
     writeOutCoverageReport(`../coverage/report-optional${getQualifiedSuffix(req)}`, optionalCoverage);
     res.status(200).json(optionalCoverage);
   });
+
+  router.post("/clear", function(req, res, next) {
+    Object.getOwnPropertyNames(coverage).forEach(function(val, idx, array) {
+      coverage[val] = 0;
+    });
+    Object.getOwnPropertyNames(azureCoverage).forEach(function(val, idx, array) {
+      azureCoverage[val] = 0;
+    });
+    Object.getOwnPropertyNames(coverage).forEach(function(val, idx, array) {
+      optionalCoverage[val] = 0;
+    });
+    res.status(200).send().end();
+});
 }
 
 report.prototype.router = router;

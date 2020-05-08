@@ -268,8 +268,7 @@ var dictionary = function(coverage) {
 	    }
 	} else if (req.params.type == 'date-time') {
             if (req.params.scenario === 'valid') {
-        if ((_.isEqual(req.body, {"0": '2000-12-01T00:00:01Z', "1": '1980-01-01T23:11:35Z', "2": '1492-10-12T18:15:01Z'}))||
-            (_.isEqual(req.body, {"0": '2000-12-01T00:00:01.000Z', "1": '1980-01-01T23:11:35.000Z', "2": '1492-10-12T18:15:01.000Z'}))) {
+        if ((_.isEqual(utils.coerceDate(req.body), {"0": '2000-12-01T00:00:01Z', "1": '1980-01-01T23:11:35Z', "2": '1492-10-12T18:15:01Z'}))) {
             coverage['putDictionaryDateTimeValid']++;
 			  res.status(200).end();
 		    } else {
