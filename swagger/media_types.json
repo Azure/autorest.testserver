@@ -38,6 +38,31 @@
 					}
 				}
 			}
+		},
+		"/mediatypes/contentTypeWithEncoding": {
+			"post": {
+				"description": "Pass in contentType 'text/plain; encoding=UTF-8' to pass test. Value for input does not matter",
+				"operationId": "contentTypeWithEncoding",
+				"consumes": [
+					"text/plain"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"$ref": "#/parameters/Input"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Received 'text/plain; encoding=UTF-8' as contentType",
+						"schema": {
+							"type": "string"
+						}
+					}
+				}
+			}
 		}
 	},
 	"definitions": {
