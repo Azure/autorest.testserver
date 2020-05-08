@@ -61,19 +61,6 @@
         "tags": [
           "LRO Operations"
         ],
-        "parameters": [
-          {
-            "name": "product",
-            "description": "Product to put",
-            "in": "body",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Product"
-              }
-            }
-          }
-        ],
         "responses": {
           "202": {
             "description": "Initial response",
