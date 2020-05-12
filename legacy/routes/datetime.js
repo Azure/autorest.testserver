@@ -4,13 +4,14 @@ var util = require('util');
 var utils = require('../util/utils')
 
 var datetime = function(coverage, optionalCoverage) {
+    coverage['getDateTimeMinLocalNoOffset'] = 0;
     optionalCoverage['putDateTimeMaxUtc7MS'] = 0;
     optionalCoverage['getDateTimeMaxUtc7MSUppercase'] = 0;
     optionalCoverage['putDateTimeMaxLocalPositiveOffset'] = 0;
     optionalCoverage['putDateTimeMaxLocalNegativeOffset']= 0;
     optionalCoverage['putDateTimeMinLocalPositiveOffset'] = 0;
     optionalCoverage['putDateTimeMinLocalNegativeOffset']= 0;
-
+    
     router.put('/max/:type', function(req, res, next) {
         if (req.params.type === 'utc') {
             if (new Date(req.body).toISOString() === new Date('9999-12-31T23:59:59.999Z').toISOString()) {
@@ -123,6 +124,9 @@ var datetime = function(coverage, optionalCoverage) {
         } else if (req.params.type === 'localnegativeoffset') {
             coverage["getDateTimeMinLocalNegativeOffset"]++;
             res.status(200).type('json').end('"0001-01-01T00:00:00-14:00"');
+        } else if (req.params.type === 'localnooffset') {
+            coverage["getDateTimeMinLocalNoOffset"]++;
+            res.status(200).type('json').end('"0001-01-01T00:00:00"');
         } else {
             utils.send400(res, next, 'Please provide a valid datetime type \'utc\', ' +
                 '\'localpositiveoffset\', \'localnegativeoffset\' and not ' +
