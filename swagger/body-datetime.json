@@ -510,6 +510,27 @@
           }
         }
       }
+    },
+    "/datetime/min/localnooffset": {
+      "get": {
+        "operationId": "datetime_getLocalNoOffsetMinDateTime",
+        "description": "Get min datetime value 0001-01-01T00:00:00",
+        "responses": {
+          "200": {
+            "description": "The min datetime value 0001-01-01T00:00:00",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
