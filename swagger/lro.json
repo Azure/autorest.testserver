@@ -53,6 +53,40 @@
         }
       }
     },
+    "/lro/put/201/succeeded": {
+      "put": {
+        "x-ms-long-running-operation": true,
+        "operationId": "LROs_put201Succeeded",
+        "description": "Long running put request, service returns a 201 to the initial request, with an entity that contains ProvisioningState=’Succeeded’.",
+        "tags": [
+          "LRO Operations"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "description": "Product to put",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Initial response with ProvisioningState='Succeeded'",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/lro/list": {
       "post": {
         "x-ms-long-running-operation": true,

@@ -41,6 +41,7 @@ var getPascalCase = function (inString) {
 
 var lros = function (coverage) {
   coverage['LROPutInlineComplete'] = 0;
+  coverage['LROPutInlineComplete201'] = 0;
   coverage['CustomHeaderPutAsyncSucceded'] = 0;
   coverage['CustomHeaderPostAsyncSucceded'] = 0;
   coverage['CustomHeaderPutSucceeded'] = 0;
@@ -48,6 +49,11 @@ var lros = function (coverage) {
   router.put('/put/200/succeeded', function (req, res, next) {
     coverage['LROPutInlineComplete']++;
     res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+  });
+
+  router.put('/put/201/succeeded', function (req, res, next) {
+    coverage['LROPutInlineComplete201']++;
+    res.status(201).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
   });
 
   coverage['LROPut200InlineCompleteNoState'] = 0;
