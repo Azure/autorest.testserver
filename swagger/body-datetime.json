@@ -131,8 +131,8 @@
     "/datetime/max/utc7ms": {
       "put": {
         "operationId": "datetime_putUtcMaxDateTime7Digits",
-        "description": "Put max datetime value 9999-12-31T23:59:59.9999999Z",
-        "summary": "This is against the recommendation that asks for 3 digits, but allow to test what happens in that scenario",
+        "description": "This is against the recommendation that asks for 3 digits, but allow to test what happens in that scenario",
+        "summary": "Put max datetime value 9999-12-31T23:59:59.9999999Z",
         "parameters": [
           {
             "name": "datetimeBody",
@@ -202,8 +202,8 @@
     "/datetime/max/utc7ms/uppercase": {
       "get": {
         "operationId": "datetime_getUtcUppercaseMaxDateTime7Digits",
-        "description": "Get max datetime value 9999-12-31T23:59:59.9999999Z",
-        "summary": "This is against the recommendation that asks for 3 digits, but allow to test what happens in that scenario",
+        "description": "This is against the recommendation that asks for 3 digits, but allow to test what happens in that scenario",
+        "summary": "Get max datetime value 9999-12-31T23:59:59.9999999Z",
         "responses": {
           "200": {
             "description": "The max datetime value 9999-12-31T23:59:59.9999999Z",
@@ -500,6 +500,27 @@
               "enum": [
                 "0001-01-01t00:00:00+14:00"
               ]
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/datetime/min/localnooffset": {
+      "get": {
+        "operationId": "datetime_getLocalNoOffsetMinDateTime",
+        "description": "Get min datetime value 0001-01-01T00:00:00",
+        "responses": {
+          "200": {
+            "description": "The min datetime value 0001-01-01T00:00:00",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           "default": {

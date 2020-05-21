@@ -53,6 +53,80 @@
         }
       }
     },
+    "/lro/put/201/succeeded": {
+      "put": {
+        "x-ms-long-running-operation": true,
+        "operationId": "LROs_put201Succeeded",
+        "description": "Long running put request, service returns a 201 to the initial request, with an entity that contains ProvisioningState=’Succeeded’.",
+        "tags": [
+          "LRO Operations"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "description": "Product to put",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Initial response with ProvisioningState='Succeeded'",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
+    "/lro/list": {
+      "post": {
+        "x-ms-long-running-operation": true,
+        "operationId": "LROs_post202List",
+        "description": "Long running put request, service returns a 202 with empty body to first request, returns a 200 with body [{ 'id': '100', 'name': 'foo' }].",
+        "tags": [
+          "LRO Operations"
+        ],
+        "responses": {
+          "202": {
+            "description": "Initial response",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Location to poll for result status: will be set to /lro/list/pollingGet",
+                "type": "string"
+              },
+              "Location": {
+                "description": "Location to poll for result status: will be set to /lro/list/finalGet",
+                "type": "string"
+              }
+            }
+          },
+          "200": {
+            "description": "Response after completion. Will be [{ 'id': '100', 'name': 'foo' }]",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/lro/put/200/succeeded/nostate": {
       "put": {
         "x-ms-long-running-operation": true,
