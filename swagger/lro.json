@@ -3083,7 +3083,7 @@
       "type":  "object",
       "x-ms-external": true,
       "properties": {
-        "status": {
+        "code": {
           "type": "integer",
           "format": "int32"
         },
