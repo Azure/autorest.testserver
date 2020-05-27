@@ -45,6 +45,7 @@ var paging = function(coverage) {
   coverage['PagingMultipleLRO'] = 0;
   coverage['PagingCustomUrlPartialNextLink'] = 0;
   coverage["PagingCustomUrlPartialOperationNextLink"] = 0;
+  coverage["PagingReturnModelWithXMSClientName"] = 0;
 
   router.get('/noitemname', function(req, res, next) {
     coverage["PagingNoItemName"]++;
@@ -198,6 +199,11 @@ var paging = function(coverage) {
     else {
       res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.query.page), "name": "product"}} ]});
     }
+  });
+
+  router.get('/itemNameWithXMSClientName', function(req, res, next) {
+    coverage["PagingReturnModelWithXMSClientName"]++;
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}]});
   });
 
   /*** PAGEABLE LROs ***/
