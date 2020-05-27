@@ -41,6 +41,7 @@ var getPascalCase = function (inString) {
 
 var lros = function (coverage) {
   coverage['LROPutInlineComplete'] = 0;
+  coverage['LROPutInlineComplete201'] = 0;
   coverage['CustomHeaderPutAsyncSucceded'] = 0;
   coverage['CustomHeaderPostAsyncSucceded'] = 0;
   coverage['CustomHeaderPutSucceeded'] = 0;
@@ -48,6 +49,11 @@ var lros = function (coverage) {
   router.put('/put/200/succeeded', function (req, res, next) {
     coverage['LROPutInlineComplete']++;
     res.status(200).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+  });
+
+  router.put('/put/201/succeeded', function (req, res, next) {
+    coverage['LROPutInlineComplete201']++;
+    res.status(201).type('json').end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
   });
 
   coverage['LROPut200InlineCompleteNoState'] = 0;
@@ -696,6 +702,24 @@ var lros = function (coverage) {
   router.get('/LROPostDoubleHeadersFinalAzureHeaderGetDefault/location', function (req, res, next) {
     res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
     coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault']++;
+  });
+
+  coverage['LROPostAndGetList'] = 0;
+  router.post('/list', function (req, res, next) {
+    var headers = {
+      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/list/pollingGet',
+      'Location': 'http://localhost:' + utils.getPort() + '/lro/list/finalGet'
+    };
+    res.set(headers).status(202).end();
+  });
+
+  router.get('/list/pollingGet', function (req, res, next) {
+    res.status(200).end('{ "status": "Succeeded" }');
+  });
+
+  router.get('/list/finalGet', function (req, res, next) {
+    coverage['LROPostAndGetList']++;
+    res.status(200).type('json').end('[{ "id": "100", "name": "foo" }]');
   });
 
   coverage['LROPostAsyncRetrySucceeded'] = 0;
