@@ -600,6 +600,24 @@
           }
         }
       }
+    },
+    "/paging/itemNameWithXMSClientName": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "operationId": "Paging_getPagingModelWithItemNameWithXMSClientName",
+        "description": "A paging operation that returns a paging model whose item name is is overriden by x-ms-client-name 'indexes'.",
+        "responses": {
+          "200": {
+            "description": "Returns a paging model whose item names are called 'indexes', not 'value'",
+            "schema": {
+              "$ref": "#/definitions/ProductResultValueWithXMSClientName"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -608,6 +626,21 @@
       "properties": {
         "value": {
           "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductResultValueWithXMSClientName": {
+      "type":  "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "x-ms-client-name": "Indexes",
           "items": {
             "$ref": "#/definitions/Product"
           }
