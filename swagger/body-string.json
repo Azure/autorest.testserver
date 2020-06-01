@@ -413,7 +413,7 @@
             "description": "The base64 encoded string value",
             "schema": {
               "type": "string",
-              "format": "base64url"
+              "format": "byte"
             }
           },
           "default": {
