@@ -21,7 +21,8 @@ var scenarioMap = {
   "null": "Null",
   "2012-01-01": "Valid",
   "2012-01-01T01:01:01Z": "Valid",
-  "green color": "Valid"
+  "green color": "Valid",
+  "unicode": "Unicode"
 };
 
 var typeMap = {
@@ -206,7 +207,8 @@ var queries = function (coverage) {
            type === 'datetime' ||
            scenario === 'multibyte' ||
            (type === 'string' &&
-           scenario.indexOf('begin') === 0)) {
+           scenario.indexOf('begin') === 0) ||
+           scenario == 'unicode') {
       scenario = '"' + scenario + '"';
       wireParameter = '"' + wireParameter + '"';
     }
@@ -224,7 +226,7 @@ var queries = function (coverage) {
       console.log("in empty test\n");
       utils.send400(res, next, 'Empty scenario must have empty parameter instead of \"' + wireParameter + '\"');
     } else if (type === 'string' || type === 'date' || type === 'enum') {
-      if (scenario === wireParameter) {
+      if (scenario === wireParameter || (scenario === 'unicode' && wireParameter === '啊齄丂狛狜隣郎隣兀﨩')) {
         console.log("Success!\n");
         coverage['UrlQueries' + test]++;
         res.status(200).end();
