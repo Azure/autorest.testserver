@@ -224,7 +224,7 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(202).end();
+      res.status(202).end('{ "properties": { "provisioningState": "Accepted"}, "id": "100", "name": "foo" }');
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
@@ -318,7 +318,7 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(202).end();
+      res.status(202).end('{ "properties": { "provisioningState": "Accepted"}, "id": "100", "subresource": "sub1" }');
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
@@ -359,7 +359,7 @@ var lros = function (coverage) {
     var headers = {
       'Location': pollingUri
     };
-    res.set(headers).status(202).end();
+    res.set(headers).status(202).end('{ "properties": { "provisioningState": "Accepted"}, "id": "100", "name": "sku" }');
   });
 
   router.get('/putnonresource/operationresults', function (req, res, next) {
@@ -367,7 +367,7 @@ var lros = function (coverage) {
     console.log('In scenario: ' + scenario + '\n');
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res.status(202).end();
+      res.status(202).end('{ "properties": { "provisioningState": "Accepted"}, "id": "100", "name": "sku" }');
     } else {
       removeScenarioCookie(res);
       coverage[scenario]++;
