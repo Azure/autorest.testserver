@@ -15,6 +15,7 @@ var multiapi = function(optionalCoverage) {
     optionalCoverage['MultiapiPutTestFiveApiVersionThree'] = 0;
     optionalCoverage['MultiapiLRO'] = 0;
     optionalCoverage['MultiapiPaging'] = 0;
+    optionalCoverage['MultiapiLROAndPaging'] = 0;
 
     router.put('/testOneEndpoint', function (req, res, next) {
         if (req.query["api-version"] === '1.0.0') {
@@ -98,6 +99,11 @@ var multiapi = function(optionalCoverage) {
         } else {
             utils.send400(res, next, "The api version of testFive is not supported: " + req.query['api-version']);
         }
+    });
+
+    router.post('/lroAndPaging', function (req, res, next) {
+        optionalCoverage['MultiapiLROAndPaging']++;
+        res.status(200).json({ "values" : [ { "id": "100" }]});
     });
 }
 
