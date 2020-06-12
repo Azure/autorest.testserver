@@ -904,7 +904,8 @@
               "description": "The array value ['foo', null, 'foo2']",
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "x-nullable": true
               }
             }
           },
@@ -1520,7 +1521,8 @@
               "description": "array of complex type with null value",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Product"
+                "$ref": "#/definitions/Product",
+                "x-nullable": true
               }
             }
           },
@@ -1573,9 +1575,11 @@
             "schema": {
               "description": "Array of complex type with null item [{'integer': 1 'string': '2'}, null, {'integer': 5, 'string': '6'}]",
               "type": "array",
-              "items": {
-                "$ref": "#/definitions/Product"
-              }
+              "items":
+                {
+                  "$ref": "#/definitions/Product",
+                  "x-nullable": true
+                }
             }
           },
           "default": {
@@ -1748,6 +1752,7 @@
               "type": "array",
               "items": {
                 "type": "array",
+                "x-nullable": true,
                 "items": {
                   "type": "string"
                 }
@@ -1873,6 +1878,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "x-nullable": true,
                 "additionalProperties": {
                   "type": "string"
                 }
@@ -1933,6 +1939,7 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "x-nullable": true,
                 "additionalProperties": {
                   "type": "string"
                 }

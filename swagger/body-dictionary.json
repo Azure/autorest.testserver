@@ -1425,7 +1425,8 @@
               "description": "Dictionary of complex type with null item [{'integer': 1 'string': '2'}, null, {'integer': 5, 'string': '6'}]",
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/Widget"
+                "$ref": "#/definitions/Widget",
+                "x-nullable": true
               }
             }
           },
@@ -1599,6 +1600,7 @@
               "type": "object",
               "additionalProperties": {
                 "type": "array",
+                "x-nullable": true,
                 "items": {
                   "type": "string"
                 }
