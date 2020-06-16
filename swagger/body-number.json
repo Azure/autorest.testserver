@@ -24,7 +24,8 @@
           "200": {
             "description": "The null number value",
             "schema": {
-              "type": "number"
+              "type": "number",
+              "x-nullable": true
             }
           },
           "default": {

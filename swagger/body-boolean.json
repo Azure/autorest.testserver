@@ -129,7 +129,8 @@
                     "200": {
                         "description": "The null Boolean value",
                         "schema": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "x-nullable": true
                         }
                     },
                     "default": {

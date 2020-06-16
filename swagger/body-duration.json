@@ -25,7 +25,8 @@
             "description": "The null duration value",
             "schema": {
               "type": "string",
-              "format": "duration"
+              "format": "duration",
+              "x-nullable": true
             }
           },
           "default": {

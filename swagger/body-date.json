@@ -25,7 +25,8 @@
             "description": "The null date value",
             "schema": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "x-nullable": true
             }
           },
           "default": {
