@@ -56,7 +56,7 @@ var logFileName = 'AccTestServer-' + now.getHours() +
     now.getMinutes() + now.getSeconds() + '.log';
 var testResultDir = path.join(__dirname, '..', 'TestResults');
 if (!fs.existsSync(testResultDir)) {
-  fs.mkdirSync(testResultDir);
+  fs.mkdirSync(testResultDir, {recursive: true});
 }
 var logfile = fs.createWriteStream(path.join(testResultDir, logFileName), {flags: 'a'});
 app.use(morgan('combined', {stream: logfile}));
