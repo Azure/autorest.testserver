@@ -16,6 +16,11 @@
             "get": {
                 "operationId": "bool_getTrue",
                 "description": "Get true Boolean value",
+                "x-ms-examples": {
+                     "bool_getTrue": {
+                         "$ref": "./examples/bool_getTrue.json"
+                     }
+                },
                 "tags": [
                     "Bool Operations"
                 ],
@@ -38,6 +43,11 @@
             "put": {
                 "operationId": "bool_putTrue",
                 "description": "Set Boolean value true",
+                "x-ms-examples": {
+                     "bool_putTrue": {
+                         "$ref": "./examples/bool_putTrue.json"
+                     }
+                },
                 "parameters": [
                     {
                         "name": "boolBody",
