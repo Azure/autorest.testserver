@@ -25,7 +25,8 @@
             "description": "The null datetime value",
             "schema": {
               "type": "string",
-              "format": "date-time-rfc1123"
+              "format": "date-time-rfc1123",
+              "x-nullable": true
             }
           },
           "default": {

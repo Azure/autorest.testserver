@@ -24,7 +24,8 @@
           "200": {
             "description": "The null int value",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "x-nullable": true
             }
           },
           "default": {
@@ -329,7 +330,8 @@
             "description": "The null Unix time value",
             "schema": {
               "type": "integer",
-              "format": "unixtime"
+              "format": "unixtime",
+              "x-nullable": true
             }
           },
           "default": {
