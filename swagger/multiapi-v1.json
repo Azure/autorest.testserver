@@ -6,6 +6,9 @@
       "version": "1.0.0"
     },
     "host": "localhost:3000",
+    "schemes": [
+      "http"
+    ],
     "produces": [
         "application/json"
     ],
@@ -84,6 +87,56 @@
               }
             }
           },
+          "/multiapi/lroAndPaging": {
+            "post": {
+              "x-ms-long-running-operation": true,
+              "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+              "operationId": "testLROAndPaging",
+              "description": "A long-running paging operation that includes a nextLink that has 10 pages",
+              "parameters": [
+                {
+                  "name": "client-request-id",
+                  "in": "header",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "maxresults",
+                  "in": "header",
+                  "required": false,
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Sets the maximum number of items to return in the response.",
+                  "x-ms-parameter-grouping": {
+                      "postfix": "Options"
+                  }
+                },
+                {
+                  "name": "timeout",
+                  "in": "header",
+                  "required": false,
+                  "type": "integer",
+                  "format": "int32",
+                  "default": 30,
+                  "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
+                  "x-ms-parameter-grouping": {
+                      "postfix": "Options"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Initial response with Product ID = 100",
+                  "schema": {
+                    "$ref": "#/definitions/PagingResult"
+                  }
+                },
+                "default": {
+                  "description": "Unexpected error"
+                }
+              }
+            }
+          },
         "/multiapi/one/testTwoEndpoint": {
             "get": {
                 "operationId": "OperationGroupOne_testTwo",
@@ -121,6 +174,20 @@
                 }
             }
         },
+        "PagingResult": {
+          "type":  "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            },
+            "nextLink": {
+              "type": "string"
+            }
+          }
+      },
         "Product": {
             "x-ms-azure-resource": true,
             "type": "object",
