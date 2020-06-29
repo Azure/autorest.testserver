@@ -30,6 +30,11 @@
       "get": {
         "operationId": "Paging_getPagesPartialUrl",
         "description": "A paging operation that combines custom url, paging and partial URL and expect to concat after host",
+        "x-ms-examples": {
+          "Paging_getPagesPartialUrl": {
+            "$ref": "./examples/Paging_getPagesPartialUrl.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Paging response with a fragment nextLink",
@@ -51,6 +56,11 @@
       "get": {
         "operationId": "Paging_getPagesPartialUrlOperation",
         "description": "A paging operation that combines custom url, paging and partial URL with next operation",
+        "x-ms-examples": {
+          "Paging_getPagesPartialUrlOperation": {
+            "$ref": "./examples/Paging_getPagesPartialUrlOperation.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Paging response with a fragment nextLink",
