@@ -30,15 +30,13 @@ template_op = """        "/constants/put{operation_id}": {{
                     {{
                         "name": "input",
                         "in": "query",
-                        "schema": {{
-                            "type": "string",
-                            "enum": [
-                                {values}
-                            ],
-                            "x-ms-enum": {{
-                                "name": "{operation_id}OpEnum",
-                                "modelAsString": {model_as_string}
-                            }}
+                        "type": "string",
+                        "enum": [
+                            {values}
+                        ],
+                        "x-ms-enum": {{
+                            "name": "{operation_id}OpEnum",
+                            "modelAsString": {model_as_string}
                         }},
                         "required": {required}{default}
                     }}

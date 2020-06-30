@@ -24,16 +24,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": false
                     }
@@ -53,16 +51,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredTwoValueDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringNoRequiredTwoValueDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": false,
                         "x-ms-client-default": "value1"
@@ -83,15 +79,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredOneValueNoDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringNoRequiredOneValueNoDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": false
                     }
@@ -111,15 +105,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredOneValueDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringNoRequiredOneValueDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": false,
                         "x-ms-client-default": "value1"
@@ -140,16 +132,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredTwoValueNoDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringRequiredTwoValueNoDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": true
                     }
@@ -169,16 +159,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredTwoValueDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringRequiredTwoValueDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": true,
                         "x-ms-client-default": "value1"
@@ -199,15 +187,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredOneValueNoDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringRequiredOneValueNoDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": true
                     }
@@ -227,15 +213,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredOneValueDefaultOpEnum",
-                                "modelAsString": false
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "NoModelAsStringRequiredOneValueDefaultOpEnum",
+                            "modelAsString": false
                         },
                         "required": true,
                         "x-ms-client-default": "value1"
@@ -256,16 +240,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": false
                     }
@@ -285,16 +267,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredTwoValueDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringNoRequiredTwoValueDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": false,
                         "x-ms-client-default": "value1"
@@ -315,15 +295,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredOneValueNoDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringNoRequiredOneValueNoDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": false
                     }
@@ -343,15 +321,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredOneValueDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringNoRequiredOneValueDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": false,
                         "x-ms-client-default": "value1"
@@ -372,16 +348,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringRequiredTwoValueNoDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringRequiredTwoValueNoDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": true
                     }
@@ -401,16 +375,14 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1",
-                                "value2"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringRequiredTwoValueDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1",
+                            "value2"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringRequiredTwoValueDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": true,
                         "x-ms-client-default": "value1"
@@ -431,15 +403,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringRequiredOneValueNoDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringRequiredOneValueNoDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": true
                     }
@@ -459,15 +429,13 @@
                     {
                         "name": "input",
                         "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "value1"
-                            ],
-                            "x-ms-enum": {
-                                "name": "ModelAsStringRequiredOneValueDefaultOpEnum",
-                                "modelAsString": true
-                            }
+                        "type": "string",
+                        "enum": [
+                            "value1"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ModelAsStringRequiredOneValueDefaultOpEnum",
+                            "modelAsString": true
                         },
                         "required": true,
                         "x-ms-client-default": "value1"
