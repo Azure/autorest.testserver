@@ -10,10 +10,10 @@
         "http"
     ],
     "produces": [
-        "application/xml"
+        "application/json"
     ],
     "consumes": [
-        "application/xml"
+        "application/json"
     ],
     "paths": {
         "/constants/putNoModelAsStringNoRequiredTwoValueTwoDefault": {
