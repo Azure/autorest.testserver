@@ -81,7 +81,7 @@ def do_it_operation(model_as_string, required, one_value, default):
         "{}ModelAsString".format("" if model_as_string else "No") +
         "{}Required".format("" if required else "No") +
         "{}Value".format("One" if one_value else "Two") +
-        "{}Default".format("" if default else "Two")
+        "{}Default".format("" if default else "No")
     )
     values = '"value1"' if one_value else '"value1", "value2"'
     default = ',\n                        "x-ms-client-default": "value1"' if default else ''
@@ -100,7 +100,7 @@ def do_it_model(model_as_string, required, one_value, default):
         "{}ModelAsString".format("" if model_as_string else "No") +
         "{}Required".format("" if required else "No") +
         "{}Value".format("One" if one_value else "Two") +
-        "{}Default".format("" if default else "Two")
+        "{}Default".format("" if default else "No")
     )
     values = '"value1"' if one_value else '"value1", "value2"'
     default = ',\n                        "x-ms-client-default": "value1"' if default else ''
