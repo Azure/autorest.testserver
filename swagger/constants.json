@@ -15,7 +15,471 @@
     "consumes": [
         "application/xml"
     ],
-    "paths": {},
+    "paths": {
+        "/constants/putNoModelAsStringNoRequiredTwoValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringNoRequiredTwoValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringNoRequiredTwoValueTwoDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringNoRequiredTwoValueDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringNoRequiredTwoValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringNoRequiredTwoValueDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringNoRequiredOneValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringNoRequiredOneValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringNoRequiredOneValueTwoDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringNoRequiredOneValueDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringNoRequiredOneValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringNoRequiredOneValueDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringRequiredTwoValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringRequiredTwoValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringRequiredTwoValueTwoDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringRequiredTwoValueDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringRequiredTwoValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringRequiredTwoValueDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringRequiredOneValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringRequiredOneValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringRequiredOneValueTwoDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putNoModelAsStringRequiredOneValueDefault": {
+            "put": {
+                "operationId": "contants_putNoModelAsStringRequiredOneValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "NoModelAsStringRequiredOneValueDefault",
+                                "modelAsString": false
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringNoRequiredTwoValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringNoRequiredTwoValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringNoRequiredTwoValueTwoDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringNoRequiredTwoValueDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringNoRequiredTwoValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringNoRequiredTwoValueDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringNoRequiredOneValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringNoRequiredOneValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringNoRequiredOneValueTwoDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringNoRequiredOneValueDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringNoRequiredOneValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringNoRequiredOneValueDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringRequiredTwoValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringRequiredTwoValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringRequiredTwoValueTwoDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringRequiredTwoValueDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringRequiredTwoValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value1", "value2"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringRequiredTwoValueDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringRequiredOneValueTwoDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringRequiredOneValueTwoDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringRequiredOneValueTwoDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        },
+
+        "/constants/putModelAsStringRequiredOneValueDefault": {
+            "put": {
+                "operationId": "contants_putModelAsStringRequiredOneValueDefault",
+                "summary": "Puts constants to the testserver",
+                "parameters": [
+                    {
+                        "name": "input",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value"
+                            ],
+                            "x-ms-enum": {
+                                "name": "ModelAsStringRequiredOneValueDefault",
+                                "modelAsString": true
+                            }
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
+        }
+    },
     "definitions": {
         "StringOneValue": {
             "type": "string",
