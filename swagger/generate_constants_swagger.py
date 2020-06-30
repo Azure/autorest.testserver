@@ -36,7 +36,7 @@ template_op = """        "/constants/put{operation_id}": {{
                                 {values}
                             ],
                             "x-ms-enum": {{
-                                "name": "{operation_id}",
+                                "name": "{operation_id}OpEnum",
                                 "modelAsString": {model_as_string}
                             }}
                         }},

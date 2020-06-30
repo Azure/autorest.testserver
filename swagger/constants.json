@@ -31,7 +31,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredTwoValueNoDefault",
+                                "name": "NoModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -60,7 +60,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredTwoValueDefault",
+                                "name": "NoModelAsStringNoRequiredTwoValueDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -89,7 +89,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredOneValueNoDefault",
+                                "name": "NoModelAsStringNoRequiredOneValueNoDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -117,7 +117,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringNoRequiredOneValueDefault",
+                                "name": "NoModelAsStringNoRequiredOneValueDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -147,7 +147,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredTwoValueNoDefault",
+                                "name": "NoModelAsStringRequiredTwoValueNoDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -176,7 +176,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredTwoValueDefault",
+                                "name": "NoModelAsStringRequiredTwoValueDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -205,7 +205,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredOneValueNoDefault",
+                                "name": "NoModelAsStringRequiredOneValueNoDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -233,7 +233,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "NoModelAsStringRequiredOneValueDefault",
+                                "name": "NoModelAsStringRequiredOneValueDefaultOpEnum",
                                 "modelAsString": false
                             }
                         },
@@ -263,7 +263,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredTwoValueNoDefault",
+                                "name": "ModelAsStringNoRequiredTwoValueNoDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -292,7 +292,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredTwoValueDefault",
+                                "name": "ModelAsStringNoRequiredTwoValueDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -321,7 +321,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredOneValueNoDefault",
+                                "name": "ModelAsStringNoRequiredOneValueNoDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -349,7 +349,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringNoRequiredOneValueDefault",
+                                "name": "ModelAsStringNoRequiredOneValueDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -379,7 +379,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringRequiredTwoValueNoDefault",
+                                "name": "ModelAsStringRequiredTwoValueNoDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -408,7 +408,7 @@
                                 "value2"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringRequiredTwoValueDefault",
+                                "name": "ModelAsStringRequiredTwoValueDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -437,7 +437,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringRequiredOneValueNoDefault",
+                                "name": "ModelAsStringRequiredOneValueNoDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
@@ -465,7 +465,7 @@
                                 "value1"
                             ],
                             "x-ms-enum": {
-                                "name": "ModelAsStringRequiredOneValueDefault",
+                                "name": "ModelAsStringRequiredOneValueDefaultOpEnum",
                                 "modelAsString": true
                             }
                         },
