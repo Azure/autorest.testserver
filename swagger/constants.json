@@ -482,47 +482,285 @@
         }
     },
     "definitions": {
-        "StringOneValue": {
-            "type": "string",
-            "enum": [
-                "value"
-            ],
-            "x-ms-enum": {
-                "name": "StringOneValue",
-                "modelAsString": true
+        "NoModelAsStringNoRequiredTwoValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringNoRequiredTwoValueTwoDefaultEnum",
+                        "modelAsString": false
+                    }
+                }
             }
         },
-        "StringTwoValues": {
-            "type": "string",
-            "enum": [
-                "value1",
-                "value2"
-            ],
-            "x-ms-enum": {
-                "name": "StringTwoValues",
-                "modelAsString": true
+        "NoModelAsStringNoRequiredTwoValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringNoRequiredTwoValueDefaultEnum",
+                        "modelAsString": false
+                    },
+                    "x-ms-client-default": "value1"
+                }
             }
         },
-        "NoStringOneValue": {
-            "type": "string",
-            "enum": [
-                "value"
-            ],
-            "x-ms-enum": {
-                "name": "NoStringOneValue",
-                "modelAsString": false
+        "NoModelAsStringNoRequiredOneValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringNoRequiredOneValueTwoDefaultEnum",
+                        "modelAsString": false
+                    }
+                }
             }
         },
-        "NoStringTwoValues": {
-            "type": "string",
-            "enum": [
-                "value1",
-                "value2"
-            ],
-            "x-ms-enum": {
-                "name": "NoStringTwoValues",
-                "modelAsString": false
+        "NoModelAsStringNoRequiredOneValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringNoRequiredOneValueDefaultEnum",
+                        "modelAsString": false
+                    },
+                    "x-ms-client-default": "value1"
+                }
             }
+        },
+        "NoModelAsStringRequiredTwoValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringRequiredTwoValueTwoDefaultEnum",
+                        "modelAsString": false
+                    }
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "NoModelAsStringRequiredTwoValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringRequiredTwoValueDefaultEnum",
+                        "modelAsString": false
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "NoModelAsStringRequiredOneValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringRequiredOneValueTwoDefaultEnum",
+                        "modelAsString": false
+                    }
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "NoModelAsStringRequiredOneValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NoModelAsStringRequiredOneValueDefaultEnum",
+                        "modelAsString": false
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "ModelAsStringNoRequiredTwoValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringNoRequiredTwoValueTwoDefaultEnum",
+                        "modelAsString": true
+                    }
+                }
+            }
+        },
+        "ModelAsStringNoRequiredTwoValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringNoRequiredTwoValueDefaultEnum",
+                        "modelAsString": true
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            }
+        },
+        "ModelAsStringNoRequiredOneValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringNoRequiredOneValueTwoDefaultEnum",
+                        "modelAsString": true
+                    }
+                }
+            }
+        },
+        "ModelAsStringNoRequiredOneValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringNoRequiredOneValueDefaultEnum",
+                        "modelAsString": true
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            }
+        },
+        "ModelAsStringRequiredTwoValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringRequiredTwoValueTwoDefaultEnum",
+                        "modelAsString": true
+                    }
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "ModelAsStringRequiredTwoValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringRequiredTwoValueDefaultEnum",
+                        "modelAsString": true
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "ModelAsStringRequiredOneValueTwoDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringRequiredOneValueTwoDefaultEnum",
+                        "modelAsString": true
+                    }
+                }
+            },
+            "required": [
+                "parameter"
+            ]
+        },
+        "ModelAsStringRequiredOneValueDefault": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "enum": [
+                        "value1"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ModelAsStringRequiredOneValueDefaultEnum",
+                        "modelAsString": true
+                    },
+                    "x-ms-client-default": "value1"
+                }
+            },
+            "required": [
+                "parameter"
+            ]
         }
     }
 }
