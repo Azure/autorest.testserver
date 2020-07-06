@@ -70,6 +70,34 @@
         }
       }
     },
+    "/array/query": {
+      "get": {
+        "operationId": "array_getWithArrayQuery",
+        "description": "Get a 200 empty OK response if you correctly pass in ['hello', 'nihao', 'bonjour'] for the 'arrayQuery' parameter to the service",
+        "parameters": [
+          {
+            "name": "arrayQuery",
+            "description": "Array-typed query parameter. Pass in ['hello', 'nihao', 'bonjour'].",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty response OK"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/array/empty": {
       "x-extension-under-path": true,
       "get": {
