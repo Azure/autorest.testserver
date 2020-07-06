@@ -87,6 +87,7 @@ var coverage = {
   "additionalPropertiesTypeString": 0,
   "additionalPropertiesInProperties": 0,
   "additionalPropertiesInPropertiesWithAPTypeString": 0,
+  "getWithQueryArray": 0,
   "getArrayNull": 0,
   "getArrayEmpty": 0,
   "putArrayEmpty": 0,

@@ -7,6 +7,7 @@ var array = function (coverage) {
 
   router.get("/query", function(req, res, next) {
     if (req.query["arrayQuery"] == 'hello,nihao,bonjour') {
+      coverage['getWithQueryArray']++;
       res.status(200).end();
     } else {
       utils.send400(res, next, "'arrayQuery' parameter must be of value 'hello,nihao,bonjour', not '" + req.query["arrayQuery"] + "'");
