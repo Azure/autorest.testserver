@@ -81,7 +81,7 @@ var validateArrayQuery = function (arrayValue, separator) {
     {
       if (arrayValue.length != 3)
       {
-        return false
+        return false;
       }
       testValue = arrayValue.toString()
     }
