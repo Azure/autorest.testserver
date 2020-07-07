@@ -79,7 +79,11 @@ var validateArrayQuery = function (arrayValue, separator) {
     var testValue = arrayValue;
     if (Array.isArray(arrayValue))
     {
-        testValue = arrayValue.toString()
+      if (arrayValue.length != 3)
+      {
+        return false
+      }
+      testValue = arrayValue.toString()
     }
     console.log('received array value "' + testValue + '" separator "' + separator + '"');
     return (testValue === "ArrayQuery1" + separator + "begin!*'();:@ &=+$,/?#[]end" + separator + separator);
