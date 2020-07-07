@@ -4,16 +4,6 @@ var util = require('util');
 var utils = require('../util/utils')
 var _ = require('underscore');
 var array = function (coverage) {
-
-  router.get("/query", function(req, res, next) {
-    if (req.query["arrayQuery"] == 'hello,nihao,bonjour') {
-      coverage['getWithQueryArray']++;
-      res.status(200).end();
-    } else {
-      utils.send400(res, next, "'arrayQuery' parameter must be of value 'hello,nihao,bonjour', not '" + req.query["arrayQuery"] + "'");
-    }
-  });
-
   router.put('/:scenario', function (req, res, next) {
     if (req.params.scenario === 'empty') {
       if (util.inspect(req.body) !== '[]') {

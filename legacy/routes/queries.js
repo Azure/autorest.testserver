@@ -187,6 +187,13 @@ var queries = function (coverage) {
       } else {
         utils.send400(res, next, 'Failed pipes array scenario format "' + format + '", scenario "' + scenario + '"');
       }
+    } else if (format == "none") {
+      if (req.query.arrayQuery == 'hello,nihao,bonjour') {
+        coverage['UrlQueriesArrayNoCollectionFormatValid']++;
+        res.status(200).end();
+      } else {
+        utils.send400(res, next, "'arrayQuery' parameter must be of value 'hello,nihao,bonjour', not '" + req.query["arrayQuery"] + "'");
+      }
     } else {
       console.log('Array Failure!\n');
       utils.send400(res, next, 'Unable to find matching Array scenario for format "' + format + '" scenario "' + scenario + '"');
