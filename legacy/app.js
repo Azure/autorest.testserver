@@ -340,6 +340,7 @@ var coverage = {
   "UrlQueriesArraySsvValid": 0,
   "UrlQueriesArrayPipesValid": 0,
   "UrlQueriesArrayTsvValid": 0,
+  "UrlQueriesArrayNoCollectionFormatValid": 0,
   "UrlPathItemGetAll": 0,
   "UrlPathItemGetGlobalNull": 0,
   "UrlPathItemGetGlobalAndLocalNull": 0,
