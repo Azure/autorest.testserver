@@ -1767,7 +1767,7 @@
     "/queries/array/none/string/empty": {
       "get": {
         "operationId": "queries_ArrayStringNoCollectionFormatEmpty",
-        "description": "Get an empty array [] of string with no collection format. Pass in ['hello', 'nihao', 'bonjour'] for the 'arrayQuery' parameter to the service",
+        "description": "Array query has no defined collection format, should default to csv. Pass in ['hello', 'nihao', 'bonjour'] for the 'arrayQuery' parameter to the service",
         "tags": [
           "query Operations"
         ],
