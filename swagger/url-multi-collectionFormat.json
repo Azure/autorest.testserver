@@ -16,6 +16,11 @@
       "get": {
         "operationId": "queries_ArrayStringMultiNull",
         "description": "Get a null array of string using the multi-array format",
+        "x-ms-examples": {
+          "queries_ArrayStringMultiNull": {
+            "$ref": "./examples/queries_ArrayStringMultiNull.json"
+          }
+        },
         "tags": [
           "query Operations"
         ],
@@ -48,6 +53,11 @@
       "get": {
         "operationId": "queries_ArrayStringMultiEmpty",
         "description": "Get an empty array [] of string using the multi-array format",
+        "x-ms-examples": {
+          "queries_ArrayStringMultiEmpty": {
+            "$ref": "./examples/queries_ArrayStringMultiEmpty.json"
+          }
+        },
         "tags": [
           "query Operations"
         ],
@@ -80,6 +90,11 @@
       "get": {
         "operationId": "queries_ArrayStringMultiValid",
         "description": "Get an array of string ['ArrayQuery1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the mult-array format",
+        "x-ms-examples": {
+          "queries_ArrayStringMultiValid": {
+            "$ref": "./examples/queries_ArrayStringMultiValid.json"
+          }
+        },
         "tags": [
           "query Operations"
         ],
