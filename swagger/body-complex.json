@@ -1273,7 +1273,8 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Basic Id"
+          "description": "Basic Id",
+          "x-nullable": true
         },
         "name": {
           "type": "string",
@@ -1685,6 +1686,7 @@
       "properties": {
         "defaultProgram": {
           "type":  "object",
+          "x-nullable": true,
           "additionalProperties": {
             "type": "string"
           }
