@@ -7,7 +7,7 @@
   },
   "host": "localhost:3000",
   "schemes": [
-    "https"
+    "http"
   ],
   "basePath": "/",
   "produces": [ "application/json" ],
