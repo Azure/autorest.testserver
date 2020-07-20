@@ -584,7 +584,7 @@ var xmlService = function (coverage) {
   router.get('/x-ms-text', function (req, res, next) {
     const xmsTextXML =
     `<?xml version='1.0' encoding='UTF-8'?>
-    <Data language="English">I am text</Data>`
+    <Data language="english">I am text</Data>`
     sendXmlBody(res, xmsTextXML);
     coverage['GetWithXMsText']++;
   });
