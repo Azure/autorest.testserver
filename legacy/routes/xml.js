@@ -272,6 +272,7 @@ var xmlService = function (coverage) {
   coverage['PutRootWithRefAndMetaXML'] = 0;
   coverage['jsonInputInXMLSwagger'] = 0;
   coverage['jsonOutputInXMLSwagger'] = 0;
+  coverage['GetWithXMsText'] = 0;
 
   router.get('/', function (req, res, next) {
     var comp = req.query.comp;
@@ -578,6 +579,14 @@ var xmlService = function (coverage) {
   router.get('/jsonoutput', function (req, res, next) {
     coverage['jsonOutputInXMLSwagger']++;
     res.status(200).json({ "id": 42 });
+  });
+
+  router.get('/x-ms-text', function (req, res, next) {
+    const xmsTextXML =
+    `<?xml version='1.0' encoding='UTF-8'?>
+    <Data language="English">I am text</Data>`
+    sendXmlBody(res, xmsTextXML);
+    coverage['GetWithXMsText']++;
   });
 };
 
