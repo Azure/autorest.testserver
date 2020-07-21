@@ -20,6 +20,11 @@
       "get": {
         "operationId": "datetime_getNull",
         "description": "Get null datetime value",
+        "x-ms-examples": {
+          "datetime_getNull": {
+            "$ref": "./examples/datetime_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null datetime value",
@@ -105,9 +110,15 @@
       "put": {
         "operationId": "datetime_putUtcMaxDateTime",
         "description": "Put max datetime value 9999-12-31T23:59:59.999Z",
+        "x-ms-examples": {
+          "datetime_putUtcMaxDateTime": {
+            "$ref": "./examples/datetime_putUtcMaxDateTime.json"
+          }
+        },
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -137,6 +148,7 @@
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -162,6 +174,11 @@
       "get": {
         "operationId": "datetime_getUtcLowercaseMaxDateTime",
         "description": "Get max datetime value 9999-12-31t23:59:59.999z",
+        "x-ms-examples": {
+          "datetime_getUtcLowercaseMaxDateTime": {
+            "$ref": "./examples/datetime_getUtcLowercaseMaxDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The max datetime value 9999-12-31t23:59:59.999z",
@@ -183,6 +200,11 @@
       "get": {
         "operationId": "datetime_getUtcUppercaseMaxDateTime",
         "description": "Get max datetime value 9999-12-31T23:59:59.999Z",
+        "x-ms-examples": {
+          "datetime_getUtcUppercaseMaxDateTime": {
+            "$ref": "./examples/datetime_getUtcUppercaseMaxDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The max datetime value 9999-12-31T23:59:59.999Z",
@@ -226,9 +248,15 @@
       "put": {
         "operationId": "datetime_putLocalPositiveOffsetMaxDateTime",
         "description": "Put max datetime value with positive numoffset 9999-12-31t23:59:59.999+14:00",
+        "x-ms-examples": {
+          "datetime_putLocalPositiveOffsetMaxDateTime": {
+            "$ref": "./examples/datetime_putLocalPositiveOffsetMaxDateTime.json"
+          }
+        },
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -254,6 +282,11 @@
       "get": {
         "operationId": "datetime_getLocalPositiveOffsetLowercaseMaxDateTime",
         "description": "Get max datetime value with positive num offset 9999-12-31t23:59:59.999+14:00",
+        "x-ms-examples": {
+          "datetime_getLocalPositiveOffsetLowercaseMaxDateTime": {
+            "$ref": "./examples/datetime_getLocalPositiveOffsetLowercaseMaxDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The max datetime value 9999-12-31t23:59:59.999+14:00",
@@ -275,6 +308,11 @@
       "get": {
         "operationId": "datetime_getLocalPositiveOffsetUppercaseMaxDateTime",
         "description": "Get max datetime value with positive num offset 9999-12-31T23:59:59.999+14:00",
+        "x-ms-examples": {
+          "datetime_getLocalPositiveOffsetUppercaseMaxDateTime": {
+            "$ref": "./examples/datetime_getLocalPositiveOffsetUppercaseMaxDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The max datetime value 9999-12-31T23:59:59.999+14:00",
@@ -299,6 +337,7 @@
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -366,9 +405,15 @@
       "put": {
         "operationId": "datetime_putUtcMinDateTime",
         "description": "Put min datetime value 0001-01-01T00:00:00Z",
+        "x-ms-examples": {
+          "datetime_putUtcMinDateTime": {
+            "$ref": "./examples/datetime_putUtcMinDateTime.json"
+          }
+        },
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -392,6 +437,11 @@
       "get": {
         "operationId": "datetime_getUtcMinDateTime",
         "description": "Get min datetime value 0001-01-01T00:00:00Z",
+        "x-ms-examples": {
+          "datetime_getUtcMinDateTime": {
+            "$ref": "./examples/datetime_getUtcMinDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The min datetime value 0001-01-01T00:00:00Z",
@@ -419,6 +469,7 @@
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -466,9 +517,15 @@
       "put": {
         "operationId": "datetime_putLocalNegativeOffsetMinDateTime",
         "description": "Put min datetime value 0001-01-01T00:00:00-14:00",
+        "x-ms-examples": {
+          "datetime_putLocalNegativeOffsetMinDateTime": {
+            "$ref": "./examples/datetime_putLocalNegativeOffsetMinDateTime.json"
+          }
+        },
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -492,14 +549,19 @@
       "get": {
         "operationId": "datetime_getLocalNegativeOffsetMinDateTime",
         "description": "Get min datetime value 0001-01-01T00:00:00-14:00",
+        "x-ms-examples": {
+          "datetime_getLocalNegativeOffsetMinDateTime": {
+            "$ref": "./examples/datetime_getLocalNegativeOffsetMinDateTime.json"
+          }
+        },
         "responses": {
           "200": {
-            "description": "The min datetime value 0001-01-01T00:00:00+14:00",
+            "description": "The min datetime value 0001-01-01T00:00:00-14:00",
             "schema": {
               "type": "string",
               "format": "date-time",
               "enum": [
-                "0001-01-01t00:00:00+14:00"
+                "0001-01-01t00:00:00-14:00"
               ]
             }
           },
@@ -516,6 +578,11 @@
       "get": {
         "operationId": "datetime_getLocalNoOffsetMinDateTime",
         "description": "Get min datetime value 0001-01-01T00:00:00",
+        "x-ms-examples": {
+          "datetime_getLocalNoOffsetMinDateTime": {
+            "$ref": "./examples/datetime_getLocalNoOffsetMinDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The min datetime value 0001-01-01T00:00:00",
