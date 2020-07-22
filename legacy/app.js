@@ -562,7 +562,7 @@ app.use('/objectType', new objectType(coverage).router);
 app.use('/nonStringEnums', new nonStringEnums(coverage).router)
 app.use('/time', new time(coverage).router)
 app.use('/multipleInheritance', new multipleInheritance(coverage).router)
-app.use('/multiapiCustomBaseUrl', new multiapiCustomBaseUrl(coverage).router)
+app.use('/multiapiCustomBaseUrl', new multiapiCustomBaseUrl(optionalCoverage).router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
