@@ -20,6 +20,11 @@
       "get": {
         "operationId": "date_getNull",
         "description": "Get null date value",
+        "x-ms-examples": {
+          "date_getNull": {
+            "$ref": "./examples/date_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null date value",
@@ -105,9 +110,15 @@
       "put": {
         "operationId": "date_putMaxDate",
         "description": "Put max date value 9999-12-31",
+        "x-ms-examples": {
+          "date_putMaxDate": {
+            "$ref": "./examples/date_putMaxDate.json"
+          }
+        },
         "parameters": [
           {
             "name": "dateBody",
+            "description": "date body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -131,6 +142,11 @@
       "get": {
         "operationId": "date_getMaxDate",
         "description": "Get max date value 9999-12-31",
+        "x-ms-examples": {
+          "date_getMaxDate": {
+            "$ref": "./examples/date_getMaxDate.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The max date value",
@@ -152,9 +168,15 @@
       "put": {
         "operationId": "date_putMinDate",
         "description": "Put min date value 0000-01-01",
+        "x-ms-examples": {
+          "date_putMinDate": {
+            "$ref": "./examples/date_putMinDate.json"
+          }
+        },
         "parameters": [
           {
             "name": "dateBody",
+            "description": "date body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -178,6 +200,11 @@
       "get": {
         "operationId": "date_getMinDate",
         "description": "Get min date value 0000-01-01",
+        "x-ms-examples": {
+          "date_getMinDate": {
+            "$ref": "./examples/date_getMinDate.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The min date value 0000-01-01",
