@@ -20,6 +20,11 @@
       "get": {
         "operationId": "datetimerfc1123_getNull",
         "description": "Get null datetime value",
+        "x-ms-examples": {
+          "datetimerfc1123_getNull": {
+            "$ref": "./examples/datetimerfc1123_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null datetime value",
@@ -108,6 +113,7 @@
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -178,6 +184,7 @@
         "parameters": [
           {
             "name": "datetimeBody",
+            "description": "datetime body",
             "in": "body",
             "schema": {
               "type": "string",
