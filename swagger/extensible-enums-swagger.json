@@ -13,6 +13,12 @@
   "/extensibleenums/pet/{petId}": {
    "get": {
     "operationId": "Pet_GetByPetId",
+    "description": "get pet by id",
+    "x-ms-examples": {
+     "Pet_GetByPetId": {
+      "$ref": "./examples/Pet_GetByPetId.json"
+     }
+    },
     "parameters": [
      {
       "$ref": "#/parameters/petid"
@@ -37,9 +43,16 @@
   "/extensibleenums/pet/addPet": {
    "post": {
     "operationId": "Pet_AddPet",
+    "description": "add pet",
+    "x-ms-examples": {
+     "Pet_AddPet": {
+      "$ref": "./examples/Pet_AddPet.json"
+     }
+    },
     "parameters": [
      {
       "name": "petParam",
+      "description": "pet param",
       "in": "body",
       "schema": {
        "$ref": "#/definitions/Pet"
@@ -68,6 +81,7 @@
     "type":  "object",
    "properties": {
     "name": {
+     "description": "name",
      "type": "string"
     },
     "DaysOfWeek": {
