@@ -25,7 +25,8 @@ var scenarioMap = {
   "green color" : "Valid",
   "bG9yZW0" : "Base64Url",
   "1460505600": "UnixTime",
-  "ArrayPath1,begin!*'();:@ &=+$,/?#[]end,,": "CSVInPath"
+  "ArrayPath1,begin!*'();:@ &=+$,/?#[]end,,": "CSVInPath",
+  "unicode": "Unicode"
 };
 
 var typeMap = {
@@ -93,7 +94,8 @@ var paths = function (coverage) {
            scenario === 'multibyte' ||
            (type === 'string' &&
            scenario.indexOf('begin') === 0) ||
-           scenario === 'bG9yZW0') {
+           scenario === 'bG9yZW0' ||
+           scenario === 'unicode') {
       scenario = '"' + scenario + '"';
       wireParameter = '"' + wireParameter + '"';
     }
@@ -108,7 +110,7 @@ var paths = function (coverage) {
       console.log("in empty test\n");
       utils.send400(res, next, 'Empty scenario must have empty parameter instead of \"' + wireParameter + '\"');
     } else if (type === 'string') {
-      if (scenario === wireParameter) {
+      if (scenario === wireParameter || (scenario === 'unicode' && wireParameter === '啊齄丂狛狜隣郎隣兀﨩')) {
         console.log("Success!\n");
         coverage['UrlPaths' + test]++;
         res.status(200).end();

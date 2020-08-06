@@ -20,11 +20,17 @@
       "get": {
         "operationId": "int_getNull",
         "description": "Get null Int value",
+        "x-ms-examples": {
+          "int_getNull": {
+            "$ref": "./examples/int_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null int value",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "x-nullable": true
             }
           },
           "default": {
@@ -144,9 +150,15 @@
       "put": {
         "operationId": "int_putMax32",
         "description": "Put max int32 value",
+        "x-ms-examples": {
+          "int_putMax32": {
+            "$ref": "./examples/int_putMax32.json"
+          }
+        },
         "parameters": [
           {
             "name": "intBody",
+            "description": "int body",
             "in": "body",
             "schema": {
               "type": "integer",
@@ -172,9 +184,15 @@
       "put": {
         "operationId": "int_putMax64",
         "description": "Put max int64 value",
+        "x-ms-examples": {
+          "int_putMax64": {
+            "$ref": "./examples/int_putMax64.json"
+          }
+        },
         "parameters": [
           {
             "name": "intBody",
+            "description": "int body",
             "in": "body",
             "schema": {
               "type": "integer",
@@ -200,9 +218,15 @@
       "put": {
         "operationId": "int_putMin32",
         "description": "Put min int32 value",
+        "x-ms-examples": {
+          "int_putMin32": {
+            "$ref": "./examples/int_putMin32.json"
+          }
+        },
         "parameters": [
           {
             "name": "intBody",
+            "description": "int body",
             "in": "body",
             "schema": {
               "type": "integer",
@@ -228,9 +252,15 @@
       "put": {
         "operationId": "int_putMin64",
         "description": "Put min int64 value",
+        "x-ms-examples": {
+          "int_putMin64": {
+            "$ref": "./examples/int_putMin64.json"
+          }
+        },
         "parameters": [
           {
             "name": "intBody",
+            "description": "int body",
             "in": "body",
             "schema": {
               "type": "integer",
@@ -256,6 +286,11 @@
       "get": {
         "operationId": "int_getUnixTime",
         "description": "Get datetime encoded as Unix time value",
+        "x-ms-examples": {
+          "int_getUnixTime": {
+            "$ref": "./examples/int_getUnixTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The date value encoded as Unix time",
@@ -278,6 +313,7 @@
         "parameters": [
           {
             "name": "intBody",
+            "description": "int body",
             "in": "body",
             "schema": {
               "type": "integer",
@@ -324,12 +360,18 @@
       "get": {
         "operationId": "int_getNullUnixTime",
         "description": "Get null Unix time value",
+        "x-ms-examples": {
+          "int_getNullUnixTime": {
+            "$ref": "./examples/int_getNullUnixTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null Unix time value",
             "schema": {
               "type": "integer",
-              "format": "unixtime"
+              "format": "unixtime",
+              "x-nullable": true
             }
           },
           "default": {

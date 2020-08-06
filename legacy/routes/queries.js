@@ -21,7 +21,8 @@ var scenarioMap = {
   "null": "Null",
   "2012-01-01": "Valid",
   "2012-01-01T01:01:01Z": "Valid",
-  "green color": "Valid"
+  "green color": "Valid",
+  "unicode": "Unicode"
 };
 
 var typeMap = {
@@ -186,6 +187,13 @@ var queries = function (coverage) {
       } else {
         utils.send400(res, next, 'Failed pipes array scenario format "' + format + '", scenario "' + scenario + '"');
       }
+    } else if (format == "none") {
+      if (req.query.arrayQuery == 'hello,nihao,bonjour') {
+        coverage['UrlQueriesArrayNoCollectionFormatValid']++;
+        res.status(200).end();
+      } else {
+        utils.send400(res, next, "'arrayQuery' parameter must be of value 'hello,nihao,bonjour', not '" + req.query["arrayQuery"] + "'");
+      }
     } else {
       console.log('Array Failure!\n');
       utils.send400(res, next, 'Unable to find matching Array scenario for format "' + format + '" scenario "' + scenario + '"');
@@ -206,7 +214,8 @@ var queries = function (coverage) {
            type === 'datetime' ||
            scenario === 'multibyte' ||
            (type === 'string' &&
-           scenario.indexOf('begin') === 0)) {
+           scenario.indexOf('begin') === 0) ||
+           scenario == 'unicode') {
       scenario = '"' + scenario + '"';
       wireParameter = '"' + wireParameter + '"';
     }
@@ -224,7 +233,7 @@ var queries = function (coverage) {
       console.log("in empty test\n");
       utils.send400(res, next, 'Empty scenario must have empty parameter instead of \"' + wireParameter + '\"');
     } else if (type === 'string' || type === 'date' || type === 'enum') {
-      if (scenario === wireParameter) {
+      if (scenario === wireParameter || (scenario === 'unicode' && wireParameter === '啊齄丂狛狜隣郎隣兀﨩')) {
         console.log("Success!\n");
         coverage['UrlQueries' + test]++;
         res.status(200).end();

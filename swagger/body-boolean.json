@@ -16,6 +16,11 @@
             "get": {
                 "operationId": "bool_getTrue",
                 "description": "Get true Boolean value",
+                "x-ms-examples": {
+                    "bool_getTrue": {
+                        "$ref": "./examples/bool_getTrue.json"
+                    }
+                },
                 "tags": [
                     "Bool Operations"
                 ],
@@ -38,6 +43,11 @@
             "put": {
                 "operationId": "bool_putTrue",
                 "description": "Set Boolean value true",
+                "x-ms-examples": {
+                    "bool_putTrue": {
+                        "$ref": "./examples/bool_putTrue.json"
+                    }
+                },
                 "parameters": [
                     {
                         "name": "boolBody",
@@ -69,6 +79,11 @@
             "get": {
                 "operationId": "bool_getFalse",
                 "description": "Get false Boolean value",
+                "x-ms-examples": {
+                    "bool_getFalse": {
+                        "$ref": "./examples/bool_getFalse.json"
+                    }
+                },
                 "tags": [
                     "Bool Operations"
                 ],
@@ -91,6 +106,11 @@
             "put": {
                 "operationId": "bool_putFalse",
                 "description": "Set Boolean value false",
+                "x-ms-examples": {
+                    "bool_putFalse": {
+                        "$ref": "./examples/bool_putFalse.json"
+                    }
+                },
                 "parameters": [
                     {
                         "name": "boolBody",
@@ -122,6 +142,11 @@
             "get": {
                 "operationId": "bool_getNull",
                 "description": "Get null Boolean value",
+                "x-ms-examples": {
+                    "bool_getNull": {
+                        "$ref": "./examples/bool_getNull.json"
+                    }
+                },
                 "tags": [
                     "Bool Operations"
                 ],
@@ -129,7 +154,8 @@
                     "200": {
                         "description": "The null Boolean value",
                         "schema": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "x-nullable": true
                         }
                     },
                     "default": {

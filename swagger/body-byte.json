@@ -16,6 +16,11 @@
             "get": {
                 "operationId": "byte_getNull",
                 "description": "Get null byte value",
+                "x-ms-examples": {
+                    "byte_getNull": {
+                        "$ref": "./examples/byte_getNull.json"
+                    }
+                },
                 "tags": [
                     "Byte Operations"
                 ],

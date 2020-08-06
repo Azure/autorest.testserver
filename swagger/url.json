@@ -1764,6 +1764,37 @@
         }
       }
     },
+    "/queries/array/none/string/empty": {
+      "get": {
+        "operationId": "queries_ArrayStringNoCollectionFormatEmpty",
+        "description": "Array query has no defined collection format, should default to csv. Pass in ['hello', 'nihao', 'bonjour'] for the 'arrayQuery' parameter to the service",
+        "tags": [
+          "query Operations"
+        ],
+        "parameters": [
+          {
+            "name": "arrayQuery",
+            "description": "Array-typed query parameter. Pass in ['hello', 'nihao', 'bonjour'].",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully received default csv query parameters when no collection format is specified in the swagger"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/queries/array/ssv/string/valid": {
       "get": {
         "operationId": "queries_ArrayStringSsvValid",

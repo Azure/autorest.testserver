@@ -16,6 +16,11 @@
             "head": {
                 "operationId": "httpSuccess_head200",
                 "description": "Return 200 status code if successful",
+                "x-ms-examples": {
+                    "httpSuccess_head200": {
+                        "$ref": "./examples/httpSuccess_head200.json"
+                    }
+                },
                 "tags": [
                     "HttpSuccess Operations"
                 ],
@@ -36,6 +41,11 @@
             "head": {
                 "operationId": "httpSuccess_head204",
                 "description": "Return 204 status code if successful",
+                "x-ms-examples": {
+                    "httpSuccess_head204": {
+                        "$ref": "./examples/httpSuccess_head204.json"
+                    }
+                },
                 "tags": [
                     "HttpSuccess Operations"
                 ],
@@ -56,6 +66,11 @@
             "head": {
                 "operationId": "httpSuccess_head404",
                 "description": "Return 404 status code if successful",
+                "x-ms-examples": {
+                    "httpSuccess_head404": {
+                        "$ref": "./examples/httpSuccess_head404.json"
+                    }
+                },
                 "tags": [
                     "HttpSuccess Operations"
                 ],

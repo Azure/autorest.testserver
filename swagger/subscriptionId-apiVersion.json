@@ -5,9 +5,9 @@
     "description": "Some cool documentation.",
     "version": "2014-04-01-preview"
   },
-  "host": "management.azure.com",
+  "host": "localhost:3000",
   "schemes": [
-    "https"
+    "http"
   ],
   "basePath": "/",
   "produces": [ "application/json" ],
