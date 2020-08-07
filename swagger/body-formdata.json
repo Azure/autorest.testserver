@@ -98,6 +98,49 @@
           }
         }
       }
+    },
+    "/formdata/stream/uploadfiles": {
+      "post": {
+        "operationId": "formdata_UploadFiles",
+        "consumes": [
+          "multipart/form-data",
+          "application/octet-stream"
+        ],
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "description": "Upload multiple files",
+        "tags": [
+          "Formdata"
+        ],
+        "parameters": [
+          {
+            "name": "fileContent",
+            "description": "Files to upload.",
+            "required": true,
+            "type": "array",
+            "in": "formData",
+            "items": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Serialized file stream",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
