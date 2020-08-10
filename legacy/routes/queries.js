@@ -153,20 +153,20 @@ var queries = function (coverage) {
         utils.send400(res, next, 'Failed csv array scenario format "' + format + '", scenario "' + scenario + '"');
       }
     } else if (format === 'multi') {
-        console.log("In multi test\n");
-        if (scenario === 'null' && Object.keys(req.query).length == 0) {
-            coverage['UrlQueriesArrayMultiNull']++;
-            res.status(200).end();
-        } else if (scenario === 'empty' && Object.keys(req.query).length == 1 && req.query.arrayQuery === '') {
+      console.log("In multi test\n");
+      if (scenario === 'null' && Object.keys(req.query).length == 0) {
+        coverage['UrlQueriesArrayMultiNull']++;
+        res.status(200).end();
+      } else if (scenario === 'empty' && Object.keys(req.query).length == 1 && req.query.arrayQuery === '') {
         coverage['UrlQueriesArrayMultiEmpty']++;
         res.status(200).end();
-            } else if ((scenario === 'valid') && Object.keys(req.query).length == 1 && validateArrayQuery(req.query.arrayQuery, ',')) {
-            //Note: comma is used as a seperator to test multi format with becuase Array.toString returns comma seperated list
-            coverage['UrlQueriesArrayMultiValid']++;
-            res.status(200).end();
-    } else {
-            utils.send400(res, next, 'Failed csv array scenario format "' + format + '", scenario "' + scenario + '"');
-    }
+      } else if ((scenario === 'valid') && Object.keys(req.query).length == 1 && validateArrayQuery(req.query.arrayQuery, ',')) {
+        //Note: comma is used as a seperator to test multi format with becuase Array.toString returns comma seperated list
+        coverage['UrlQueriesArrayMultiValid']++;
+        res.status(200).end();
+      } else {
+        utils.send400(res, next, 'Failed csv array scenario format "' + format + '", scenario "' + scenario + '"');
+      }
     } else if (format === 'ssv' && scenario === 'valid') {
       console.log("in ssv test\n");
       if ((scenario === 'valid') && Object.keys(req.query).length == 1 && validateArrayQuery(req.query.arrayQuery, ' ')) {
