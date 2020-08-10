@@ -157,7 +157,7 @@ var queries = function (coverage) {
       if (scenario === 'null' && Object.keys(req.query).length == 0) {
         coverage['UrlQueriesArrayMultiNull']++;
         res.status(200).end();
-      } else if (scenario === 'empty' && Object.keys(req.query).length == 1 && req.query.arrayQuery === '') {
+      } else if (scenario === 'empty' && Object.keys(req.query).length == 0) {
         coverage['UrlQueriesArrayMultiEmpty']++;
         res.status(200).end();
       } else if ((scenario === 'valid') && Object.keys(req.query).length == 1 && validateArrayQuery(req.query.arrayQuery, ',')) {
