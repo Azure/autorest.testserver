@@ -20,6 +20,11 @@
       "get": {
         "operationId": "duration_getNull",
         "description": "Get null duration value",
+        "x-ms-examples": {
+          "duration_getNull": {
+            "$ref": "./examples/duration_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The null duration value",
@@ -42,9 +47,15 @@
       "put": {
         "operationId": "duration_putPositiveDuration",
         "description": "Put a positive duration value",
+        "x-ms-examples": {
+          "duration_putPositiveDuration": {
+            "$ref": "./examples/duration_putPositiveDuration.json"
+          }
+        },
         "parameters": [
           {
             "name": "durationBody",
+            "description": "duration body",
             "in": "body",
             "schema": {
               "type": "string",

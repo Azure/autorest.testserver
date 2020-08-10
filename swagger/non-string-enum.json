@@ -16,6 +16,11 @@
 			"put": {
 				"description": "Put an int enum",
 				"operationId": "Int_put",
+				"x-ms-examples": {
+                    "Int_put": {
+                        "$ref": "./examples/Int_put.json"
+                    }
+                },
 				"parameters": [
 					{
                         "name": "input",
@@ -41,6 +46,11 @@
 			"get": {
 				"description": "Get an int enum",
 				"operationId": "Int_get",
+				"x-ms-examples": {
+                    "Int_get": {
+                        "$ref": "./examples/Int_get.json"
+                    }
+                },
 				"responses": {
 					"200": {
 						"description": "Returns int enum",
@@ -55,6 +65,11 @@
 			"put": {
 				"description": "Put a float enum",
 				"operationId": "Float_put",
+				"x-ms-examples": {
+                    "Float_put": {
+                        "$ref": "./examples/Float_put.json"
+                    }
+                },
 				"parameters": [
 					{
                         "name": "input",
@@ -80,6 +95,11 @@
 			"get": {
 				"description": "Get a float enum",
 				"operationId": "Float_Get",
+				"x-ms-examples": {
+                    "Float_Get": {
+                        "$ref": "./examples/Float_Get.json"
+                    }
+                },
 				"responses": {
 					"200": {
 						"description": "Returns float enum",

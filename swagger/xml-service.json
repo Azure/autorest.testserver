@@ -748,6 +748,20 @@
           }
         }
       }
+    },
+    "/xml/x-ms-text": {
+      "get": {
+        "operationId": "xml_GetXMsText",
+        "description": "Get back an XML object with an x-ms-text property, which should translate to the returned object's 'language' property being 'english' and its 'content' property being 'I am text'",
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/ObjectWithXMsTextProperty"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1550,6 +1564,30 @@
           "description": "Something else (just to avoid flattening)",
           "type": "string"
         }
+      }
+    },
+    "ObjectWithXMsTextProperty": {
+      "description": "Contans property ",
+      "type": "object",
+      "properties":{
+        "language": {
+          "xml": {
+            "attribute": true,
+            "name": "language"
+          },
+          "type": "string",
+          "description": "Returned value should be 'english'"
+        },
+        "content": {
+          "xml": {
+            "x-ms-text": true
+          },
+          "description": "Returned value should be 'I am text'",
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Data"
       }
     }
   }

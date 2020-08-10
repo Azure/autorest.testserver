@@ -16,6 +16,11 @@
       "get": {
         "operationId": "string_getNull",
         "description": "Get null string value value",
+        "x-ms-examples": {
+          "string_getNull": {
+            "$ref": "./examples/string_getNull.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -38,9 +43,15 @@
       "put": {
         "operationId": "string_putNull",
         "description": "Set string value null",
+        "x-ms-examples": {
+          "string_putNull": {
+            "$ref": "./examples/string_putNull.json"
+          }
+        },
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -68,6 +79,11 @@
       "get": {
         "operationId": "string_getEmpty",
         "description": "Get empty string value value ''",
+        "x-ms-examples": {
+          "string_getEmpty": {
+            "$ref": "./examples/string_getEmpty.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -90,9 +106,15 @@
       "put": {
         "operationId": "string_putEmpty",
         "description": "Set string value empty ''",
+        "x-ms-examples": {
+          "string_putEmpty": {
+            "$ref": "./examples/string_putEmpty.json"
+          }
+        },
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -121,6 +143,11 @@
       "get": {
         "operationId": "string_getMbcs",
         "description": "Get mbcs string value '啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€'",
+        "x-ms-examples": {
+          "string_getMbcs": {
+            "$ref": "./examples/string_getMbcs.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -143,9 +170,15 @@
       "put": {
         "operationId": "string_putMbcs",
         "description": "Set string value mbcs '啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€'",
+        "x-ms-examples": {
+          "string_putMbcs": {
+            "$ref": "./examples/string_putMbcs.json"
+          }
+        },
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -174,6 +207,11 @@
       "get": {
         "operationId": "string_getWhitespace",
         "description": "Get string value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
+        "x-ms-examples": {
+          "string_getWhitespace": {
+            "$ref": "./examples/string_getWhitespace.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -196,9 +234,15 @@
       "put": {
         "operationId": "string_putWhitespace",
         "description": "Set String value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
+        "x-ms-examples": {
+          "string_putWhitespace": {
+            "$ref": "./examples/string_putWhitespace.json"
+          }
+        },
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "type": "string",
@@ -227,6 +271,11 @@
       "get": {
         "operationId": "enum_getNotExpandable",
         "description": "Get enum value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'.",
+        "x-ms-examples": {
+          "enum_getNotExpandable": {
+            "$ref": "./examples/enum_getNotExpandable.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -250,9 +299,15 @@
       "put": {
         "operationId": "enum_putNotExpandable",
         "description": "Sends value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
+        "x-ms-examples": {
+          "enum_putNotExpandable": {
+            "$ref": "./examples/enum_putNotExpandable.json"
+          }
+        },
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "x-ms-enum": { "name": "Colors", "modelAsString": false},
@@ -282,6 +337,11 @@
       "get": {
         "operationId": "enum_getReferenced",
         "description": "Get enum value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'.",
+        "x-ms-examples": {
+          "enum_getReferenced": {
+            "$ref": "./examples/enum_getReferenced.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -303,9 +363,15 @@
       "put": {
         "operationId": "enum_putReferenced",
         "description": "Sends value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
+        "x-ms-examples": {
+          "enum_putReferenced": {
+            "$ref": "./examples/enum_putReferenced.json"
+          }
+        },
         "parameters": [
           {
             "name": "enumStringBody",
+            "description": "enum string body",
             "in": "body",
              "schema": {
               "$ref": "#/definitions/RefColors"
@@ -333,6 +399,11 @@
       "get": {
         "operationId": "enum_getReferencedConstant",
         "description": "Get value 'green-color' from the constant.",
+        "x-ms-examples": {
+          "enum_getReferencedConstant": {
+            "$ref": "./examples/enum_getReferencedConstant.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -354,9 +425,15 @@
       "put": {
         "operationId": "enum_putReferencedConstant",
         "description": "Sends value 'green-color' from a constant",
+        "x-ms-examples": {
+          "enum_putReferencedConstant": {
+            "$ref": "./examples/enum_putReferencedConstant.json"
+          }
+        },
         "parameters": [
           {
             "name": "enumStringBody",
+            "description": "enum string body",
             "in": "body",
              "schema": {
               "$ref": "#/definitions/RefColorConstant"
@@ -384,6 +461,11 @@
       "get": {
         "operationId": "string_getNotProvided",
         "description": "Get String value when no string value is sent in response payload",
+        "x-ms-examples": {
+          "string_getNotProvided": {
+            "$ref": "./examples/string_getNotProvided.json"
+          }
+        },
         "tags": [
           "String Operations"
         ],
@@ -456,6 +538,7 @@
         "parameters": [
           {
             "name": "stringBody",
+            "description": "string body",
             "in": "body",
             "schema": {
               "type": "string",
