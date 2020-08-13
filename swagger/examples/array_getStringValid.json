@@ -1,0 +1,9 @@
+{
+  "parameters": {
+  },
+  "responses": {
+    "200": {
+      "body": ["foo1", "foo2", "foo3"]
+    }
+  }
+}

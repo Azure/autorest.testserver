@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "arrayBody": ["P123DT22H14M12.011S", "P5DT1H0M0S"]
+  },
+  "responses": {
+    "200": {}
+  }
+}

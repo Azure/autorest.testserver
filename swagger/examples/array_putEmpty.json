@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "arrayBody": []
+  },
+  "responses": {
+    "200": {}
+  }
+}

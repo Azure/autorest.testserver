@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "arrayBody": [true, false, false, true]
+  },
+  "responses": {
+    "200": {}
+  }
+}

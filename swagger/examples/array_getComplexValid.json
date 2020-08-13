@@ -1,0 +1,9 @@
+{
+  "parameters": {
+  },
+  "responses": {
+    "200": {
+      "body": [{"integer": 1, "string": "2"}, {"integer": 3, "string": "4"}, {"integer": 5, "string": "6"}]
+    }
+  }
+}
