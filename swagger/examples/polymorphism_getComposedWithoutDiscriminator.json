@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"sampleSalmon":{"location":"sweden","iswild":false,"species":"king"},"salmons":[{"location":"sweden","iswild":false,"species":"king"},{"location":"atlantic","iswild":true,"species":"king"}],"sampleFish":{"location":"australia","iswild":false,"species":"king"},"fishes":[{"location":"australia","iswild":false,"species":"king"},{"location":"canada","iswild":true,"species":"king"}]}
+    }
+  }
+}

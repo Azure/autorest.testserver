@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"field1":1.05,"field2":-0.003}
+    }
+  }
+}

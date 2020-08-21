@@ -1,7 +1,5 @@
 {
-  "parameters": {
-      "arrayQuery": ""
-  },
+  "parameters": {},
   "responses": {
     "200": {}
   }

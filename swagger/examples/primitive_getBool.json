@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"field_true":true,"field_false":false}
+    }
+  }
+}

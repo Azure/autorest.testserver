@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"sampleSalmon":{"fish.type":"DotSalmon","location":"sweden","iswild":false,"species":"king"},"salmons":[{"fish.type":"DotSalmon","location":"sweden","iswild":false,"species":"king"},{"fish.type":"DotSalmon","location":"atlantic","iswild":true,"species":"king"}],"sampleFish":{"fish.type":"DotSalmon","location":"australia","iswild":false,"species":"king"},"fishes":[{"fish.type":"DotSalmon","location":"australia","iswild":false,"species":"king"},{"fish.type":"DotSalmon","location":"canada","iswild":true,"species":"king"}]}
+    }
+  }
+}

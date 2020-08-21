@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"id": 2, "name": "abc", "color": "YELLOW"}
+    }
+  }
+}

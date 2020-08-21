@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"fish.type":"DotSalmon","location":"sweden","iswild":true,"species":"king"}
+    }
+  }
+}

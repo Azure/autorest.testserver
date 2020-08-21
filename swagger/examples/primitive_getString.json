@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"field":"goodrequest","empty":"","null":null}
+    }
+  }
+}

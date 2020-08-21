@@ -20,6 +20,11 @@
       "get": {
         "operationId": "basic_getValid",
         "description": "Get complex type {id: 2, name: 'abc', color: 'YELLOW'}",
+        "x-ms-examples": {
+          "basic_getValid": {
+            "$ref": "./examples/basic_getValid.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex type {id: 2, name: 'abc', color: 'YELLOW'}",
@@ -38,6 +43,11 @@
       "put": {
         "operationId": "basic_putValid",
         "description": "Please put {id: 2, name: 'abc', color: 'Magenta'}",
+        "x-ms-examples": {
+          "basic_putValid": {
+            "$ref": "./examples/basic_putValid.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -89,6 +99,11 @@
       "get": {
         "operationId": "basic_getEmpty",
         "description": "Get a basic complex type that is empty",
+        "x-ms-examples": {
+          "basic_getEmpty": {
+            "$ref": "./examples/basic_getEmpty.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with basic property",
@@ -109,6 +124,11 @@
       "get": {
         "operationId": "basic_getNull",
         "description": "Get a basic complex type whose properties are null",
+        "x-ms-examples": {
+          "basic_getNull": {
+            "$ref": "./examples/basic_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with basic property",
@@ -129,6 +149,11 @@
       "get": {
         "operationId": "basic_getNotProvided",
         "description": "Get a basic complex type while the server doesn't provide a response payload",
+        "x-ms-examples": {
+          "basic_getNotProvided": {
+            "$ref": "./examples/basic_getNotProvided.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with basic property",
@@ -149,6 +174,11 @@
       "get": {
         "operationId": "primitive_getInt",
         "description": "Get complex types with integer properties",
+        "x-ms-examples": {
+          "primitive_getInt": {
+            "$ref": "./examples/primitive_getInt.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -167,6 +197,11 @@
       "put": {
         "operationId": "primitive_putInt",
         "description": "Put complex types with integer properties",
+        "x-ms-examples": {
+          "primitive_putInt": {
+            "$ref": "./examples/primitive_putInt.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -195,6 +230,11 @@
       "get": {
         "operationId": "primitive_getLong",
         "description": "Get complex types with long properties",
+        "x-ms-examples": {
+          "primitive_getLong": {
+            "$ref": "./examples/primitive_getLong.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -213,6 +253,11 @@
       "put": {
         "operationId": "primitive_putLong",
         "description": "Put complex types with long properties",
+        "x-ms-examples": {
+          "primitive_putLong": {
+            "$ref": "./examples/primitive_putLong.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -241,6 +286,11 @@
       "get": {
         "operationId": "primitive_getFloat",
         "description": "Get complex types with float properties",
+        "x-ms-examples": {
+          "primitive_getFloat": {
+            "$ref": "./examples/primitive_getFloat.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -259,6 +309,11 @@
       "put": {
         "operationId": "primitive_putFloat",
         "description": "Put complex types with float properties",
+        "x-ms-examples": {
+          "primitive_putFloat": {
+            "$ref": "./examples/primitive_putFloat.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -287,6 +342,11 @@
       "get": {
         "operationId": "primitive_getDouble",
         "description": "Get complex types with double properties",
+        "x-ms-examples": {
+          "primitive_getDouble": {
+            "$ref": "./examples/primitive_getDouble.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -333,6 +393,11 @@
       "get": {
         "operationId": "primitive_getBool",
         "description": "Get complex types with bool properties",
+        "x-ms-examples": {
+          "primitive_getBool": {
+            "$ref": "./examples/primitive_getBool.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -351,6 +416,11 @@
       "put": {
         "operationId": "primitive_putBool",
         "description": "Put complex types with bool properties",
+        "x-ms-examples": {
+          "primitive_putBool": {
+            "$ref": "./examples/primitive_putBool.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -379,6 +449,11 @@
       "get": {
         "operationId": "primitive_getString",
         "description": "Get complex types with string properties",
+        "x-ms-examples": {
+          "primitive_getString": {
+            "$ref": "./examples/primitive_getString.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -397,6 +472,11 @@
       "put": {
         "operationId": "primitive_putString",
         "description": "Put complex types with string properties",
+        "x-ms-examples": {
+          "primitive_putString": {
+            "$ref": "./examples/primitive_putString.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -425,6 +505,11 @@
       "get": {
         "operationId": "primitive_getDate",
         "description": "Get complex types with date properties",
+        "x-ms-examples": {
+          "primitive_getDate": {
+            "$ref": "./examples/primitive_getDate.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -443,6 +528,11 @@
       "put": {
         "operationId": "primitive_putDate",
         "description": "Put complex types with date properties",
+        "x-ms-examples": {
+          "primitive_putDate": {
+            "$ref": "./examples/primitive_putDate.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -471,6 +561,11 @@
       "get": {
         "operationId": "primitive_getDateTime",
         "description": "Get complex types with datetime properties",
+        "x-ms-examples": {
+          "primitive_getDateTime": {
+            "$ref": "./examples/primitive_getDateTime.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -517,6 +612,11 @@
       "get": {
         "operationId": "primitive_getDateTimeRfc1123",
         "description": "Get complex types with datetimeRfc1123 properties",
+        "x-ms-examples": {
+          "primitive_getDateTimeRfc1123": {
+            "$ref": "./examples/primitive_getDateTimeRfc1123.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -563,6 +663,11 @@
       "get": {
         "operationId": "primitive_getDuration",
         "description": "Get complex types with duration properties",
+        "x-ms-examples": {
+          "primitive_getDuration": {
+            "$ref": "./examples/primitive_getDuration.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Get complex types with primitive property",
@@ -581,6 +686,11 @@
       "put": {
         "operationId": "primitive_putDuration",
         "description": "Put complex types with duration properties",
+        "x-ms-examples": {
+          "primitive_putDuration": {
+            "$ref": "./examples/primitive_putDuration.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -655,6 +765,11 @@
       "get": {
         "operationId": "array_getValid",
         "description": "Get complex types with array property",
+        "x-ms-examples": {
+          "array_getValid": {
+            "$ref": "./examples/array_getValid.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with array property",
@@ -699,8 +814,13 @@
     },
     "/complex/array/empty": {
       "get": {
-        "operationId": "array_getEmpty",
+        "operationId": "complex_array_getEmpty",
         "description": "Get complex types with array property which is empty",
+        "x-ms-examples": {
+          "complex_array_getEmpty": {
+            "$ref": "./examples/complex_array_getEmpty.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with array property",
@@ -717,7 +837,7 @@
         }
       },
       "put": {
-        "operationId": "array_putEmpty",
+        "operationId": "complex_array_putEmpty",
         "description": "Put complex types with array property which is empty",
         "parameters": [
           {
@@ -747,6 +867,11 @@
       "get": {
         "operationId": "array_getNotProvided",
         "description": "Get complex types with array property while server doesn't provide a response payload",
+        "x-ms-examples": {
+          "array_getNotProvided": {
+            "$ref": "./examples/array_getNotProvided.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with array property",
@@ -767,6 +892,11 @@
       "get": {
         "operationId": "dictionary_getValid",
         "description": "Get complex types with dictionary property",
+        "x-ms-examples": {
+          "dictionary_getValid": {
+            "$ref": "./examples/dictionary_getValid.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with dictionary property",
@@ -811,8 +941,13 @@
     },
     "/complex/dictionary/typed/empty": {
       "get": {
-        "operationId": "dictionary_getEmpty",
+        "operationId": "complex_dictionary_getEmpty",
         "description": "Get complex types with dictionary property which is empty",
+        "x-ms-examples": {
+          "complex_dictionary_getEmpty": {
+            "$ref": "./examples/complex_dictionary_getEmpty.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with dictionary property",
@@ -829,7 +964,7 @@
         }
       },
       "put": {
-        "operationId": "dictionary_putEmpty",
+        "operationId": "complex_dictionary_putEmpty",
         "description": "Put complex types with dictionary property which is empty",
         "parameters": [
           {
@@ -859,6 +994,11 @@
       "get": {
         "operationId": "dictionary_getNull",
         "description": "Get complex types with dictionary property which is null",
+        "x-ms-examples": {
+          "dictionary_getNull": {
+            "$ref": "./examples/dictionary_getNull.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with dictionary property",
@@ -879,6 +1019,11 @@
       "get": {
         "operationId": "dictionary_getNotProvided",
         "description": "Get complex types with dictionary property while server doesn't provide a response payload",
+        "x-ms-examples": {
+          "dictionary_getNotProvided": {
+            "$ref": "./examples/dictionary_getNotProvided.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object with dictionary property",
@@ -899,6 +1044,11 @@
       "get": {
         "operationId": "inheritance_getValid",
         "description": "Get complex types that extend others",
+        "x-ms-examples": {
+          "inheritance_getValid": {
+            "$ref": "./examples/inheritance_getValid.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Complex object that extends cat and pet",
@@ -917,6 +1067,11 @@
       "put": {
         "operationId": "inheritance_putValid",
         "description": "Put complex types that extend others",
+        "x-ms-examples": {
+          "inheritance_putValid": {
+            "$ref": "./examples/inheritance_putValid.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -963,6 +1118,11 @@
       "put": {
         "operationId": "polymorphism_putValid",
         "description": "Put complex types that are polymorphic",
+        "x-ms-examples": {
+          "polymorphism_putValid": {
+            "$ref": "./examples/polymorphism_putValid.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -991,6 +1151,11 @@
       "get": {
         "operationId": "polymorphism_getDotSyntax",
         "description": "Get complex types that are polymorphic, JSON key contains a dot",
+        "x-ms-examples": {
+          "polymorphism_getDotSyntax": {
+            "$ref": "./examples/polymorphism_getDotSyntax.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns an object like where JSON key of discriminator contains a dot",
@@ -1011,6 +1176,11 @@
       "get": {
         "operationId": "polymorphism_getComposedWithDiscriminator",
         "description": "Get complex object composing a polymorphic scalar property and array property with polymorphic element type, with discriminator specified. Deserialization must NOT fail and use the discriminator type specified on the wire.",
+        "x-ms-examples": {
+          "polymorphism_getComposedWithDiscriminator": {
+            "$ref": "./examples/polymorphism_getComposedWithDiscriminator.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects with discriminator specified",
@@ -1031,6 +1201,11 @@
       "get": {
         "operationId": "polymorphism_getComposedWithoutDiscriminator",
         "description": "Get complex object composing a polymorphic scalar property and array property with polymorphic element type, without discriminator specified on wire. Deserialization must NOT fail and use the explicit type of the property.",
+        "x-ms-examples": {
+          "polymorphism_getComposedWithoutDiscriminator": {
+            "$ref": "./examples/polymorphism_getComposedWithoutDiscriminator.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns an object that composes a scalar polymorphic object and array of polymorphic objects without discriminator specified",
@@ -1072,6 +1247,7 @@
         "parameters": [
           {
             "name": "complexBody",
+            "description": "complex body",
             "in": "body",
             "schema": {
               "$ref": "#/definitions/salmon"
@@ -1099,6 +1275,7 @@
         "parameters": [
           {
             "name": "complexBody",
+            "description": "compelx body",
             "in": "body",
             "schema": {
               "$ref": "#/definitions/salmon"
@@ -1172,6 +1349,11 @@
       "put": {
         "operationId": "polymorphicrecursive_putValid",
         "description": "Put complex types that are polymorphic and have recursive references",
+        "x-ms-examples": {
+          "polymorphicrecursive_putValid": {
+            "$ref": "./examples/polymorphicrecursive_putValid.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
@@ -1200,6 +1382,11 @@
       "get": {
         "operationId": "readonlyproperty_getValid",
         "description": "Get complex types that have readonly properties",
+        "x-ms-examples": {
+          "readonlyproperty_getValid": {
+            "$ref": "./examples/readonlyproperty_getValid.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -1218,9 +1405,15 @@
       "put": {
         "operationId": "readonlyproperty_putValid",
         "description": "Put complex types that have readonly properties",
+        "x-ms-examples": {
+          "readonlyproperty_putValid": {
+            "$ref": "./examples/readonlyproperty_putValid.json"
+          }
+        },
         "parameters": [
           {
             "name": "complexBody",
+            "description": "complex body",
             "in": "body",
             "schema": {
               "$ref": "#/definitions/readonly-obj"
@@ -1244,6 +1437,7 @@
     "/complex/flatten/valid": {
       "get": {
         "operationId": "flattencomplex_getValid",
+        "description": "flatten complex get valid",
         "responses": {
           "200": {
             "description": "OK",
@@ -1282,6 +1476,7 @@
         },
         "color": {
           "type": "string",
+          "description": "color",
           "enum": [ "cyan", "Magenta", "YELLOW", "blacK" ],
           "x-ms-enum": {
             "name": "CMYKColors",
@@ -1294,10 +1489,12 @@
       "type":  "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "integer",
+          "description": "id"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "name"
         }
       }
     },
@@ -1310,10 +1507,12 @@
       "type":  "object",
       "properties": {
         "color": {
-          "type": "string"
+          "type": "string",
+          "description": "color"
         },
         "hates": {
           "type": "array",
+          "description": "array",
           "items": {
             "$ref": "#/definitions/dog"
           }
@@ -1329,7 +1528,8 @@
       "type":  "object",
       "properties": {
         "breed": {
-          "type": "string"
+          "type": "string",
+          "description": "bread"
         }
       }
     },
@@ -1382,6 +1582,7 @@
         },
         "salmons": {
           "type": "array",
+          "description": "array",
           "items": {
             "$ref": "#/definitions/DotSalmon"
           }
@@ -1391,6 +1592,7 @@
         },
         "fishes": {
           "type": "array",
+          "description": "array",
           "items": {
             "$ref": "#/definitions/DotFish"
           }
@@ -1414,6 +1616,7 @@
         },
         "siblings": {
           "type": "array",
+          "description": "array",
           "items": {
             "$ref": "#/definitions/Fish"
           }
@@ -1541,10 +1744,12 @@
       "properties": {
         "field1": {
           "type": "integer",
+          "description": "field1",
           "format": "int32"
         },
         "field2": {
           "type": "integer",
+          "description": "field2",
           "format": "int32"
         }
       }
@@ -1554,10 +1759,12 @@
       "properties": {
         "field1": {
           "type": "integer",
+          "description": "field1",
           "format": "int64"
         },
         "field2": {
           "type": "integer",
+          "description": "field2",
           "format": "int64"
         }
       }
@@ -1567,10 +1774,12 @@
       "properties": {
         "field1": {
           "type": "number",
+          "description": "field1",
           "format": "float"
         },
         "field2": {
           "type": "number",
+          "description": "field2",
           "format": "float"
         }
       }
@@ -1580,10 +1789,12 @@
       "properties": {
         "field1": {
           "type": "number",
+          "description": "field1",
           "format": "double"
         },
         "field_56_zeros_after_the_dot_and_negative_zero_before_dot_and_this_is_a_long_field_name_on_purpose": {
           "type": "number",
+          "description": "field_56_zeros_after_the_dot_and_negative_zero_before_dot_and_this_is_a_long_field_name_on_purpose6",
           "format": "double"
         }
       }
@@ -1592,10 +1803,12 @@
       "type":  "object",
       "properties": {
         "field_true": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "field true"
         },
         "field_false": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "field false"
         }
       }
     },
@@ -1603,13 +1816,16 @@
       "type":  "object",
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "field"
         },
         "empty": {
-          "type": "string"
+          "type": "string",
+          "description": "empty"
         },
         "null": {
-          "type": "string"
+          "type": "string",
+          "description": "null"
         }
       }
     },
@@ -1618,10 +1834,12 @@
       "properties": {
         "field": {
           "type": "string",
+          "description": "field",
           "format": "date"
         },
         "leap": {
           "type": "string",
+          "description": "leap",
           "format": "date"
         }
       }
@@ -1631,10 +1849,12 @@
       "properties": {
         "field": {
           "type": "string",
+          "description": "field",
           "format": "date-time"
         },
         "now": {
           "type": "string",
+          "description": "now",
           "format": "date-time"
         }
       }
@@ -1644,10 +1864,12 @@
       "properties": {
         "field": {
           "type": "string",
+          "description": "field",
           "format": "date-time-rfc1123"
         },
         "now": {
           "type": "string",
+          "description": "now",
           "format": "date-time-rfc1123"
         }
       }
@@ -1657,6 +1879,7 @@
       "properties": {
         "field": {
           "type": "string",
+          "description": "field",
           "format": "duration"
         }
       }
@@ -1666,6 +1889,7 @@
       "properties": {
         "field": {
           "type": "string",
+          "description": "field",
           "format": "byte"
         }
       }
@@ -1675,6 +1899,7 @@
       "properties": {
         "array": {
           "type": "array",
+          "description": "array",
           "items": {
             "type": "string"
           }
@@ -1698,10 +1923,12 @@
       "properties": {
         "id": {
           "type": "string",
+          "description": "id",
           "readOnly": true
         },
         "size": {
           "type": "integer",
+          "description": "size",
           "format": "int32"
         }
       }

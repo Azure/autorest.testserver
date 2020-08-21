@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"defaultProgram":{"txt":"notepad","bmp":"mspaint","xls":"excel","exe":"","":null}}
+    }
+  }
+}
