@@ -20,6 +20,11 @@
       "get": {
         "operationId": "dictionary_getNull",
         "description": "Get null dictionary value",
+        "x-ms-examples": {
+          "dictionary_getNull": {
+            "$ref": "./examples/dictionary_getNull.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -47,6 +52,11 @@
       "get": {
         "operationId": "dictionary_getEmpty",
         "description": "Get empty dictionary value {}",
+        "x-ms-examples": {
+          "dictionary_getEmpty": {
+            "$ref": "./examples/dictionary_getEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -74,7 +84,7 @@
         "description": "Set dictionary value empty {}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The empty dictionary value {}",
@@ -105,6 +115,11 @@
     "/dictionary/nullvalue": {
       "get": {
         "operationId": "dictionary_getNullValue",
+        "x-ms-examples": {
+          "dictionary_getNullValue": {
+            "$ref": "./examples/dictionary_getNullValue.json"
+          }
+        },
         "description": "Get Dictionary with null value",
         "responses": {
           "200": {
@@ -152,6 +167,11 @@
       "get": {
         "operationId": "dictionary_getEmptyStringKey",
         "description": "Get Dictionary with key as empty string",
+        "x-ms-examples": {
+          "dictionary_getEmptyStringKey": {
+            "$ref": "./examples/dictionary_getEmptyStringKey.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "The Dictionary with key as empty string",
@@ -198,6 +218,11 @@
       "get": {
         "operationId": "dictionary_getBooleanTfft",
         "description": "Get boolean dictionary value {\"0\": true, \"1\": false, \"2\": false, \"3\": true }",
+        "x-ms-examples": {
+          "dictionary_getBooleanTfft": {
+            "$ref": "./examples/dictionary_getBooleanTfft.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -225,7 +250,7 @@
         "description": "Set dictionary value empty {\"0\": true, \"1\": false, \"2\": false, \"3\": true }",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": true, \"1\": false, \"2\": false, \"3\": true }",
@@ -311,6 +336,11 @@
       "get": {
         "operationId": "dictionary_getIntegerValid",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
+        "x-ms-examples": {
+          "dictionary_getIntegerValid": {
+            "$ref": "./examples/dictionary_getIntegerValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -338,7 +368,7 @@
         "description": "Set dictionary value empty {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
@@ -424,6 +454,11 @@
       "get": {
         "operationId": "dictionary_getLongValid",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
+        "x-ms-examples": {
+          "dictionary_getLongValid": {
+            "$ref": "./examples/dictionary_getLongValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -452,7 +487,7 @@
         "description": "Set dictionary value empty {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
@@ -541,6 +576,11 @@
       "get": {
         "operationId": "dictionary_getFloatValid",
         "description": "Get float dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
+        "x-ms-examples": {
+          "dictionary_getFloatValid": {
+            "$ref": "./examples/dictionary_getFloatValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -569,7 +609,7 @@
         "description": "Set dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
@@ -658,6 +698,11 @@
       "get": {
         "operationId": "dictionary_getDoubleValid",
         "description": "Get float dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
+        "x-ms-examples": {
+          "dictionary_getDoubleValid": {
+            "$ref": "./examples/dictionary_getDoubleValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -686,7 +731,7 @@
         "description": "Set dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
@@ -775,6 +820,11 @@
       "get": {
         "operationId": "dictionary_getStringValid",
         "description": "Get string dictionary value {\"0\": \"foo1\", \"1\": \"foo2\", \"2\": \"foo3\"}",
+        "x-ms-examples": {
+          "dictionary_getStringValid": {
+            "$ref": "./examples/dictionary_getStringValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -802,7 +852,7 @@
         "description": "Set dictionary value {\"0\": \"foo1\", \"1\": \"foo2\", \"2\": \"foo3\"}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": \"foo1\", \"1\": \"foo2\", \"2\": \"foo3\"}",
@@ -834,6 +884,11 @@
       "get": {
         "operationId": "dictionary_getStringWithNull",
         "description": "Get string dictionary value {\"0\": \"foo\", \"1\": null, \"2\": \"foo2\"}",
+        "x-ms-examples": {
+          "dictionary_getStringWithNull": {
+            "$ref": "./examples/dictionary_getStringWithNull.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -888,6 +943,11 @@
       "get": {
         "operationId": "dictionary_getDateValid",
         "description": "Get integer dictionary value {\"0\": \"2000-12-01\", \"1\": \"1980-01-02\", \"2\": \"1492-10-12\"}",
+        "x-ms-examples": {
+          "dictionary_getDateValid": {
+            "$ref": "./examples/dictionary_getDateValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -916,7 +976,7 @@
         "description": "Set dictionary value  {\"0\": \"2000-12-01\", \"1\": \"1980-01-02\", \"2\": \"1492-10-12\"}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": \"2000-12-01\", \"1\": \"1980-01-02\", \"2\": \"1492-10-12\"}",
@@ -1005,6 +1065,11 @@
       "get": {
         "operationId": "dictionary_getDateTimeValid",
         "description": "Get date-time dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"1980-01-02T00:11:35+01:00\", \"2\": \"1492-10-12T10:15:01-08:00\"}",
+        "x-ms-examples": {
+          "dictionary_getDateTimeValid": {
+            "$ref": "./examples/dictionary_getDateTimeValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -1033,7 +1098,7 @@
         "description": "Set dictionary value  {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"1980-01-02T00:11:35+01:00\", \"2\": \"1492-10-12T10:15:01-08:00\"}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"1980-01-02T00:11:35+01:00\", \"2\": \"1492-10-12T10:15:01-08:00\"}",
@@ -1122,6 +1187,11 @@
       "get": {
         "operationId": "dictionary_getDateTimeRfc1123Valid",
         "description": "Get date-time-rfc1123 dictionary value {\"0\": \"Fri, 01 Dec 2000 00:00:01 GMT\", \"1\": \"Wed, 02 Jan 1980 00:11:35 GMT\", \"2\": \"Wed, 12 Oct 1492 10:15:01 GMT\"}",
+        "x-ms-examples": {
+          "dictionary_getDateTimeRfc1123Valid": {
+            "$ref": "./examples/dictionary_getDateTimeRfc1123Valid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -1150,7 +1220,7 @@
         "description": "Set dictionary value empty {\"0\": \"Fri, 01 Dec 2000 00:00:01 GMT\", \"1\": \"Wed, 02 Jan 1980 00:11:35 GMT\", \"2\": \"Wed, 12 Oct 1492 10:15:01 GMT\"}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": \"Fri, 01 Dec 2000 00:00:01 GMT\", \"1\": \"Wed, 02 Jan 1980 00:11:35 GMT\", \"2\": \"Wed, 12 Oct 1492 10:15:01 GMT\"}",
@@ -1183,6 +1253,11 @@
       "get": {
         "operationId": "dictionary_getDurationValid",
         "description": "Get duration dictionary value {\"0\": \"P123DT22H14M12.011S\", \"1\": \"P5DT1H0M0S\"}",
+        "x-ms-examples": {
+          "dictionary_getDurationValid": {
+            "$ref": "./examples/dictionary_getDurationValid.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -1211,7 +1286,7 @@
         "description": "Set dictionary value  {\"0\": \"P123DT22H14M12.011S\", \"1\": \"P5DT1H0M0S\"}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": \"P123DT22H14M12.011S\", \"1\": \"P5DT1H0M0S\"}",
@@ -1272,7 +1347,7 @@
         "description": "Put the dictionary value {\"0\": hex(FF FF FF FA), \"1\": hex(01 02 03), \"2\": hex (25, 29, 43)} with each elementencoded in base 64",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "The dictionary value {\"0\": hex(FF FF FF FA), \"1\": hex(01 02 03), \"2\": hex (25, 29, 43)} with each elementencoded in base 64",
@@ -1333,6 +1408,11 @@
       "get": {
         "operationId": "dictionary_getBase64Url",
         "description": "Get base64url dictionary value {\"0\": \"a string that gets encoded with base64url\", \"1\": \"test string\", \"2\": \"Lorem ipsum\"}",
+        "x-ms-examples": {
+          "dictionary_getBase64Url": {
+            "$ref": "./examples/dictionary_getBase64Url.json"
+          }
+        },
         "tags": [
           "Dictionary operations"
         ],
@@ -1361,6 +1441,11 @@
       "get": {
         "operationId": "dictionary_getComplexNull",
         "description": "Get dictionary of complex type null value",
+        "x-ms-examples": {
+          "dictionary_getComplexNull": {
+            "$ref": "./examples/dictionary_getComplexNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1388,6 +1473,11 @@
       "get": {
         "operationId": "dictionary_getComplexEmpty",
         "description": "Get empty dictionary of complex type {}",
+        "x-ms-examples": {
+          "dictionary_getComplexEmpty": {
+            "$ref": "./examples/dictionary_getComplexEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1415,6 +1505,11 @@
       "get": {
         "operationId": "dictionary_getComplexItemNull",
         "description": "Get dictionary of complex type with null item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": null, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
+        "x-ms-examples": {
+          "dictionary_getComplexItemNull": {
+            "$ref": "./examples/dictionary_getComplexItemNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1443,6 +1538,11 @@
       "get": {
         "operationId": "dictionary_getComplexItemEmpty",
         "description": "Get dictionary of complex type with empty item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1:\" {}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
+        "x-ms-examples": {
+          "dictionary_getComplexItemEmpty": {
+            "$ref": "./examples/dictionary_getComplexItemEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1470,6 +1570,11 @@
       "get": {
         "operationId": "dictionary_getComplexValid",
         "description": "Get dictionary of complex type with {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": {\"integer\": 3, \"string\": \"4\"}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
+        "x-ms-examples": {
+          "dictionary_getComplexValid": {
+            "$ref": "./examples/dictionary_getComplexValid.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1497,7 +1602,7 @@
         "description": "Put an dictionary of complex type with values {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": {\"integer\": 3, \"string\": \"4\"}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "Dictionary of complex type with {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": {\"integer\": 3, \"string\": \"4\"}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
@@ -1529,6 +1634,11 @@
       "get": {
         "operationId": "dictionary_getArrayNull",
         "description": "Get a null array",
+        "x-ms-examples": {
+          "dictionary_getArrayNull": {
+            "$ref": "./examples/dictionary_getArrayNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1559,6 +1669,11 @@
       "get": {
         "operationId": "dictionary_getArrayEmpty",
         "description": "Get an empty dictionary {}",
+        "x-ms-examples": {
+          "dictionary_getArrayEmpty": {
+            "$ref": "./examples/dictionary_getArrayEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1589,6 +1704,11 @@
       "get": {
         "operationId": "dictionary_getArrayItemNull",
         "description": "Get an dictionary of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": null, \"2\": [\"7\", \"8\", \"9\"]}",
+        "x-ms-examples": {
+          "dictionary_getArrayItemNull": {
+            "$ref": "./examples/dictionary_getArrayItemNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1620,6 +1740,11 @@
       "get": {
         "operationId": "dictionary_getArrayItemEmpty",
         "description": "Get an array of array of strings [{\"0\": [\"1\", \"2\", \"3\"], \"1\": [], \"2\": [\"7\", \"8\", \"9\"]}",
+        "x-ms-examples": {
+          "dictionary_getArrayItemEmpty": {
+            "$ref": "./examples/dictionary_getArrayItemEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1650,6 +1775,11 @@
       "get": {
         "operationId": "dictionary_getArrayValid",
         "description": "Get an array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
+        "x-ms-examples": {
+          "dictionary_getArrayValid": {
+            "$ref": "./examples/dictionary_getArrayValid.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1680,7 +1810,7 @@
         "description": "Put An array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "An array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
@@ -1715,6 +1845,11 @@
       "get": {
         "operationId": "dictionary_getDictionaryNull",
         "description": "Get an dictionaries of dictionaries with value null",
+        "x-ms-examples": {
+          "dictionary_getDictionaryNull": {
+            "$ref": "./examples/dictionary_getDictionaryNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1745,6 +1880,11 @@
       "get": {
         "operationId": "dictionary_getDictionaryEmpty",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {}",
+        "x-ms-examples": {
+          "dictionary_getDictionaryEmpty": {
+            "$ref": "./examples/dictionary_getDictionaryEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1775,6 +1915,11 @@
       "get": {
         "operationId": "dictionary_getDictionaryItemNull",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": null, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
+        "x-ms-examples": {
+          "dictionary_getDictionaryItemNull": {
+            "$ref": "./examples/dictionary_getDictionaryItemNull.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1805,6 +1950,11 @@
       "get": {
         "operationId": "dictionary_getDictionaryItemEmpty",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
+        "x-ms-examples": {
+          "dictionary_getDictionaryItemEmpty": {
+            "$ref": "./examples/dictionary_getDictionaryItemEmpty.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1835,6 +1985,11 @@
       "get": {
         "operationId": "dictionary_getDictionaryValid",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
+        "x-ms-examples": {
+          "dictionary_getDictionaryValid": {
+            "$ref": "./examples/dictionary_getDictionaryValid.json"
+          }
+        },
         "tags": [
           "Dictionary Operations"
         ],
@@ -1865,7 +2020,7 @@
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
         "parameters": [
           {
-            "name": "arrayBody",
+            "name": "dictBody",
             "in": "body",
             "schema": {
               "description": "An dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",

@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"0": "////+g==", "1": "AQID", "2": "JSlD"}
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "dictBody": {"0": "foo1", "1": "foo2", "2": "foo3"}
+  },
+  "responses": {
+    "200": {
+    }
+  }
+}

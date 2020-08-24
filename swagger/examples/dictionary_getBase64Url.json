@@ -1,0 +1,8 @@
+{
+  "parameters": {},
+  "responses": {
+    "200": {
+      "body": {"0": "YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw", "1": "dGVzdCBzdHJpbmc", "2": "TG9yZW0gaXBzdW0"}
+    }
+  }
+}
