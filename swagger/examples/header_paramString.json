@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "scenario": "valid",
+    "value": "The quick brown fox jumps over the lazy dog"
+  },
+  "responses": {
+    "200": {}
+  }
+}

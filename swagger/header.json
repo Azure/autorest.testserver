@@ -20,6 +20,11 @@
       "post": {
         "operationId": "header_paramExistingKey",
         "description": "Send a post request with header value \"User-Agent\": \"overwrite\"",
+        "x-ms-examples": {
+          "header_paramExistingKey": {
+            "$ref": "./examples/header_example.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -48,6 +53,11 @@
     "/header/response/existingkey": {
       "post": {
         "operationId": "header_responseExistingKey",
+        "x-ms-examples": {
+          "header_responseExistingKey": {
+            "$ref": "./examples/header_responseExistingKey.json"
+          }
+        },
         "description": "Get a response with header value \"User-Agent\": \"overwrite\"",
         "tags": [
           "Header Operations"
@@ -75,6 +85,11 @@
       "post": {
         "operationId": "header_paramProtectedKey",
         "description": "Send a post request with header value \"Content-Type\": \"text/html\"",
+        "x-ms-examples": {
+          "header_paramProtectedKey": {
+            "$ref": "./examples/header_paramProtectedKey.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -104,6 +119,11 @@
       "post": {
         "operationId": "header_responseProtectedKey",
         "description": "Get a response with header value \"Content-Type\": \"text/html\"",
+        "x-ms-examples": {
+          "header_responseProtectedKey": {
+            "$ref": "./examples/header_responseProtectedKey.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -130,6 +150,11 @@
       "post": {
         "operationId": "header_paramInteger",
         "description": "Send a post request with header values \"scenario\": \"positive\", \"value\": 1 or \"scenario\": \"negative\", \"value\": -2 ",
+        "x-ms-examples": {
+          "header_paramInteger": {
+            "$ref": "./examples/header_paramInteger.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -167,6 +192,11 @@
       "post": {
         "operationId": "header_responseInteger",
         "description": "Get a response with header value \"value\": 1 or -2",
+        "x-ms-examples": {
+          "header_responseInteger": {
+            "$ref": "./examples/header_responseInteger.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"positive\" or \"negative\"",
@@ -203,6 +233,11 @@
       "post": {
         "operationId": "header_paramLong",
         "description": "Send a post request with header values \"scenario\": \"positive\", \"value\": 105 or \"scenario\": \"negative\", \"value\": -2 ",
+        "x-ms-examples": {
+          "header_paramLong": {
+            "$ref": "./examples/header_paramLong.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -240,6 +275,11 @@
       "post": {
         "operationId": "header_responseLong",
         "description": "Get a response with header value \"value\": 105 or -2",
+        "x-ms-examples": {
+          "header_responseLong": {
+            "$ref": "./examples/header_responseLong.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"positive\" or \"negative\"",
@@ -276,6 +316,11 @@
       "post": {
         "operationId": "header_paramFloat",
         "description": "Send a post request with header values \"scenario\": \"positive\", \"value\": 0.07 or \"scenario\": \"negative\", \"value\": -3.0",
+        "x-ms-examples": {
+          "header_paramFloat": {
+            "$ref": "./examples/header_paramFloat.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -313,6 +358,11 @@
       "post": {
         "operationId": "header_responseFloat",
         "description": "Get a response with header value \"value\": 0.07 or -3.0",
+        "x-ms-examples": {
+          "header_responseFloat": {
+            "$ref": "./examples/header_responseFloat.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"positive\" or \"negative\"",
@@ -349,6 +399,11 @@
       "post": {
         "operationId": "header_paramDouble",
         "description": "Send a post request with header values \"scenario\": \"positive\", \"value\": 7e120 or \"scenario\": \"negative\", \"value\": -3.0",
+        "x-ms-examples": {
+          "header_paramDouble": {
+            "$ref": "./examples/header_paramDouble.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -386,6 +441,11 @@
       "post": {
         "operationId": "header_responseDouble",
         "description": "Get a response with header value \"value\": 7e120 or -3.0",
+        "x-ms-examples": {
+          "header_responseDouble": {
+            "$ref": "./examples/header_responseDouble.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"positive\" or \"negative\"",
@@ -422,6 +482,11 @@
       "post": {
         "operationId": "header_paramBool",
         "description": "Send a post request with header values \"scenario\": \"true\", \"value\": true or \"scenario\": \"false\", \"value\": false",
+        "x-ms-examples": {
+          "header_paramBool": {
+            "$ref": "./examples/header_paramBool.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -458,6 +523,11 @@
       "post": {
         "operationId": "header_responseBool",
         "description": "Get a response with header value \"value\": true or false",
+        "x-ms-examples": {
+          "header_responseBool": {
+            "$ref": "./examples/header_responseBool.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"true\" or \"false\"",
@@ -493,6 +563,11 @@
       "post": {
         "operationId": "header_paramString",
         "description": "Send a post request with header values \"scenario\": \"valid\", \"value\": \"The quick brown fox jumps over the lazy dog\" or \"scenario\": \"null\", \"value\": null or \"scenario\": \"empty\", \"value\": \"\"",
+        "x-ms-examples": {
+          "header_paramString": {
+            "$ref": "./examples/header_paramString.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -529,6 +604,11 @@
       "post": {
         "operationId": "header_responseString",
         "description": "Get a response with header values \"The quick brown fox jumps over the lazy dog\" or null or \"\"",
+        "x-ms-examples": {
+          "header_responseString": {
+            "$ref": "./examples/header_responseString.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\" or \"null\" or \"empty\"",
@@ -564,6 +644,11 @@
       "post": {
         "operationId": "header_paramDate",
         "description": "Send a post request with header values \"scenario\": \"valid\", \"value\": \"2010-01-01\" or \"scenario\": \"min\", \"value\": \"0001-01-01\"",
+        "x-ms-examples": {
+          "header_paramDate": {
+            "$ref": "./examples/header_paramDate.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -601,6 +686,11 @@
       "post": {
         "operationId": "header_responseDate",
         "description": "Get a response with header values \"2010-01-01\" or \"0001-01-01\"",
+        "x-ms-examples": {
+          "header_responseDate": {
+            "$ref": "./examples/header_responseDate.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\" or \"min\"",
@@ -637,6 +727,11 @@
       "post": {
         "operationId": "header_paramDatetime",
         "description": "Send a post request with header values \"scenario\": \"valid\", \"value\": \"2010-01-01T12:34:56Z\" or \"scenario\": \"min\", \"value\": \"0001-01-01T00:00:00Z\"",
+        "x-ms-examples": {
+          "header_paramDatetime": {
+            "$ref": "./examples/header_paramDatetime.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -674,6 +769,11 @@
       "post": {
         "operationId": "header_responseDatetime",
         "description": "Get a response with header values \"2010-01-01T12:34:56Z\" or \"0001-01-01T00:00:00Z\"",
+        "x-ms-examples": {
+          "header_responseDatetime": {
+            "$ref": "./examples/header_responseDatetime.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\" or \"min\"",
@@ -746,6 +846,11 @@
       "post": {
         "operationId": "header_responseDatetimeRfc1123",
         "description": "Get a response with header values \"Wed, 01 Jan 2010 12:34:56 GMT\" or \"Mon, 01 Jan 0001 00:00:00 GMT\"",
+        "x-ms-examples": {
+          "header_responseDatetimeRfc1123": {
+            "$ref": "./examples/header_responseDatetimeRfc1123.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\" or \"min\"",
@@ -782,6 +887,11 @@
       "post": {
         "operationId": "header_paramDuration",
         "description": "Send a post request with header values \"scenario\": \"valid\", \"value\": \"P123DT22H14M12.011S\"",
+        "x-ms-examples": {
+          "header_paramDuration": {
+            "$ref": "./examples/header_paramDuration.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -819,6 +929,11 @@
       "post": {
         "operationId": "header_responseDuration",
         "description": "Get a response with header values \"P123DT22H14M12.011S\"",
+        "x-ms-examples": {
+          "header_responseDuration": {
+            "$ref": "./examples/header_responseDuration.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -892,6 +1007,11 @@
       "post": {
         "operationId": "header_responseByte",
         "description": "Get a response with header values \"啊齄丂狛狜隣郎隣兀﨩\"",
+        "x-ms-examples": {
+          "header_responseByte": {
+            "$ref": "./examples/header_responseByte.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\"",
@@ -928,6 +1048,11 @@
       "post": {
         "operationId": "header_paramEnum",
         "description": "Send a post request with header values \"scenario\": \"valid\", \"value\": \"GREY\" or \"scenario\": \"null\", \"value\": null",
+        "x-ms-examples": {
+          "header_paramEnum": {
+            "$ref": "./examples/header_paramEnum.json"
+          }
+        },
         "tags": [
           "Header Operations"
         ],
@@ -966,6 +1091,11 @@
       "post": {
         "operationId": "header_responseEnum",
         "description": "Get a response with header values \"GREY\" or null",
+        "x-ms-examples": {
+          "header_responseEnum": {
+            "$ref": "./examples/header_responseEnum.json"
+          }
+        },
         "parameters": [
           {
             "description": "Send a post request with header values \"scenario\": \"valid\" or \"null\" or \"empty\"",

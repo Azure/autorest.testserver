@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "scenario": "positive",
+    "value": 105
+  },
+  "responses": {
+    "200": {}
+  }
+}

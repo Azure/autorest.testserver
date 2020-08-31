@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "Content-Type": "text/html"
+  },
+  "responses": {
+    "200": {}
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "scenario": "valid",
+    "value": "啊齄丂狛狜隣郎隣兀﨩"
+  },
+  "responses": {
+    "200": {}
+  }
+}

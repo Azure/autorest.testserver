@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "scenario": "valid",
+    "value": "P123DT22H14M12.011S"
+  },
+  "responses": {
+    "200": {}
+  }
+}

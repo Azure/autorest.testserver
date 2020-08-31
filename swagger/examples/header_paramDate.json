@@ -1,0 +1,9 @@
+{
+  "parameters": {
+  	"scenario": "valid",
+    "value": "2010-01-01"
+  },
+  "responses": {
+    "200": {}
+  }
+}

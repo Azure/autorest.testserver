@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "scenario": "valid",
+    "value": "GREY"
+  },
+  "responses": {
+    "200": {}
+  }
+}
