@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "dictBody": {}
+    "arrayBody": {}
   },
   "responses": {
     "200": {

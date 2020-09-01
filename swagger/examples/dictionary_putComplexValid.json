@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "dictBody": {"0": {"integer": 1, "string": "2"}, "1": {"integer": 3, "string": "4"}, "2": {"integer": 5, "string": "6"}}
+    "arrayBody": {"0": {"integer": 1, "string": "2"}, "1": {"integer": 3, "string": "4"}, "2": {"integer": 5, "string": "6"}}
   },
   "responses": {
     "200": {

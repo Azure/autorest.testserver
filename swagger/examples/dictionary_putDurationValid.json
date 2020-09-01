@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "dictBody": {"0": "P123DT22H14M12.011S", "1": "P5DT1H"}
+    "arrayBody": {"0": "P123DT22H14M12.011S", "1": "P5DT1H"}
   },
   "responses": {
     "200": {

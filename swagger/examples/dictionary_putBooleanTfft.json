@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "dictBody": {"0": true, "1": false, "2": false, "3": true }
+    "arrayBody": {"0": true, "1": false, "2": false, "3": true }
   },
   "responses": {
     "200": {
