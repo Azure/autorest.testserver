@@ -125,6 +125,49 @@
                     }
                 }
             }
+        }, "/multiapi/testDifferentCalls": {
+            "get": {
+                "operationId": "testDifferentCalls",
+                "description": "Has added parameters across the API versions",
+                "x-ms-request-id": "request-id",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "name": "greetingInEnglish",
+                      "in": "header",
+                      "required": true,
+                      "description": "pass in 'hello' to pass test.",
+                      "type": "string"
+                    },
+                    {
+                        "name": "greetingInChinese",
+                        "in": "header",
+                        "required": false,
+                        "description": "pass in 'nihao' to pass test.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "greetingInFrench",
+                        "in": "header",
+                        "required": false,
+                        "description": "pass in 'bonjour' to pass test.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Empty return value"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

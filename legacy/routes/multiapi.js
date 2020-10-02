@@ -16,6 +16,9 @@ var multiapi = function(optionalCoverage) {
     optionalCoverage['MultiapiLRO'] = 0;
     optionalCoverage['MultiapiPaging'] = 0;
     optionalCoverage['MultiapiLROAndPaging'] = 0;
+    optionalCoverage['MultiapiDifferentCallsApiVersionOne'] = 0;
+    optionalCoverage['MultiapiDifferentCallsApiVersionTwo'] = 0;
+    optionalCoverage['MultiapiDifferentCallsApiVersionThree'] = 0;
 
     router.put('/testOneEndpoint', function (req, res, next) {
         if (req.query["api-version"] === '1.0.0') {
@@ -104,6 +107,37 @@ var multiapi = function(optionalCoverage) {
     router.post('/lroAndPaging', function (req, res, next) {
         optionalCoverage['MultiapiLROAndPaging']++;
         res.status(200).json({ "values" : [ { "id": "100" }]});
+    });
+
+    // different signatures for api versions
+    router.get('/testDifferentCalls', function(req, res, next) {
+        apiVersion = req.query["api-version"]
+        headers = req.headers
+        console.log(headers)
+        if (apiVersion == "1.0.0") {
+            if (headers['greetinginenglish'] === 'hello' && !('greetinginchinese' in headers) && !('greetinginfrench' in headers)) {
+                optionalCoverage['MultiapiDifferentCallsApiVersionOne']
+                res.status(200).end();
+            } else {
+                utils.send400(res, next, "The headers you sent with api version 1.0.0 are incorrect: " + headers);
+            }
+        } else if (apiVersion == "2.0.0") {
+            if (headers['greetinginenglish'] === 'hello' && headers['greetinginchinese'] === 'nihao' && !('greetinginfrench' in headers)) {
+                optionalCoverage['MultiapiDifferentCallsApiVersionTwo']
+                res.status(200).end();
+            } else {
+                utils.send400(res, next, "The headers you sent with api version 2.0.0 are incorrect: " + headers);
+            }
+        } else if (apiVersion == "3.0.0") {
+            if (headers['greetinginenglish'] === 'hello' && headers['greetinginchinese'] === 'nihao' && headers['greetinginfrench'] === 'bonjour') {
+                optionalCoverage['MultiapiDifferentCallsApiVersionThree']
+                res.status(200).end();
+            } else {
+                utils.send400(res, next, "The headers you sent with api version 3.0.0 are incorrect: " + headers);
+            }
+        } else {
+            utils.send400(res, next, "The api version of testDifferentCalls is not supported: " + apiVersion);
+        }
     });
 }
 
