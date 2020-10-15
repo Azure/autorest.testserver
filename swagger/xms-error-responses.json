@@ -191,6 +191,11 @@
    }
   },
   "PetActionError": {
+    "allOf": [
+     {
+        "$ref": "#/definitions/PetAction"
+     }
+    ],
    "properties": {
     "errorType": {
      "type": "string"
