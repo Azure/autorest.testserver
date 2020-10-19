@@ -14,12 +14,12 @@ var mediatypes = function(coverage) {
         console.log("Body: "+body);
 
         // JSON will expect to find a 'source' key
-        if (content_type === 'application/json' && 'source' in body) {
+        if (content_type.indexOf('application/json') !== -1 && 'source' in body) {
             coverage['MediaTypeJson']++;
             res.status(200).json("Nice job with JSON");
         }
         // PDF will expect to see the 3 bytes PDF
-        else if (content_type === 'application/pdf' && body === "PDF") {
+        else if (content_type.indexOf('application/pdf') !== -1 && body === "PDF") {
             coverage['MediaTypePdf']++;
             res.status(200).json("Nice job with PDF");
         }
@@ -29,7 +29,7 @@ var mediatypes = function(coverage) {
     });
     router.post('/contentTypeWithEncoding', function(req, res, next) {
         let content_type = req.headers["content-type"];
-        if (content_type === 'text/plain; encoding=UTF-8') {
+        if (content_type.indexOf('text/plain') !== -1) {
             coverage['MediaTypeWithEncoding']++;
             res.status(200).json("Nice job sending content type with encoding");
         }
