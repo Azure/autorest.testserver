@@ -1370,6 +1370,7 @@
             "schema": {
               "description": "Dictionary of complex type with null value",
               "type": "object",
+              "x-nullable": true,
               "additionalProperties": {
                 "$ref": "#/definitions/Widget"
               }
@@ -1538,6 +1539,7 @@
             "schema": {
               "description": "a null array",
               "type": "object",
+              "x-nullable": true,
               "additionalProperties": {
                 "type": "array",
                 "items": {
