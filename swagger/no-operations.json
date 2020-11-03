@@ -1,0 +1,31 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "No operations Service Client",
+      "description": "Service client with no operations",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+	"schemes": [
+		"http"
+    ],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+
+    },
+    "definitions": {
+        "Error": {
+            "type":  "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
