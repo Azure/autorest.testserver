@@ -1,0 +1,108 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "AutoRest Special Paging Test Service",
+      "description": "Long-running Operation for AutoRest",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+      "http"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "paths": {
+      "/pagingSpecial/nextLinkInResponseHeaders": {
+        "get": {
+          "x-ms-pageable": { "nextLinkName": null},
+          "operationId": "nextLinkInResponseHeaders",
+          "description": "A paging operation where the next link is found in the response headers, not in the response body",
+          "responses": {
+            "200": {
+                "headers": {
+                    "x-ms-nextLink": {
+                        "description": "Next link for subsequent calls",
+                        "type": "string"
+                    }
+                },
+                "description": "Returns a list of products, where the next link for continued paging is located in response header x-ms-nextLink.",
+                "schema": {
+                    "$ref": "#/definitions/ProductResultValue"
+                }
+            },
+            "default": {
+                "description": "Unexpected error"
+            }
+          }
+        }
+      },
+      "/pagingSpecial/continuationTokenInResponseHeaders": {
+        "get": {
+          "x-ms-pageable": { "nextLinkName": null},
+          "operationId": "continuationTokenInResponseHeaders",
+          "description": "A paging operation where the continuation is found in the response headers, and needs to be passed into subsequent calls.",
+          "parameters": [
+            {
+            "name": "continuationToken",
+            "in": "header",
+            "type": "string",
+            "description": "Continuation token for subsequent paging."
+            }
+          ],
+          "responses": {
+            "200": {
+                "headers": {
+                    "x-ms-continuationToken": {
+                        "description": "Next link for subsequent calls",
+                        "type": "string"
+                    }
+                },
+                "description": "Returns a list of products, where the next link for continued paging is located in response header x-ms-nextLink.",
+                "schema": {
+                    "$ref": "#/definitions/ProductResultValue"
+                }
+            },
+            "default": {
+                "description": "Unexpected error"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "ProductResultValue": {
+        "type":  "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "nextLink": {
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "type":  "object",
+        "properties": {
+          "properties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

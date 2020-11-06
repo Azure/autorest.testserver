@@ -31,6 +31,7 @@ var formData = require('./routes/formData');
 var lros = require('./routes/lros');
 var lroParameterizedEndpoints = require('./routes/lroParameterizedEndpoints.js');
 var paging = require('./routes/paging');
+var pagingSpecial = require('./routes/pagingSpecial');
 var modelFlatten = require('./routes/model-flatten');
 var azureUrl = require('./routes/azureUrl');
 var azureSpecial = require('./routes/azureSpecials');
@@ -548,6 +549,7 @@ app.use('/model-flatten', new modelFlatten(coverage).router);
 app.use('/lro', new lros(azurecoverage).router);
 app.use('/lroParameterizedEndpoints', new lroParameterizedEndpoints(azurecoverage).router);
 app.use('/paging', new paging(azurecoverage).router);
+app.use('/pagingSpecial',  new pagingSpecial(optionalCoverage).router)
 app.use('/azurespecials', new azureSpecial(azurecoverage).router);
 app.use('/report', new report(coverage, azurecoverage, optionalCoverage).router);
 app.use('/subscriptions', new azureUrl(azurecoverage).router);
