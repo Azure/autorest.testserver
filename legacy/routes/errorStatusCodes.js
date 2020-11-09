@@ -95,6 +95,16 @@ var pathitem = function(coverage) {
             res.status(402).end("That's all folks!!");
         }
     });
+
+    router.post('/Pets/hasModelsParam', function(req, res, next) {
+        models_param = req.query['models']
+        if (models_param == 'value1') {
+            res.status(500).json(sadCasper);
+            coverage['sendErrorWithParamNameModels']++;
+        } else {
+            utils.send400(res, next, "The value of input param models is " + models_param + " and not the client default value of 'value1'");
+        }
+    });
 }
 
 pathitem.prototype.router = router;

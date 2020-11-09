@@ -504,7 +504,8 @@ var coverage = {
   "intError":0,
   "stringError":0,
   "animalNotFoundError":0,
-  "linkNotFoundError":0
+  "linkNotFoundError":0,
+  "sendErrorWithParamNameModels": 0
 };
 
 // view engine setup
