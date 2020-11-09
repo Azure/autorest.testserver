@@ -705,6 +705,15 @@ var complex = function (coverage) {
       }
     }
   });
+
+  router.get('/readonlyproperty/discriminator', function (req, res, next) {
+    coverage['getComplexReadOnlyDiscriminator']++;
+    var derivedType = {
+      'readOnlyKind': 'Kind1'
+    }
+    res.status(200).json(derivedType);
+  });
+
 };
 
 complex.prototype.router = router;

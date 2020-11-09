@@ -1241,6 +1241,26 @@
         }
       }
     },
+    "/complex/readonlyproperty/discriminator": {
+      "get": {
+        "operationId": "readonlyproperty_getValidReadonlyDiscriminator",
+        "description": "Get a MyDerivedTypeWithReadOnlyDiscriminator object based off of the readonly discriminator",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MyBaseTypeWithReadOnlyDiscriminator"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/complex/flatten/valid": {
       "get": {
         "operationId": "flattencomplex_getValid",
@@ -1761,6 +1781,46 @@
               "type": "string"
             }
           }
+        }
+      ],
+      "x-ms-discriminator-value": "Kind1"
+    },
+    "ReadOnlyKind": {
+      "type": "string",
+      "enum": [
+        "Kind1"
+      ],
+      "x-ms-enum": {
+        "name": "ReadOnlyKind",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "Kind1"
+          }
+        ]
+      }
+    },
+    "MyBaseTypeWithReadOnlyDiscriminator": {
+      "type": "object",
+      "discriminator": "readOnlyKind",
+      "properties": {
+        "readOnlyKind": {
+          "$ref": "#/definitions/ReadOnlyKind",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "readOnlyKind"
+      ]
+    },
+    "MyDerivedTypeWithReadOnlyDiscriminator": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/MyBaseTypeWithReadOnlyDiscriminator"
+        },
+        {
+          "type": "object"
         }
       ],
       "x-ms-discriminator-value": "Kind1"

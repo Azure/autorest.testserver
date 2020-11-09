@@ -286,6 +286,7 @@ var coverage = {
   "getComplexPolymorphicRecursiveValid": 0,
   "putComplexReadOnlyPropertyValid": 0,
   "getComplexReadOnlyPropertyValid": 0,
+  "getComplexReadOnlyDiscriminator": 0,
   "UrlPathsBoolFalse": 0,
   "UrlPathsBoolTrue": 0,
   "UrlPathsIntPositive": 0,
