@@ -70,6 +70,24 @@
         }
       }
     },
+    "/paging/firstResponseEmpty/1": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink" },
+        "operationId": "Paging_firstResponseEmpty",
+        "description": "A paging operation whose first response's items list is empty, but still returns a next link. Second (and final) call, will give you an items list of 1.",
+        "responses": {
+          "200": {
+            "description": "First call returns an empty items list, second (and final) call returns an items list of length 1.",
+            "schema": {
+              "$ref": "#/definitions/ProductResultValue"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/multiple": {
       "get": {
         "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
