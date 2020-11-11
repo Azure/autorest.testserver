@@ -505,7 +505,7 @@ var coverage = {
   "intError":0,
   "stringError":0,
   "animalNotFoundError":0,
-  "linkNotFoundError":0
+  "linkNotFoundError":0,
 };
 
 // view engine setup
@@ -557,7 +557,7 @@ app.use('/parameterGrouping', new parameterGrouping(azurecoverage).router);
 app.use('/validation', new validation(coverage).router);
 app.use('/customUri', new customUri(coverage).router);
 app.use('/extensibleEnums', new extensibleEnums(coverage).router);
-app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
+app.use('/errorStatusCodes', new errorStatusCodes(coverage, optionalCoverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/mediatypes', new mediatypes(coverage).router);
 app.use('/xml', new xml(coverage).router);

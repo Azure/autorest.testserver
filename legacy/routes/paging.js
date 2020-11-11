@@ -46,6 +46,7 @@ var paging = function(coverage) {
   coverage['PagingCustomUrlPartialNextLink'] = 0;
   coverage["PagingCustomUrlPartialOperationNextLink"] = 0;
   coverage["PagingReturnModelWithXMSClientName"] = 0;
+  coverage["PagingFirstResponseEmpty"] = 0;
 
   router.get('/noitemname', function(req, res, next) {
     coverage["PagingNoItemName"]++;
@@ -205,6 +206,18 @@ var paging = function(coverage) {
     coverage["PagingReturnModelWithXMSClientName"]++;
     res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}]});
   });
+
+  router.get('/firstResponseEmpty/:pagenumber', function(req, res, next) {
+    if (req.params.pagenumber == 1) {
+      res.status(200).json({ "values" : [], "nextLink":"/paging/firstResponseEmpty/2"});
+    } else if(req.params.pagenumber == 2) {
+      coverage["PagingFirstResponseEmpty"]++;
+      res.status(200).json({ "value" : [ {"properties":{"id": 1, "name": "Product" }}]});
+    } else {
+      res.status(400).end("Incorrect page number " + req.params.pagenumber + ". Needs to be either 1 for the initial call, or 2 for the final call");
+    }
+  });
+
 
   /*** PAGEABLE LROs ***/
   router.post('/multiple/lro', function (req, res, next) {
