@@ -209,7 +209,7 @@ var paging = function(coverage) {
 
   router.get('/firstResponseEmpty/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber == 1) {
-      res.status(200).json({ "values" : [], "nextLink":"/paging/firstResponseEmpty/2"});
+      res.status(200).json({ "value" : [], "nextLink":"/paging/firstResponseEmpty/2"});
     } else if(req.params.pagenumber == 2) {
       coverage["PagingFirstResponseEmpty"]++;
       res.status(200).json({ "value" : [ {"properties":{"id": 1, "name": "Product" }}]});
