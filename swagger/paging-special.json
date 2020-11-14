@@ -40,6 +40,24 @@
           }
         }
       },
+      "/pagingSpecial/continuationToken": {
+        "get": {
+          "x-ms-pageable": { "nextLinkName": "token"},
+          "operationId": "continuationToken",
+          "description": "A paging operation where the token in the response body needs to be passed into subsequent calls.",
+          "responses": {
+            "200": {
+                "description": "Returns a list of products",
+                "schema": {
+                    "$ref": "#/definitions/ProductResultValueWithToken"
+                }
+            },
+            "default": {
+                "description": "Unexpected error"
+            }
+          }
+        }
+      },
       "/pagingSpecial/continuationTokenInResponseHeaders": {
         "get": {
           "x-ms-pageable": { "nextLinkName": null},
@@ -63,7 +81,25 @@
                 },
                 "description": "Returns a list of products, where the next link for continued paging is located in response header x-ms-nextLink.",
                 "schema": {
-                    "$ref": "#/definitions/ProductResultValue"
+                    "$ref": "#/definitions/ProductResultValueWithToken"
+                }
+            },
+            "default": {
+                "description": "Unexpected error"
+            }
+          }
+        }
+      },
+      "/pagingSpecial/tokenWithMetadata": {
+        "get": {
+          "x-ms-pageable": { "nextLinkName": "token"},
+          "operationId": "tokenWithMetadata",
+          "description": "A paging operation that returns a continuation token, and metadata about the number of total results. Should be able to access metadata from pager.",
+          "responses": {
+            "200": {
+                "description": "Returns a list of products. Should be able to access the metadata from the pager returned by this operation, which is just the number 10 (the number of items)",
+                "schema": {
+                    "$ref": "#/definitions/ProductResultValueWithToken"
                 }
             },
             "default": {
@@ -88,15 +124,26 @@
           }
         }
       },
+      "ProductResultValueWithToken": {
+        "type":  "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
       "Product": {
         "type":  "object",
         "properties": {
           "properties": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "integer"
-              },
               "name": {
                 "type": "string"
               }
