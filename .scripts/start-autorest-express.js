@@ -17,6 +17,10 @@ function prepend( color,pText ,text) {
 //  (b) run the given command line.
 // when the (b) completes, terminate (a)
 
+// This variable stores the exit code of the program that gets launched by
+// this script so that it can be passed through for use in CI reporting, etc
+let wrappedExitCode = 0;
+
 async function main() {
 
   const cmdArgs = [];
@@ -92,7 +96,7 @@ async function main() {
   verbose('Express is ready.')
 
   if (!interactive) {
-    await execute(command, cmdArgs, {
+    const result = await execute(command, cmdArgs, {
       onCreate: (proc) => {
         verbose(`Started command: '${command} ${cmdArgs.join(' ')}'`);
         cmdProc = proc;
@@ -109,6 +113,9 @@ async function main() {
     });
     running = false;
     verbose('Command completed.');
+
+    // Store the exit code so that it can be returned when this process exits
+    wrappedExitCode = result.error;
   } else {
     await queryUser('\n\nPress enter to stop testserver\n');
   }
@@ -139,6 +146,7 @@ async function main() {
 async function start() {
   try {
     await main();
+    process.exit(wrappedExitCode);
   } catch (e) {
     console.error(e);
     process.exit(1);
