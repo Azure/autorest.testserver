@@ -44,7 +44,8 @@ var animalNotFoundError = {
 };
 
 
-var pathitem = function(coverage) {
+var pathitem = function(coverage, optionalCoverage) {
+    optionalCoverage['sendErrorWithParamNameModels'] = 0;
     router.post('/Pets/doSomething/:whatAction', function(req, res, next) {
         var whatAction = req.params.whatAction;
         console.log('Inside action: "' + whatAction +'"\n');
@@ -93,6 +94,16 @@ var pathitem = function(coverage) {
         }
         else {
             res.status(402).end("That's all folks!!");
+        }
+    });
+
+    router.post('/Pets/hasModelsParam', function(req, res, next) {
+        models_param = req.query['models']
+        if (models_param == 'value1') {
+            res.status(500).json(sadCasper);
+            optionalCoverage['sendErrorWithParamNameModels']++;
+        } else {
+            utils.send400(res, next, "The value of input param models is " + models_param + " and not the client default value of 'value1'");
         }
     });
 }
