@@ -1,74 +1,37 @@
 {
- "swagger": "2.0",
- "info": {
-  "description": "This is a sample.",
-  "version": "1.0.0",
-  "title": "Cowbell Factory"
- },
- "host": "localhost",
- "schemes": [
-  "https"
- ],
- "consumes": [
-  "application/json"
- ],
- "produces": [
-  "application/json"
- ],
- "paths": {
-  "/cowbell": {
-   "post": {
-    "description": "A good description.",
-    "operationId": "Cowbell_Add",
-    "parameters": [
-     {
-      "name": "brokenFileParam",
-      "in": "body",
-      "schema": {
-       "type": "object",
-       "format": "file"
-      },
-      "required": true,
-      "description": "Foo bar"
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "Cowbell was added."
-     }
-    }
-   },
-   "put": {
-    "operationId": "formdata_UploadFileViaBody",
-    "consumes": [
-     "application/octet-stream"
-    ],
-    "produces": [
-     "application/octet-stream",
-     "application/json"
-    ],
-    "description": "Upload file",
-    "tags": [
-     "Formdata"
-    ],
-    "parameters": [
-     {
-      "name": "workingFileParam",
-      "description": "File to upload.",
-      "required": true,
-      "in": "body",
-      "schema": {
-       "type": "object",
-       "format": "file"
+  "swagger": "2.0",
+  "info": {
+    "description": "Sample for file with json content type.",
+    "version": "1.0.0",
+    "title": "Binary with content-type: application/json"
+  },
+  "host": "localhost",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/file": {
+      "post": {
+        "description": "Uploading json file",
+        "operationId": "Upload_File",
+        "parameters": [
+          {
+            "name": "fileParam",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "format": "file"
+            },
+            "required": true,
+            "description": "Foo bar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cowbell was added."
+          }
+        }
       }
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "Serialized file stream"
-     }
     }
-   }
   }
- }
 }
