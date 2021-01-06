@@ -287,7 +287,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-package-lock.json
 *.tgz
 legacy/coverage/report-*.json
 __files/

@@ -1,0 +1,122 @@
+root: true
+plugins: ["@typescript-eslint", "prettier", "import", "unicorn"]
+env: 
+  browser: true
+  es6: true
+  node: true
+extends: []
+rules:
+  "@typescript-eslint/array-type": "warn"
+  "@typescript-eslint/ban-types": "warn"
+  "@typescript-eslint/explicit-member-accessibility": 
+    - warn
+    - overrides: 
+        constructors: "off"
+  "@typescript-eslint/interface-name-prefix": "off"
+  "@typescript-eslint/member-delimiter-style": 
+    - warn
+    - multiline: 
+        delimiter: "semi"
+        requireLast: true
+      singleline: 
+        delimiter: "semi"
+        requireLast: false
+  "@typescript-eslint/member-ordering": "off"
+  "@typescript-eslint/consistent-type-assertions": ["warn", { assertionStyle: "as" }]
+  "@typescript-eslint/no-empty-function": "warn"
+  "@typescript-eslint/no-empty-interface": "off"
+  "@typescript-eslint/no-explicit-any": "off"
+  "@typescript-eslint/no-floating-promises": ["warn", { ignoreVoid: true }]
+  "@typescript-eslint/no-misused-new": "warn"
+  "@typescript-eslint/no-namespace": "warn"
+  "@typescript-eslint/no-parameter-properties": "off"
+  "@typescript-eslint/no-this-alias": "warn"
+  "@typescript-eslint/triple-slash-reference": ["warn", { path: "never", types: "never", lib: "never" }]
+  "@typescript-eslint/no-use-before-declare": "off"
+  "@typescript-eslint/no-var-requires": "warn"
+  "@typescript-eslint/prefer-for-of": "warn"
+  "@typescript-eslint/prefer-function-type": "warn"
+  "@typescript-eslint/consistent-type-definitions": ["warn", "interface"]
+  "@typescript-eslint/prefer-namespace-keyword": "warn"
+  "@typescript-eslint/no-shadow": ["warn"]
+  "@typescript-eslint/quotes": 
+    - warn
+    - double
+    - avoidEscape: true
+  "@typescript-eslint/semi": ["warn", "always"]
+  "@typescript-eslint/type-annotation-spacing": "warn"
+  "@typescript-eslint/unified-signatures": "warn"
+  "arrow-body-style": "warn"
+  "arrow-parens": ["warn", "as-needed"]
+  "camelcase": "warn"
+  "complexity": "off"
+  "constructor-super": "warn"
+  "curly": "warn"
+  "dot-notation": "warn"
+  "eol-last": "warn"
+  "eqeqeq": ["warn", "smart"]
+  "guard-for-in": "warn"
+  "id-denylist": ["warn", "any", "Number", "number", "String", "string", "Boolean", "boolean", "Undefined"]
+  "id-match": "warn"
+  "import/no-default-export": "warn"
+  "import/no-self-import": "warn" # This cause many circular dependency issues with index files.
+  "import/no-internal-modules": "off"
+  "import/order":
+    - warn
+    - groups: ["builtin", "external", "parent", "sibling", "index"]
+      alphabetize:
+        order: "asc"
+        caseInsensitive: true
+  "max-classes-per-file": ["warn", 1]
+  "lines-between-class-members": ["warn", "always", { exceptAfterSingleLine: true }]
+  "max-len":
+    - warn
+    - code: 120
+  "new-parens": "warn"
+  "no-bitwise": "warn"
+  "no-caller": "warn"
+  "no-cond-assign": "warn"
+  "no-console": "warn"
+  "no-debugger": "warn"
+  "no-duplicate-case": "warn"
+  "no-duplicate-imports": "warn"
+  "no-empty": "warn"
+  "no-eval": "warn"
+  "no-extra-bind": "warn"
+  "no-restricted-syntax": "warn"
+  "no-fallthrough": "off"
+  "no-invalid-this": "off"
+  "no-multiple-empty-lines": "warn"
+  "no-new-func": "warn"
+  "no-new-wrappers": "warn"
+  "no-redeclare": "warn"
+  "no-return-await": "warn"
+  "no-sequences": "warn"
+  "no-shadow": "off"
+  "no-sparse-arrays": "warn"
+  "no-template-curly-in-string": "warn"
+  "no-throw-literal": "warn"
+  "no-undef-init": "warn"
+  "no-underscore-dangle": "warn"
+  "no-unsafe-finally": "warn"
+  "no-unused-expressions":
+    - warn
+    - allowShortCircuit: true
+      allowTernary: true
+  "no-unused-labels": "warn"
+  "no-var": "warn"
+  "object-shorthand": "warn"
+  "one-var": ["warn", "never"]
+  "prefer-arrow-callback": "warn"
+  "prefer-const": "warn"
+  "prefer-object-spread": "warn"
+  "quote-props": ["warn", "consistent-as-needed"]
+  "radix": "warn"
+  "unicorn/filename-case": "warn"
+  "use-isnan": "warn"
+  "valid-typeof": "off"
+  "prettier/prettier": "warn"
+parser: "@typescript-eslint/parser"
+parserOptions:
+  sourceType: "module"
+  project: "./tsconfig.json"
