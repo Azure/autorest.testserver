@@ -290,3 +290,4 @@ __pycache__/
 *.tgz
 legacy/coverage/report-*.json
 __files/
+dist/
