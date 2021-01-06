@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "commonmark": "^0.29.3",
+    "js-yaml": "^4.0.0",
     "winston": "^3.3.3"
   }
 }

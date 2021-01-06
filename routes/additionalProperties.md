@@ -4,15 +4,14 @@
 
 #### Response
 
-- Headers:
-
 ```yaml
-X-Powered-By: "Express"
-Vary: "Origin"
-Access-Control-Allow-Credentials: "true"
-Access-Control-Expose-Headers: "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After"
-Date: { now }
-Connection: "keep-alive"
+headers:
+  X-Powered-By: "Express"
+  Vary: "Origin"
+  Access-Control-Allow-Credentials: "true"
+  Access-Control-Expose-Headers: "x-ms-request-id,foo-request-id,Content-Type,value,Location,Azure-AsyncOperation,Retry-After"
+  Date: { now }
+  Connection: "keep-alive"
 ```
 
 ## Routes
@@ -21,7 +20,7 @@ Connection: "keep-alive"
 
 #### Request
 
-- Body:
+##### Body:
 
 ```json
 {
@@ -34,8 +33,14 @@ Connection: "keep-alive"
 
 #### Response
 
-- Status: `200`
-- Body:
+```yaml
+status: 200
+headers:
+  Header-Just-For-This: value
+  Header-Computed-From-Request: {request.headers["Someheader"]}
+```
+
+##### Body
 
 ```json
 {
@@ -45,11 +50,4 @@ Connection: "keep-alive"
   "complexProperty": { "color": "Red" },
   "status": true
 }
-```
-
-- Headers:
-
-```yaml
-Header-Just-For-This: value
-Header-Computed-From-Request: {request.headers["Someheader"]}
 ```
