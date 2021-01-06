@@ -12,16 +12,18 @@ extends:
   - eslint:recommended
   - plugin:@typescript-eslint/recommended
 rules:
-  "@typescript-eslint/no-empty-interface": "off"
-  import/no-default-export: "warn"
-  import/no-self-import: "warn" # This cause many circular dependency issues with index files.
-  import/no-internal-modules: "off"
+  no-console: warn
+
+  "@typescript-eslint/no-empty-interface": off
+  import/no-default-export: warn
+  import/no-self-import: warn # This cause many circular dependency issues with index files.
+  import/no-internal-modules: off
   import/order:
     - warn
     - groups: ["builtin", "external", "parent", "sibling", "index"]
       alphabetize:
         order: "asc"
         caseInsensitive: true
-  unicorn/filename-case: "warn"
-  prettier/prettier: "warn"
+  unicorn/filename-case: warn
+  prettier/prettier: warn
 parser: "@typescript-eslint/parser"
