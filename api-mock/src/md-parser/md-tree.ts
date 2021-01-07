@@ -57,7 +57,7 @@ export const dumpMarkdownTree = (tree: MarkdownTreeNode): string => dumpMarkdown
 
 const dumpMarkdownTreeAtLevel = (node: MarkdownTreeNode, level: number) => {
   const indent = "  ".repeat(level);
-  let result = `${indent}${dumpHeading(node.heading)}\n`;
+  let result = `${indent}${cleanRender(node.heading)}\n`;
 
   for (const child of node.children) {
     if ("heading" in child) {
@@ -65,8 +65,4 @@ const dumpMarkdownTreeAtLevel = (node: MarkdownTreeNode, level: number) => {
     }
   }
   return result;
-};
-
-const dumpHeading = (headingNode: commonmark.Node) => {
-  return cleanRender(headingNode);
 };

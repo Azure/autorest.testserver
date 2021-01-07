@@ -15,20 +15,20 @@ import {
 import { convertToTree, dumpMarkdownTree, MarkdownTreeNode } from "./md-tree";
 import { cleanRender } from "./md-utils";
 
-export const parseMardownFile = async (path: string): Promise<MockRouteDefinition[]> => {
+export const parseMardownFile = async (path: string): Promise<MockRouteDefinitionGroup> => {
   logger.debug(`Reading file ${[path]}`);
   const content = await fs.promises.readFile(path);
   return parseMardown(content.toString());
 };
 
-export const parseMardown = async (content: string): Promise<MockRouteDefinition[]> => {
+export const parseMardown = async (content: string): Promise<MockRouteDefinitionGroup> => {
   const parser = new commonmark.Parser();
   const parsed = parser.parse(content);
   const tree = convertToTree(parsed);
   logger.debug(`Extracted structure\n${dumpMarkdownTree(tree)}`);
   const group = convertTreeToDefinitionGroup(tree);
   logger.debug(`Extracted group: ${JSON.stringify(group, null, 2)}`);
-  return [];
+  return group;
 };
 
 const KnownHeading = {
@@ -181,7 +181,7 @@ const extractRouteFromTreeNode = (node: MarkdownTreeNode): MockRouteDefinition =
         requestConfig = extractRequestDefinitionFromTreeNode(child, routeTitle);
         break;
       case KnownHeading.response:
-        response = extractYamlConfigFromTreeNode<CommonResponseDefinition>(child, "Common > Response");
+        response = extractResponseDefinitionFromTreeNode(child, routeTitle);
         break;
     }
   }
@@ -235,6 +235,43 @@ const extractRequestDefinitionFromTreeNode = (
   }
 
   return result;
+};
+
+const extractResponseDefinitionFromTreeNode = (
+  node: MarkdownTreeNode,
+  routeTitle: string,
+): MockRouteResponseDefinition => {
+  let result: Partial<MockRouteResponseDefinition> = {};
+
+  const sectionName = [KnownHeading.routes, routeTitle, KnownHeading.request].join(" > ");
+  for (const child of node.children) {
+    if ("heading" in child) {
+      const childTitle = cleanRender(child.heading);
+      switch (childTitle) {
+        case KnownHeading.body:
+          result = { ...result, body: extractBodyDefinitionFromTreeNode(child, sectionName) };
+          break;
+        default:
+          throw new Error(`Unexpected heading '${childTitle}' under section ${sectionName}`);
+      }
+    } else {
+      const config = extractYamlConfigFromMarkdownNode<MockRouteResponseDefinition>(child, sectionName);
+      result = { ...result, ...config };
+    }
+  }
+  assertProperty(result, "status", sectionName);
+  return result as MockRouteResponseDefinition;
+};
+
+const assertProperty = <T, K extends keyof T>(
+  value: T,
+  key: K,
+  sectionName: string,
+): value is T & Required<Pick<T, K>> => {
+  if (!value[key]) {
+    throw new Error(`Section ${sectionName} is missing required property ${key}`);
+  }
+  return true;
 };
 
 const extractBodyDefinitionFromTreeNode = (node: MarkdownTreeNode, fromSection: string): MockBody => {
