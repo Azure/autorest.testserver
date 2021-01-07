@@ -54,6 +54,8 @@ export const mapMarkdownTree = <T>(
     }
   }
 
+  validateRequiredMapping(sectionName, mapping, result);
+
   return (result as unknown) as T;
 };
 
@@ -74,4 +76,17 @@ const processMappings = (mapping: TreeNodeMapping<unknown>) => {
     }
   }
   return { headings, codeBlock };
+};
+
+const validateRequiredMapping = (
+  sectionName: string,
+  mapping: TreeNodeMapping<unknown>,
+  result: { [key: string]: unknown },
+) => {
+  for (const [key, value] of Object.entries<MappingEntry<unknown, boolean>>(mapping)) {
+    if (value.required && result[key] === undefined) {
+      const name = value.type === "heading" ? `heading named '${value.name}'` : value.type;
+      throw new Error(`Error: expected section ${sectionName} to contain a ${name}`);
+    }
+  }
 };

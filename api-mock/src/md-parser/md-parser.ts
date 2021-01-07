@@ -48,21 +48,6 @@ const KnownHeading = {
   body: "Body",
 };
 
-const foo = (tree: MarkdownTreeNode) => {
-  const result = mapMarkdownTree(["Root"], tree, {
-    common: {
-      type: "heading",
-      name: KnownHeading.common,
-      process: (x) => extractCommonFromTreeNode(x),
-    },
-    routes: {
-      type: "heading",
-      name: KnownHeading.routes,
-      required: true,
-      process: (x) => extractRoutesFromTreeNode(x),
-    },
-  });
-};
 const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefinitionGroup => {
   const title = cleanRender(tree.heading);
   logger.debug(`Title for document is '${title}'`);
