@@ -9,6 +9,7 @@ export interface MockRouteRequestDefinition {
   url: string;
   headers: { [key: string]: string };
   method: HttpMethod;
+  body: MockBody;
 }
 
 export interface MockRouteResponseDefinition {

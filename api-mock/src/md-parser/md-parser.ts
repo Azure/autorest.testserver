@@ -6,6 +6,7 @@ import {
   CommonDefinition,
   CommonRequestDefinition,
   CommonResponseDefinition,
+  MockBody,
   MockRouteDefinition,
   MockRouteDefinitionGroup,
   MockRouteRequestDefinition,
@@ -94,8 +95,9 @@ const extractCommonFromTreeNode = (tree: MarkdownTreeNode): CommonDefinition => 
   };
 };
 
+type Language = "json" | "yaml" | "xml";
 interface ExtractedCodeBlock {
-  language: "json" | "yaml" | "xml";
+  language: Language;
   content: string;
 }
 
@@ -221,7 +223,8 @@ const extractRequestDefinitionFromTreeNode = (
       const childTitle = cleanRender(child.heading);
       switch (childTitle) {
         case KnownHeading.body:
-          return null!;
+          result = { ...result, body: extractBodyDefinitionFromTreeNode(child, sectionName) };
+          break;
         default:
           throw new Error(`Unexpected heading '${childTitle}' under section ${sectionName}`);
       }
@@ -232,4 +235,28 @@ const extractRequestDefinitionFromTreeNode = (
   }
 
   return result;
+};
+
+const extractBodyDefinitionFromTreeNode = (node: MarkdownTreeNode, fromSection: string): MockBody => {
+  const sectionName = `${fromSection} > Body`;
+  const code = extractCodeBlockFromTreeNode(node, sectionName);
+  return {
+    content: code.content,
+    contentType: getContentTypeFromLanguage(code.language, sectionName),
+  };
+};
+
+const getContentTypeFromLanguage = (language: Language, sectionName: string) => {
+  const contentType = {
+    json: "application/json",
+    xml: "application/xml",
+    yaml: undefined,
+  }[language];
+
+  if (!contentType) {
+    throw new Error(
+      `Language ${language} used in section ${sectionName} is not known and can't be used for body content.`,
+    );
+  }
+  return contentType;
 };
