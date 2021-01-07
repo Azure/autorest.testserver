@@ -66,11 +66,6 @@ const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefiniti
     },
   });
 
-  if (routes === undefined) {
-    throw new Error(
-      `Document is missing route definitions. Make sure to have a heading called '${KnownHeading.routes}'.`,
-    );
-  }
   return {
     title,
     common,
@@ -79,23 +74,18 @@ const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefiniti
 };
 
 const extractCommonFromTreeNode = (tree: MarkdownTreeNode): CommonDefinition => {
-  let request: CommonRequestDefinition | undefined;
-  let response: CommonResponseDefinition | undefined;
-
-  for (const child of tree.children) {
-    if (!("heading" in child)) {
-      logger.warn("Unexpected node right under the common section. Make sure to follow the required structure.");
-      continue;
-    }
-    switch (cleanRender(child.heading)) {
-      case KnownHeading.request:
-        request = extractYamlConfigFromTreeNode<CommonRequestDefinition>(child, "Common > Request");
-        break;
-      case KnownHeading.response:
-        response = extractYamlConfigFromTreeNode<CommonResponseDefinition>(child, "Common > Response");
-        break;
-    }
-  }
+  const { request, response } = mapMarkdownTree(["Common"], tree, {
+    request: {
+      type: "heading",
+      name: KnownHeading.request,
+      process: (x) => extractYamlConfigFromTreeNode<CommonRequestDefinition>(x, "Common > Request"),
+    },
+    response: {
+      type: "heading",
+      name: KnownHeading.response,
+      process: (x) => extractYamlConfigFromTreeNode<CommonResponseDefinition>(x, "Common > Response"),
+    },
+  });
 
   return {
     request,
@@ -174,29 +164,20 @@ const extractRouteFromTreeNode = (node: MarkdownTreeNode): MockRouteDefinition =
   const routeTitle = cleanRender(node.heading);
   logger.debug(`Found route '${routeTitle}'`);
 
-  let requestConfig: Partial<MockRouteRequestDefinition> | undefined;
-  let response: MockRouteResponseDefinition | undefined;
+  const { requestConfig, response } = mapMarkdownTree(["Routes", routeTitle], node, {
+    requestConfig: {
+      type: "heading",
+      name: KnownHeading.request,
+      process: (x) => extractRequestDefinitionFromTreeNode(x, routeTitle),
+    },
+    response: {
+      type: "heading",
+      name: KnownHeading.response,
+      required: true,
+      process: (x) => extractResponseDefinitionFromTreeNode(x, routeTitle),
+    },
+  });
 
-  for (const child of node.children) {
-    if (!("heading" in child)) {
-      logger.warn(
-        `Unexpected node right under the Routes > ${routeTitle} section. Make sure to follow the required structure.`,
-      );
-      continue;
-    }
-    switch (cleanRender(child.heading)) {
-      case KnownHeading.request:
-        requestConfig = extractRequestDefinitionFromTreeNode(child, routeTitle);
-        break;
-      case KnownHeading.response:
-        response = extractResponseDefinitionFromTreeNode(child, routeTitle);
-        break;
-    }
-  }
-
-  if (response === undefined) {
-    throw new Error(`Route ${routeTitle} is missing a ${KnownHeading.response} section.`);
-  }
   return {
     request: { ...extractRouteInfoFromTitle(routeTitle), ...requestConfig },
     response,
