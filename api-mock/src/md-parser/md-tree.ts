@@ -1,4 +1,5 @@
 import * as commonmark from "commonmark";
+import { cleanRender } from "./md-utils";
 
 export interface MarkdownTreeNode {
   heading: commonmark.Node;
@@ -68,14 +69,4 @@ const dumpMarkdownTreeAtLevel = (node: MarkdownTreeNode, level: number) => {
 
 const dumpHeading = (headingNode: commonmark.Node) => {
   return cleanRender(headingNode);
-};
-
-const cleanRender = (node: commonmark.Node) => {
-  const walker = node.walker();
-  let current;
-  const results = [];
-  while ((current = walker.next())) {
-    results.push(current.node.literal);
-  }
-  return results.join(" ");
 };
