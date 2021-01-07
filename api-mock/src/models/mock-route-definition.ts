@@ -7,14 +7,14 @@ export interface MockRouteDefinition {
 
 export interface MockRouteRequestDefinition {
   url: string;
-  headers: { [key: string]: string };
   method: HttpMethod;
-  body: MockBody;
+  headers?: { [key: string]: string };
+  body?: MockBody;
 }
 
 export interface MockRouteResponseDefinition {
   status: number;
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
   body: MockBody;
 }
 

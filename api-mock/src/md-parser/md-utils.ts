@@ -13,3 +13,5 @@ export const cleanRender = (node: commonmark.Node): string => {
   }
   return results.join(" ").trim();
 };
+
+export const renderSectionPath = (path: string[]): string => path.join(" > ");

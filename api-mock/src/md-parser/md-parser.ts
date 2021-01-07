@@ -12,15 +12,24 @@ import {
   MockRouteRequestDefinition,
   MockRouteResponseDefinition,
 } from "../models";
+import { mapMarkdownTree } from "./md-mapper";
 import { convertToTree, dumpMarkdownTree, MarkdownTreeNode } from "./md-tree";
 import { cleanRender } from "./md-utils";
 
+/**
+ * Parse a markdown api definition file.
+ * @param path path to the file.
+ */
 export const parseMardownFile = async (path: string): Promise<MockRouteDefinitionGroup> => {
   logger.debug(`Reading file ${[path]}`);
   const content = await fs.promises.readFile(path);
   return parseMardown(content.toString());
 };
 
+/**
+ * Parse a markdown api definition.
+ * @param content Markdown content to parse.
+ */
 export const parseMardown = async (content: string): Promise<MockRouteDefinitionGroup> => {
   const parser = new commonmark.Parser();
   const parsed = parser.parse(content);
@@ -39,24 +48,36 @@ const KnownHeading = {
   body: "Body",
 };
 
+const foo = (tree: MarkdownTreeNode) => {
+  const result = mapMarkdownTree(["Root"], tree, {
+    common: {
+      type: "heading",
+      name: KnownHeading.common,
+      process: (x) => extractCommonFromTreeNode(x),
+    },
+    routes: {
+      type: "heading",
+      name: KnownHeading.routes,
+      process: (x) => extractRoutesFromTreeNode(x),
+    },
+  });
+};
 const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefinitionGroup => {
   const title = cleanRender(tree.heading);
-  let common: CommonDefinition | undefined;
-  let routes: MockRouteDefinition[] | undefined;
   logger.debug(`Title for document is '${title}'`);
 
-  for (const child of tree.children) {
-    if (!("heading" in child)) {
-      logger.warn("Unexpected node right under the title. Make sure to follow the required structure.");
-      continue;
-    }
-    const heading = cleanRender(child.heading);
-    if (heading === KnownHeading.common) {
-      common = extractCommonFromTreeNode(child);
-    } else if (heading === KnownHeading.routes) {
-      routes = extractRoutesFromTreeNode(child);
-    }
-  }
+  const { common, routes } = mapMarkdownTree(["Root"], tree, {
+    common: {
+      type: "heading",
+      name: KnownHeading.common,
+      process: (x) => extractCommonFromTreeNode(x),
+    },
+    routes: {
+      type: "heading",
+      name: KnownHeading.routes,
+      process: (x) => extractRoutesFromTreeNode(x),
+    },
+  });
 
   if (routes === undefined) {
     throw new Error(
@@ -186,10 +207,13 @@ const extractRouteFromTreeNode = (node: MarkdownTreeNode): MockRouteDefinition =
     }
   }
 
+  if (response === undefined) {
+    throw new Error(`Route ${routeTitle} is missing a ${KnownHeading.response} section.`);
+  }
   return {
     request: { ...extractRouteInfoFromTitle(routeTitle), ...requestConfig },
     response,
-  } as any;
+  };
 };
 
 /**
