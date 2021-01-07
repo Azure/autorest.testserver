@@ -1,4 +1,4 @@
-export type HttpMethod = "get" | "post" | "put" | "head" | "delete";
+export type HttpMethod = "get" | "post" | "put" | "patch" | "head" | "delete";
 
 export interface MockRouteDefinition {
   request: MockRouteRequestDefinition;

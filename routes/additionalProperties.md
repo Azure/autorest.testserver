@@ -20,7 +20,7 @@ headers:
 
 #### Request
 
-##### Body:
+##### Body
 
 ```json
 {
@@ -37,7 +37,6 @@ headers:
 status: 200
 headers:
   Header-Just-For-This: value
-  Header-Computed-From-Request: {request.headers["Someheader"]}
 ```
 
 ##### Body

@@ -8,6 +8,8 @@ import {
   CommonResponseDefinition,
   MockRouteDefinition,
   MockRouteDefinitionGroup,
+  MockRouteRequestDefinition,
+  MockRouteResponseDefinition,
 } from "../models";
 import { convertToTree, dumpMarkdownTree, MarkdownTreeNode } from "./md-tree";
 import { cleanRender } from "./md-utils";
@@ -24,7 +26,7 @@ export const parseMardown = async (content: string): Promise<MockRouteDefinition
   const tree = convertToTree(parsed);
   logger.debug(`Extracted structure\n${dumpMarkdownTree(tree)}`);
   const group = convertTreeToDefinitionGroup(tree);
-  logger.debug(`Extracted group: ${group}`);
+  logger.debug(`Extracted group: ${JSON.stringify(group, null, 2)}`);
   return [];
 };
 
@@ -33,6 +35,7 @@ const KnownHeading = {
   routes: "Routes",
   request: "Request",
   response: "Response",
+  body: "Body",
 };
 
 const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefinitionGroup => {
@@ -91,25 +94,142 @@ const extractCommonFromTreeNode = (tree: MarkdownTreeNode): CommonDefinition => 
   };
 };
 
-const extractYamlConfigFromTreeNode = <T>(tree: MarkdownTreeNode, sectionName: string): T => {
-  const child = tree.children[0];
+interface ExtractedCodeBlock {
+  language: "json" | "yaml" | "xml";
+  content: string;
+}
+
+const extractCodeBlockFromTreeNode = (node: MarkdownTreeNode, sectionName: string): ExtractedCodeBlock => {
+  const child = node.children[0];
   if (child === undefined) {
     throw new Error(`${sectionName} section must have a code block content but found nothing`);
   }
   if ("heading" in child) {
     throw new Error(`Unexpected heading '${cleanRender(child.heading)}' found in ${sectionName} section.`);
   }
-  if (child.type !== "code_block") {
-    throw new Error(`Unexpected element under ${sectionName} section. Expected code block but got ${child.type}`);
+  return extractCodeBlockFromMarkdownNode(child, sectionName);
+};
+
+const extractCodeBlockFromMarkdownNode = (node: commonmark.Node, sectionName: string): ExtractedCodeBlock => {
+  if (node.type !== "code_block") {
+    throw new Error(`Unexpected element under ${sectionName} section. Expected code block but got ${node.type}`);
   }
-  const result = child.literal && yaml.load(child.literal);
+
+  if (node.literal === null) {
+    throw new Error("Code block has not content under ${sectionName} section.");
+  }
+  return {
+    language: (node.info ?? "") as ExtractedCodeBlock["language"],
+    content: node.literal,
+  };
+};
+
+const extractYamlConfigFromTreeNode = <T>(node: MarkdownTreeNode, sectionName: string): T => {
+  const code = extractCodeBlockFromTreeNode(node, sectionName);
+  return convertCodeBlockToYaml(code, sectionName);
+};
+
+const extractYamlConfigFromMarkdownNode = <T>(node: commonmark.Node, sectionName: string): T => {
+  const code = extractCodeBlockFromMarkdownNode(node, sectionName);
+  return convertCodeBlockToYaml(code, sectionName);
+};
+
+const convertCodeBlockToYaml = <T>(code: ExtractedCodeBlock, sectionName: string) => {
+  if (code.language !== "yaml") {
+    throw new Error(
+      `Expected code block under section ${sectionName} to be yaml. But was defined as '${code.language}'`,
+    );
+  }
+  const result = yaml.load(code.content);
 
   if (result === undefined) {
-    throw new Error(`Couldn't parse yaml: ${child.literal}`);
+    throw new Error(`Couldn't parse yaml: ${code.content}`);
   }
   return (result as unknown) as T;
 };
 
-const extractRoutesFromTreeNode = (tree: MarkdownTreeNode): MockRouteDefinition[] => {
-  return undefined!;
+const extractRoutesFromTreeNode = (node: MarkdownTreeNode): MockRouteDefinition[] => {
+  const result = [];
+  for (const child of node.children) {
+    if (!("heading" in child)) {
+      logger.warn("Unexpected node right under the routes section. Make sure to follow the required structure.");
+      continue;
+    }
+    result.push(extractRouteFromTreeNode(child));
+  }
+  return result;
+};
+
+const extractRouteFromTreeNode = (node: MarkdownTreeNode): MockRouteDefinition => {
+  const routeTitle = cleanRender(node.heading);
+  logger.debug(`Found route '${routeTitle}'`);
+
+  let requestConfig: Partial<MockRouteRequestDefinition> | undefined;
+  let response: MockRouteResponseDefinition | undefined;
+
+  for (const child of node.children) {
+    if (!("heading" in child)) {
+      logger.warn(
+        `Unexpected node right under the Routes > ${routeTitle} section. Make sure to follow the required structure.`,
+      );
+      continue;
+    }
+    switch (cleanRender(child.heading)) {
+      case KnownHeading.request:
+        requestConfig = extractRequestDefinitionFromTreeNode(child, routeTitle);
+        break;
+      case KnownHeading.response:
+        response = extractYamlConfigFromTreeNode<CommonResponseDefinition>(child, "Common > Response");
+        break;
+    }
+  }
+
+  return {
+    request: { ...extractRouteInfoFromTitle(routeTitle), ...requestConfig },
+    response,
+  } as any;
+};
+
+/**
+ * Extract the method and url from the route title in this format `GET /myurl`
+ * @param title
+ */
+const extractRouteInfoFromTitle = (title: string): Pick<MockRouteRequestDefinition, "method" | "url"> => {
+  const [method, url] = title.toLowerCase().split(" ");
+  if (
+    method !== "get" &&
+    method !== "post" &&
+    method !== "put" &&
+    method !== "patch" &&
+    method !== "head" &&
+    method !== "delete"
+  ) {
+    throw new Error(`Unknown method type ${method} for  route '${title}'`);
+  }
+  return { method, url };
+};
+
+const extractRequestDefinitionFromTreeNode = (
+  node: MarkdownTreeNode,
+  routeTitle: string,
+): Partial<MockRouteRequestDefinition> => {
+  let result: Partial<MockRouteRequestDefinition> = {};
+
+  const sectionName = [KnownHeading.routes, routeTitle, KnownHeading.request].join(" > ");
+  for (const child of node.children) {
+    if ("heading" in child) {
+      const childTitle = cleanRender(child.heading);
+      switch (childTitle) {
+        case KnownHeading.body:
+          return null!;
+        default:
+          throw new Error(`Unexpected heading '${childTitle}' under section ${sectionName}`);
+      }
+    } else {
+      const config = extractYamlConfigFromMarkdownNode<Partial<MockRouteRequestDefinition>>(child, sectionName);
+      result = { ...result, ...config };
+    }
+  }
+
+  return result;
 };
