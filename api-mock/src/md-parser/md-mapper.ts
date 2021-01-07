@@ -2,27 +2,38 @@ import * as commonmark from "commonmark";
 import { MarkdownTreeNode } from "./md-tree";
 import { cleanRender, renderSectionPath } from "./md-utils";
 
+export type IsRequired<T> = T extends null | undefined ? false | undefined : true;
+
 export type TreeNodeMapping<T> = {
-  [P in keyof T]: MappingEntry<T[P]>;
+  [P in keyof T]: MappingEntry<NonNullable<T[P]>, IsRequired<T[P]>>;
 };
 
-export type MappingEntry<T> = HeadingMapping<T> | NodeMapping<T>;
+export type MappingEntry<T, TRequired extends boolean | undefined> =
+  | HeadingMapping<T, TRequired>
+  | NodeMapping<T, TRequired>;
 
-export type HeadingMapping<TResult> = {
+export type HeadingMapping<TResult, TRequired extends boolean | undefined> = {
   type: "heading";
   name: string;
+  required?: TRequired;
   process: (child: MarkdownTreeNode) => TResult;
 };
 
-export type NodeMapping<TResult> = {
+export type NodeMapping<TResult, TRequired extends boolean | undefined> = {
   type: "code_block"; // Only code block supported for now.
+  required?: TRequired;
   process: (child: commonmark.Node) => TResult;
 };
 
+// , TRequired extends boolean
 type WithKey<T> = T & { key: string };
-type HeadingMap = { [key: string]: WithKey<HeadingMapping<unknown>> };
+type HeadingMap = { [key: string]: WithKey<HeadingMapping<unknown, boolean>> };
 
-export const mapMarkdownTree = <T>(path: string[], node: MarkdownTreeNode, mapping: TreeNodeMapping<T>): Partial<T> => {
+export const mapMarkdownTree = <T>(
+  path: string[],
+  node: MarkdownTreeNode,
+  mapping: TreeNodeMapping<T>,
+): { [P in keyof T]: T[P] } => {
   const sectionName = renderSectionPath(path);
   const { headings, codeBlock } = processMappings(mapping);
 
@@ -48,8 +59,8 @@ export const mapMarkdownTree = <T>(path: string[], node: MarkdownTreeNode, mappi
 
 const processMappings = (mapping: TreeNodeMapping<unknown>) => {
   const headings: HeadingMap = {};
-  let codeBlock: WithKey<NodeMapping<unknown>> | undefined;
-  for (const [key, value] of Object.entries<MappingEntry<unknown>>(mapping)) {
+  let codeBlock: WithKey<NodeMapping<unknown, boolean>> | undefined;
+  for (const [key, value] of Object.entries<MappingEntry<unknown, boolean>>(mapping)) {
     switch (value.type) {
       case "heading":
         headings[value.name] = { key, ...value };

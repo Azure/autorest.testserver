@@ -58,6 +58,7 @@ const foo = (tree: MarkdownTreeNode) => {
     routes: {
       type: "heading",
       name: KnownHeading.routes,
+      required: true,
       process: (x) => extractRoutesFromTreeNode(x),
     },
   });
@@ -74,6 +75,7 @@ const convertTreeToDefinitionGroup = (tree: MarkdownTreeNode): MockRouteDefiniti
     },
     routes: {
       type: "heading",
+      required: true,
       name: KnownHeading.routes,
       process: (x) => extractRoutesFromTreeNode(x),
     },
