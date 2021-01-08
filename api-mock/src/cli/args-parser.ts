@@ -7,7 +7,14 @@ export const parseArgs = (argv: string[]): CliConfig => {
   const cli = yargs(argv)
     .help()
     .strict()
-    .command("$0 [include..]", "Start the server")
+    .command("$0 <include..>", "Start the server", (cmd) => {
+      return cmd.positional("include", {
+        description: "List of wildcard pattern/folder to search for definition files.",
+        type: "string",
+        array: true,
+        default: [],
+      });
+    })
     .option("verbose", {
       alias: "v",
       type: "boolean",
@@ -30,6 +37,5 @@ export const parseArgs = (argv: string[]): CliConfig => {
   const options = cli.argv;
   return {
     ...options,
-    include: options["_"].map((x) => x.toString()),
   };
 };

@@ -8,4 +8,9 @@ export interface CliConfig {
    * List of pattern containing definition files.
    */
   include: string[];
+
+  /**
+   * Port to serve the application.
+   */
+  port: number;
 }
