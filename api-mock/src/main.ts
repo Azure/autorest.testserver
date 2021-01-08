@@ -1,14 +1,15 @@
-import { parseMardownFile } from "./md-parser";
+import { ApiMockApp } from "./app";
+import { logger } from "./logger";
 
 const run = async () => {
-  const result = await parseMardownFile(
-    "/Users/timotheeguerin/dev/azsdk/autorest.testserver/routes/additionalProperties.md",
-  );
-  console.log("Result", result);
+  const app = new ApiMockApp({
+    port: 3008,
+    include: ["/Users/timotheeguerin/dev/azsdk/autorest.testserver/routes"],
+  });
+  await app.start();
 };
 
-
-run().catch(e => {
-    console.error("Error", e);
-    process.exit(1);
-})
+run().catch((e) => {
+  logger.error("Error", e);
+  process.exit(1);
+});
