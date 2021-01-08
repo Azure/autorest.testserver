@@ -9,7 +9,6 @@ export const findFilesFromPattern = async (include: string): Promise<string[]> =
       if (err) {
         reject(err);
       }
-      console.log("Matches", matches);
       resolve(matches);
     });
   });
