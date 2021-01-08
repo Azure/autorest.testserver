@@ -23,7 +23,11 @@ export class MockApiServer {
     const { request, response } = route;
     logger.info(`Registering route ${request.method} ${request.url}`);
     this.app.route(request.url)[request.method]((_, res) => {
-      res.status(response.status).contentType(response.body.contentType).send(response.body.content);
+      res
+        .status(response.status)
+        .set(response.headers)
+        .contentType(response.body.contentType)
+        .send(response.body.content);
     });
   }
 
