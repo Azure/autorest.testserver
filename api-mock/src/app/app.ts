@@ -1,15 +1,7 @@
 import { parseMardownFile } from "../md-parser";
 import { MockApiServer } from "../server";
 import { findFiles } from "../utils";
-
-export interface ApiMockAppConfig {
-  /**
-   * Pattern/folder to include.
-   */
-  include: string[];
-
-  port: number;
-}
+import { ApiMockAppConfig } from "./config";
 
 export class ApiMockApp {
   private server: MockApiServer;
