@@ -2,38 +2,39 @@ import * as commonmark from "commonmark";
 import { MarkdownTreeNode } from "./md-tree";
 import { cleanRender, renderSectionPath } from "./md-utils";
 
-export type IsRequired<T> = T extends null | undefined ? false | undefined : true;
-
-export type TreeNodeMapping<T> = {
-  [P in keyof T]: MappingEntry<NonNullable<T[P]>, IsRequired<T[P]>>;
+export type TreeNodeMapping<K extends string> = {
+  [P in K]: MappingEntry;
 };
 
-export type MappingEntry<T, TRequired extends boolean | undefined> =
-  | HeadingMapping<T, TRequired>
-  | NodeMapping<T, TRequired>;
+export type MappingEntry = HeadingMapping | NodeMapping;
 
-export type HeadingMapping<TResult, TRequired extends boolean | undefined> = {
+export type HeadingMapping = {
   type: "heading";
   name: string;
-  required?: TRequired;
-  process: (child: MarkdownTreeNode) => TResult;
+  required?: boolean;
+  process: (child: MarkdownTreeNode) => unknown;
 };
 
-export type NodeMapping<TResult, TRequired extends boolean | undefined> = {
+export type NodeMapping = {
   type: "code_block"; // Only code block supported for now.
-  required?: TRequired;
-  process: (child: commonmark.Node) => TResult;
+  required?: boolean;
+  process: (child: commonmark.Node) => unknown;
 };
 
-// , TRequired extends boolean
-type WithKey<T> = T & { key: string };
-type HeadingMap = { [key: string]: WithKey<HeadingMapping<unknown, boolean>> };
+export type InferType<T extends MappingEntry> = T extends { required: true }
+  ? RequiredType<T>
+  : RequiredType<T> | undefined;
 
-export const mapMarkdownTree = <T>(
+export type RequiredType<T extends MappingEntry> = T extends { process: (arg: never) => infer T } ? T : unknown;
+
+type WithKey<T> = T & { key: string };
+type HeadingMap = { [key: string]: WithKey<HeadingMapping> };
+
+export const mapMarkdownTree = <K extends string, U extends TreeNodeMapping<K>>(
   path: string[],
   node: MarkdownTreeNode,
-  mapping: TreeNodeMapping<T>,
-): { [P in keyof T]: T[P] } => {
+  mapping: U,
+): { [P in K]: InferType<U[P]> } => {
   const sectionName = renderSectionPath(path);
   const { headings, codeBlock } = processMappings(mapping);
 
@@ -56,13 +57,13 @@ export const mapMarkdownTree = <T>(
 
   validateRequiredMapping(sectionName, mapping, result);
 
-  return (result as unknown) as T;
+  return (result as unknown) as { [P in K]: InferType<U[P]> };
 };
 
-const processMappings = (mapping: TreeNodeMapping<unknown>) => {
+const processMappings = (mapping: TreeNodeMapping<string>) => {
   const headings: HeadingMap = {};
-  let codeBlock: WithKey<NodeMapping<unknown, boolean>> | undefined;
-  for (const [key, value] of Object.entries<MappingEntry<unknown, boolean>>(mapping)) {
+  let codeBlock: WithKey<NodeMapping> | undefined;
+  for (const [key, value] of Object.entries<MappingEntry>(mapping)) {
     switch (value.type) {
       case "heading":
         headings[value.name] = { key, ...value };
@@ -80,10 +81,10 @@ const processMappings = (mapping: TreeNodeMapping<unknown>) => {
 
 const validateRequiredMapping = (
   sectionName: string,
-  mapping: TreeNodeMapping<unknown>,
+  mapping: TreeNodeMapping<string>,
   result: { [key: string]: unknown },
 ) => {
-  for (const [key, value] of Object.entries<MappingEntry<unknown, boolean>>(mapping)) {
+  for (const [key, value] of Object.entries<MappingEntry>(mapping)) {
     if (value.required && result[key] === undefined) {
       const name = value.type === "heading" ? `heading named '${value.name}'` : value.type;
       throw new Error(`Error: expected section ${sectionName} to contain a ${name}`);
