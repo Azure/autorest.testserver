@@ -21,7 +21,8 @@
     "coverage-show": "node ./legacy/coverage/app-show",
     "show-results": "node ./legacy/coverage/app-show",
     "build": "rimraf ./__files && cpy ./swagger/* ./__files && cd __files && shx ls *.json > files.txt",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "start-md-test-server": "md-mock-api ./routes --port 3000"
   },
   "devDependencies": {
     "cpy-cli": "~2.0.0",
