@@ -9,8 +9,8 @@
 ```yaml
 status: 202
 headers:
-  "Azure-AsyncOperation": "{{request.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl"
-  "Location": "{{request.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/location"
+  Azure-AsyncOperation: "{{request.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl"
+  Location: "{{request.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/location"
 ```
 
 ## GET /lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl
