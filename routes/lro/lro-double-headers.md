@@ -21,7 +21,7 @@ headers:
 status: 200
 ```
 
-### Body
+#### Body
 
 ```json
 {
@@ -37,7 +37,7 @@ status: 200
 status: 200
 ```
 
-### Body
+#### Body
 
 ```json
 {
