@@ -9,7 +9,7 @@
 ```yaml
 status: 200
 body:
-  content: null
+  rawContent: null
 ```
 
 ## PUT /string/null
@@ -18,7 +18,7 @@ body:
 
 ```yaml
 body:
-  content: null
+  rawContent: null
 ```
 
 ### Response
@@ -35,7 +35,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '""'
+  rawContent: '""'
 ```
 
 ## PUT /string/empty
@@ -44,7 +44,7 @@ body:
 
 ```yaml
 body:
-  content: '""'
+  rawContent: '""'
 ```
 
 ### Response
@@ -61,7 +61,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '"    Now is the time for all good men to come to the aid of their country    "'
+  rawContent: '"    Now is the time for all good men to come to the aid of their country    "'
 ```
 
 ## PUT /string/whitespace
@@ -70,7 +70,7 @@ body:
 
 ```yaml
 body:
-  content: '"    Now is the time for all good men to come to the aid of their country    "'
+  rawContent: '"    Now is the time for all good men to come to the aid of their country    "'
 ```
 
 ### Response
@@ -95,7 +95,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"'
+  rawContent: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"'
 ```
 
 ## PUT /string/base64UrlEncoding
@@ -104,7 +104,7 @@ body:
 
 ```yaml
 body:
-  content: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"'
+  rawContent: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"'
 ```
 
 ### Response
@@ -121,7 +121,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjQ="'
+  rawContent: '"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjQ="'
 ```
 
 ## GET /string/nullBase64UrlEncoding
@@ -142,7 +142,7 @@ body:
 status: 200
 body:
   contentType: application/json
-  content: '"\u554a\u9f44\u4e02\u72db\u72dc\uf9f1\uf92c\uf9f1\ufa0c\ufa29\u02ca\u301e\u3021\uffe4\u2121\u3231\u2010\u30fc\ufe61\ufe62\ufe6b\u3001\u3013\u2170\u2179\u2488\u20ac\u3220\u3229\u2160\u216b\uff01\uffe3\u3041\u3093\u30a1\u30f6\u0391\ufe34\u0410\u042f\u0430\u044f\u0101\u0261\u3105\u3129\u2500\u254b\ufe35\ufe44\ufe3b\ufe31\ufe33\ufe34\u2170\u2179\u0251\ue7c7\u0261\u3007\u303e\u2ffb\u2e81\ue843\u4723\ue864\u20ac"'
+  rawContent: '"\u554a\u9f44\u4e02\u72db\u72dc\uf9f1\uf92c\uf9f1\ufa0c\ufa29\u02ca\u301e\u3021\uffe4\u2121\u3231\u2010\u30fc\ufe61\ufe62\ufe6b\u3001\u3013\u2170\u2179\u2488\u20ac\u3220\u3229\u2160\u216b\uff01\uffe3\u3041\u3093\u30a1\u30f6\u0391\ufe34\u0410\u042f\u0430\u044f\u0101\u0261\u3105\u3129\u2500\u254b\ufe35\ufe44\ufe3b\ufe31\ufe33\ufe34\u2170\u2179\u0251\ue7c7\u0261\u3007\u303e\u2ffb\u2e81\ue843\u4723\ue864\u20ac"'
 ```
 
 ## PUT /string/mbcs
@@ -151,7 +151,7 @@ body:
 
 ```yaml
 body:
-  content: '"\u554a\u9f44\u4e02\u72db\u72dc\uf9f1\uf92c\uf9f1\ufa0c\ufa29\u02ca\u301e\u3021\uffe4\u2121\u3231\u2010\u30fc\ufe61\ufe62\ufe6b\u3001\u3013\u2170\u2179\u2488\u20ac\u3220\u3229\u2160\u216b\uff01\uffe3\u3041\u3093\u30a1\u30f6\u0391\ufe34\u0410\u042f\u0430\u044f\u0101\u0261\u3105\u3129\u2500\u254b\ufe35\ufe44\ufe3b\ufe31\ufe33\ufe34\u2170\u2179\u0251\ue7c7\u0261\u3007\u303e\u2ffb\u2e81\ue843\u4723\ue864\u20ac"'
+  rawContent: '"\u554a\u9f44\u4e02\u72db\u72dc\uf9f1\uf92c\uf9f1\ufa0c\ufa29\u02ca\u301e\u3021\uffe4\u2121\u3231\u2010\u30fc\ufe61\ufe62\ufe6b\u3001\u3013\u2170\u2179\u2488\u20ac\u3220\u3229\u2160\u216b\uff01\uffe3\u3041\u3093\u30a1\u30f6\u0391\ufe34\u0410\u042f\u0430\u044f\u0101\u0261\u3105\u3129\u2500\u254b\ufe35\ufe44\ufe3b\ufe31\ufe33\ufe34\u2170\u2179\u0251\ue7c7\u0261\u3007\u303e\u2ffb\u2e81\ue843\u4723\ue864\u20ac"'
 ```
 
 ### Response
@@ -168,7 +168,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '"red color"'
+  rawContent: '"red color"'
 ```
 
 ## PUT /string/enum/notExpandable
@@ -178,7 +178,7 @@ body:
 ```yaml
 body:
   contentType: application/json
-  content: '"red color"'
+  rawContent: '"red color"'
 ```
 
 ### Response
@@ -195,7 +195,7 @@ status: 200
 status: 200
 body:
   contentType: application/json
-  content: '"red color"'
+  rawContent: '"red color"'
 ```
 
 ## PUT /string/enum/Referenced
@@ -205,7 +205,7 @@ body:
 ```yaml
 body:
   contentType: application/json
-  content: '"red color"'
+  rawContent: '"red color"'
 ```
 
 ### Response
