@@ -6,7 +6,7 @@ import { MockApiServer } from "../server";
 import { findFilesFromPattern } from "../utils";
 import { ApiMockAppConfig } from "./config";
 
-const ROUTE_FOLDER = path.join(__dirname, "../routes");
+const ROUTE_FOLDER = path.join(__dirname, "../test-routes");
 export class ApiMockApp {
   private server: MockApiServer;
 
