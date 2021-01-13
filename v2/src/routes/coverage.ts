@@ -10,6 +10,6 @@ router.get("/report/clear", (_req, res) => {
 });
 
 router.get("/report/:category?", (req, res) => {
-  const category = req.params.category?.toString();
+  const category = req.params.category?.toString() ?? "vanilla";
   return res.json(coverageService.getAllForCategory(category)).end();
 });

@@ -7,11 +7,20 @@ import { MockRequestHandler, processRequest } from "./request-processor";
 
 export type HttpMethod = "get" | "post" | "put" | "patch" | "delete" | "head";
 
+export type Category = "vanilla" | "azure" | "optional";
+
 export class MockApiRouter {
   public router: Router;
+  private currentCategory: Category | undefined;
 
   public constructor() {
     this.router = PromiseRouter();
+  }
+
+  public category(category: Category, callback: () => void) {
+    this.currentCategory = category;
+    callback();
+    this.currentCategory = undefined;
   }
 
   /**
@@ -85,7 +94,19 @@ export class MockApiRouter {
    */
   public request(method: HttpMethod, uri: string, name: string, func: MockRequestHandler): void {
     logger.info(`Registering route ${method} ${uri} (${name})`);
-    coverageService.register(undefined, name);
+    if (this.currentCategory === undefined) {
+      throw new Error(
+        [
+          `Cannot register route ${method} ${uri} (${name}), missing category.`,
+          `Please wrap it in:`,
+          `app.category("vanilla" | "azure", () => {`,
+          `  // app.get(...`,
+          `});`,
+          "",
+        ].join("\n"),
+      );
+    }
+    coverageService.register(this.currentCategory, name);
     this.router.route(uri)[method](async (req: RequestExt, res: Response) => {
       await processRequest(name, req, res, func);
     });

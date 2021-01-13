@@ -45,7 +45,7 @@ const report = function(coverage, azureCoverage, optionalCoverage) {
     Object.getOwnPropertyNames(coverage).forEach(function(val, idx, array) {
       optionalCoverage[val] = 0;
     });
-    res.status(200).send().end();
+     
 });
 }
 

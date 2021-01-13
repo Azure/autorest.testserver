@@ -2,40 +2,36 @@ export interface CoverageMap {
   [name: string]: number;
 }
 
-const defaultCategoryName = "__default__";
-
 export class CoverageService {
   private coverage: { [category: string]: CoverageMap } = {
     defaultCategoryName: {},
   };
 
-  public getAllForCategory(category: string | undefined): CoverageMap {
-    return this.coverage[getCategoryName(category)] ?? {};
+  public getAllForCategory(category: string): CoverageMap {
+    return this.coverage[category] ?? {};
   }
 
-  public track(category: string | undefined, name: string): void {
-    const categoryName = category ?? defaultCategoryName;
-    const map = this.coverage[categoryName];
+  public track(category: string, name: string): void {
+    const map = this.coverage[category];
     if (!map) {
-      throw new Error(`Unknown category '${categoryName}'`);
+      throw new Error(`Unknown category '${category}'`);
     }
 
     if (!(name in map)) {
-      throw new Error(`Unknown coverage name '${name}' in  '${categoryName}'`);
+      throw new Error(`Unknown coverage name '${name}' in  '${category}'`);
     }
 
     map[name] += 1;
   }
 
-  public register(category: string | undefined, name: string): void {
-    const categoryName = category ?? defaultCategoryName;
-    let map = this.coverage[categoryName];
+  public register(category: string, name: string): void {
+    let map = this.coverage[category];
     if (!map) {
-      map = this.coverage[categoryName] = {};
+      map = this.coverage[category] = {};
     }
 
     if (name in map) {
-      throw new Error(`Name '${name}' already exists in category '${categoryName}' make sure it is unique.`);
+      throw new Error(`Name '${name}' already exists in category '${category}' make sure it is unique.`);
     }
 
     map[name] = 0;
@@ -50,7 +46,4 @@ export class CoverageService {
   }
 }
 
-const getCategoryName = (category: string | undefined): string => {
-  return category ?? defaultCategoryName;
-};
 export const coverageService = new CoverageService();

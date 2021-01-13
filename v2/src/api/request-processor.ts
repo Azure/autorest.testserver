@@ -21,7 +21,7 @@ export const processRequest = async (
   }
 
   if (mockResponse.status >= 200 && mockResponse.status < 300) {
-    coverageService.track(undefined, name);
+    coverageService.track("vanilla", name);
   }
   processResponse(response, mockResponse);
 };
