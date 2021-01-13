@@ -43,11 +43,7 @@ export class CoverageService {
     }
 
     map[name] = 0;
-    try {
-      await this.saveCoverage(category);
-    } catch (e) {
-      console.log("e", e);
-    }
+    await this.saveCoverage(category);
   }
 
   public reset(): void {
