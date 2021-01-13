@@ -8,5 +8,5 @@ export interface MockResponse {
 
 export interface MockResponseBody {
   contentType: string;
-  rawContent: string;
+  rawContent: string | undefined;
 }

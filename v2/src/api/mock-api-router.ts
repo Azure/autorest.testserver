@@ -1,4 +1,5 @@
 import { Response, Router } from "express";
+import PromiseRouter from "express-promise-router";
 import { logger } from "../logger";
 import { RequestExt } from "../server";
 import { MockRequestHandler, processRequest } from "./request-processor";
@@ -9,7 +10,7 @@ export class MockApiRouter {
   public router: Router;
 
   public constructor() {
-    this.router = Router();
+    this.router = PromiseRouter();
   }
 
   /**
@@ -83,8 +84,8 @@ export class MockApiRouter {
    */
   public request(method: HttpMethod, uri: string, name: string, func: MockRequestHandler): void {
     logger.info(`Registering route ${method} ${uri} (${name})`);
-    this.router.route(uri)[method]((req: RequestExt, res: Response) => {
-      processRequest(name, req, res, func);
+    this.router.route(uri)[method](async (req: RequestExt, res: Response) => {
+      await processRequest(name, req, res, func);
     });
   }
 }
