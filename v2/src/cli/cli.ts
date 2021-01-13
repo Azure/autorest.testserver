@@ -12,7 +12,6 @@ import { CliConfig } from "./cli-config";
 const getAppConfig = (cliConfig: CliConfig): ApiMockAppConfig => {
   return {
     port: cliConfig.port,
-    include: cliConfig.include,
   };
 };
 

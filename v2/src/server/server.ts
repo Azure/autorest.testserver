@@ -40,6 +40,10 @@ export class MockApiServer {
     this.app.use(bodyParser.raw({ verify: rawBodySaver, type: "*/*" }));
   }
 
+  public use(route: string, ...handlers: RequestHandler[]): void {
+    this.app.use(route, ...handlers);
+  }
+
   public start(): void {
     this.app.use(errorHandler);
 

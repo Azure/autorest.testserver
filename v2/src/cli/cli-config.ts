@@ -5,11 +5,6 @@ export interface CliConfig {
   level?: string;
 
   /**
-   * List of pattern containing definition files.
-   */
-  include: string[];
-
-  /**
    * Port to serve the application.
    */
   port: number;
