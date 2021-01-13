@@ -10,7 +10,7 @@ app.get("/test", "GetMyTest", (req) => {
   };
 });
 
-app.post("/test", "GetMyTest2", (req) => {
+app.post("/test", "PostMyTest", (req) => {
   req.bodyEquals({ foo: "123", bar: "456" });
   return {
     status: 200,
