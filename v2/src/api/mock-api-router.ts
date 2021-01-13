@@ -17,7 +17,12 @@ export class MockApiRouter {
     this.router = PromiseRouter();
   }
 
-  public category(category: Category, callback: () => void) {
+  /**
+   * Set the category for the route definition inside of the provided function.
+   * @param category Category.
+   * @param callback Callback where are defined the mock routes.
+   */
+  public category(category: Category, callback: () => void): void {
     this.currentCategory = category;
     callback();
     this.currentCategory = undefined;
