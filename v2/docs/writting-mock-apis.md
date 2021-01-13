@@ -94,3 +94,17 @@ app.post("/example", "Example", (req) => {
   req.rawBodyEquals('"foo"');
 });
 ```
+
+### Custom validation
+
+You can do any kind of validation accessing the `req: MockRequest` object and deciding to return a different response in some cases.
+You can also always `throw` a `ValidationError` 
+
+Example:
+```ts
+app.post("/example", "Example", (req) => {
+  if(req.headers.MyCustomHeader.startsWith("x-foo")) {
+      throw new ValidationError("MyCustomHeader shouldn't start with x-foo", null, req.headers.MyCustomHeader);
+  }
+});
+```

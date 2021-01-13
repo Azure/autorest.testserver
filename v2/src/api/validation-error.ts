@@ -1,4 +1,10 @@
 export class ValidationError extends Error {
+  /**
+   * Error thrown there there is a validation issue.
+   * @param message Message describing the error.
+   * @param expected expected value.
+   * @param actual actual value.
+   */
   constructor(message: string, public expected: unknown | undefined, public actual: unknown | undefined) {
     super(message);
   }
