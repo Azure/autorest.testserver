@@ -8,4 +8,9 @@ export interface CliConfig {
    * Port to serve the application.
    */
   port: number;
+
+  /**
+   * Directory where the coverage reports should be saved.
+   */
+  coverageDirectory: string;
 }

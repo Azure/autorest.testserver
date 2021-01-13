@@ -3,6 +3,7 @@ import { app } from "../api";
 import { logger } from "../logger";
 import { internalRouter } from "../routes";
 import { MockApiServer } from "../server";
+import { coverageService } from "../services";
 import { findFilesFromPattern } from "../utils";
 import { ApiMockAppConfig } from "./config";
 
@@ -12,6 +13,7 @@ export class ApiMockApp {
   private server: MockApiServer;
 
   constructor(private config: ApiMockAppConfig) {
+    coverageService.coverageDirectory = config.coverageDirectory;
     this.server = new MockApiServer({ port: config.port });
   }
 

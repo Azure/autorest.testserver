@@ -1,3 +1,4 @@
+import { join } from "path";
 import yargs from "yargs";
 import { CliConfig } from "./cli-config";
 
@@ -25,6 +26,11 @@ export const parseArgs = (argv: string[]): CliConfig => {
       type: "number",
       description: "Port where to host the server",
       default: DEFAULT_PORT,
+    })
+    .option("coverageDirectory", {
+      type: "string",
+      description: "Path of the directory where the coverage reports should be saved.",
+      default: join(process.cwd(), "coverage"),
     });
 
   const options = cli.argv;

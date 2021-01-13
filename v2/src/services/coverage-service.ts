@@ -1,8 +1,15 @@
+import fs from "fs";
+import { join } from "path";
+import { logger } from "../logger";
+import { ensureDir } from "../utils";
+
 export interface CoverageMap {
   [name: string]: number;
 }
 
 export class CoverageService {
+  public coverageDirectory = "./coverage";
+
   private coverage: { [category: string]: CoverageMap } = {
     defaultCategoryName: {},
   };
@@ -11,7 +18,7 @@ export class CoverageService {
     return this.coverage[category] ?? {};
   }
 
-  public track(category: string, name: string): void {
+  public async track(category: string, name: string): Promise<void> {
     const map = this.coverage[category];
     if (!map) {
       throw new Error(`Unknown category '${category}'`);
@@ -22,9 +29,10 @@ export class CoverageService {
     }
 
     map[name] += 1;
+    await this.saveCoverage(category);
   }
 
-  public register(category: string, name: string): void {
+  public async register(category: string, name: string): Promise<void> {
     let map = this.coverage[category];
     if (!map) {
       map = this.coverage[category] = {};
@@ -35,6 +43,11 @@ export class CoverageService {
     }
 
     map[name] = 0;
+    try {
+      await this.saveCoverage(category);
+    } catch (e) {
+      console.log("e", e);
+    }
   }
 
   public reset(): void {
@@ -42,6 +55,18 @@ export class CoverageService {
       for (const name of Object.keys(categoryMap)) {
         categoryMap[name] = 0;
       }
+    }
+  }
+
+  private async saveCoverage(category: string) {
+    const categoryMap = this.coverage[category];
+    await ensureDir(this.coverageDirectory);
+    const path = join(this.coverageDirectory, `report-${category}.json`);
+
+    try {
+      await fs.promises.writeFile(path, JSON.stringify(categoryMap, null, 2));
+    } catch (e) {
+      logger.warn("Error while saving coverage", e);
     }
   }
 }

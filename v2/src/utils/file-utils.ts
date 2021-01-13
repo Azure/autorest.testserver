@@ -1,3 +1,4 @@
+import fs from "fs";
 import glob from "glob";
 
 export const findFilesFromPattern = async (pattern: string): Promise<string[]> => {
@@ -9,4 +10,12 @@ export const findFilesFromPattern = async (pattern: string): Promise<string[]> =
       resolve(matches);
     });
   });
+};
+
+/**
+ * Ensure the given dir exists.
+ * @param path Path to the dir.
+ */
+export const ensureDir = async (path: string): Promise<void> => {
+  await fs.promises.mkdir(path, { recursive: true });
 };
