@@ -1,6 +1,7 @@
 import path from "path";
 import { app } from "../api";
 import { logger } from "../logger";
+import { internalRouter } from "../routes";
 import { MockApiServer } from "../server";
 import { findFilesFromPattern } from "../utils";
 import { ApiMockAppConfig } from "./config";
@@ -14,14 +15,16 @@ export class ApiMockApp {
   }
 
   public async start(): Promise<void> {
-    await requireRoutes(ROUTE_FOLDER);
+    this.server.use("/", internalRouter);
+
+    await requireMockRoutes(ROUTE_FOLDER);
     const apiRouter = app;
     this.server.use("/", apiRouter.router);
     this.server.start();
   }
 }
 
-const requireRoutes = async (routesFolder: string) => {
+const requireMockRoutes = async (routesFolder: string) => {
   const files = await findFilesFromPattern(path.join(routesFolder, "/**/*.js"));
   logger.debug("Detected routes:", files);
   for (const file of files) {

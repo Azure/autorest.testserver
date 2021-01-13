@@ -2,7 +2,6 @@ import { ServerResponse } from "http";
 import bodyParser from "body-parser";
 import express, { ErrorRequestHandler, RequestHandler, Response } from "express";
 import morgan from "morgan";
-import { HttpMethod } from "../api";
 import { logger } from "../logger";
 import { cleanupBody } from "../utils";
 import { RequestExt } from "./request-ext";

@@ -1,6 +1,6 @@
 # Writing mock apis
 
-First step is to create a new file typescript file in the [src/routes](../src/routes) folder:
+First step is to create a new file typescript file in the [src/test-routes](../src/test-routes) folder:
 
 ## Example
 
