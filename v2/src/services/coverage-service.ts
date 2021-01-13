@@ -13,7 +13,7 @@ export class CoverageService {
     return this.coverage[getCategoryName(category)] ?? {};
   }
 
-  public track(category: string, name: string): void {
+  public track(category: string | undefined, name: string): void {
     const categoryName = category ?? defaultCategoryName;
     const map = this.coverage[categoryName];
     if (!map) {

@@ -1,6 +1,7 @@
 import { Response } from "express";
 import { logger } from "../logger";
 import { RequestExt } from "../server";
+import { coverageService } from "../services";
 import { MockRequest } from "./mock-request";
 import { MockResponse } from "./mock-response";
 import { ValidationError } from "./validation-error";
@@ -17,6 +18,10 @@ export const processRequest = async (
   const mockResponse = await callHandler(mockRequest, response, func);
   if (mockResponse === undefined) {
     return;
+  }
+
+  if (mockResponse.status >= 200 && mockResponse.status < 300) {
+    coverageService.track(undefined, name);
   }
   processResponse(response, mockResponse);
 };
