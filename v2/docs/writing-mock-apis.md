@@ -1,30 +1,35 @@
 # Writing mock apis
 
-First step is to create a new file typescript file in the [src/test-routes](../src/test-routes) folder:
+1. First step is to create a new file typescript file in the [src/test-routes](../src/test-routes) folder:
+1. All the needed imports are from the `api` folder
+1. Define the category for your apis using `app.category("vanilla" | "azure" | "optional", () => {})`
+1. Start writing mock apis inside the `category` callback
 
 ## Example
 
 ```ts
 import { app, json } from "../../api";
 
-app.get("/test", "GetMyTest", (req) => {
-  return {
-    status: 200,
-    body: json({
-      foo: "succeeded",
-      bar: "wut",
-    }),
-  };
-});
+app.category("vanilla", () => {
+  app.get("/test", "GetMyTest", (req) => {
+    return {
+      status: 200,
+      body: json({
+        foo: "succeeded",
+        bar: "wut",
+      }),
+    };
+  });
 
-app.post("/test", "PostMyTest", (req) => {
-  req.bodyEquals({ foo: "123", bar: "456" });
-  return {
-    status: 200,
-    body: json({
-      succeeded: true,
-    }),
-  };
+  app.post("/test", "PostMyTest", (req) => {
+    req.bodyEquals({ foo: "123", bar: "456" });
+    return {
+      status: 200,
+      body: json({
+        succeeded: true,
+      }),
+    };
+  });
 });
 ```
 
@@ -59,7 +64,6 @@ return {
 ```
 
 ### Return headers
-
 
 ```ts
 // Return json
@@ -100,13 +104,14 @@ app.post("/example", "Example", (req) => {
 ### Custom validation
 
 You can do any kind of validation accessing the `req: MockRequest` object and deciding to return a different response in some cases.
-You can also always `throw` a `ValidationError` 
+You can also always `throw` a `ValidationError`
 
 Example:
+
 ```ts
 app.post("/example", "Example", (req) => {
-  if(req.headers.MyCustomHeader.startsWith("x-foo")) {
-      throw new ValidationError("MyCustomHeader shouldn't start with x-foo", null, req.headers.MyCustomHeader);
+  if (req.headers.MyCustomHeader.startsWith("x-foo")) {
+    throw new ValidationError("MyCustomHeader shouldn't start with x-foo", null, req.headers.MyCustomHeader);
   }
 });
 ```
