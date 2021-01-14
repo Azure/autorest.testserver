@@ -26,7 +26,8 @@
     "clean": "rimraf dist/",
     "coverage-push": "node ./legacy/coverage/app-immediate-push",
     "coverage-show": "node ./legacy/coverage/app-show",
-    "show-results": "node ./legacy/coverage/app-show"
+    "show-results": "node ./legacy/coverage/app-show",
+    "prepublish": "npm run build"
   },
   "engines": {
     "node": ">=10"
