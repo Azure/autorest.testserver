@@ -1,5 +1,7 @@
 import { app, json } from "../../api";
-app.category("optional", () => {
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+app.category("example" as any, () => {
   app.get("/test", "GetMyTest", (req) => {
     return {
       status: 200,
