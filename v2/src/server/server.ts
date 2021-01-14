@@ -36,7 +36,6 @@ export class MockApiServer {
     this.app.use(morgan("dev", { stream: loggerstream }));
     this.app.use(bodyParser.json({ verify: rawBodySaver, strict: false }));
     this.app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
-    this.app.use(bodyParser.raw({ verify: rawBodySaver, type: "*/*" }));
   }
 
   public use(route: string, ...handlers: RequestHandler[]): void {
