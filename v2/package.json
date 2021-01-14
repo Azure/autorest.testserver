@@ -1,7 +1,10 @@
 {
-  "name": "md-mock-api",
+  "name": "@autorest/testserver",
   "version": "1.0.0",
   "description": "",
+  "bin": {
+    "autorest-testserver": "./dist/cli/cli.js"
+  },
   "main": "dist/cli/cli.js",
   "scripts": {
     "dev": "npm run watch",
