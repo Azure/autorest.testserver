@@ -101,5 +101,4 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
   console.log('Server started at port ' + addr.port);
-  utils.setPort(addr.port);
 }

@@ -9,6 +9,7 @@ import { ValidationError } from "./validation-error";
 export type MockRequestHandler = (req: MockRequest) => MockResponse | Promise<MockResponse>;
 
 export const processRequest = async (
+  category: string,
   name: string,
   request: RequestExt,
   response: Response,
@@ -21,7 +22,7 @@ export const processRequest = async (
   }
 
   if (mockResponse.status >= 200 && mockResponse.status < 300) {
-    await coverageService.track("vanilla", name);
+    await coverageService.track(category, name);
   }
   processResponse(response, mockResponse);
 };

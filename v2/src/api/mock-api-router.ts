@@ -111,9 +111,10 @@ export class MockApiRouter {
         ].join("\n"),
       );
     }
-    coverageService.register(this.currentCategory, name);
+    const category = this.currentCategory;
+    coverageService.register(category, name);
     this.router.route(uri)[method](async (req: RequestExt, res: Response) => {
-      await processRequest(name, req, res, func);
+      await processRequest(category, name, req, res, func);
     });
   }
 }

@@ -1,6 +1,6 @@
 import { RequestExt } from "../server";
+import { getRequestBaseUrl } from "../utils";
 import { validateBodyEquals, validateRawBodyEquals } from "./request-validations";
-import { ValidationError } from "./validation-error";
 
 export const BODY_NOT_EQUAL_ERROR_MESSAGE = "Body provided doesn't match expected body.";
 
@@ -9,7 +9,7 @@ export class MockRequest {
   public readonly headers: { [key: string]: string };
 
   public constructor(private originalRequest: RequestExt) {
-    this.baseUrl = `${originalRequest.protocol}://${originalRequest.get("host")}`;
+    this.baseUrl = getRequestBaseUrl(originalRequest);
     this.headers = originalRequest.headers as { [key: string]: string };
   }
 
