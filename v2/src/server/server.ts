@@ -14,6 +14,7 @@ const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   logger.error("Error", err);
   res.status(err.status || 500);
   res
+    .contentType("application/json")
     .send(err instanceof Error ? { name: err.name, message: err.message, stack: err.stack } : JSON.stringify(err))
     .end();
 };
@@ -36,6 +37,7 @@ export class MockApiServer {
     this.app.use(morgan("dev", { stream: loggerstream }));
     this.app.use(bodyParser.json({ verify: rawBodySaver, strict: false }));
     this.app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
+    this.app.use(bodyParser.text({ type: "*/pdf", verify: rawBodySaver }));
   }
 
   public use(route: string, ...handlers: RequestHandler[]): void {

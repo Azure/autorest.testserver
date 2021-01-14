@@ -30,7 +30,7 @@ app.category("vanilla", () => {
     return { status: 200 };
   });
 
-  app.get("/string/notProvided", "getNotProvided", (req) => {
+  app.get("/string/notProvided", "getStringNotProvided", (req) => {
     return {
       status: 200,
     };
@@ -123,7 +123,7 @@ app.category("vanilla", () => {
     };
   });
 
-  app.put("/string/enum/Referenced", "petEnumReferenced", (req) => {
+  app.put("/string/enum/Referenced", "putEnumReferenced", (req) => {
     req.rawBodyEquals('"red color"');
     return { status: 200 };
   });
@@ -135,7 +135,7 @@ app.category("vanilla", () => {
     };
   });
 
-  app.put("/string/enum/ReferencedConstant", "petEnumReferencedConstant", (req) => {
+  app.put("/string/enum/ReferencedConstant", "putEnumReferencedConstant", (req) => {
     req.bodyEquals({ ColorConstant: "green-color" });
     return { status: 200 };
   });

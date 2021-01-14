@@ -1,5 +1,5 @@
 import { app, json } from "../../api";
-app.category("vanilla", () => {
+app.category("optional", () => {
   app.get("/test", "GetMyTest", (req) => {
     return {
       status: 200,
