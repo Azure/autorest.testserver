@@ -1,5 +1,6 @@
 import path from "path";
 import { app } from "../api";
+import { registerLegacyRoutes } from "../legacy";
 import { logger } from "../logger";
 import { internalRouter } from "../routes";
 import { MockApiServer } from "../server";
@@ -21,6 +22,8 @@ export class ApiMockApp {
     this.server.use("/", internalRouter);
 
     await requireMockRoutes(ROUTE_FOLDER);
+    registerLegacyRoutes(this.server);
+
     const apiRouter = app;
     this.server.use("/", apiRouter.router);
     this.server.start();
