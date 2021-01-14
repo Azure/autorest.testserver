@@ -1,3 +1,3 @@
-import { resolve } from "path";
+import { join, resolve } from "path";
 
-export const ProjectRoot = resolve("..");
+export const ProjectRoot = resolve(join(__dirname), "..", "..");
