@@ -293,4 +293,4 @@ legacy/coverage/report-*.json
 __files/
 
 dist/
-v2/coverage/
+coverage/
