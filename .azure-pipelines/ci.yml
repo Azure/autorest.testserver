@@ -1,5 +1,6 @@
 name: Autorest Testserver CI
 trigger: none
+pr: true
 
 pool:
   vmImage: "ubuntu-latest"
