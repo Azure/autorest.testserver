@@ -18,7 +18,13 @@ export class CoverageService {
     return this.coverage[category] ?? {};
   }
 
-  public async track(category: string, name: string): Promise<void> {
+  /**
+   * Track usage of a scenario.
+   * @param category Category for the coverage
+   * @param name Name of the scenario.
+   * @param value {Optional} For legacy test set the value of the usage.
+   */
+  public async track(category: string, name: string, value?: number): Promise<void> {
     const map = this.coverage[category];
     if (!map) {
       throw new Error(`Unknown category '${category}'`);
@@ -32,7 +38,24 @@ export class CoverageService {
     await this.saveCoverage(category);
   }
 
-  public async register(category: string, name: string): Promise<void> {
+  /**
+   * For LEGACY test only.
+   * @depreacted
+   */
+  public legacyTrack(category: string, name: string, value: number): void {
+    let map = this.coverage[category];
+    if (!map) {
+      map = this.coverage[category] = {};
+    }
+
+    if (!(name in map)) {
+      map[name] = 0;
+    }
+
+    map[name] = value;
+  }
+
+  public register(category: string, name: string): void {
     let map = this.coverage[category];
     if (!map) {
       map = this.coverage[category] = {};
@@ -43,7 +66,6 @@ export class CoverageService {
     }
 
     map[name] = 0;
-    await this.saveCoverage(category);
   }
 
   public reset(): void {
