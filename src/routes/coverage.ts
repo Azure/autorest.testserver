@@ -4,7 +4,7 @@ import { coverageService } from "../services";
 const router = Router();
 export const coverageRouter = router;
 
-router.get("/report/clear", (_req, res) => {
+router.post("/report/clear", (_req, res) => {
   coverageService.reset();
   return res.status(200).send().end();
 });
