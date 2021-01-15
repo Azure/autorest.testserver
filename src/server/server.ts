@@ -1,4 +1,4 @@
-import { ServerResponse } from "http";
+import { Server, ServerResponse } from "http";
 import bodyParser from "body-parser";
 import express, { ErrorRequestHandler, RequestHandler, Response } from "express";
 import morgan from "morgan";
@@ -47,10 +47,15 @@ export class MockApiServer {
   public start(): void {
     this.app.use(errorHandler);
 
-    this.app.listen(this.config.port, () => {
-      logger.info(`Started server on port ${this.config.port}`);
+    const server = this.app.listen(0, () => {
+      logger.info(`Started server on ${getAddress(server)}`);
     });
   }
 }
 
 export type ServerRequestHandler = (request: RequestExt, response: Response) => void;
+
+const getAddress = (server: Server): string => {
+  const address = server?.address();
+  return typeof address === "string" ? "pipe " + address : "port " + address?.port;
+};
