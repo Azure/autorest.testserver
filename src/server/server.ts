@@ -47,7 +47,7 @@ export class MockApiServer {
   public start(): void {
     this.app.use(errorHandler);
 
-    const server = this.app.listen(0, () => {
+    const server = this.app.listen(this.config.port, () => {
       logger.info(`Started server on ${getAddress(server)}`);
     });
   }
