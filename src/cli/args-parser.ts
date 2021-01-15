@@ -1,5 +1,5 @@
 import { join } from "path";
-import yargs from "yargs";
+import yargs, { CommandModule } from "yargs";
 import { CliConfig } from "./cli-config";
 
 export const DEFAULT_PORT = 3000;
@@ -8,6 +8,8 @@ export const parseArgs = (argv: string[]): CliConfig => {
   const cli = yargs(argv)
     .help()
     .strict()
+    .command("$0", "Run the autorest test server.")
+    .command("stop", "Stop the autorest test server running at the provided port.")
     .option("verbose", {
       alias: "v",
       type: "boolean",
@@ -36,5 +38,7 @@ export const parseArgs = (argv: string[]): CliConfig => {
   const options = cli.argv;
   return {
     ...options,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    command: (options._[0] as any) ?? "run",
   };
 };

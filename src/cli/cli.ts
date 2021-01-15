@@ -4,23 +4,21 @@
 require("source-map-support").install();
 
 import { hideBin } from "yargs/helpers";
-import { ApiMockApp, ApiMockAppConfig } from "../app";
 import { logger, setLoggingLevelFromConfig } from "../logger";
 import { parseArgs } from "./args-parser";
-import { CliConfig } from "./cli-config";
-
-const getAppConfig = (cliConfig: CliConfig): ApiMockAppConfig => {
-  return {
-    coverageDirectory: cliConfig.coverageDirectory,
-    port: cliConfig.port,
-  };
-};
+import { stopCommand, runCommand } from "./commands";
 
 const run = async () => {
   const cliConfig = parseArgs(hideBin(process.argv));
   setLoggingLevelFromConfig(cliConfig);
-  const app = new ApiMockApp(getAppConfig(cliConfig));
-  await app.start();
+  switch (cliConfig.command) {
+    case "run":
+      await runCommand(cliConfig);
+      break;
+    case "stop":
+      await stopCommand(cliConfig);
+      break;
+  }
 };
 
 run().catch((e) => {
