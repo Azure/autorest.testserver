@@ -291,3 +291,6 @@ package-lock.json
 *.tgz
 legacy/coverage/report-*.json
 __files/
+
+dist/
+coverage/

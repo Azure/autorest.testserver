@@ -3,6 +3,8 @@ var router = express.Router();
 var util = require('util');
 var utils = require('../util/utils');
 
+const getRequestBaseUrl = (request) => `${request.protocol}://${request.get("host")}`;
+
 var getLRORetryPutScenarioName = function (initialCode, initialState, finalState, finalCode) {
   if (initialCode === 201 && initialState === 'Creating' && finalState === 'Succeeded' && finalCode === 200) {
     return 'LRORetryPutSucceededWithBody';
@@ -64,7 +66,7 @@ var lros = function (coverage) {
 
   coverage['LROPut202Retry200'] = 0;
   router.put('/put/202/retry/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/put/202/retry/operationResults/200';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/put/202/retry/operationResults/200';
     var headers = {
       'Location': pollingUri
     };
@@ -152,7 +154,7 @@ var lros = function (coverage) {
 
     var scenario = getLROAsyncScenarioName("putasync", retry, finalState);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/putasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -189,7 +191,7 @@ var lros = function (coverage) {
     var scenario = getLROAsyncScenarioName(operation, retry, finalState);
     console.log('In scenario: ' + scenario + '\n');
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -212,7 +214,7 @@ var lros = function (coverage) {
 
   coverage['LROPutNoHeaderInRetry'] = 0;
   router.put('/put/noheader/202/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/put/noheader/operationresults';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/put/noheader/operationresults';
     var headers = {
       'Location': pollingUri
     };
@@ -234,7 +236,7 @@ var lros = function (coverage) {
 
   coverage['LROPutAsyncNoHeaderInRetry'] = 0;
   router.put('/putasync/noheader/201/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putasync/noheader/operationresults/123';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/putasync/noheader/operationresults/123';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': 'somethingBadWhichShouldNotBeUsed'
@@ -261,7 +263,7 @@ var lros = function (coverage) {
 
   coverage['LRODeleteNoHeaderInRetry'] = 0;
   router.delete('/delete/noheader', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/delete/noheader/operationresults/123';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/delete/noheader/operationresults/123';
     var headers = {
       'Location': pollingUri
     };
@@ -283,7 +285,7 @@ var lros = function (coverage) {
 
   coverage['LRODeleteAsyncNoHeaderInRetry'] = 0;
   router.delete('/deleteasync/noheader/202/204', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/deleteasync/noheader/operationresults/123';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/deleteasync/noheader/operationresults/123';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': 'somethingBadWhichShouldNotBeUsed'
@@ -306,7 +308,7 @@ var lros = function (coverage) {
 
   coverage['LROPutSubResourceInRetry'] = 0;
   router.put('/putsubresource/202/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putsubresource/operationresults';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/putsubresource/operationresults';
     var headers = {
       'Location': pollingUri
     };
@@ -328,7 +330,7 @@ var lros = function (coverage) {
 
   coverage['LROPutSubResourceAsyncInRetry'] = 0;
   router.put('/putsubresourceasync/202/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putsubresourceasync/operationresults/123';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/putsubresourceasync/operationresults/123';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': 'somethingBadWhichShouldNotBeUsed'
@@ -355,7 +357,7 @@ var lros = function (coverage) {
 
   coverage['LROPutNonResourceInRetry'] = 0;
   router.put('/putnonresource/202/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putnonresource/operationresults';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/putnonresource/operationresults';
     var headers = {
       'Location': pollingUri
     };
@@ -377,7 +379,7 @@ var lros = function (coverage) {
 
   coverage['LROPutNonResourceAsyncInRetry'] = 0;
   router.put('/putnonresourceasync/202/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/putnonresourceasync/operationresults/123';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/putnonresourceasync/operationresults/123';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': 'somethingBadWhichShouldNotBeUsed'
@@ -425,7 +427,7 @@ var lros = function (coverage) {
     var finalCode = JSON.parse(req.params.finalCode);
     var scenario = getLRODeleteProvisioningScenarioName(initialCode, initialState, finalCode, finalState);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/delete/provisioning/' + initialCode + '/' + initialState.toLowerCase() + '/' + finalCode + '/' + finalState.toLowerCase();
+      var pollingUri = getRequestBaseUrl(req) + '/lro/delete/provisioning/' + initialCode + '/' + initialState.toLowerCase() + '/' + finalCode + '/' + finalState.toLowerCase();
       var headers = {
         'Location': pollingUri,
         'Retry-After': 0
@@ -475,7 +477,7 @@ var lros = function (coverage) {
     var finalCode = JSON.parse(req.params.finalCode);
     var scenario = getLRODeleteScenarioName(initialCode, retry, finalCode);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/delete/' + initialCode + '/' + retry + '/' + finalCode;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/delete/' + initialCode + '/' + retry + '/' + finalCode;
       var headers = {
         'Location': pollingUri
       };
@@ -511,7 +513,7 @@ var lros = function (coverage) {
 
     var scenario = getLROAsyncScenarioName("deleteasync", retry, finalState);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/deleteasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/deleteasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -536,7 +538,7 @@ var lros = function (coverage) {
     var scenario = getLROAsyncScenarioName(operation, retry, finalState);
     console.log('In scenario: ' + scenario + '\n');
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -574,7 +576,7 @@ var lros = function (coverage) {
     var finalCode = JSON.parse(req.params.finalCode);
     var scenario = getLROPostScenarioName(initialCode, retry, finalCode);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/post/' + initialCode + '/' + retry + '/' + finalCode;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/post/' + initialCode + '/' + retry + '/' + finalCode;
       var headers = {
         'Location': pollingUri
       };
@@ -594,7 +596,7 @@ var lros = function (coverage) {
     var finalCode = JSON.parse(req.params.finalCode);
     var scenario = getLROPostScenarioName(initialCode, retry, finalCode);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/post/newuri/' + initialCode + '/' + retry + '/' + finalCode;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/post/newuri/' + initialCode + '/' + retry + '/' + finalCode;
       var headers = {
         'Location': pollingUri
       };
@@ -627,7 +629,7 @@ var lros = function (coverage) {
 
   coverage['LROPost200'] = 0;
   router.post('/post/payload/200', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/post/payload/200';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/post/payload/200';
     var headers = {
       'Location': pollingUri,
       'Retry-After': 0
@@ -643,35 +645,14 @@ var lros = function (coverage) {
   });
 
   // Initial call is 202 with no body and Location and Azure-AsyncOperation
-  // Configured to follow Location
-  // Then, should poll Azure-AsyncOperation and see it's done
-  // Then, should do final GET on the initial Location
-  // ARM guidance ok, and implemented in VM capture after 2018-04-01
-  coverage['LROPostDoubleHeadersFinalLocationGet'] = 0;
-  router.post('/LROPostDoubleHeadersFinalLocationGet', function (req, res, next) {
-    var headers = {
-      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl',
-      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalLocationGet/location'
-    };
-    res.set(headers).status(202).end('');
-  });
-  router.get('/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl', function (req, res, next) {
-    res.status(200).type('json').end('{ "status": "succeeded"} ');
-  });
-  router.get('/LROPostDoubleHeadersFinalLocationGet/location', function (req, res, next) {
-    res.status(200).type('json').end('{ "id": "100", "name": "foo" }');
-    coverage['LROPostDoubleHeadersFinalLocationGet']++;
-  });
-
-  // Initial call is 202 with no body and Location and Azure-AsyncOperation
   // Configured to follow Azure-AsyncOperation
   // Then, should poll Azure-AsyncOperation and see it's done
   // VM capture before 2018-04-01
   coverage['LROPostDoubleHeadersFinalAzureHeaderGet'] = 0;
   router.post('/LROPostDoubleHeadersFinalAzureHeaderGet', function (req, res, next) {
     var headers = {
-      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl',
-      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/location'
+      'Azure-AsyncOperation': getRequestBaseUrl(req) + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/asyncOperationUrl',
+      'Location': getRequestBaseUrl(req) + '/lro/LROPostDoubleHeadersFinalAzureHeaderGet/location'
     };
     res.set(headers).status(202).end('');
   });
@@ -691,8 +672,8 @@ var lros = function (coverage) {
   coverage['LROPostDoubleHeadersFinalAzureHeaderGetDefault'] = 0;
   router.post('/LROPostDoubleHeadersFinalAzureHeaderGetDefault', function (req, res, next) {
     var headers = {
-      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGetDefault/asyncOperationUrl',
-      'Location': 'http://localhost:' + utils.getPort() + '/lro/LROPostDoubleHeadersFinalAzureHeaderGetDefault/location'
+      'Azure-AsyncOperation': getRequestBaseUrl(req) + '/lro/LROPostDoubleHeadersFinalAzureHeaderGetDefault/asyncOperationUrl',
+      'Location': getRequestBaseUrl(req) + '/lro/LROPostDoubleHeadersFinalAzureHeaderGetDefault/location'
     };
     res.set(headers).status(202).end('');
   });
@@ -707,8 +688,8 @@ var lros = function (coverage) {
   coverage['LROPostAndGetList'] = 0;
   router.post('/list', function (req, res, next) {
     var headers = {
-      'Azure-AsyncOperation': 'http://localhost:' + utils.getPort() + '/lro/list/pollingGet',
-      'Location': 'http://localhost:' + utils.getPort() + '/lro/list/finalGet'
+      'Azure-AsyncOperation': getRequestBaseUrl(req) + '/lro/list/pollingGet',
+      'Location': getRequestBaseUrl(req) + '/lro/list/finalGet'
     };
     res.set(headers).status(202).end();
   });
@@ -732,10 +713,10 @@ var lros = function (coverage) {
 
     var scenario = getLROAsyncScenarioName("postasync", retry, finalState);
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/postasync/' + retry + '/' + finalState.toLowerCase() + '/operationResults/200/';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
-        'Location': 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
+        'Location': getRequestBaseUrl(req) + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
       };
       if (retry === 'retry') {
         headers['Retry-After'] = 0;
@@ -757,10 +738,10 @@ var lros = function (coverage) {
     var scenario = getLROAsyncScenarioName(operation, retry, finalState);
     console.log('In scenario: ' + scenario + '\n');
     if (scenario) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
+      var pollingUri = getRequestBaseUrl(req) + '/lro/' + operation + '/' + retry + '/' + finalState.toLowerCase() + '/operationResults/' + code;
       var headers = {
         'Azure-AsyncOperation': pollingUri,
-        'Location': 'http://localhost:' + utils.getPort() + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
+        'Location': getRequestBaseUrl(req) + '/lro/postasync/' + retry + '/Succeeded/operationResults/foo/200/'
       };
       if (retry === 'retry') {
         headers['Retry-After'] = 0;
@@ -848,7 +829,7 @@ var lros = function (coverage) {
   coverage['LRORetryErrorPutAsyncSucceededPolling'] = 0;
   router.put('/retryerror/putasync/retry/succeeded', function (req, res, next) {
     var scenario = 'LRORetryErrorPutAsyncSucceeded';
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/putasync/retry/succeeded/operationResults/200';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/putasync/retry/succeeded/operationResults/200';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -894,7 +875,7 @@ var lros = function (coverage) {
       addScenarioCookie(res, scenario);
       res.status(500).end();
     } else {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/delete/provisioning/202/accepted/200/succeeded';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/delete/provisioning/202/accepted/200/succeeded';
       var headers = {
         'Location': pollingUri
       };
@@ -923,7 +904,7 @@ var lros = function (coverage) {
       addScenarioCookie(res, scenario);
       res.status(500).end();
     } else {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/delete/202/retry/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/delete/202/retry/200';
       var headers = {
         'Location': pollingUri
       };
@@ -952,9 +933,9 @@ var lros = function (coverage) {
       addScenarioCookie(res, scenario);
       res.status(500).end();
     } else {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/200';
       var headers = {
-        'Location': 'http://localhost:' + utils.getPort() + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/foo/200',
+        'Location': getRequestBaseUrl(req) + '/lro/retryerror/deleteasync/retry/succeeded/operationResults/foo/200',
         'Azure-AsyncOperation': pollingUri,
         'Retry-After': 0
       };
@@ -995,7 +976,7 @@ var lros = function (coverage) {
       addScenarioCookie(res, scenario);
       res.status(500).end();
     } else {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/post/202/retry/200/operationResults';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/post/202/retry/200/operationResults';
       var headers = {
         'Location': pollingUri
       };
@@ -1024,10 +1005,10 @@ var lros = function (coverage) {
       addScenarioCookie(res, scenario);
       res.status(500).end();
     } else {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/retryerror/postasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/retryerror/postasync/retry/succeeded/operationResults/200';
       var headers = {
         /*Passing absolute uri */
-        'Location': 'http://localhost:' + utils.getPort() + '/lro/retryerror/postasync/retry/succeeded/operationResults/foo/200',
+        'Location': getRequestBaseUrl(req) + '/lro/retryerror/postasync/retry/succeeded/operationResults/foo/200',
         'Azure-AsyncOperation': pollingUri,
         'Retry-After': 0
       };
@@ -1090,7 +1071,7 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryPutAsyncRetry400'] = 0;
   router.put('/nonretryerror/putasync/retry/400', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/nonretryerror/putasync/retry/failed/operationResults/400';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/nonretryerror/putasync/retry/failed/operationResults/400';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1112,7 +1093,7 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryDelete202Retry400'] = 0;
   router.delete('/nonretryerror/delete/202/retry/400', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/nonretryerror/delete/202/retry/400';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/nonretryerror/delete/202/retry/400';
     var headers = {
       'Location': pollingUri,
       'Retry-After': 0
@@ -1127,7 +1108,7 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryDeleteAsyncRetry400'] = 0;
   router.delete('/nonretryerror/deleteasync/retry/400', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/nonretryerror/deleteasync/retry/failed/operationResults/400';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/nonretryerror/deleteasync/retry/failed/operationResults/400';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1149,7 +1130,7 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryPost202Retry400'] = 0;
   router.post('/nonretryerror/post/202/retry/400', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/nonretryerror/post/202/retry/400';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/nonretryerror/post/202/retry/400';
     var headers = {
       'Location': pollingUri,
       'Retry-After': 0
@@ -1164,7 +1145,7 @@ var lros = function (coverage) {
 
   coverage['LRONonRetryPostAsyncRetry400'] = 0;
   router.post('/nonretryerror/postasync/retry/400', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/nonretryerror/postasync/retry/failed/operationResults/400';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/nonretryerror/postasync/retry/failed/operationResults/400';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1191,7 +1172,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorPutAsyncNoPollingStatus'] = 0;
   router.put('/error/putasync/retry/nostatus', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/putasync/retry/failed/operationResults/nostatus';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/putasync/retry/failed/operationResults/nostatus';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1211,7 +1192,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorPutAsyncNoPollingStatusPayload'] = 0;
   router.put('/error/putasync/retry/nostatuspayload', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/putasync/retry/failed/operationResults/nostatuspayload';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/putasync/retry/failed/operationResults/nostatuspayload';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1253,7 +1234,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorPutAsyncInvalidJsonPolling'] = 0;
   router.put('/error/putasync/retry/invalidjsonpolling', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/putasync/retry/failed/operationResults/invalidjsonpolling';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/putasync/retry/failed/operationResults/invalidjsonpolling';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1286,7 +1267,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorDeleteAsyncNoPollingStatus'] = 0;
   router.delete('/error/deleteasync/retry/nostatus', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/deleteasync/retry/failed/operationResults/nostatus';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/deleteasync/retry/failed/operationResults/nostatus';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1314,7 +1295,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorDeleteAsyncInvalidJsonPolling'] = 0;
   router.delete('/error/deleteasync/retry/invalidjsonpolling', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/deleteasync/retry/failed/operationResults/invalidjsonpolling';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/deleteasync/retry/failed/operationResults/invalidjsonpolling';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1347,7 +1328,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorPostAsyncNoPollingPayload'] = 0;
   router.post('/error/postasync/retry/nopayload', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/postasync/retry/failed/operationResults/nopayload';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/postasync/retry/failed/operationResults/nopayload';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1375,7 +1356,7 @@ var lros = function (coverage) {
 
   coverage['LROErrorPostAsyncInvalidJsonPolling'] = 0;
   router.post('/error/postasync/retry/invalidjsonpolling', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/error/postasync/retry/failed/operationResults/invalidjsonpolling';
+    var pollingUri = getRequestBaseUrl(req) + '/lro/error/postasync/retry/failed/operationResults/invalidjsonpolling';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
       'Location': pollingUri,
@@ -1392,7 +1373,7 @@ var lros = function (coverage) {
   router.put('/customheader/putasync/retry/succeeded', function (req, res, next) {
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/putasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/putasync/retry/succeeded/operationResults/200';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -1418,7 +1399,7 @@ var lros = function (coverage) {
     var header = req.get("x-ms-client-request-id");
     var scenario = 'CustomHeaderPutAsyncSucceded';
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/putasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/putasync/retry/succeeded/operationResults/200';
       var headers = {
         'Azure-AsyncOperation': pollingUri,
         'Location': pollingUri
@@ -1440,7 +1421,7 @@ var lros = function (coverage) {
   router.post('/customheader/postasync/retry/succeeded', function (req, res, next) {
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
       var headers = {
         'Azure-AsyncOperation': pollingUri
       };
@@ -1455,7 +1436,7 @@ var lros = function (coverage) {
     var header = req.get("x-ms-client-request-id");
     var scenario = 'CustomHeaderPostAsyncSucceded';
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/postasync/retry/succeeded/operationResults/200';
       var headers = {
         'Azure-AsyncOperation': pollingUri
       };
@@ -1499,7 +1480,7 @@ var lros = function (coverage) {
     var scenario = 'CustomHeaderPostSucceeded';
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/post/202/retry/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/post/202/retry/200';
       var headers = {
         'Location': pollingUri
       };
@@ -1514,7 +1495,7 @@ var lros = function (coverage) {
     var scenario = 'CustomHeaderPostSucceeded';
     var header = req.get("x-ms-client-request-id");
     if (header && header.toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      var pollingUri = 'http://localhost:' + utils.getPort() + '/lro/customheader/post/newuri/202/retry/200';
+      var pollingUri = getRequestBaseUrl(req) + '/lro/customheader/post/newuri/202/retry/200';
       var headers = {
         'Location': pollingUri
       };

@@ -3,6 +3,8 @@ var router = express.Router();
 var util = require('util');
 var utils = require('../util/utils');
 
+const getRequestBaseUrl = (request) => `${request.protocol}://${request.get("host")}`;
+
 var hasScenarioCookie = function(req, scenario) {
   var cookies = req.headers['cookie'];
   var cookieMatch;
@@ -55,7 +57,7 @@ var paging = function(coverage) {
 
   router.get('/nullnextlink', function(req, res, next) {
     coverage["PagingNextLinkNameNull"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/idontexistraise404" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":getRequestBaseUrl(req) + "/paging/idontexistraise404" });
   });
 
   router.get('/single', function(req, res, next) {
@@ -66,13 +68,13 @@ var paging = function(coverage) {
   router.get('/multiple', function(req, res, next) {
 
     coverage["PagingMultiple"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/page/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":getRequestBaseUrl(req) + "/paging/multiple/page/2" });
   });
 
   router.get('/multiple/getWithQueryParams', function(req, res, next) {
     // No coverage added here, gets added in next operation nextOperationWithQueryParams
     if (req.query['requiredQueryParameter'] == '100' && req.query['queryConstant'] == 'true') {
-      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/nextOperationWithQueryParams" });
+      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":getRequestBaseUrl(req) + "/paging/multiple/nextOperationWithQueryParams" });
     }
     else{
         utils.send400(res, next, 'The query parameters to getWithQueryParams were not passed correctly');
@@ -91,7 +93,7 @@ var paging = function(coverage) {
 
   router.get('/multiple/page/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/" + (++req.params.pagenumber) });
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/page/" + (++req.params.pagenumber) });
     } else {
       res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
     }
@@ -100,12 +102,12 @@ var paging = function(coverage) {
   router.get('/multiple/odata', function(req, res, next) {
 
     coverage["PagingOdataMultiple"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "odata.nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/odata/page/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "odata.nextLink":getRequestBaseUrl(req) + "/paging/multiple/odata/page/2" });
   });
 
   router.get('/multiple/odata/page/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "odata.nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/odata/page/" + (++req.params.pagenumber) });
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "odata.nextLink": getRequestBaseUrl(req) + "/paging/multiple/odata/page/" + (++req.params.pagenumber) });
     } else {
       res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
     }
@@ -114,12 +116,12 @@ var paging = function(coverage) {
   router.get('/multiple/withpath/:offset', function(req, res, next) {
 
     coverage["PagingMultiplePath"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":"http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/" + req.params.offset + "/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink":getRequestBaseUrl(req) + "/paging/multiple/withpath/page/" + req.params.offset + "/2" });
   });
 
   router.get('/multiple/withpath/page/:offset/:pagenumber', function(req, res, next) {
     if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber) + parseInt(req.params.offset), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/withpath/page/" + req.params.offset + "/" + ++req.params.pagenumber});
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber) + parseInt(req.params.offset), "name": "product"}} ], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/withpath/page/" + req.params.offset + "/" + ++req.params.pagenumber});
     } else {
       res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber) + parseInt(req.params.offset), "name": "product"}} ]});
     }
@@ -133,12 +135,12 @@ var paging = function(coverage) {
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/page/2" });
+      res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/page/2" });
     }
   });
 
   router.get('/multiple/retrysecond', function(req, res, next) {
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/retrysecond/page/2" });
   });
 
   router.get('/multiple/retrysecond/page/:pagenumber', function(req, res, next) {
@@ -150,10 +152,10 @@ var paging = function(coverage) {
       } else {
         coverage[scenario]++;
         removeScenarioCookie(res);
-        res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/3" });
+        res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/retrysecond/page/3" });
       }
     } else if (req.params.pagenumber < 10) {
-      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/retrysecond/page/" + (++req.params.pagenumber)});
+      res.status(200).json({ "values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/retrysecond/page/" + (++req.params.pagenumber)});
     } else {
       res.status(200).json({"values": [ {"properties":{"id" : parseInt(req.params.pagenumber), "name": "product"}} ]});
     }
@@ -221,10 +223,10 @@ var paging = function(coverage) {
 
   /*** PAGEABLE LROs ***/
   router.post('/multiple/lro', function (req, res, next) {
-    var pollingUri = 'http://localhost:' + utils.getPort() + '/paging/multiple/lro/200';
+    var pollingUri = getRequestBaseUrl(req) + '/paging/multiple/lro/200';
     var headers = {
       'Azure-AsyncOperation': pollingUri,
-      'Location': 'http://localhost:' + utils.getPort() + '/paging/multiple',
+      'Location': getRequestBaseUrl(req) + '/paging/multiple',
       'Retry-After': 0
     };
     res.set(headers).status(202).json({ "status": "Accepted"});
@@ -243,7 +245,7 @@ var paging = function(coverage) {
 
   router.get('/multiple/failure', function(req, res, next) {
     coverage["PagingMultipleFailure"]++;
-    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": "http://localhost:" + utils.getPort() + "/paging/multiple/failure/page/2" });
+    res.status(200).json({ "values" : [ {"properties":{"id": 1, "name": "Product" }}], "nextLink": getRequestBaseUrl(req) + "/paging/multiple/failure/page/2" });
   });
 
   router.get('/multiple/failure/page/:pagenumber', function(req, res, next) {

@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-const { existsSync } = require('fs');
-const { resolve } = require('path');
-const { execute, queryUser, httpPost } = require('./process');
-const { yellow, red, green, white, gray, cyan} = require('chalk');
+const { execute, queryUser } = require('./process');
+const { yellow, gray, cyan} = require('chalk');
 
 function prepend( color,pText ,text) {
   return text.replace( /^/gm, `${color(pText)} `)
@@ -22,7 +20,7 @@ function prepend( color,pText ,text) {
 let wrappedExitCode = 0;
 
 async function main() {
-
+  console.log(yellow("WARNING: start-autorest-express is deprecated use autorest-testserver instead."));
   const cmdArgs = [];
   const switches = [];
   let switchChecking = true;
@@ -53,7 +51,7 @@ async function main() {
   })
 
   try {
-    await execute(process.execPath, [`${__dirname}/../legacy/startup/shutdown.js`]);
+    await execute(process.execPath, [`${__dirname}/../dist/cli/cli.js`, "stop"]);
     verbose('Shutting down existing Express instance.')
   } catch (e) {
     verbose('Express was not running previously.')
@@ -62,33 +60,33 @@ async function main() {
 
   // start the express process
   verbose('Starting Express Server.')
-  const spResult = execute(process.execPath, [`${__dirname}/../legacy/startup/www.js`], {
+  const spResult = execute(process.execPath, [`${__dirname}/../dist/cli/cli.js`], {
     onCreate: (proc) => {
       serverProc = proc;
-      proc.on('close', ()=>{
-        if( cmdProc && cmdProc.status === null ) {
+      proc.on("close", () => {
+        if (cmdProc && cmdProc.status === null) {
           cmdProc.kill();
         }
-        if( interactive ) {
+        if (interactive) {
           process.exit(0);
         }
-      })
+      });
     },
     onStdOutData: (chunk) => {
-      const c = chunk.toString().replace(/\s*$/, '');
+      const c = chunk.toString().replace(/\s*$/, "");
       if (showMessages) {
-        console.log(prepend( gray, '[Express]', c));
+        console.log(prepend(gray, "[Express]", c));
       }
       if (/Server started/.exec(c)) {
         spResolve();
       }
     },
     onStdErrData: (chunk) => {
-      const c = chunk.toString().replace(/\s*$/, '');
+      const c = chunk.toString().replace(/\s*$/, "");
       if (showMessages) {
-        console.log(prepend( yellow.dim, '[Express]', c ));
+        console.log(prepend(yellow.dim, "[Express]", c));
       }
-    }
+    },
   });
 
   // when it's ready, run the command line
@@ -125,7 +123,7 @@ async function main() {
   // shutdown server process
   verbose('Shutting down Express.');
   try {
-    await execute(process.execPath, [`${__dirname}/../legacy/startup/shutdown.js`]);
+    await execute(process.execPath, [`${__dirname}/../dist/cli/cli.js`, "stop"]);
     verbose('Shutting down existing Express instance.')
   } catch (e) {
     // who cares.

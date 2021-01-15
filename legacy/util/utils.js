@@ -22,15 +22,6 @@ exports.coerceDate = function(targetObject) {
   return JSON.parse(stringRep);
 };
 
-exports.setPort = function(port)
-{
-  serverPort = port;
-}
-
-exports.getPort = function () {
-	return serverPort;
-}
-
 exports.toPascalCase = function(input) {
 	return '' + input.charAt(0).toUpperCase() + input.slice(1);
 }

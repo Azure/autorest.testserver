@@ -10,11 +10,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Start Server",
-      "program": "${workspaceRoot}/legacy/startup/www.js",
-      "env": {
-        "PORT": "3000"
-      }
+      "name": "Run server",
+      "program": "${workspaceFolder}/src/cli/cli.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "console": "integratedTerminal",
+      "sourceMaps": true,
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

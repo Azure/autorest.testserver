@@ -1,0 +1,31 @@
+name: Autorest Testserver CI
+trigger: none
+pr: 
+  - master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+jobs:
+  - job: main
+    displayName: "Build and test"
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: "14.x"
+        displayName: "Install Node.js"
+
+      - script: |
+          npm install -g npm
+          npm install
+        displayName: "Install dependencies"
+
+      - script: |
+          npm run build
+        displayName: "Build"
+
+      - script: npm run test:ci
+        displayName: Test
+
+      - script: npm run lint
+        displayName: Lint
