@@ -29,6 +29,8 @@ function getEntrypoint() {
 }
 
 async function main() {
+  console.log(yellow("WARNING: start-autorest-wiremock is deprecated use autorest-testserver instead."));
+
   const wmFolderPath = getEntrypoint();
 
   const cmdArgs = [];

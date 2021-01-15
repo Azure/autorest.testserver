@@ -4,7 +4,9 @@
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
-    "autorest-testserver": "./dist/cli/cli.js"
+    "autorest-testserver": "./dist/cli/cli.js",
+    "start-autorest-express": "./.scripts/start-autorest-express.js",
+    "start-autorest-wiremock": "./.scripts/start-autorest-wiremock.js"
   },
   "repository": {
     "type": "git",
@@ -78,6 +80,7 @@
     "ts-jest": "^26.4.4",
     "underscore": "^1.12.0",
     "winston": "~3.3.3",
+    "wiremock": "^2.27.2",
     "xml2js": "^0.4.23",
     "yargs": "^16.2.0"
   }
