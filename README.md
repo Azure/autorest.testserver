@@ -4,6 +4,13 @@
 
 - `Node.js`
 
+Recommended:
+- VSCode, with the following plugins
+    - Prettier
+    - ESLint
+    - EditorConfig
+
+
 ## Getting started
 
 ```bash
