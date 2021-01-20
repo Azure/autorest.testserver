@@ -1,0 +1,29 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "No Host Service Client",
+      "description": "Service client with no host defined in swagger. Users need to pass in 'http://localhost:3000' as the base url, and that param on the service client needs to be required.",
+      "version": "1.0.0"
+    },
+	"schemes": [
+		"http"
+    ],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/noHost/verify": {
+        "get": {
+          "description": "This operation is used to validate 'http://localhost:3000' has been passed as the base endpoint to the client.",
+          "operationId": "verifyHost",
+          "responses": {
+            "200": {
+              "description": "Hit correct url.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+}
