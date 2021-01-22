@@ -34,3 +34,4 @@ jobs:
           npm link
           autorest-testserver validate-spec-coverage
         displayName: Validate OpenAPI specs mock API coverage
+        continueOnError: true
