@@ -10,6 +10,7 @@ export const parseArgs = (argv: string[]): CliConfig => {
     .strict()
     .command("$0", "Run the autorest test server.")
     .command("stop", "Stop the autorest test server running at the provided port.")
+    .command("validate-spec-coverage", "Validate there is a mock api for all the path defined in the specs")
     .option("verbose", {
       alias: "v",
       type: "boolean",
