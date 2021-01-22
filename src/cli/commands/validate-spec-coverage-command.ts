@@ -1,7 +1,9 @@
 import { join } from "path";
+import { Router } from "express";
 import { app, HttpMethod } from "../../api";
 import { requireMockRoutes, ROUTE_FOLDER } from "../../app";
 import { ProjectRoot } from "../../constants";
+import { registerLegacyRoutes } from "../../legacy";
 import { logger } from "../../logger";
 import { getPathsFromSpecs, SpecPath } from "../../services";
 import { findFilesFromPattern } from "../../utils";
@@ -18,10 +20,7 @@ export const validateSpecCoverageCommand = async (cliConfig: CliConfig): Promise
   const paths = await getPathsFromSpecs(files);
   logger.info(`Found ${paths.length} paths.`);
 
-  await requireMockRoutes(ROUTE_FOLDER);
-  const apiRouter = app;
-
-  const registeredPaths: Layer[] = apiRouter.router.stack.filter((x) => x.route);
+  const registeredPaths = await loadRegisteredRoutes();
   logger.info(`Found ${registeredPaths.length} mock paths.`);
 
   const errors = findSpecCoverageErrors(paths, registeredPaths);
@@ -81,4 +80,28 @@ const validateRouteDefined = (path: SpecPath, registeredPaths: Layer[]): HttpMet
   }
 
   return path.methods.filter((x) => !methodFound[x]);
+};
+
+const loadRegisteredRoutes = async (): Promise<Layer[]> => {
+  await requireMockRoutes(ROUTE_FOLDER);
+  const apiRouter = app;
+
+  const legacyRouter = Router();
+  registerLegacyRoutes(legacyRouter);
+
+  return [...apiRouter.router.stack, ...legacyRouter.stack].flatMap((x) => findRoutesFromMiddleware(x));
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const findRoutesFromMiddleware = (middleware: any): Layer[] => {
+  let routes: Layer[] = [];
+  if (middleware.route) {
+    routes.push(middleware);
+  } else if (middleware.name === "router") {
+    for (const nested of middleware.handle.stack) {
+      routes = routes.concat(findRoutesFromMiddleware(nested));
+    }
+  }
+
+  return routes;
 };
