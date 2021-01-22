@@ -6,7 +6,7 @@ app.category("vanilla", () => {
       body: {
         contentType: "text/html",
         rawContent: "foobar",
-      }
+      },
     };
   });
 });
