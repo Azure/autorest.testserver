@@ -1,6 +1,6 @@
 name: Autorest Testserver CI
 trigger: none
-pr: 
+pr:
   - master
 
 pool:
@@ -29,3 +29,8 @@ jobs:
 
       - script: npm run lint
         displayName: Lint
+
+      - script: |
+          npm link
+          autorest-testserver validate-spec-coverage
+        displayName: Validate OpenAPI specs mock API coverage

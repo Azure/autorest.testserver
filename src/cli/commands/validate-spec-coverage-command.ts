@@ -1,7 +1,6 @@
 import { join } from "path";
-import { firstCharLowerCase } from "xml2js/lib/processors";
 import { app, HttpMethod } from "../../api";
-import { ApiMockApp, requireMockRoutes, ROUTE_FOLDER } from "../../app";
+import { requireMockRoutes, ROUTE_FOLDER } from "../../app";
 import { ProjectRoot } from "../../constants";
 import { logger } from "../../logger";
 import { getPathsFromSpecs, SpecPath } from "../../services";
