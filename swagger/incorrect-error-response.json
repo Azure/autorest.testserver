@@ -1,0 +1,51 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Incorrect Returned Error Model",
+      "description": "Test to see when throwing an HttpResponseError whether we swallow error model deserialization errors",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+      "http"
+    ],
+    "produces": [
+      "text/html"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "paths": {
+      "/incorrectError": {
+        "get": {
+          "operationId": "getIncorrectErrorFromServer",
+          "description": "Get an error response from the server that is not as described in our Error object. Want to swallow the deserialization error and still return an HttpResponseError to the users.",
+          "responses": {
+            "200": {
+              "description": "We will only return an error, so should expect a call to this service to fail."
+            },
+            "default": {
+              "description": "Error response from server. Will not abide by the defined Error model. Want to swallow the deserialization error and still return the overall HttpResponseError to users.",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Error": {
+        "type":  "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
