@@ -3,6 +3,7 @@
 /**
  * This file handles loading the legacy test server routes.
  */
+import { Router } from "express";
 import { Category } from "../api";
 import { ProjectRoot } from "../constants";
 import { MockApiServer } from "../server";
@@ -68,7 +69,7 @@ const proxyCoverage = (category: Category, coverage: CoverageMap) => {
   });
 };
 
-export const registerLegacyRoutes = (app: MockApiServer): void => {
+export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   const azurecoverage = proxyCoverage("azure", {});
   const optionalCoverage = proxyCoverage("optional", {
     getDecimalInvalid: 0,

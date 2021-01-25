@@ -17,5 +17,5 @@ export interface CliConfig {
   /**
    * Command to use
    */
-  command: "run" | "stop";
+  command: "run" | "stop" | "validate-spec-coverage";
 }

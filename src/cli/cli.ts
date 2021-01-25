@@ -6,7 +6,7 @@ require("source-map-support").install();
 import { hideBin } from "yargs/helpers";
 import { logger, setLoggingLevelFromConfig } from "../logger";
 import { parseArgs } from "./args-parser";
-import { stopCommand, runCommand } from "./commands";
+import { stopCommand, runCommand, validateSpecCoverageCommand } from "./commands";
 
 const run = async () => {
   const cliConfig = parseArgs(hideBin(process.argv));
@@ -17,6 +17,9 @@ const run = async () => {
       break;
     case "stop":
       await stopCommand(cliConfig);
+      break;
+    case "validate-spec-coverage":
+      await validateSpecCoverageCommand(cliConfig);
       break;
   }
 };

@@ -8,7 +8,7 @@ import { coverageService } from "../services";
 import { findFilesFromPattern } from "../utils";
 import { ApiMockAppConfig } from "./config";
 
-const ROUTE_FOLDER = path.join(__dirname, "../test-routes");
+export const ROUTE_FOLDER = path.join(__dirname, "../test-routes");
 
 export class ApiMockApp {
   private server: MockApiServer;
@@ -30,7 +30,7 @@ export class ApiMockApp {
   }
 }
 
-const requireMockRoutes = async (routesFolder: string) => {
+export const requireMockRoutes = async (routesFolder: string): Promise<void> => {
   const files = await findFilesFromPattern(path.join(routesFolder, "/**/*.js"));
   logger.debug("Detected routes:", files);
   for (const file of files) {
