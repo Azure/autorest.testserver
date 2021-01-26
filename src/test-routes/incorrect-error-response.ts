@@ -1,7 +1,7 @@
 import { app, json } from "../api";
 import { coverageService } from "../services";
 app.category("vanilla", () => {
-  app.get("/incorrectError", "verifyIncorrectErrorParsing", async(req) => {
+  app.get("/incorrectError", "verifyIncorrectErrorParsing", async (req) => {
     await coverageService.track("vanilla", "verifyIncorrectErrorParsing");
     return {
       status: 444,
