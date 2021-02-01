@@ -15,7 +15,7 @@ app.category("vanilla", () => {
     req.rawBodyEquals("<ModelWithByteProperty><Bytes>SGVsbG8gd29ybGQ=</Bytes></ModelWithByteProperty>");
     return { status: 201 };
   });
-  
+
   app.get("/xml/url", "XmlGetUrl", (req) => {
     return {
       status: 200,
@@ -27,7 +27,9 @@ app.category("vanilla", () => {
   });
 
   app.put("/xml/url", "XmlPutUrl", (req) => {
-    req.rawBodyEquals("<ModelWithUrlProperty><Url>https://myaccount.blob.core.windows.net/</Url></ModelWithUrlProperty>");
+    req.rawBodyEquals(
+      "<ModelWithUrlProperty><Url>https://myaccount.blob.core.windows.net/</Url></ModelWithUrlProperty>",
+    );
     return { status: 201 };
   });
 });
