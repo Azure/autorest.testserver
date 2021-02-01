@@ -49,7 +49,6 @@ const paging = requireLegacy("paging");
 const pathitem = requireLegacy("pathitem");
 const paths = requireLegacy("paths");
 const queries = requireLegacy("queries");
-const reqopt = requireLegacy("reqopt");
 const time = requireLegacy("time.js");
 const validation = requireLegacy("validation.js");
 const xml = requireLegacy("xml.js");
@@ -524,7 +523,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/queries", new queries(coverage).router);
   app.use("/pathitem", new pathitem(coverage).router);
   app.use("/header", new header(coverage, optionalCoverage).router);
-  app.use("/reqopt", new reqopt(coverage).router);
   app.use("/files", new files(coverage).router);
   app.use("/formdata", new formData(optionalCoverage).router);
   app.use("/http", new httpResponses(coverage, optionalCoverage).router);

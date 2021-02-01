@@ -37,24 +37,24 @@ export const validateBodyEquals = (request: RequestExt, expectedBody: unknown | 
 export const validateBodyEmpty = (request: RequestExt): void => {
   if (isBodyEmpty(request.rawBody)) {
     if (request.body instanceof Buffer) {
-      if (request.body.length === 0) {
-        throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
-      }
-    } else {
-      throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
-    }
-  }
-};
-
-export const validateBodyNotEmpty = (request: RequestExt): void => {
-  if (isBodyEmpty(request.rawBody)) {
-    if (request.body instanceof Buffer) {
       if (request.body.length > 0) {
         throw new ValidationError(BODY_NOT_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
       }
     }
   } else {
     throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+  }
+};
+
+export const validateBodyNotEmpty = (request: RequestExt): void => {
+  if (isBodyEmpty(request.rawBody)) {
+    if (request.body instanceof Buffer) {
+      if (request.body.length === 0) {
+        throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+      }
+    } else {
+      throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+    }
   }
 };
 

@@ -24,14 +24,14 @@ export class CoverageService {
    * @param name Name of the scenario.
    * @param value {Optional} For legacy test set the value of the usage.
    */
-  public async track(category: string, name: string, value?: number): Promise<void> {
-    const map = this.coverage[category];
+  public async track(category: string, name: string): Promise<void> {
+    let map = this.coverage[category];
     if (!map) {
-      throw new Error(`Unknown category '${category}'`);
+      map = this.coverage[category] = {};
     }
 
     if (!(name in map)) {
-      throw new Error(`Unknown coverage name '${name}' in  '${category}'`);
+      map[name] = 0;
     }
 
     map[name] += 1;
