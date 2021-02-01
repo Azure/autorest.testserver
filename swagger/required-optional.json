@@ -139,6 +139,80 @@
         }
       }
     },
+    "/reqopt/implicit/optional/binary-body": {
+      "put": {
+        "operationId": "implicit_putOptionalBinaryBody",
+        "description": "Test implicitly optional body parameter",
+        "parameters": [
+          {
+            "name": "bodyParameter",
+            "in": "body",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty Response"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/reqopt/explicit/optional/binary-body": {
+      "put": {
+        "operationId": "explicit_putOptionalBinaryBody",
+        "description": "Test explicitly optional body parameter",
+        "parameters": [
+          {
+            "name": "bodyParameter",
+            "in": "body",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty Response"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/reqopt/explicit/required/binary-body": {
+      "put": {
+        "operationId": "explicit_putOptionalBinaryBody",
+        "description": "Test explicitly required body parameter",
+        "parameters": [
+          {
+            "name": "bodyParameter",
+            "in": "body",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty Response"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/reqopt/requied/integer/parameter": {
       "post": {
         "operationId": "explicit_postRequiredIntegerParameter",

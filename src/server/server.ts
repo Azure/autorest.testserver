@@ -12,11 +12,15 @@ export interface MockApiServerConfig {
 
 const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   logger.error("Error", err);
+  console.error(err);
+  const errResponse = err.toJSON
+    ? err.toJSON()
+    : err instanceof Error
+    ? { name: err.name, message: err.message, stack: err.stack }
+    : err;
+
   res.status(err.status || 500);
-  res
-    .contentType("application/json")
-    .send(err instanceof Error ? { name: err.name, message: err.message, stack: err.stack } : JSON.stringify(err))
-    .end();
+  res.contentType("application/json").send(errResponse).end();
 };
 
 const rawBodySaver = (req: RequestExt, res: ServerResponse, buf: Buffer, encoding: BufferEncoding) => {
@@ -38,6 +42,7 @@ export class MockApiServer {
     this.app.use(bodyParser.json({ verify: rawBodySaver, strict: false }));
     this.app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
     this.app.use(bodyParser.text({ type: "*/pdf", verify: rawBodySaver }));
+    this.app.use(bodyParser.raw({ type: "application/octet-stream", limit: "10mb" }));
   }
 
   public use(route: string, ...handlers: RequestHandler[]): void {
