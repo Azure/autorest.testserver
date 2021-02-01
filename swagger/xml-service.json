@@ -762,9 +762,127 @@
           }
         }
       }
+    },
+    "/xml/bytes": {
+      "get": {
+        "operationId": "xml_getBytes",
+        "description": "Get an XML document with binary property",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The simple XML document",
+            "schema": {
+              "$ref": "#/definitions/ModelWithByteProperty"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putBinary",
+        "description": "Put an XML document with binary property",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "slideshow",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ModelWithByteProperty"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/xml/url": {
+      "get": {
+        "operationId": "xml_getUri",
+        "description": "Get an XML document with uri property",
+        "tags": [
+          "XML Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "The simple XML document",
+            "schema": {
+              "$ref": "#/definitions/ModelWithUrlProperty"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putUri",
+        "description": "Put an XML document with uri property",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ModelWithUrlProperty"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "ModelWithByteProperty": {
+      "properties": {
+        "Bytes": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "ModelWithUrlProperty": {
+      "properties": {
+        "Url": {
+          "type": "string",
+          "format": "url"
+        }
+      }
+    },
     "JSONInput": {
       "properties": {
         "id": {
