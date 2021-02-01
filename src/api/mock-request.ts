@@ -13,11 +13,13 @@ export class MockRequest {
   public readonly baseUrl: string;
   public readonly headers: { [key: string]: string };
   public readonly query: { [key: string]: string };
+  public readonly params: { [key: string]: string };
 
   public constructor(private originalRequest: RequestExt) {
     this.baseUrl = getRequestBaseUrl(originalRequest);
     this.headers = originalRequest.headers as { [key: string]: string };
     this.query = originalRequest.query as { [key: string]: string };
+    this.params = originalRequest.params as { [key: string]: string };
   }
 
   /**
