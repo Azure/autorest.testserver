@@ -15,7 +15,7 @@ export const validateRawBodyEquals = (request: RequestExt, expectedRawBody: stri
   }
 
   if (actualRawBody !== expectedRawBody) {
-    throw new ValidationError(BODY_NOT_EQUAL_ERROR_MESSAGE, expectedRawBody, actualRawBody);
+    throw new ValidationError(BODY_NOT_EQUAL_ERROR_MESSAGE, expectedRawBody, request.header('Content-Length'));
   }
 };
 
