@@ -9,27 +9,24 @@ var parseXMLString = util.promisify(xml2js.parseString);
 var assert = require('assert');
 
 // Expect given request body. Otherwise, 400 with comparison is returned.
-var expectXmlBody = function (req, res, body, coverage, testname) {
-  var rawBody = '';
-  req.setEncoding('utf8');
-  req.on('data', function(chunk) { rawBody += chunk });
-  req.on('end', async function() {
-    var actualParsedBody, expectedParsedBody;
-    try {
-      rawBody = utils.coerceDateXml(rawBody);
-      actualParsedBody = await parseXMLString(rawBody);
-      expectedParsedBody = await parseXMLString(body);
-    } catch (err) {
-      res.status(400).end("XML parse failure: " + err.message);
-      return;
-    }
+var expectXmlBody = async function (req, res, body, coverage, testname) {
+  var rawBody = req.rawBody;
+  var actualParsedBody, expectedParsedBody;
+  try {
+    rawBody = utils.coerceDateXml(rawBody);
+    actualParsedBody = await parseXMLString(rawBody);
+    expectedParsedBody = await parseXMLString(body);
+  } catch (err) {
+    res.status(400).end("XML parse failure: " + err.message);
+    return;
+  }
 
-    try {
-      assert.deepStrictEqual(actualParsedBody, expectedParsedBody);
-      coverage[testname]++;
-      res.status(201).end();
-    } catch (err) {
-      res.status(400).header('Content-Type', 'text/plain').end(`
+  try {
+    assert.deepStrictEqual(actualParsedBody, expectedParsedBody);
+    coverage[testname]++;
+    res.status(201).end();
+  } catch (err) {
+    res.status(400).header('Content-Type', 'text/plain').end(`
 Expected (parsed form):
 ${JSON.stringify(err.expected, null, 2)}
 
@@ -42,8 +39,7 @@ ${body}
 Actual (raw form):
 ${rawBody}
 `);
-    }
-  });
+  }
 };
 
 var sendXmlBody = function (res, body) {
