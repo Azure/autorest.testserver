@@ -1,4 +1,3 @@
-import { promisify } from "util";
 import deepEqual from "deep-equal";
 import { parseString } from "xml2js";
 import { RequestExt } from "../server";
