@@ -11,8 +11,8 @@ app.category("vanilla", () => {
     };
   });
 
-  app.put("/xml/bytes", "XmlPutBytes", (req) => {
-    req.xmlBodyEquals("<ModelWithByteProperty><Bytes>SGVsbG8gd29ybGQ=</Bytes></ModelWithByteProperty>");
+  app.put("/xml/bytes", "XmlPutBytes", async (req) => {
+    await req.xmlBodyEquals("<ModelWithByteProperty><Bytes>SGVsbG8gd29ybGQ=</Bytes></ModelWithByteProperty>");
     return { status: 201 };
   });
 
@@ -26,8 +26,8 @@ app.category("vanilla", () => {
     };
   });
 
-  app.put("/xml/url", "XmlPutUrl", (req) => {
-    req.xmlBodyEquals(
+  app.put("/xml/url", "XmlPutUrl", async (req) => {
+    await req.xmlBodyEquals(
       "<ModelWithUrlProperty><Url>https://myaccount.blob.core.windows.net/</Url></ModelWithUrlProperty>",
     );
     return { status: 201 };

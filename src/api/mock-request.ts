@@ -31,7 +31,12 @@ export class MockRequest {
     validateBodyEquals(this.originalRequest, expectedRawBody);
   }
 
-  public xmlBodyEquals(expectedRawBody: string): void {
-    validateXMLBodyEquals(this.originalRequest, expectedRawBody);
+  /**
+   * Expect the body of the request matches the XML body you expect
+   * @param expectedRawBody Raw request XML body expressed in a string.
+   * @throws {ValidationError} if there is an error.
+   */
+  public async xmlBodyEquals(expectedRawBody: string): Promise<void> {
+    await validateXMLBodyEquals(this.originalRequest, expectedRawBody);
   }
 }
