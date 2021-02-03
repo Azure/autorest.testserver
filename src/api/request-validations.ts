@@ -1,4 +1,5 @@
 import deepEqual from "deep-equal";
+import { parseStringPromise } from "xml2js";
 import { RequestExt } from "../server";
 import { ValidationError } from "./validation-error";
 
@@ -38,4 +39,23 @@ export const validateBodyEquals = (request: RequestExt, expectedBody: unknown | 
  */
 const isBodyEmpty = (body: string | undefined | null) => {
   return body == null || body === "";
+};
+
+const coerceDateXml = (xml: string): string => {
+  return xml.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d\.\d\d\d)\d{0,4}([Zz]|[+-]00:00)/g, "$1Z");
+};
+
+/**
+ * Check whether the XML request body is matching the given xml.
+ */
+export const validateXMLBodyEquals = async (request: RequestExt, expectedBody: string): Promise<void> => {
+  const rawBody = request.body;
+  const actualBody = coerceDateXml(rawBody);
+
+  const actualParsedBody = await parseStringPromise(actualBody);
+  const expectedParsedBody = await parseStringPromise(expectedBody);
+
+  if (!deepEqual(actualParsedBody, expectedParsedBody, { strict: true })) {
+    throw new ValidationError(BODY_NOT_EQUAL_ERROR_MESSAGE, expectedParsedBody, actualParsedBody);
+  }
 };
