@@ -1,6 +1,6 @@
 import { RequestExt } from "../server";
 import { getRequestBaseUrl } from "../utils";
-import { validateBodyEquals, validateRawBodyEquals } from "./request-validations";
+import { validateBodyEquals, validateRawBodyEquals, validateXMLBodyEquals } from "./request-validations";
 
 export const BODY_NOT_EQUAL_ERROR_MESSAGE = "Body provided doesn't match expected body.";
 
@@ -29,5 +29,9 @@ export class MockRequest {
    */
   public bodyEquals(expectedRawBody: unknown | undefined): void {
     validateBodyEquals(this.originalRequest, expectedRawBody);
+  }
+
+  public xmlBodyEquals(expectedRawBody: string): void {
+    validateXMLBodyEquals(this.originalRequest, expectedRawBody);
   }
 }
