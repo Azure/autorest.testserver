@@ -46,9 +46,8 @@ const coerceDateXml = (xml: string): string => {
 };
 
 /**
-* Check whether the XML request body is matching the given xml.
-*/
-
+ * Check whether the XML request body is matching the given xml.
+ */
 export const validateXMLBodyEquals = async (request: RequestExt, expectedBody: string): Promise<void> => {
   const rawBody = request.body;
   const actualBody = coerceDateXml(rawBody);
