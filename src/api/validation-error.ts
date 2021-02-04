@@ -1,4 +1,6 @@
 export class ValidationError extends Error {
+  public status = 400;
+
   /**
    * Error thrown there there is a validation issue.
    * @param message Message describing the error.

@@ -4,6 +4,8 @@ import { RequestExt } from "../server";
 import { ValidationError } from "./validation-error";
 
 export const BODY_NOT_EQUAL_ERROR_MESSAGE = "Body provided doesn't match expected body";
+export const BODY_EMPTY_ERROR_MESSAGE = "Body should exists";
+export const BODY_NOT_EMPTY_ERROR_MESSAGE = "Body should be empty";
 
 export const validateRawBodyEquals = (request: RequestExt, expectedRawBody: string | undefined): void => {
   const actualRawBody = request.rawBody;
@@ -30,6 +32,30 @@ export const validateBodyEquals = (request: RequestExt, expectedBody: unknown | 
 
   if (!deepEqual(request.body, expectedBody, { strict: true })) {
     throw new ValidationError(BODY_NOT_EQUAL_ERROR_MESSAGE, expectedBody, request.body);
+  }
+};
+
+export const validateBodyEmpty = (request: RequestExt): void => {
+  if (isBodyEmpty(request.rawBody)) {
+    if (request.body instanceof Buffer) {
+      if (request.body.length > 0) {
+        throw new ValidationError(BODY_NOT_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+      }
+    }
+  } else {
+    throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+  }
+};
+
+export const validateBodyNotEmpty = (request: RequestExt): void => {
+  if (isBodyEmpty(request.rawBody)) {
+    if (request.body instanceof Buffer) {
+      if (request.body.length === 0) {
+        throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+      }
+    } else {
+      throw new ValidationError(BODY_EMPTY_ERROR_MESSAGE, undefined, request.rawBody);
+    }
   }
 };
 

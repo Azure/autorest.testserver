@@ -1,7 +1,7 @@
 export interface MockResponse {
   status: number;
   headers?: {
-    [key: string]: string;
+    [key: string]: string | null;
   };
   body?: MockResponseBody;
 }
