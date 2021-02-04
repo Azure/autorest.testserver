@@ -3,7 +3,8 @@ import { coverageService } from "../../services";
 import { toPascalCase } from "../../utils";
 
 app.category("vanilla", () => {
-  app.put("/reqopt/required/:type/:scenario", "GeneralRequired", (req) => {
+  // This API should never be called so remove the name for coverage.
+  app.put("/reqopt/required/:type/:scenario", undefined, (req) => {
     return {
       status: 400,
       message: "Client library failed to throw when a required value type is not provided.",

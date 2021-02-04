@@ -18,7 +18,7 @@ export class MockRequest {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public readonly body: any;
 
-  public constructor(private originalRequest: RequestExt) {
+  public constructor(public originalRequest: RequestExt) {
     this.baseUrl = getRequestBaseUrl(originalRequest);
     this.headers = originalRequest.headers as { [key: string]: string };
     this.query = originalRequest.query as { [key: string]: string };

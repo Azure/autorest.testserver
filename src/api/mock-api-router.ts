@@ -34,7 +34,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public get(uri: string, name: string, func: MockRequestHandler): void {
+  public get(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("get", uri, name, func);
   }
 
@@ -44,7 +44,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public post(uri: string, name: string, func: MockRequestHandler): void {
+  public post(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("post", uri, name, func);
   }
 
@@ -54,7 +54,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public put(uri: string, name: string, func: MockRequestHandler): void {
+  public put(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("put", uri, name, func);
   }
 
@@ -64,7 +64,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public patch(uri: string, name: string, func: MockRequestHandler): void {
+  public patch(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("patch", uri, name, func);
   }
 
@@ -74,7 +74,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public delete(uri: string, name: string, func: MockRequestHandler): void {
+  public delete(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("delete", uri, name, func);
   }
 
@@ -84,7 +84,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-  public head(uri: string, name: string, func: MockRequestHandler): void {
+  public head(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("head", uri, name, func);
   }
 
@@ -97,7 +97,7 @@ export class MockApiRouter {
    *
    * @note prefer to use the coresponding method method directly instead of `#request()`(i.e `#get(), #post()`)
    */
-  public request(method: HttpMethod, uri: string, name: string, func: MockRequestHandler): void {
+  public request(method: HttpMethod, uri: string, name: string | undefined, func: MockRequestHandler): void {
     logger.info(`Registering route ${method} ${uri} (${name})`);
     if (this.currentCategory === undefined) {
       throw new Error(
@@ -112,7 +112,9 @@ export class MockApiRouter {
       );
     }
     const category = this.currentCategory;
-    coverageService.register(category, name);
+    if (name) {
+      coverageService.register(category, name);
+    }
     this.router.route(uri)[method](async (req: RequestExt, res: Response) => {
       await processRequest(category, name, req, res, func);
     });
