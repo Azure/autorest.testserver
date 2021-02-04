@@ -8,7 +8,8 @@ app.category("vanilla", () => {
     return { status: 200 };
   });
 
-  app.get("/reqopt/global/required/query", "RequiredGlobalQuery", (req) => {
+  // This API should never be called so remove the name for coverage.
+  app.get("/reqopt/global/required/query", undefined, (req) => {
     return {
       status: 400,
       message: "Client library failed to throw when an explicitly required query parameter is not provided.",

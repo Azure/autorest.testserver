@@ -135,6 +135,7 @@
     },
     "/reqopt/implicit/optional/binary-body": {
       "put": {
+        "consumes": ["application/octet-stream"],
         "operationId": "implicit_putOptionalBinaryBody",
         "description": "Test implicitly optional body parameter",
         "parameters": [
