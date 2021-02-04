@@ -147,7 +147,10 @@
           {
             "name": "bodyParameter",
             "in": "body",
-            "type": "file"
+            "schema": {
+              "type": "object",
+              "format": "file"
+            }
           }
         ],
         "responses": {
@@ -172,7 +175,10 @@
             "name": "bodyParameter",
             "in": "body",
             "required": false,
-            "type": "file"
+            "schema": {
+              "type": "object",
+              "format": "file"
+            }
           }
         ],
         "responses": {
@@ -197,7 +203,10 @@
             "name": "bodyParameter",
             "in": "body",
             "required": true,
-            "type": "file"
+            "schema": {
+              "type": "object",
+              "format": "file"
+            }
           }
         ],
         "responses": {
