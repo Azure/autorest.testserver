@@ -163,6 +163,7 @@
     },
     "/reqopt/explicit/optional/binary-body": {
       "put": {
+        "consumes": ["application/octet-stream"],
         "operationId": "explicit_putOptionalBinaryBody",
         "description": "Test explicitly optional body parameter",
         "parameters": [
@@ -191,6 +192,7 @@
     },
     "/reqopt/explicit/required/binary-body": {
       "put": {
+        "consumes": ["application/octet-stream"],
         "operationId": "explicit_putRequiredBinaryBody",
         "description": "Test explicitly required body parameter",
         "parameters": [
