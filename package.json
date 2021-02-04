@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
