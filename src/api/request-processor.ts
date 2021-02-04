@@ -10,7 +10,7 @@ export type MockRequestHandler = (req: MockRequest) => MockResponse | Promise<Mo
 
 export const processRequest = async (
   category: string,
-  name: string,
+  name: string | undefined,
   request: RequestExt,
   response: Response,
   func: MockRequestHandler,
@@ -22,7 +22,9 @@ export const processRequest = async (
   }
 
   if (mockResponse.status >= 200 && mockResponse.status < 300) {
-    await coverageService.track(category, name);
+    if (name) {
+      await coverageService.track(category, name);
+    }
   }
   processResponse(response, mockResponse);
 };
