@@ -16,7 +16,7 @@ app.category("vanilla", () => {
     const covered = `Optional${toPascalCase(type)}${toPascalCase(scenario)}`;
 
     if (req.params.scenario === "parameter") {
-      req.bodyEmpty();
+      req.expect.bodyEmpty();
       coverageService.track("vanilla", covered);
       return { status: 200 };
     } else if (req.params.scenario === "property") {

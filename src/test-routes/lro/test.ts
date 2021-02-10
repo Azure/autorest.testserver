@@ -13,7 +13,7 @@ app.category("example" as any, () => {
   });
 
   app.post("/test", "PostMyTest", (req) => {
-    req.bodyEquals({ foo: "123", bar: "456" });
+    req.expect.bodyEquals({ foo: "123", bar: "456" });
     return {
       status: 200,
       body: json({
