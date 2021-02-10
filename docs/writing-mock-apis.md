@@ -22,7 +22,7 @@ app.category("vanilla", () => {
   });
 
   app.post("/test", "PostMyTest", (req) => {
-    req.bodyEquals({ foo: "123", bar: "456" });
+    req.expect.bodyEquals({ foo: "123", bar: "456" });
     return {
       status: 200,
       body: json({
@@ -79,9 +79,11 @@ return {
 
 ## How to validate the request:
 
+All built-in validation tools can be accessed using `req.expect.`
+
 ### Validate the body
 
-- With `req.bodyEquals`
+- With `req.expect.bodyEquals`
 
 This will do a deep equals of the body to make sure it match.
 
@@ -91,7 +93,7 @@ app.post("/example", "Example", (req) => {
 });
 ```
 
-- With `req.rawBodyEquals`
+- With `req.expect.rawBodyEquals`
 
 This will compare the raw body sent.
 

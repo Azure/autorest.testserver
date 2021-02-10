@@ -11,7 +11,7 @@ app.category("vanilla", () => {
     };
   });
   app.put("/string/null", "putStringNull", (req) => {
-    req.rawBodyEquals(undefined);
+    req.expect.rawBodyEquals(undefined);
     return { status: 200 };
   });
 
@@ -26,7 +26,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/empty", "putStringEmpty", (req) => {
-    req.rawBodyEquals(`""`);
+    req.expect.rawBodyEquals(`""`);
     return { status: 200 };
   });
 
@@ -47,7 +47,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/whitespace", "putStringWithLeadingAndTrailingWhitespace", (req) => {
-    req.rawBodyEquals('"    Now is the time for all good men to come to the aid of their country    "');
+    req.expect.rawBodyEquals('"    Now is the time for all good men to come to the aid of their country    "');
     return { status: 200 };
   });
 
@@ -62,7 +62,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/base64UrlEncoding", "putStringBase64UrlEncoded", (req) => {
-    req.rawBodyEquals('"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"');
+    req.expect.rawBodyEquals('"YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw"');
     return { status: 200 };
   });
 
@@ -94,7 +94,8 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/mbcs", "putStringMultiByteCharacters", (req) => {
-    req.bodyEquals(MULTIBYTE_BUFFER_BODY);
+    req.expect.bodyEquals(MULTIBYTE_BUFFER_BODY);
+    req.expect.bodyEquals(MULTIBYTE_BUFFER_BODY);
     return { status: 200 };
   });
 
@@ -109,7 +110,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/enum/notExpandable", "putEnumNotExpandable", (req) => {
-    req.rawBodyEquals('"red color"');
+    req.expect.rawBodyEquals('"red color"');
     return { status: 200 };
   });
 
@@ -124,7 +125,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/enum/Referenced", "putEnumReferenced", (req) => {
-    req.rawBodyEquals('"red color"');
+    req.expect.rawBodyEquals('"red color"');
     return { status: 200 };
   });
 
@@ -136,7 +137,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/string/enum/ReferencedConstant", "putEnumReferencedConstant", (req) => {
-    req.bodyEquals({ ColorConstant: "green-color" });
+    req.expect.bodyEquals({ ColorConstant: "green-color" });
     return { status: 200 };
   });
 });

@@ -10,7 +10,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/reqopt/explicit/required/binary-body", "ExplicitRequiredBinaryBody", async (req) => {
-    req.bodyNotEmpty();
+    req.expect.bodyNotEmpty();
     return { status: 200 };
   });
 });

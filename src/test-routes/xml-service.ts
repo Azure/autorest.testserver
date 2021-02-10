@@ -12,7 +12,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/xml/bytes", "XmlPutBytes", async (req) => {
-    await req.xmlBodyEquals("<ModelWithByteProperty><Bytes>SGVsbG8gd29ybGQ=</Bytes></ModelWithByteProperty>");
+    await req.expect.xmlBodyEquals("<ModelWithByteProperty><Bytes>SGVsbG8gd29ybGQ=</Bytes></ModelWithByteProperty>");
     return { status: 201 };
   });
 
@@ -27,7 +27,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/xml/url", "XmlPutUrl", async (req) => {
-    await req.xmlBodyEquals(
+    await req.expect.xmlBodyEquals(
       "<ModelWithUrlProperty><Url>https://myaccount.blob.core.windows.net/</Url></ModelWithUrlProperty>",
     );
     return { status: 201 };
