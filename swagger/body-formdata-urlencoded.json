@@ -1,19 +1,19 @@
 ﻿{
   "swagger": "2.0",
   "info": {
-    "title": "AutoRest Swagger BAT Form Data Service",
+    "title": "Body Forms Data URLEncoded",
     "description": "Test Infrastructure for AutoRest Swagger BAT",
     "version": "1.0.0"
   },
   "paths": {
-    "/": {
-      "get": {
+    "/formsdataurlencoded/pet/add": {
+      "post": {
         "tags": [
-          "pet"
+          "formsdataurlencoded"
         ],
         "summary": "Updates a pet in the store with form data",
         "description": "",
-        "operationId": "updatePetWithForm",
+        "operationId": "formdataurlencoded_updatePetWithForm",
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -27,6 +27,12 @@
             "description": "ID of pet that needs to be updated",
             "required": true,
             "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Pet_type"
+          },
+          {
+            "$ref": "#/parameters/Pet_food"
           },
           {
             "name": "name",
@@ -53,5 +59,33 @@
         }
       }
     }
+  },
+  "parameters": {
+    "Pet_type": {
+        "name": "pet_type",
+        "description": "Can take a value of dog, or cat, or fish",
+        "type": "string",
+        "in": "formData",
+        "required": true,
+        "enum": [
+            "dog",
+            "cat",
+            "fish"
+        ],
+        "x-ms-parameter-location": "method"
+    },
+    "Pet_food": {
+      "name": "pet_food",
+      "description": "Can take a value of meat, or fish, or plant",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "enum": [
+          "meat",
+          "fish",
+          "plant"
+      ],
+      "x-ms-parameter-location": "method"
+  }
   }
 }
