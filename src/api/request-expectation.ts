@@ -5,7 +5,7 @@ import {
   validateBodyEmpty,
   validateBodyNotEmpty,
   validateXMLBodyEquals,
-  validateHeader
+  validateHeader,
 } from "./request-validations";
 
 /**
@@ -63,6 +63,6 @@ export class RequestExpectation {
    * @throws {ValidationError} if there is an error.
    */
   public async containsHeader(headerName: string, expectedValue: string): Promise<void> {
-    await validateHeader (this.originalRequest, headerName, expectedValue);
+    await validateHeader(this.originalRequest, headerName, expectedValue);
   }
 }

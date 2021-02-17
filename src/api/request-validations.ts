@@ -86,9 +86,12 @@ export const validateXMLBodyEquals = async (request: RequestExt, expectedBody: s
   }
 };
 
-export const validateHeader = (request: RequestExt, headerName: string, expected: string) => {
+/**
+ * Check whether the request header contains the given name/value pair
+ */
+export const validateHeader = (request: RequestExt, headerName: string, expected: string): void => {
   const actual = request.headers[headerName];
   if (actual !== expected) {
     throw new ValidationError(`Expected ${expected} but got ${actual}`, expected, actual);
   }
-}
+};
