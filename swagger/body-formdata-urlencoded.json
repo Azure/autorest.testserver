@@ -35,6 +35,9 @@
             "$ref": "#/parameters/Pet_food"
           },
           {
+            "$ref": "#/parameters/Pet_count"
+          },
+          {
             "name": "name",
             "in": "formData",
             "description": "Updated name of the pet",
@@ -90,6 +93,14 @@
         "name": "PetFood",
         "modelAsString": true
       }
+    },
+    "Pet_count": {
+      "name": "pet_age",
+      "description": "How many years is it old?",
+      "type": "integer",
+      "in": "formData",
+      "required": true,
+      "x-ms-parameter-location": "method"
     }
   }
 }
