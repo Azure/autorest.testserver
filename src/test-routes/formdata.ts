@@ -16,8 +16,8 @@ app.category("vanilla", () => {
     };
   });
   app.post("/formsdataurlencoded/pet/add", "UpdatePetWithForm", (request) => {
-    validateHeader(request.originalRequest, "content-type", "application/x-www-form-urlencoded");
-    validateBodyEquals (request.originalRequest, { pet_type: "dog", pet_food: "meat", name: "Fido", status: "" });
+    request.expect.containsHeader ("content-type", "application/x-www-form-urlencoded");
+    request.expect.bodyEquals ({ pet_type: "dog", pet_food: "meat", name: "Fido", status: "" });
     return {
       status: 200,
     };

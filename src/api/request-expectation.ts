@@ -5,6 +5,7 @@ import {
   validateBodyEmpty,
   validateBodyNotEmpty,
   validateXMLBodyEquals,
+  validateHeader
 } from "./request-validations";
 
 /**
@@ -53,5 +54,15 @@ export class RequestExpectation {
    */
   public async xmlBodyEquals(expectedRawBody: string): Promise<void> {
     await validateXMLBodyEquals(this.originalRequest, expectedRawBody);
+  }
+
+  /**
+   * Expect the header of the request contains the expected key/value pair
+   * @param headerName Key expected in header
+   * @param expectedValue Values expected in header
+   * @throws {ValidationError} if there is an error.
+   */
+  public async containsHeader(headerName: string, expectedValue: string): Promise<void> {
+    await validateHeader (this.originalRequest, headerName, expectedValue);
   }
 }
