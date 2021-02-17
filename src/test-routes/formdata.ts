@@ -19,7 +19,6 @@ app.category("vanilla", () => {
     const petId = request.params.petId;
     if (petId !== "1") {
       throw new ValidationError(`Expected petID 1 but got ${petId}`, undefined, request.params);
-
     }
     request.expect.containsHeader("content-type", "application/x-www-form-urlencoded");
     request.expect.bodyEquals({ pet_type: "dog", pet_food: "meat", name: "Fido", status: "", pet_age: "42" });
