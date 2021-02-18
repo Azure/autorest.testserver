@@ -62,7 +62,7 @@ export class RequestExpectation {
    * @param expectedValue Values expected in header
    * @throws {ValidationError} if there is an error.
    */
-  public async containsHeader(headerName: string, expectedValue: string): Promise<void> {
-    await validateHeader(this.originalRequest, headerName, expectedValue);
+  public containsHeader(headerName: string, expectedValue: string): void {
+    validateHeader(this.originalRequest, headerName, expectedValue);
   }
 }
