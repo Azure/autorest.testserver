@@ -5,6 +5,10 @@
     "description": "Test Infrastructure for AutoRest Swagger BAT",
     "version": "1.0.0"
   },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/formsdataurlencoded/pet/add/{petId}": {
       "post": {

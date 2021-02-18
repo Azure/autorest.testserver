@@ -1,8 +1,6 @@
-import Busboy from "busboy";
 import { app, ValidationError } from "../api";
-import { validateHeader, validateBodyEquals } from "../api/request-validations";
 
-app.category("vanilla", () => {
+app.category("optional", () => {
   app.put("/formdata/stream/uploadfile", "StreamUploadFile", (request) => {
     if (!(request.body instanceof Buffer)) {
       throw new ValidationError(`Expected binary body but got  ${typeof request.body}`, undefined, request.body);
