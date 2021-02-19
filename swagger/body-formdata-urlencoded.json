@@ -79,7 +79,11 @@
             "cat",
             "fish"
         ],
-        "x-ms-parameter-location": "method"
+        "x-ms-parameter-location": "method",
+        "x-ms-enum": {
+          "name": "PetType",
+          "modelAsString": false
+        }
     },
     "Pet_food": {
       "name": "pet_food",
