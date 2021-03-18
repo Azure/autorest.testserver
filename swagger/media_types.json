@@ -39,6 +39,33 @@
 				}
 			}
 		},
+        "/mediatypes/analyzeNoAccept": {
+            "post": {
+				"description": "Analyze body, that could be different media types. Adds to AnalyzeBody by not having an accept type.",
+				"operationId": "AnalyzeBodyNoAcceptHeader",
+				"consumes": [
+					"application/pdf",
+					"application/json",
+					"image/jpeg",
+					"image/png",
+					"image/tiff"
+				],
+				"parameters": [
+					{
+						"$ref": "#/parameters/Input"
+					}
+				],
+				"responses": {
+                    "202": {
+                      "description": "Success"
+                    },
+                    "default": {
+                      "description": "Error response",
+                      "x-ms-error-response": true
+                    }
+                }
+			}
+        },
 		"/mediatypes/contentTypeWithEncoding": {
 			"post": {
 				"description": "Pass in contentType 'text/plain; encoding=UTF-8' to pass test. Value for input does not matter",
