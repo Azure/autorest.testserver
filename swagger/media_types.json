@@ -60,8 +60,7 @@
                       "description": "Success"
                     },
                     "default": {
-                      "description": "Error response",
-                      "x-ms-error-response": true
+                      "description": "Error response"
                     }
                 }
 			}
