@@ -235,6 +235,14 @@
         "responses": {
           "200": {
             "description": "",
+            "headers": {
+                "x-ms-meta": {
+                  "type": "string",
+                  "description": "adding x-ms-header-collection-prefix response header. Just checking if you can generate this without throwing for now",
+                  "x-ms-client-name": "Metadata",
+                  "x-ms-header-collection-prefix": "x-ms-meta-"
+                }
+            },
             "schema": {
               "$ref": "#/definitions/StorageAccountKeys"
             }
@@ -381,7 +389,7 @@
       },
       "required": [
         "name"
-      ]    
+      ]
     },
     "CheckNameAvailabilityResult": {
       "type":  "object",
