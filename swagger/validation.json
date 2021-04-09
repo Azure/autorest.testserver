@@ -6,13 +6,11 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
-    "/fakepath/{subscriptionId}/{resourceGroupName}/{id}?api-version={apiVersion}": {
+    "/fakepath/{subscriptionId}/{resourceGroupName}/{id}": {
       "get": {
         "operationId": "validationOfMethodParameters",
         "summary": "",
@@ -45,9 +43,7 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
-        "tags": [
-          "Redis"
-        ],
+        "tags": ["Redis"],
         "responses": {
           "200": {
             "description": "A list of caches",
@@ -102,9 +98,7 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
-        "tags": [
-          "Redis"
-        ],
+        "tags": ["Redis"],
         "responses": {
           "200": {
             "description": "A list of caches",
@@ -128,7 +122,7 @@
           {
             "name": "constantParam",
             "type": "string",
-            "enum": [ "constant" ],
+            "enum": ["constant"],
             "in": "path",
             "required": true
           }
@@ -145,7 +139,7 @@
           {
             "name": "constantParam",
             "type": "string",
-            "enum": [ "constant" ],
+            "enum": ["constant"],
             "in": "path",
             "required": true
           },
@@ -166,7 +160,7 @@
   },
   "definitions": {
     "Product": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
       "required": ["child", "constString", "constInt", "constChild"],
       "properties": {
@@ -202,33 +196,33 @@
         "constInt": {
           "type": "integer",
           "description": "Constant int",
-          "enum": [ 0 ]
+          "enum": [0]
         },
         "constString": {
           "type": "string",
           "description": "Constant string",
-          "enum": [ "constant" ]
-        }, 
-        "constStringAsEnum": {  
-          "type": "string",  
-          "description": "Constant string as Enum",  
-          "enum": [ "constant_string_as_enum"],  
-          "x-ms-enum": {  
-            "name": "EnumConst",  
-            "modelAsString": false  
+          "enum": ["constant"]
+        },
+        "constStringAsEnum": {
+          "type": "string",
+          "description": "Constant string as Enum",
+          "enum": ["constant_string_as_enum"],
+          "x-ms-enum": {
+            "name": "EnumConst",
+            "modelAsString": false
           }
         }
       }
     },
     "ChildProduct": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
-      "required": [ "constProperty" ],
+      "required": ["constProperty"],
       "properties": {
         "constProperty": {
           "type": "string",
           "description": "Constant string",
-          "enum": [ "constant" ]
+          "enum": ["constant"]
         },
         "count": {
           "type": "integer",
@@ -237,24 +231,24 @@
       }
     },
     "ConstantProduct": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
-      "required": [ "constProperty", "constProperty2" ],
+      "required": ["constProperty", "constProperty2"],
       "properties": {
         "constProperty": {
           "type": "string",
           "description": "Constant string",
-          "enum": [ "constant" ]
+          "enum": ["constant"]
         },
         "constProperty2": {
           "type": "string",
           "description": "Constant string2",
-          "enum": [ "constant2" ]
+          "enum": ["constant2"]
         }
       }
     },
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "code": {
           "type": "integer",
