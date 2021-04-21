@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Anything Client",
+    "description": "Service client for testing basic anything types. Those schemas without types can be anything:  primitive, object, array.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/anything/object": {
+      "get": {
+        "operationId": "get",
+        "description": "Basic get that returns an object as anything. Returns object { 'message': 'An object was successfully returned' }",
+        "responses": {
+          "200": {
+            "description": "Returns object { 'message': 'An object was successfully returned' }",
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        }
+      },
+      "put": {
+        "operationId": "put",
+        "description": "Basic put that puts an object as anything. Pass in {'foo': 'bar'} to get a 200 and anything else to get an object error.",
+        "parameters": [
+          {
+            "name": "putObject",
+            "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty return value"
+          }
+        }
+      }
+    },
+    "/anything/string": {
+      "get": {
+        "operationId": "get",
+        "description": "Basic get that returns an string as anything. Returns string 'anything'",
+        "responses": {
+          "200": {
+            "description": "Returns object { 'message': 'An object was successfully returned' }",
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        }
+      },
+      "put": {
+        "operationId": "put",
+        "description": "Basic put that puts an string as anything. Pass in 'anything' to get a 200 and anything else to get an object error.",
+        "parameters": [
+          {
+            "name": "putObject",
+            "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty return value"
+          }
+        }
+      }
+    },
+    "/anything/array": {
+      "get": {
+        "operationId": "get",
+        "description": "Basic get that returns an array as anything. Returns string ['foo', 'bar']",
+        "responses": {
+          "200": {
+            "description": "Returns object { 'message': 'An object was successfully returned' }",
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        }
+      },
+      "put": {
+        "operationId": "put",
+        "description": "Basic put that puts an array as anything. Pass in ['foo', 'bar'] to get a 200 and anything else to get an object error.",
+        "parameters": [
+          {
+            "name": "putObject",
+            "description": "Pass in ['foo', 'bar'] for a 200, anything else for an object error",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Anything" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty return value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Anything": {}
+  }
+}
