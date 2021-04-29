@@ -236,18 +236,7 @@
         "tags": [
           "HttpSuccess Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successfully received the boolean true value"
@@ -420,18 +409,7 @@
         "tags": [
           "HttpSuccess Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "202": {
             "description": "Successfully received the boolean true value"
@@ -560,18 +538,7 @@
         "tags": [
           "HttpSuccess Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "204": {
             "description": "Successfully received the boolean true value"
@@ -1116,18 +1083,7 @@
         "tags": [
           "HttpRedirect Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success, should be returned after a successful redirect"
@@ -1284,18 +1240,7 @@
         "tags": [
           "HttpClientFailure Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1466,18 +1411,7 @@
         "tags": [
           "HttpClientFailure Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1694,18 +1628,7 @@
         "tags": [
           "HttpClientFailure Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1799,18 +1722,7 @@
         "tags": [
           "HttpServerFailure Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1983,18 +1895,7 @@
         "tags": [
           "HttpRetry Operations"
         ],
-        "parameters": [
-          {
-            "name": "booleanValue",
-            "description": "Simple boolean value true",
-            "in": "body",
-            "schema": {
-              "description": "Simple boolean value true",
-              "type": "boolean",
-              "enum": [ true ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successfully received the boolean true value"
