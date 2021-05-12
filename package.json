@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
@@ -84,7 +84,7 @@
     "ts-jest": "^26.4.4",
     "underscore": "^1.12.0",
     "winston": "~3.3.3",
-    "wiremock": "^2.27.2",
+    "wiremock": "2.27.2",
     "xml2js": "^0.4.23",
     "yargs": "^16.2.0"
   }
