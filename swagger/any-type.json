@@ -11,7 +11,7 @@
   "paths": {
     "/anything/object": {
       "get": {
-        "operationId": "get",
+        "operationId": "getObject",
         "description": "Basic get that returns an object as anything. Returns object { 'message': 'An object was successfully returned' }",
         "responses": {
           "200": {
@@ -21,11 +21,11 @@
         }
       },
       "put": {
-        "operationId": "put",
+        "operationId": "putObject",
         "description": "Basic put that puts an object as anything. Pass in {'foo': 'bar'} to get a 200 and anything else to get an object error.",
         "parameters": [
           {
-            "name": "putObject",
+            "name": "input",
             "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
             "in": "body",
             "required": true,
@@ -41,8 +41,8 @@
     },
     "/anything/string": {
       "get": {
-        "operationId": "get",
-        "description": "Basic get that returns an string as anything. Returns string 'anything'",
+        "operationId": "getString",
+        "description": "Basic get that returns an string as anything. Returns string 'foo'",
         "responses": {
           "200": {
             "description": "Returns object { 'message': 'An object was successfully returned' }",
@@ -51,12 +51,12 @@
         }
       },
       "put": {
-        "operationId": "put",
+        "operationId": "putString",
         "description": "Basic put that puts an string as anything. Pass in 'anything' to get a 200 and anything else to get an object error.",
         "parameters": [
           {
-            "name": "putObject",
-            "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
+            "name": "input",
+            "description": "Pass in 'anything' for a 200, anything else for an object error",
             "in": "body",
             "required": true,
             "schema": { "$ref": "#/definitions/Anything" }
@@ -71,7 +71,7 @@
     },
     "/anything/array": {
       "get": {
-        "operationId": "get",
+        "operationId": "getArray",
         "description": "Basic get that returns an array as anything. Returns string ['foo', 'bar']",
         "responses": {
           "200": {
@@ -81,11 +81,11 @@
         }
       },
       "put": {
-        "operationId": "put",
+        "operationId": "putArray",
         "description": "Basic put that puts an array as anything. Pass in ['foo', 'bar'] to get a 200 and anything else to get an object error.",
         "parameters": [
           {
-            "name": "putObject",
+            "name": "input",
             "description": "Pass in ['foo', 'bar'] for a 200, anything else for an object error",
             "in": "body",
             "required": true,

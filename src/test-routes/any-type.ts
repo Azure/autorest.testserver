@@ -6,7 +6,7 @@ app.category("vanilla", () => {
       status: 200,
       body: {
         contentType: "application/json",
-        rawContent: `"foo"`,
+        rawContent: `"anything"`,
       },
     };
   });
