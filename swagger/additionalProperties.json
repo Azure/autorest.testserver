@@ -259,9 +259,7 @@
           "readOnly": true
         }
       },
-      "additionalProperties": {
-        "type": "object"
-      }
+      "additionalProperties": {}
     },
     "PetAPString": {
       "type": "object",
