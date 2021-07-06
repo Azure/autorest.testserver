@@ -1,0 +1,16 @@
+
+trigger:
+  - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - script: mv ./.npmrc-publish ./.npmrc
+    displayName: Create .npmrc
+
+  - script: npm ci
+    dislplayName: Install dependencies
+
+  - script: NPM_AUTH_TOKEN="$(azure-sdk-npm-token)"  npm publish --unsafe-perm
+    displayName: Publish
