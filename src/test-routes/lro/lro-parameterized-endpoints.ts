@@ -5,7 +5,7 @@ app.category("azure", () => {
     return {
       status: 202,
       headers: {
-        "Location": '/lroConstantParameterizedEndpoints/iAmConstant/results/1',
+        Location: "/lroConstantParameterizedEndpoints/iAmConstant/results/1",
       },
     };
   });
