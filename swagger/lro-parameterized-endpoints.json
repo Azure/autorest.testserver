@@ -58,6 +58,53 @@
                 }
               }
             }
+        },
+        "/lroConstantParameterizedEndpoints/{constantParameter}": {
+            "post": {
+              "operationId": "pollWithConstantParameterizedEndpoints",
+              "x-ms-long-running-operation": true,
+              "description": "Poll with method and client level parameters in endpoint, with a constant value",
+              "parameters": [
+                {
+                  "name": "constantParameter",
+                  "in": "path",
+                  "required": true,
+                  "enum": [
+                    "iAmConstant"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "name": "ConstantEnum",
+                    "modelAsString": false
+                  },
+                  "description": "Next link for the list operation.",
+                  "x-ms-skip-url-encoding": true
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Will return string 'success' if polling was a success",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "202": {
+                  "description": "Accepted polling request",
+                  "headers": {
+                    "Location": {
+                      "type": "string",
+                      "description": "Url to retrieve the final update resource. Is a relative link"
+                    }
+                  }
+                },
+                "default": {
+                    "description": "Unexpected error",
+                    "schema": {
+                      "$ref": "#/definitions/Error"
+                    }
+                }
+              }
+            }
         }
     },
     "parameters": {
