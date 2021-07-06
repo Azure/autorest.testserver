@@ -10,7 +10,7 @@ steps:
     displayName: Create .npmrc
 
   - script: npm ci
-    dislplayName: Install dependencies
+    displayName: Install dependencies
 
   - script: NPM_AUTH_TOKEN="$(azure-sdk-npm-token)"  npm publish --unsafe-perm
     displayName: Publish
