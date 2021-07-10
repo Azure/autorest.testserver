@@ -150,7 +150,7 @@ var queries = function (coverage) {
         coverage['UrlQueriesArrayCsvValid']++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed csv array scenario format "' + format + '", scenario "' + scenario + '"');
+        utils.send400(res, next, 'Failed csv array scenario format \'' + format + '\', scenario \'' + scenario + '\' keys \'' + JSON.stringify(req.query) + '\'');
       }
     } else if (format === 'multi') {
       console.log("In multi test\n");
@@ -165,7 +165,7 @@ var queries = function (coverage) {
         coverage['UrlQueriesArrayMultiValid']++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed csv array scenario format "' + format + '", scenario "' + scenario + '"');
+        utils.send400(res, next, 'Failed csv array scenario format \'' + format + '\', scenario \'' + scenario + '\' keys \'' + JSON.stringify(req.query) + '\'');
       }
     } else if (format === 'ssv' && scenario === 'valid') {
       console.log("in ssv test\n");
