@@ -100,7 +100,7 @@ async function pushCoverage(
   );
 }
 
-export async function show(repo: string, pr: string, token: string): Promise<void> {
+export async function show(repo: string, pr: number, token: string): Promise<void> {
   const comment = await collectCoverage();
 
   const ghClient = new GitHubCiClient(repo, token);
@@ -117,7 +117,7 @@ export async function show(repo: string, pr: string, token: string): Promise<voi
 
 export async function push(
   repo: string,
-  pr: string,
+  pr: number,
   token: string,
   azStorageAccount: string,
   azStorageAccessKey: string,
@@ -127,7 +127,7 @@ export async function push(
   // try pushing coverage
   const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
   if (coverageComment)
-    await pushCoverage(repo, pr, azStorageAccount, azStorageAccessKey, coverageComment.message, version);
+    await pushCoverage(repo, pr.toString(), azStorageAccount, azStorageAccessKey, coverageComment.message, version);
 }
 
 export async function immediatePush(

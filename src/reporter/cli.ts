@@ -20,4 +20,4 @@ export const azStorageAccessKey = args[4];
 export const version = args[5];
 if (!repo || !ref || !githubToken) throw "too few arguments";
 
-export const pr = ref.split("/")[2];
+export const pr = Number(ref.split("/")[2]);
