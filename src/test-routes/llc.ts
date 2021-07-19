@@ -1,6 +1,6 @@
 import { app, json } from "../api";
 
-app.category("vanilla", () => {
+app.category("llc", () => {
   app.get("/llc/parameters", "LLCRequiredToOptional", (req) => {
     return {
       status: 200,
