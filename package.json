@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.0.28",
+  "version": "3.0.29",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
@@ -30,7 +30,7 @@
     "coverage-push": "node ./dist/reporter/app-immediate-push",
     "coverage-show": "node ./dist/reporter/app-show",
     "show-results": "node ./dist/reporter/app-show",
-    "prepublish": "npm run build"
+    "prepack": "npm run build"
   },
   "engines": {
     "node": ">=10"
