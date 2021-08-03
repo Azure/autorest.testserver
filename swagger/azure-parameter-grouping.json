@@ -112,6 +112,41 @@
         }
       }
     },
+    "/parameterGrouping/postReservedWords": {
+        "post": {
+          "operationId": "parameterGrouping_postReservedWords",
+          "description": "Post a grouped parameters with reserved words",
+          "parameters": [
+            {
+              "name": "from",
+              "in": "query",
+              "description": "'from' is a reserved word. Pass in 'bob' to pass.",
+              "type": "string",
+              "x-ms-parameter-grouping": {
+              }
+            },
+            {
+              "name": "accept",
+              "in": "query",
+              "description": "'accept' is a reserved word. Pass in 'yes' to pass.",
+              "type": "string",
+              "x-ms-parameter-grouping": {
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "default": {
+              "description": "Unexpected error",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
+      },
     "/parameterGrouping/postMultipleParameterGroups": {
       "post": {
         "operationId": "parameterGrouping_postMultiParamGroups",
