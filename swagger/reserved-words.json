@@ -1,0 +1,63 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "ReservedWordsClient",
+        "description": "Swagger that has operation groups etc. with reserved words"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/reservedWords/operationGroup/import": {
+            "put": {
+                "operationId": "import_operationOne",
+                "description": "Operation in operation group import, a reserved word",
+                "parameters": [
+                    {
+                        "name": "parameter1",
+                        "in": "query",
+                        "description": "Pass in 'foo' to pass this test.",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Answer from service",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/reservedWords/operationGroup/empty": {
+            "put": {
+                "operationId": "operationOne",
+                "description": "Empty operation group",
+                "parameters": [
+                    {
+                        "name": "parameter1",
+                        "in": "query",
+                        "description": "Pass in 'bar' to pass this test.",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Answer from service",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
