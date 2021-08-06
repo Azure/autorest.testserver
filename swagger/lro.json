@@ -53,6 +53,44 @@
         }
       }
     },
+    "/lro/patch/200/succeeded": {
+      "patch": {
+        "x-ms-long-running-operation": true,
+        "operationId": "LROs_patch200Succeeded",
+        "description": "Long running put request, service returns a 200 to the initial request with location header. We should not have any subsequent calls after receiving this first response.",
+        "tags": ["LROs Operations"],
+        "parameters": [
+          {
+            "name": "product",
+            "description": "Product to patch",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Succeeded'",
+            "headers": {
+              "location": {
+                "description": "Location to poll for result status: will be set to /lro/patchasync/noheader/202/200/operationResults, and this should be ignored by the generated code",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/lro/put/201/succeeded": {
       "put": {
         "x-ms-long-running-operation": true,

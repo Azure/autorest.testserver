@@ -64,6 +64,17 @@ var lros = function (coverage) {
     res.status(200).type('json').end('{"id": "100", "name": "foo" }');
   });
 
+  coverage["LROPatchInlineComplete"] = 0;
+  router.patch("/patch/200/succeeded", function (req, res, next) {
+    coverage["LROPatchInlineComplete"]++;
+    var pollingUri = getRequestBaseUrl(req) + "/lro/patchasync/noheader/202/200/operationResults";
+    var headers = {
+      Location: pollingUri,
+    };
+    res.set(headers).status(200).type("json")
+      .end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
+  });
+
   coverage['LROPut202Retry200'] = 0;
   router.put('/put/202/retry/200', function (req, res, next) {
     var pollingUri = getRequestBaseUrl(req) + '/lro/put/202/retry/operationResults/200';
