@@ -35,29 +35,6 @@
                     }
                 }
             }
-        },
-        "/reservedWords/operationGroup/empty": {
-            "put": {
-                "operationId": "operationOne",
-                "description": "Empty operation group",
-                "parameters": [
-                    {
-                        "name": "parameter1",
-                        "in": "query",
-                        "description": "Pass in 'bar' to pass this test.",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Answer from service",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
         }
     }
 }
