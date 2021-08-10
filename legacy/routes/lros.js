@@ -69,7 +69,7 @@ var lros = function (coverage) {
     coverage["LROPatchInlineComplete"]++;
     var pollingUri = getRequestBaseUrl(req) + "/lro/patchasync/noheader/202/200/operationResults";
     var headers = {
-      Location: pollingUri,
+      'Azure-AsyncOperation': pollingUri,
     };
     res.set(headers).status(200).type("json")
       .end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
