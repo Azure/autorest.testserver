@@ -49,8 +49,7 @@ var lros = function (coverage) {
   coverage['CustomHeaderPutSucceeded'] = 0;
   coverage['CustomHeaderPostSucceeded'] = 0;
   coverage['LROPut200InlineCompleteNoState'] = 0;
-  coverage["LROPatchInlineComplete"] = 0;
-  coverage['LROPatch200InlineCompleteNoState'] = 0;
+  coverage["LROPatchInlineCompleteIgnoreHeaders"] = 0;
 
   router.put('/put/200/succeeded', function (req, res, next) {
     coverage['LROPutInlineComplete']++;
@@ -67,23 +66,13 @@ var lros = function (coverage) {
     res.status(200).type('json').end('{"id": "100", "name": "foo" }');
   });
 
-  router.patch("/patch/200/succeeded", function (req, res, next) {
-    coverage["LROPatchInlineComplete"]++;
-    var pollingUri = getRequestBaseUrl(req) + "/lro/patchasync/200/operationResults";
+  router.patch("/patch/200/succeeded/ignoreheaders", function (req, res, next) {
+    coverage["LROPatchInlineCompleteIgnoreHeaders"]++;
     var headers = {
-      'Azure-AsyncOperation': pollingUri,
+      'Azure-AsyncOperation': "http://localhost/fakeurl_crash_with_404_you_should_not_call_this",
     };
     res.set(headers).status(200).type("json")
       .end('{ "properties": { "provisioningState": "Succeeded"}, "id": "100", "name": "foo" }');
-  });
-
-  router.patch("/patch/200/succeeded/nostate", function (req, res, next) {
-    coverage["LROPatch200InlineCompleteNoState"]++;
-    var pollingUri = getRequestBaseUrl(req) + "/lro/patchasync/200/operationResults";
-    var headers = {
-      'Azure-AsyncOperation': pollingUri,
-    };
-    res.set(headers).status(200).type("json").end('{"id": "100", "name": "foo" }');
   });
 
   coverage['LROPut202Retry200'] = 0;

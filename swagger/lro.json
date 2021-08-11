@@ -53,10 +53,10 @@
         }
       }
     },
-    "/lro/patch/200/succeeded": {
+    "/lro/patch/200/succeeded/ignoreheaders": {
       "patch": {
         "x-ms-long-running-operation": true,
-        "operationId": "LROs_patch200Succeeded",
+        "operationId": "LROs_patch200SucceededIgnoreHeaders",
         "description": "Long running put request, service returns a 200 to the initial request with location header. We should not have any subsequent calls after receiving this first response.",
         "tags": ["LROs Operations"],
         "parameters": [
@@ -73,46 +73,8 @@
           "200": {
             "description": "Initial response with ProvisioningState='Succeeded'",
             "headers": {
-              "location": {
-                "description": "Location to poll for result status: will be set to /lro/patchasync/noheader/202/200/operationResults, and this should be ignored by the generated code",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      }
-    },
-    "/lro/patch/200/succeeded/nostate": {
-      "patch": {
-        "x-ms-long-running-operation": true,
-        "operationId": "LROs_patch200SucceededNoState",
-        "description": "Long running put request, service returns a 200 to the initial request with location header. We should not have any subsequent calls after receiving this first response.",
-        "tags": ["LROs Operations"],
-        "parameters": [
-          {
-            "name": "product",
-            "description": "Product to patch",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Initial response with ProvisioningState='Succeeded'",
-            "headers": {
-              "location": {
-                "description": "Location to poll for result status: will be set to /lro/patchasync/noheader/202/200/operationResults, and this should be ignored by the generated code",
+              "Azure-AsyncOperation": {
+                "description": "This header should be ignored in this case",
                 "type": "string"
               }
             },
@@ -275,46 +237,6 @@
       "put": {
         "x-ms-long-running-operation": true,
         "operationId": "LROs_put201CreatingSucceeded200",
-        "description": "Long running put request, service returns a 201 to the initial request, with an entity that contains ProvisioningState=’Creating’.  Polls return this value until the last poll returns a ‘200’ with ProvisioningState=’Succeeded’",
-        "tags": [
-          "LRO Operations"
-        ],
-        "parameters": [
-          {
-            "name": "product",
-            "description": "Product to put",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response after completion, with ProvisioningState='Succeeded'",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
-          },
-          "201": {
-            "description": "Initial response, with ProvisioningState = 'Creating'",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      }
-    },
-    "/lro/patch/201/updating/succeeded/200": {
-      "put": {
-        "x-ms-long-running-operation": true,
-        "operationId": "LROs_patch201UpdatingSucceeded200",
         "description": "Long running put request, service returns a 201 to the initial request, with an entity that contains ProvisioningState=’Creating’.  Polls return this value until the last poll returns a ‘200’ with ProvisioningState=’Succeeded’",
         "tags": [
           "LRO Operations"
@@ -3369,4 +3291,4 @@
       }
     }
   }
-  }
+}
