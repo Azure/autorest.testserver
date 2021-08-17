@@ -13,9 +13,4 @@ export interface CliConfig {
    * Directory where the coverage reports should be saved.
    */
   coverageDirectory: string;
-
-  /**
-   * Command to use
-   */
-  command: "run" | "stop" | "validate-spec-coverage";
 }

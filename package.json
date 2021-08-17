@@ -1,10 +1,11 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.0.32",
+  "version": "3.0.33",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
     "autorest-testserver": "./dist/cli/cli.js",
+    "autorest-testserver-coverage": "./dist/reporter/cli.js",
     "start-autorest-express": "./.scripts/start-autorest-express.js",
     "start-autorest-wiremock": "./.scripts/start-autorest-wiremock.js"
   },
@@ -27,9 +28,7 @@
     "watch": "tsc -p ./tsconfig.build.json --watch",
     "build": "tsc -p ./tsconfig.build.json",
     "clean": "rimraf dist/",
-    "coverage-push": "node ./dist/reporter/app-immediate-push",
-    "coverage-show": "node ./dist/reporter/app-show",
-    "show-results": "node ./dist/reporter/app-show",
+    "coverage": "node ./dist/reporter/cli",
     "prepack": "npm run build"
   },
   "engines": {
@@ -53,7 +52,7 @@
     "@types/request-promise-native": "^1.0.18",
     "@types/supertest": "^2.0.10",
     "@types/xml2js": "^0.4.7",
-    "@types/yargs": "^15.0.12",
+    "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "concurrently": "^5.3.0",
@@ -88,6 +87,6 @@
     "winston": "~3.3.3",
     "wiremock": "2.27.2",
     "xml2js": "^0.4.23",
-    "yargs": "^16.2.0"
+    "yargs": "^17.1.1"
   }
 }
