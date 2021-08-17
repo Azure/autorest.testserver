@@ -8,9 +8,8 @@ import { GitHubCiClient } from "./github";
 const commentIndicatorPublish = "<!--AUTO-GENERATED PUBLISH JOB COMMENT-->\n";
 const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
-async function collectCoverage() {
+async function collectCoverage(coverageFolder: string) {
   // search for reports
-  const coverageFolder = __dirname;
   const getMergedReport = (category: string) => {
     const reports = readdirSync(coverageFolder)
       .filter((f) => f.startsWith(`report-${category}`) && f.endsWith(".json"))
@@ -100,8 +99,8 @@ async function pushCoverage(
   );
 }
 
-export async function show(repo: string, pr: number, token: string): Promise<void> {
-  const comment = await collectCoverage();
+export async function show(repo: string, pr: number, token: string, coverageFolder: string): Promise<void> {
+  const comment = await collectCoverage(coverageFolder);
 
   const ghClient = new GitHubCiClient(repo, token);
   // try cleaning up previous auto-comments
@@ -136,7 +135,8 @@ export async function immediatePush(
   githubToken: string,
   azStorageAccount: string,
   azStorageAccessKey: string,
-  version: string,
+  version: string | undefined,
+  coverageFolder: string,
 ): Promise<void> {
   const postComment = githubToken && githubToken !== "skip";
   if (postComment) {
@@ -164,6 +164,6 @@ export async function immediatePush(
     }
   }
 
-  const comment = await collectCoverage();
+  const comment = await collectCoverage(coverageFolder);
   await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version);
 }
