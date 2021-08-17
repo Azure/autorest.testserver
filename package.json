@@ -5,6 +5,7 @@
   "main": "dist/cli/cli.js",
   "bin": {
     "autorest-testserver": "./dist/cli/cli.js",
+    "autorest-testserver-coverage": "./dist/reporter/cli.js",
     "start-autorest-express": "./.scripts/start-autorest-express.js",
     "start-autorest-wiremock": "./.scripts/start-autorest-wiremock.js"
   },
