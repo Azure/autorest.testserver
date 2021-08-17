@@ -39,11 +39,12 @@ const run = async () => {
       description: "Path of the directory where the coverage reports should be saved.",
       default: join(process.cwd(), "coverage"),
     })
-    .check((args) => {
+    .middleware((args) => {
       setLoggingLevelFromConfig(args);
+      return args;
     })
     .command(
-      "$0",
+      ["$0", "run"],
       "Run the autorest test server.",
       () => null,
       (args) => runCommand(args),
