@@ -447,6 +447,28 @@
                     }
                 }
             }
+        },
+        "/constants/clientConstants/{path-constant}": {
+            "put": {
+                "operationId": "contants_putClientConstants",
+                "description": "Pass constants from the client to this function. Will pass in constant path, query, and header parameters.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderClientConstant"
+                    },
+                    {
+                        "$ref": "#/parameters/QueryClientConstant"
+                    },
+                    {
+                        "$ref": "#/parameters/PathClientConstant"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Indicates success."
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -728,6 +750,41 @@
             },
             "required": [
                 "parameter"
+            ]
+        }
+    },
+    "parameters": {
+        "HeaderClientConstant": {
+            "name": "header-constant",
+            "x-ms-parameter-location": "client",
+            "in": "header",
+            "required": true,
+            "type": "boolean",
+            "description": "Constant header property on the client that is a required parameter for operation 'constants_putClientConstants'",
+            "enum": [
+              true
+            ]
+        },
+        "QueryClientConstant": {
+            "name": "query-constant",
+            "x-ms-parameter-location": "client",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "description": "Constant query property on the client that is a required parameter for operation 'constants_putClientConstants'",
+            "enum": [
+              100
+            ]
+        },
+        "PathClientConstant": {
+            "name": "path-constant",
+            "x-ms-parameter-location": "client",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Constant path property on the client that is a required parameter for operation 'constants_putClientConstants'",
+            "enum": [
+              "path"
             ]
         }
     }
