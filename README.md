@@ -26,4 +26,4 @@ npm run start
 
 ## Writing mock apis
 
-See [docs](./docs/writing-mock-apis)
+See [docs](./docs/writing-mock-apis.md)
