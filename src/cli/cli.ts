@@ -15,6 +15,7 @@ const run = async () => {
   await yargs(hideBin(process.argv))
     .help()
     .strict()
+    .env("AUTOREST_TESTSERVER")
     .option("verbose", {
       alias: "v",
       type: "boolean",

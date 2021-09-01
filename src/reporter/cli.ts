@@ -5,7 +5,7 @@ import { immediatePush } from "./coverage";
 
 async function main() {
   await yargs(hideBin(process.argv))
-    .option("coveragePath", {
+    .option("coverageDirectory", {
       description:
         "Path to the folder of the coverage files. Should be $pwd/coverage where $pwd is the directory where autorest.testserver was run from.",
       default: join(process.cwd(), "coverage"),
@@ -40,7 +40,7 @@ async function main() {
           args.azStorageAccount,
           args.azStorageAccessKey,
           args.version,
-          args.coveragePath,
+          args.coverageDirectory,
         );
       },
     ).argv;
