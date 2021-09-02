@@ -60,7 +60,7 @@ async function collectCoverage(coverageFolder: string) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const testServerVersion = require(join(coverageFolder, "..", "..", "package.json")).version;
+  const testServerVersion = require(join(__dirname, "..", "..", "package.json")).version;
   return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
 }
 
