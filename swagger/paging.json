@@ -159,7 +159,7 @@
             "enum": [
               true
             ],
-            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
+            "x-ms-enum": { "modelAsString": false }
           }
 		    ],
         "responses": {
@@ -190,7 +190,7 @@
             "enum": [
               true
             ],
-            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
+            "x-ms-enum": { "modelAsString": false }
           }
 		    ],
         "responses": {

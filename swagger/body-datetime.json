@@ -451,7 +451,7 @@
               "enum": [
                 "0001-01-01T00:00:00Z"
               ],
-              "x-ms-enum": { "name": "minDateTimeUtcConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -503,7 +503,7 @@
               "enum": [
                 "0001-01-01t00:00:00+14:00"
               ],
-              "x-ms-enum": { "name": "minDateTimePosOffsetConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -565,7 +565,7 @@
               "enum": [
                 "0001-01-01t00:00:00-14:00"
               ],
-              "x-ms-enum": { "name": "minDateTimeNegOffsetConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {

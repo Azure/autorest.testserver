@@ -93,7 +93,7 @@
             "schema": {
               "type": "string",
               "enum": [""],
-              "x-ms-enum": { "name": "emptyStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -120,7 +120,7 @@
             "schema": {
               "type": "string",
               "enum": [""],
-              "x-ms-enum": { "name": "emptyStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -159,7 +159,7 @@
             "schema": {
               "type": "string",
               "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
-              "x-ms-enum": { "name": "mbcsStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -186,7 +186,7 @@
             "schema": {
               "type": "string",
               "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
-              "x-ms-enum": { "name": "mbcsStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -225,7 +225,7 @@
             "schema": {
               "type": "string",
               "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
-              "x-ms-enum": { "name": "wsStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -252,7 +252,7 @@
             "schema": {
               "type": "string",
               "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
-              "x-ms-enum": { "name": "wsStringConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }

@@ -123,7 +123,7 @@
             "name": "constantParam",
             "type": "string",
             "enum": ["constant"],
-            "x-ms-enum": { "name": "constantConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "in": "path",
             "required": true
           }
@@ -141,7 +141,7 @@
             "name": "constantParam",
             "type": "string",
             "enum": ["constant"],
-            "x-ms-enum": { "name": "constantConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "in": "path",
             "required": true
           },
@@ -199,13 +199,13 @@
           "type": "integer",
           "description": "Constant int",
           "enum": [0],
-          "x-ms-enum": { "name": "zeroConst", "modelAsString": false }
+          "x-ms-enum": { "modelAsString": false }
         },
         "constString": {
           "type": "string",
           "description": "Constant string",
           "enum": ["constant"],
-          "x-ms-enum": { "name": "constantConst", "modelAsString": false }
+          "x-ms-enum": { "modelAsString": false }
         },
         "constStringAsEnum": {
           "type": "string",
@@ -227,7 +227,7 @@
           "type": "string",
           "description": "Constant string",
           "enum": ["constant"],
-          "x-ms-enum": { "name": "constantConst", "modelAsString": false }
+          "x-ms-enum": { "modelAsString": false }
         },
         "count": {
           "type": "integer",
@@ -244,13 +244,13 @@
           "type": "string",
           "description": "Constant string",
           "enum": ["constant"],
-          "x-ms-enum": { "name": "constantConst", "modelAsString": false }
+          "x-ms-enum": { "modelAsString": false }
         },
         "constProperty2": {
           "type": "string",
           "description": "Constant string2",
           "enum": ["constant2"],
-          "x-ms-enum": { "name": "constant2Const", "modelAsString": false }
+          "x-ms-enum": { "modelAsString": false }
         }
       }
     },

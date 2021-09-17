@@ -259,7 +259,7 @@
       "required": true,
       "type": "string",
       "enum": [ "123456" ],
-      "x-ms-enum": { "name": "subscriptionIdConst", "modelAsString": false }
+      "x-ms-enum": { "modelAsString": false }
     },
     "ApiVersionParameter": {
       "name": "api-version",

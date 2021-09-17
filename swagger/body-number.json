@@ -153,7 +153,7 @@
               "type": "number",
               "format": "float",
               "enum":  [3.402823e+20],
-              "x-ms-enum": { "name": "bigFloatConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -213,7 +213,7 @@
               "type": "number",
               "format": "double",
               "enum":  [2.5976931e+101],
-              "x-ms-enum": { "name": "bigDoubleConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -242,7 +242,7 @@
               "type": "number",
               "format": "double",
               "enum":  [99999999.99],
-              "x-ms-enum": { "name": "bigDoublePosDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -274,7 +274,7 @@
               "type": "number",
               "format": "double",
               "enum":  [99999999.99],
-              "x-ms-enum": { "name": "bigDoublePosDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -303,7 +303,7 @@
               "type": "number",
               "format": "double",
               "enum":  [-99999999.99],
-              "x-ms-enum": { "name": "bigDoubleNegDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -335,7 +335,7 @@
               "type": "number",
               "format": "double",
               "enum":  [-99999999.99],
-              "x-ms-enum": { "name": "bigDoubleNegDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -395,7 +395,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [2.5976931e+101],
-              "x-ms-enum": { "name": "bigDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -424,7 +424,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [99999999.99],
-              "x-ms-enum": { "name": "bigDecimalPosConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -456,7 +456,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [99999999.99],
-              "x-ms-enum": { "name": "bigDecimalPosConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -485,7 +485,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [-99999999.99],
-              "x-ms-enum": { "name": "bigDecimalNegConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
@@ -517,7 +517,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [-99999999.99],
-              "x-ms-enum": { "name": "bigDecimalNegConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -577,7 +577,7 @@
               "type": "number",
               "format": "double",
               "enum":  [3.402823e-20],
-              "x-ms-enum": { "name": "smallFloatConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -637,7 +637,7 @@
               "type": "number",
               "format": "double",
               "enum":  [2.5976931e-101],
-              "x-ms-enum": { "name": "smallDoubleConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -697,7 +697,7 @@
               "type": "number",
               "format": "decimal",
               "enum":  [2.5976931e-101],
-              "x-ms-enum": { "name": "smallDecimalConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {

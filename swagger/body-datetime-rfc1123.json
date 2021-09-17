@@ -217,7 +217,7 @@
               "enum": [
                 "Sun, 1 Jan 0001 00:00:00 GMT"
               ],
-              "x-ms-enum": { "name": "dateTimeRfc1123Const", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {

@@ -212,7 +212,7 @@
               "type": "string",
               "format": "date",
               "enum":  ["0000-01-01"],
-              "x-ms-enum": { "name": "dateConst", "modelAsString": false }
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {

@@ -30,7 +30,7 @@
                         "schema": {
                             "type": "boolean",
                             "enum": [true],
-                            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
+                            "x-ms-enum": { "modelAsString": false }
                         }
                     },
                     "default": {
@@ -56,7 +56,7 @@
                         "schema" : {
                             "type": "boolean",
                             "enum": [true],
-                            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
+                            "x-ms-enum": { "modelAsString": false }
                         },
                         "required": true
                     }
@@ -95,7 +95,7 @@
                         "schema": {
                             "type": "boolean",
                             "enum": [false],
-                            "x-ms-enum": { "name": "falseConst", "modelAsString": false }
+                            "x-ms-enum": { "modelAsString": false }
                         }
                     },
                     "default": {
@@ -121,7 +121,7 @@
                         "schema" : {
                             "type": "boolean",
                             "enum": [false],
-                            "x-ms-enum": { "name": "falseConst", "modelAsString": false }
+                            "x-ms-enum": { "modelAsString": false }
                         },
                         "required": true
                     }

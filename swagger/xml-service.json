@@ -498,7 +498,7 @@
             "enum": [
               "list"
             ],
-            "x-ms-enum": { "name": "listConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           }
         ],
@@ -527,7 +527,7 @@
             "enum": [
               "properties"
             ],
-            "x-ms-enum": { "name": "propertiesConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -537,7 +537,7 @@
             "enum": [
               "service"
             ],
-            "x-ms-enum": { "name": "serviceConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           }
         ],
@@ -564,7 +564,7 @@
             "enum": [
               "properties"
             ],
-            "x-ms-enum": { "name": "propertiesConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -574,7 +574,7 @@
             "enum": [
               "service"
             ],
-            "x-ms-enum": { "name": "serviceConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -608,7 +608,7 @@
             "enum": [
               "acl"
             ],
-            "x-ms-enum": { "name": "aclConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -618,7 +618,7 @@
             "enum": [
               "container"
             ],
-            "x-ms-enum": { "name": "containerConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           }
         ],
@@ -645,7 +645,7 @@
             "enum": [
               "acl"
             ],
-            "x-ms-enum": { "name": "aclConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -655,7 +655,7 @@
             "enum": [
               "container"
             ],
-            "x-ms-enum": { "name": "containerConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -689,7 +689,7 @@
             "enum": [
               "list"
             ],
-            "x-ms-enum": { "name": "listConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           },
           {
@@ -699,7 +699,7 @@
             "enum": [
               "container"
             ],
-            "x-ms-enum": { "name": "containerConst", "modelAsString": false },
+            "x-ms-enum": { "modelAsString": false },
             "required": true
           }
         ],
