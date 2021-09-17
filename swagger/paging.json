@@ -158,7 +158,8 @@
             "type": "boolean",
             "enum": [
               true
-            ]
+            ],
+            "x-ms-enum": { "modelAsString": false }
           }
 		    ],
         "responses": {
@@ -188,7 +189,8 @@
             "type": "boolean",
             "enum": [
               true
-            ]
+            ],
+            "x-ms-enum": { "modelAsString": false }
           }
 		    ],
         "responses": {

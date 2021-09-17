@@ -123,6 +123,7 @@
             "name": "constantParam",
             "type": "string",
             "enum": ["constant"],
+            "x-ms-enum": { "modelAsString": false },
             "in": "path",
             "required": true
           }
@@ -140,6 +141,7 @@
             "name": "constantParam",
             "type": "string",
             "enum": ["constant"],
+            "x-ms-enum": { "modelAsString": false },
             "in": "path",
             "required": true
           },
@@ -196,12 +198,14 @@
         "constInt": {
           "type": "integer",
           "description": "Constant int",
-          "enum": [0]
+          "enum": [0],
+          "x-ms-enum": { "modelAsString": false }
         },
         "constString": {
           "type": "string",
           "description": "Constant string",
-          "enum": ["constant"]
+          "enum": ["constant"],
+          "x-ms-enum": { "modelAsString": false }
         },
         "constStringAsEnum": {
           "type": "string",
@@ -222,7 +226,8 @@
         "constProperty": {
           "type": "string",
           "description": "Constant string",
-          "enum": ["constant"]
+          "enum": ["constant"],
+          "x-ms-enum": { "modelAsString": false }
         },
         "count": {
           "type": "integer",
@@ -238,12 +243,14 @@
         "constProperty": {
           "type": "string",
           "description": "Constant string",
-          "enum": ["constant"]
+          "enum": ["constant"],
+          "x-ms-enum": { "modelAsString": false }
         },
         "constProperty2": {
           "type": "string",
           "description": "Constant string2",
-          "enum": ["constant2"]
+          "enum": ["constant2"],
+          "x-ms-enum": { "modelAsString": false }
         }
       }
     },
