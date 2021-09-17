@@ -367,6 +367,7 @@
             "type": "string",
             "required": true,
             "enum": [ "2.0" ],
+            "x-ms-enum": { "name": "apiVersionConst", "modelAsString": false },
             "x-ms-api-version": false
           }
         ],
@@ -446,6 +447,7 @@
           "type": "string",
           "required": true,
           "enum": [ "2.0" ],
+          "x-ms-enum": { "name": "apiVersionConst", "modelAsString": false },
           "x-ms-api-version": false
         }
       ],
@@ -508,6 +510,7 @@
             "type": "string",
             "required": true,
             "enum": [ "2.0" ],
+            "x-ms-enum": { "name": "apiVersionConst", "modelAsString": false },
             "x-ms-api-version": false
           }
         ],
@@ -599,6 +602,7 @@
             "type": "string",
             "required": true,
             "enum": [ "path1/path2/path3" ],
+            "x-ms-enum": { "name": "pathParamConst", "modelAsString": false },
             "x-ms-skip-url-encoding": true
           }
         ],
@@ -718,6 +722,7 @@
             "description": "An unencoded query parameter with value 'value1&q2=value2&q3=value3'",
             "type": "string",
             "enum": [ "value1&q2=value2&q3=value3" ],
+            "x-ms-enum": { "name": "queryParamConst", "modelAsString": false },
             "required": true,
             "x-ms-skip-url-encoding": true
           }
@@ -924,7 +929,8 @@
         },
         "constantId": {
           "type": "integer",
-          "enum": [ 1 ]
+          "enum": [ 1 ],
+          "x-ms-enum": { "name": "errorIdConst", "modelAsString": false }
         },
         "message": {
           "type": "string"

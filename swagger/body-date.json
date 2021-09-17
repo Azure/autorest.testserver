@@ -211,7 +211,8 @@
             "schema": {
               "type": "string",
               "format": "date",
-              "enum":  ["0000-01-01"]
+              "enum":  ["0000-01-01"],
+              "x-ms-enum": { "name": "dateConst", "modelAsString": false }
             }
           },
           "default": {

@@ -450,7 +450,8 @@
               "format": "date-time",
               "enum": [
                 "0001-01-01T00:00:00Z"
-              ]
+              ],
+              "x-ms-enum": { "name": "minDateTimeUtcConst", "modelAsString": false }
             }
           },
           "default": {
@@ -501,7 +502,8 @@
               "format": "date-time",
               "enum": [
                 "0001-01-01t00:00:00+14:00"
-              ]
+              ],
+              "x-ms-enum": { "name": "minDateTimePosOffsetConst", "modelAsString": false }
             }
           },
           "default": {
@@ -562,7 +564,8 @@
               "format": "date-time",
               "enum": [
                 "0001-01-01t00:00:00-14:00"
-              ]
+              ],
+              "x-ms-enum": { "name": "minDateTimeNegOffsetConst", "modelAsString": false }
             }
           },
           "default": {

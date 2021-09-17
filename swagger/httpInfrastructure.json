@@ -25,7 +25,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           },
           "default": {
@@ -50,7 +51,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         }
@@ -69,7 +71,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         }
@@ -106,7 +109,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           },
           "default": {
@@ -129,7 +133,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           },
           "default": {
@@ -154,7 +159,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -184,7 +190,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -214,7 +221,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -244,7 +252,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -276,7 +285,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -306,7 +316,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -338,7 +349,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -368,7 +380,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -398,7 +411,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -428,7 +442,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -478,7 +493,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -508,7 +524,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -538,7 +555,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -568,7 +586,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -625,7 +644,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ]
+                "enum": [ "/http/success/head/200" ],
+                "x-ms-enum": { "name": "head300Const", "modelAsString": false }
               }
             }
           },
@@ -653,7 +673,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ]
+                "enum": [ "/http/success/get/200" ],
+                "x-ms-enum": { "name": "get300Const", "modelAsString": false }
               }
             },
             "schema": {
@@ -690,7 +711,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ]
+                "enum": [ "/http/success/head/200" ],
+                "x-ms-enum": { "name": "head301Const", "modelAsString": false }
               }
             }
           },
@@ -718,7 +740,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ]
+                "enum": [ "/http/success/get/200" ],
+                "x-ms-enum": { "name": "get301Const", "modelAsString": false }
               }
             }
           },
@@ -744,7 +767,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -755,7 +779,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/failure/500" ]
+                "enum": [ "/http/failure/500" ],
+                "x-ms-enum": { "name": "put301Const", "modelAsString": false }
               }
             }
           },
@@ -785,7 +810,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ]
+                "enum": [ "/http/success/head/200" ],
+                "x-ms-enum": { "name": "head302Const", "modelAsString": false }
               }
             }
           },
@@ -813,7 +839,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ]
+                "enum": [ "/http/success/get/200" ],
+                "x-ms-enum": { "name": "get302Const", "modelAsString": false }
               }
             }
           },
@@ -839,7 +866,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -850,7 +878,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/failure/500" ]
+                "enum": [ "/http/failure/500" ],
+                "x-ms-enum": { "name": "patch302Const", "modelAsString": false }
               }
             }
           },
@@ -878,7 +907,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -892,7 +922,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ]
+                "enum": [ "/http/success/get/200" ],
+                "x-ms-enum": { "name": "post303Const", "modelAsString": false }
               }
             }
           },
@@ -922,7 +953,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ]
+                "enum": [ "/http/success/head/200" ],
+                "x-ms-enum": { "name": "head307Const", "modelAsString": false }
               }
             }
           },
@@ -950,7 +982,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ]
+                "enum": [ "/http/success/get/200" ],
+                "x-ms-enum": { "name": "get307Const", "modelAsString": false }
               }
             }
           },
@@ -978,7 +1011,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/options/200" ]
+                "enum": [ "/http/success/options/200" ],
+                "x-ms-enum": { "name": "options307Const", "modelAsString": false }
               }
             }
           },
@@ -1004,7 +1038,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1018,7 +1053,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/put/200" ]
+                "enum": [ "/http/success/put/200" ],
+                "x-ms-enum": { "name": "put307Const", "modelAsString": false }
               }
             }
           },
@@ -1044,7 +1080,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1058,7 +1095,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/patch/200" ]
+                "enum": [ "/http/success/patch/200" ],
+                "x-ms-enum": { "name": "patch307Const", "modelAsString": false }
               }
             }
           },
@@ -1084,7 +1122,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1098,7 +1137,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/post/200" ]
+                "enum": [ "/http/success/post/200" ],
+                "x-ms-enum": { "name": "post307Const", "modelAsString": false }
               }
             }
           },
@@ -1124,7 +1164,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1138,7 +1179,8 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/delete/200" ]
+                "enum": [ "/http/success/delete/200" ],
+                "x-ms-enum": { "name": "delete307Const", "modelAsString": false }
               }
             }
           },
@@ -1211,7 +1253,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1238,7 +1281,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1265,7 +1309,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1292,7 +1337,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1387,7 +1433,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1416,7 +1463,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1445,7 +1493,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1474,7 +1523,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1503,7 +1553,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1598,7 +1649,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1627,7 +1679,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1656,7 +1709,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1702,7 +1756,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1780,7 +1835,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1807,7 +1863,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1856,7 +1913,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1886,7 +1944,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1934,7 +1993,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           },
           "default": {
@@ -1961,7 +2021,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -1991,7 +2052,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -2023,7 +2085,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],
@@ -2053,7 +2116,8 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ]
+              "enum": [ true ],
+              "x-ms-enum": { "name": "trueConst", "modelAsString": false }
             }
           }
         ],

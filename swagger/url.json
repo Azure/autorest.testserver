@@ -26,6 +26,7 @@
             "description": "true boolean value",
             "type": "boolean",
             "enum": [ true ],
+            "x-ms-enum": { "name": "trueConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -56,6 +57,7 @@
             "description": "false boolean value",
             "type": "boolean",
             "enum": [ false ],
+            "x-ms-enum": { "name": "falseConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -86,6 +88,7 @@
             "description": "'1000000' integer value",
             "type": "integer",
             "enum": [ 1000000 ],
+            "x-ms-enum": { "name": "oneMillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -116,6 +119,7 @@
             "description": "'-1000000' integer value",
             "type": "integer",
             "enum": [ -1000000 ],
+            "x-ms-enum": { "name": "negOneMillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -147,6 +151,7 @@
             "type": "integer",
             "format": "int64",
             "enum": [ 10000000000 ],
+            "x-ms-enum": { "name": "tenBillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -178,6 +183,7 @@
             "type": "integer",
             "format": "int64",
             "enum": [ -10000000000 ],
+            "x-ms-enum": { "name": "negTenBillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -208,6 +214,7 @@
             "description": "'1.034E+20'numeric value",
             "type": "number",
             "enum": [ 1.034E+20 ],
+            "x-ms-enum": { "name": "posScientificConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -238,6 +245,7 @@
             "description": "'-1.034E-20'numeric value",
             "type": "number",
             "enum": [ -1.034E-20 ],
+            "x-ms-enum": { "name": "negScientificConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -269,6 +277,7 @@
             "type": "number",
             "format": "double",
             "enum": [ 9999999.999 ],
+            "x-ms-enum": { "name": "posDecimalConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -300,6 +309,7 @@
             "type": "number",
             "format": "double",
             "enum": [ -9999999.999 ],
+            "x-ms-enum": { "name": "negDecimalConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -330,6 +340,7 @@
             "description": "'啊齄丂狛狜隣郎隣兀﨩'multi-byte string value",
             "type": "string",
             "enum": [ "啊齄丂狛狜隣郎隣兀﨩" ],
+            "x-ms-enum": { "name": "unicodeConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -360,6 +371,7 @@
             "description": "'begin!*'();:@ &=+$,/?#[]end' url encoded string value",
             "type": "string",
             "enum": [ "begin!*'();:@ &=+$,/?#[]end" ],
+            "x-ms-enum": { "name": "urlEncodedConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -391,6 +403,7 @@
             "description": "'begin!*'();:@&=+$,end' url encoded string value",
             "type": "string",
             "enum": [ "begin!*'();:@&=+$,end" ],
+            "x-ms-enum": { "name": "nonUrlEncodedConst", "modelAsString": false },
             "required": true,
             "x-ms-skip-url-encoding": true
           }
@@ -422,6 +435,7 @@
             "description": "'' string value",
             "type": "string",
             "enum": [ "" ],
+            "x-ms-enum": { "name": "emptyStringConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -574,6 +588,7 @@
             "type": "string",
             "format": "byte",
             "enum": [ "" ],
+            "x-ms-enum": { "name": "emptyByteConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -635,6 +650,7 @@
             "type": "string",
             "format": "date",
             "enum": [ "2012-01-01" ],
+            "x-ms-enum": { "name": "dateConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -696,6 +712,7 @@
             "type": "string",
             "format": "date-time",
             "enum": [ "2012-01-01T01:01:01Z" ],
+            "x-ms-enum": { "name": "dateTimeConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -849,6 +866,7 @@
             "description": "true boolean value",
             "type": "boolean",
             "enum": [ true ],
+            "x-ms-enum": { "name": "trueConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -879,6 +897,7 @@
             "description": "false boolean value",
             "type": "boolean",
             "enum": [ false ],
+            "x-ms-enum": { "name": "falseConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -937,6 +956,7 @@
             "description": "'1000000' integer value",
             "type": "integer",
             "enum": [ 1000000 ],
+            "x-ms-enum": { "name": "oneMillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -967,6 +987,7 @@
             "description": "'-1000000' integer value",
             "type": "integer",
             "enum": [ -1000000 ],
+            "x-ms-enum": { "name": "negOneMillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1026,6 +1047,7 @@
             "type": "integer",
             "format": "int64",
             "enum": [ 10000000000 ],
+            "x-ms-enum": { "name": "tenBillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1057,6 +1079,7 @@
             "type": "integer",
             "format": "int64",
             "enum": [ -10000000000 ],
+            "x-ms-enum": { "name": "negTenBillionConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1116,6 +1139,7 @@
             "description": "'1.034E+20'numeric value",
             "type": "number",
             "enum": [ 1.034E+20 ],
+            "x-ms-enum": { "name": "posScientificConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1146,6 +1170,7 @@
             "description": "'-1.034E-20'numeric value",
             "type": "number",
             "enum": [ -1.034E-20 ],
+            "x-ms-enum": { "name": "negScientificConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1205,6 +1230,7 @@
             "type": "number",
             "format": "double",
             "enum": [ 9999999.999 ],
+            "x-ms-enum": { "name": "posDecimalConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1236,6 +1262,7 @@
             "type": "number",
             "format": "double",
             "enum": [ -9999999.999 ],
+            "x-ms-enum": { "name": "negDecimalConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1295,6 +1322,7 @@
             "description": "'啊齄丂狛狜隣郎隣兀﨩'multi-byte string value",
             "type": "string",
             "enum": [ "啊齄丂狛狜隣郎隣兀﨩" ],
+            "x-ms-enum": { "name": "unicodeConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1325,6 +1353,7 @@
             "description": "'begin!*'();:@ &=+$,/?#[]end' url encoded string value",
             "type": "string",
             "enum": [ "begin!*'();:@ &=+$,/?#[]end" ],
+            "x-ms-enum": { "name": "urlEncodedConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1355,6 +1384,7 @@
             "description": "'' string value",
             "type": "string",
             "enum": [ "" ],
+            "x-ms-enum": { "name": "emptyStringConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1503,6 +1533,7 @@
             "type": "string",
             "format": "byte",
             "enum": [ "" ],
+            "x-ms-enum": { "name": "emptyByteConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1563,6 +1594,7 @@
             "type": "string",
             "format": "date",
             "enum": [ "2012-01-01" ],
+            "x-ms-enum": { "name": "dateConst", "modelAsString": false },
             "required": true
           }
         ],
@@ -1623,6 +1655,7 @@
             "type": "string",
             "format": "date-time",
             "enum": [ "2012-01-01T01:01:01Z" ],
+            "x-ms-enum": { "name": "dateTimeConst", "modelAsString": false },
             "required": true
           }
         ],

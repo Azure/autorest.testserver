@@ -29,7 +29,8 @@
                         "description": "The true Boolean value",
                         "schema": {
                             "type": "boolean",
-                            "enum": [true]
+                            "enum": [true],
+                            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
                         }
                     },
                     "default": {
@@ -54,7 +55,8 @@
                         "in": "body",
                         "schema" : {
                             "type": "boolean",
-                            "enum": [true]
+                            "enum": [true],
+                            "x-ms-enum": { "name": "trueConst", "modelAsString": false }
                         },
                         "required": true
                     }
@@ -92,7 +94,8 @@
                         "description": "The false Boolean value",
                         "schema": {
                             "type": "boolean",
-                            "enum": [false]
+                            "enum": [false],
+                            "x-ms-enum": { "name": "falseConst", "modelAsString": false }
                         }
                     },
                     "default": {
@@ -117,7 +120,8 @@
                         "in": "body",
                         "schema" : {
                             "type": "boolean",
-                            "enum": [false]
+                            "enum": [false],
+                            "x-ms-enum": { "name": "falseConst", "modelAsString": false }
                         },
                         "required": true
                     }

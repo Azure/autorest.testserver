@@ -152,7 +152,8 @@
             "schema": {
               "type": "number",
               "format": "float",
-              "enum":  [3.402823e+20]
+              "enum":  [3.402823e+20],
+              "x-ms-enum": { "name": "bigFloatConst", "modelAsString": false }
             }
           },
           "default": {
@@ -211,7 +212,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [2.5976931e+101]
+              "enum":  [2.5976931e+101],
+              "x-ms-enum": { "name": "bigDoubleConst", "modelAsString": false }
             }
           },
           "default": {
@@ -239,7 +241,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [99999999.99]
+              "enum":  [99999999.99],
+              "x-ms-enum": { "name": "bigDoublePosDecimalConst", "modelAsString": false }
             },
             "required": true
           }
@@ -270,7 +273,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [99999999.99]
+              "enum":  [99999999.99],
+              "x-ms-enum": { "name": "bigDoublePosDecimalConst", "modelAsString": false }
             }
           },
           "default": {
@@ -298,7 +302,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [-99999999.99]
+              "enum":  [-99999999.99],
+              "x-ms-enum": { "name": "bigDoubleNegDecimalConst", "modelAsString": false }
             },
             "required": true
           }
@@ -329,7 +334,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [-99999999.99]
+              "enum":  [-99999999.99],
+              "x-ms-enum": { "name": "bigDoubleNegDecimalConst", "modelAsString": false }
             }
           },
           "default": {
@@ -388,7 +394,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [2.5976931e+101]
+              "enum":  [2.5976931e+101],
+              "x-ms-enum": { "name": "bigDecimalConst", "modelAsString": false }
             }
           },
           "default": {
@@ -416,7 +423,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [99999999.99]
+              "enum":  [99999999.99],
+              "x-ms-enum": { "name": "bigDecimalPosConst", "modelAsString": false }
             },
             "required": true
           }
@@ -447,7 +455,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [99999999.99]
+              "enum":  [99999999.99],
+              "x-ms-enum": { "name": "bigDecimalPosConst", "modelAsString": false }
             }
           },
           "default": {
@@ -475,7 +484,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [-99999999.99]
+              "enum":  [-99999999.99],
+              "x-ms-enum": { "name": "bigDecimalNegConst", "modelAsString": false }
             },
             "required": true
           }
@@ -506,7 +516,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [-99999999.99]
+              "enum":  [-99999999.99],
+              "x-ms-enum": { "name": "bigDecimalNegConst", "modelAsString": false }
             }
           },
           "default": {
@@ -565,7 +576,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [3.402823e-20]
+              "enum":  [3.402823e-20],
+              "x-ms-enum": { "name": "smallFloatConst", "modelAsString": false }
             }
           },
           "default": {
@@ -624,7 +636,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [2.5976931e-101]
+              "enum":  [2.5976931e-101],
+              "x-ms-enum": { "name": "smallDoubleConst", "modelAsString": false }
             }
           },
           "default": {
@@ -683,7 +696,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [2.5976931e-101]
+              "enum":  [2.5976931e-101],
+              "x-ms-enum": { "name": "smallDecimalConst", "modelAsString": false }
             }
           },
           "default": {
