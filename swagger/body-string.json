@@ -92,7 +92,8 @@
             "description": "The empty String value",
             "schema": {
               "type": "string",
-              "enum": [""]
+              "enum": [""],
+              "x-ms-enum": {"modelAsString": false}
             }
           },
           "default": {
@@ -118,7 +119,8 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [""]
+              "enum": [""],
+              "x-ms-enum": {"modelAsString": false}
             },
             "required": true
           }
@@ -156,7 +158,8 @@
             "description": "The mbcs String value",
             "schema": {
               "type": "string",
-              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ]
+              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
+              "x-ms-enum": {"modelAsString": false}
             }
           },
           "default": {
@@ -182,7 +185,8 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ]
+              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
+              "x-ms-enum": {"modelAsString": false}
             },
             "required": true
           }
@@ -220,7 +224,8 @@
             "description": "The String value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
             "schema": {
               "type": "string",
-              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ]
+              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
+              "x-ms-enum": {"modelAsString": false}
             }
           },
           "default": {
@@ -246,7 +251,8 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ]
+              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
+              "x-ms-enum": {"modelAsString": false}
             },
             "required": true
           }
