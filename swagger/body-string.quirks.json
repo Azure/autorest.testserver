@@ -6,25 +6,21 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/string/null": {
       "get": {
         "operationId": "string_getNull",
         "description": "Get null string value value",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The null String value",
             "schema": {
               "type": "string",
-              "enum": [ null ]
+              "enum": [null]
             }
           },
           "default": {
@@ -47,9 +43,7 @@
             }
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -67,15 +61,14 @@
       "get": {
         "operationId": "string_getEmpty",
         "description": "Get empty string value value ''",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The empty String value",
             "schema": {
               "type": "string",
-              "enum": [ "" ]
+              "enum": [""],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -99,9 +92,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -119,15 +110,16 @@
       "get": {
         "operationId": "string_getMbcs",
         "description": "Get mbcs string value '啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€'",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The mbcs String value",
             "schema": {
               "type": "string",
-              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ]
+              "enum": [
+                "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€"
+              ],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -151,9 +143,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -171,15 +161,14 @@
       "get": {
         "operationId": "string_getWhitespace",
         "description": "Get string value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
             "schema": {
               "type": "string",
-              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ]
+              "enum": ["    Now is the time for all good men to come to the aid of their country    "],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -203,9 +192,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -223,16 +210,14 @@
       "get": {
         "operationId": "enum_getNotExpandable",
         "description": "Get enum value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'.",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
             "schema": {
-              "x-ms-enum": { "name": "Colors", "modelAsString": false},
+              "x-ms-enum": { "name": "Colors", "modelAsString": false },
               "type": "string",
-              "enum": [ "red color", "green-color", "blue_color" ]
+              "enum": ["red color", "green-color", "blue_color"]
             }
           },
           "default": {
@@ -251,16 +236,14 @@
             "name": "stringBody",
             "in": "body",
             "schema": {
-              "x-ms-enum": { "name": "Colors", "modelAsString": false},
+              "x-ms-enum": { "name": "Colors", "modelAsString": false },
               "type": "string",
-              "enum": [ "red color", "green-color", "blue_color" ]
+              "enum": ["red color", "green-color", "blue_color"]
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -278,9 +261,7 @@
       "get": {
         "operationId": "enum_getReferenced",
         "description": "Get enum value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'.",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
@@ -303,15 +284,13 @@
           {
             "name": "enumStringBody",
             "in": "body",
-             "schema": {
+            "schema": {
               "$ref": "#/definitions/RefColors"
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -329,9 +308,7 @@
       "get": {
         "operationId": "enum_getReferencedConstant",
         "description": "Get value 'green-color' from the constant.",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'green-color' from a constant",
@@ -354,15 +331,13 @@
           {
             "name": "enumStringBody",
             "in": "body",
-             "schema": {
+            "schema": {
               "$ref": "#/definitions/RefColorConstant"
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -380,9 +355,7 @@
       "get": {
         "operationId": "string_getNotProvided",
         "description": "Get String value when no string value is sent in response payload",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The not provided string value",
@@ -403,9 +376,7 @@
       "get": {
         "operationId": "string_getBase64Encoded",
         "description": "Get value that is base64 encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The base64 encoded string value",
@@ -427,9 +398,7 @@
       "get": {
         "operationId": "string_getBase64UrlEncoded",
         "description": "Get value that is base64url encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The base64url encoded string value",
@@ -460,9 +429,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -480,9 +447,7 @@
       "get": {
         "operationId": "string_getNullBase64UrlEncoded",
         "description": "Get null value that is expected to be base64url encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The null value",
@@ -503,7 +468,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -515,26 +480,26 @@
       }
     },
     "RefColors": {
-      "x-ms-enum": { "name": "Colors", "modelAsString": false},
+      "x-ms-enum": { "name": "Colors", "modelAsString": false },
       "type": "string",
-      "enum": [ "red color", "green-color", "blue_color" ],
+      "enum": ["red color", "green-color", "blue_color"],
       "description": "Referenced Color Enum Description."
     },
     "RefColorConstant": {
-      "type":  "object",
-      "properties": {       
-        "ColorConstant": {   
-          "x-ms-enum": { "name": "ColorConstant", "modelAsString": false},
+      "type": "object",
+      "properties": {
+        "ColorConstant": {
+          "x-ms-enum": { "name": "ColorConstant", "modelAsString": false },
           "type": "string",
-          "enum": [ "green-color" ],
+          "enum": ["green-color"],
           "description": "Referenced Color Constant Description."
         },
-         "field1": {            
-          "type": "string",          
+        "field1": {
+          "type": "string",
           "description": "Sample string."
         }
       },
-       "required": [ "ColorConstant" ]
+      "required": ["ColorConstant"]
     }
   }
 }
