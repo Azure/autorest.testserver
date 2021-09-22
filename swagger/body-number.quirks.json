@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/number/null": {
       "get": {
@@ -130,7 +124,8 @@
             "schema": {
               "type": "number",
               "format": "float",
-              "enum":  [3.402823e+20]
+              "enum": [3.402823e20],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -189,7 +184,7 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [2.5976931e+101]
+              "enum": [2.5976931e101]
             }
           },
           "default": {
@@ -248,7 +243,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [99999999.99]
+              "enum": [99999999.99],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -307,7 +303,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [-99999999.99]
+              "enum": [-99999999.99],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -366,7 +363,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [2.5976931e+101]
+              "enum": [2.5976931e101],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -425,7 +423,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [99999999.99]
+              "enum": [99999999.99],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -484,7 +483,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [-99999999.99]
+              "enum": [-99999999.99],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -543,7 +543,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [3.402823e-20]
+              "enum": [3.402823e-20],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -602,7 +603,8 @@
             "schema": {
               "type": "number",
               "format": "double",
-              "enum":  [2.5976931e-101]
+              "enum": [2.5976931e-101],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -661,7 +663,8 @@
             "schema": {
               "type": "number",
               "format": "decimal",
-              "enum":  [2.5976931e-101]
+              "enum": [2.5976931e-101],
+              "x-ms-enum": { "modelAsString": false }
             }
           },
           "default": {
@@ -676,7 +679,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
