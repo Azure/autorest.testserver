@@ -6,13 +6,11 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
-      "/queries/array/multi/string/null": {
+    "/queries/array/multi/string/null": {
       "get": {
         "operationId": "queries_ArrayStringMultiNull",
         "description": "Get a null array of string using the multi-array format",
@@ -21,9 +19,7 @@
             "$ref": "./examples/queries_ArrayStringMultiNull.json"
           }
         },
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -59,9 +55,7 @@
             "$ref": "./examples/queries_ArrayStringMultiEmpty.json"
           }
         },
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -96,9 +90,7 @@
             "$ref": "./examples/queries_ArrayStringMultiValid.json"
           }
         },
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -126,18 +118,18 @@
       }
     }
   },
-    "definitions": {
-        "Error": {
-          "type":  "object",
-            "properties": {
-                "status": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
         }
+      }
     }
+  }
 }

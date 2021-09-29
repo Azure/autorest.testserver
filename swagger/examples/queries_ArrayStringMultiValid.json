@@ -1,6 +1,6 @@
 {
   "parameters": {
-      "arrayQuery": "ArrayQuery1,begin!*'();:@ &=+$,/?#[]end,,"
+    "arrayQuery": "ArrayQuery1,begin!*'();:@ &=+$,/?#[]end,,"
   },
   "responses": {
     "200": {}

@@ -1,6 +1,5 @@
 {
-  "parameters": {
-  },
+  "parameters": {},
   "responses": {
     "200": {
       "body": 3.402823e-20

@@ -6,11 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/string/null": {
       "get": {
@@ -21,9 +19,7 @@
             "$ref": "./examples/string_getNull.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The null String value",
@@ -59,9 +55,7 @@
             }
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -84,9 +78,7 @@
             "$ref": "./examples/string_getEmpty.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The empty String value",
@@ -125,9 +117,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -150,15 +140,15 @@
             "$ref": "./examples/string_getMbcs.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The mbcs String value",
             "schema": {
               "type": "string",
-              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
+              "enum": [
+                "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€"
+              ],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -185,15 +175,15 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [ "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€" ],
+              "enum": [
+                "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€"
+              ],
               "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -216,15 +206,13 @@
             "$ref": "./examples/string_getWhitespace.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value with leading and trailing whitespace '<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>'",
             "schema": {
               "type": "string",
-              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
+              "enum": ["    Now is the time for all good men to come to the aid of their country    "],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -251,15 +239,13 @@
             "in": "body",
             "schema": {
               "type": "string",
-              "enum": [ "    Now is the time for all good men to come to the aid of their country    " ],
+              "enum": ["    Now is the time for all good men to come to the aid of their country    "],
               "x-ms-enum": { "modelAsString": false }
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -282,16 +268,14 @@
             "$ref": "./examples/enum_getNotExpandable.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
             "schema": {
-              "x-ms-enum": { "name": "Colors", "modelAsString": false},
+              "x-ms-enum": { "name": "Colors", "modelAsString": false },
               "type": "string",
-              "enum": [ "red color", "green-color", "blue_color" ]
+              "enum": ["red color", "green-color", "blue_color"]
             }
           },
           "default": {
@@ -316,16 +300,14 @@
             "description": "string body",
             "in": "body",
             "schema": {
-              "x-ms-enum": { "name": "Colors", "modelAsString": false},
+              "x-ms-enum": { "name": "Colors", "modelAsString": false },
               "type": "string",
-              "enum": [ "red color", "green-color", "blue_color" ]
+              "enum": ["red color", "green-color", "blue_color"]
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -348,9 +330,7 @@
             "$ref": "./examples/enum_getReferenced.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'red color' from enumeration of 'red color', 'green-color', 'blue_color'",
@@ -379,15 +359,13 @@
             "name": "enumStringBody",
             "description": "enum string body",
             "in": "body",
-             "schema": {
+            "schema": {
               "$ref": "#/definitions/RefColors"
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -410,9 +388,7 @@
             "$ref": "./examples/enum_getReferencedConstant.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The String value 'green-color' from a constant",
@@ -441,15 +417,13 @@
             "name": "enumStringBody",
             "description": "enum string body",
             "in": "body",
-             "schema": {
+            "schema": {
               "$ref": "#/definitions/RefColorConstant"
             },
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -472,9 +446,7 @@
             "$ref": "./examples/string_getNotProvided.json"
           }
         },
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The not provided string value",
@@ -495,9 +467,7 @@
       "get": {
         "operationId": "string_getBase64Encoded",
         "description": "Get value that is base64 encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The base64 encoded string value",
@@ -519,9 +489,7 @@
       "get": {
         "operationId": "string_getBase64UrlEncoded",
         "description": "Get value that is base64url encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The base64url encoded string value",
@@ -553,9 +521,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -573,9 +539,7 @@
       "get": {
         "operationId": "string_getNullBase64UrlEncoded",
         "description": "Get null value that is expected to be base64url encoded",
-        "tags": [
-          "String Operations"
-        ],
+        "tags": ["String Operations"],
         "responses": {
           "200": {
             "description": "The null value",
@@ -597,7 +561,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -609,26 +573,26 @@
       }
     },
     "RefColors": {
-      "x-ms-enum": { "name": "Colors", "modelAsString": false},
+      "x-ms-enum": { "name": "Colors", "modelAsString": false },
       "type": "string",
-      "enum": [ "red color", "green-color", "blue_color" ],
+      "enum": ["red color", "green-color", "blue_color"],
       "description": "Referenced Color Enum Description."
     },
     "RefColorConstant": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "ColorConstant": {
-          "x-ms-enum": { "name": "ColorConstant", "modelAsString": false},
+          "x-ms-enum": { "name": "ColorConstant", "modelAsString": false },
           "type": "string",
-          "enum": [ "green-color" ],
+          "enum": ["green-color"],
           "description": "Referenced Color Constant Description."
         },
-         "field1": {
+        "field1": {
           "type": "string",
           "description": "Sample string."
         }
       },
-       "required": [ "ColorConstant" ]
+      "required": ["ColorConstant"]
     }
   }
 }

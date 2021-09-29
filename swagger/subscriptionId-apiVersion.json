@@ -6,12 +6,10 @@
     "version": "2014-04-01-preview"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "basePath": "/",
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "parameters": {
     "subscriptionIdParameter": {
       "name": "subscriptionId",
@@ -67,7 +65,7 @@
   },
   "definitions": {
     "SampleResourceGroup": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "name": {
           "type": "string",
@@ -80,7 +78,7 @@
       }
     },
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "code": {
           "type": "integer",

@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/datetimerfc1123/null": {
       "get": {
@@ -214,9 +208,7 @@
             "schema": {
               "type": "string",
               "format": "date-time-rfc1123",
-              "enum": [
-                "Sun, 1 Jan 0001 00:00:00 GMT"
-              ],
+              "enum": ["Sun, 1 Jan 0001 00:00:00 GMT"],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -232,7 +224,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

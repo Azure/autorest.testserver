@@ -6,23 +6,15 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/xml"
-  ],
-  "consumes": [
-    "application/xml"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/xml"],
+  "consumes": ["application/xml"],
   "paths": {
     "/xml/complex-type-ref-no-meta": {
       "get": {
         "operationId": "xml_getComplexTypeRefNoMeta",
         "description": "Get a complex type that has a ref to a complex type with no XML node",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The empty list.",
@@ -35,9 +27,7 @@
       "put": {
         "operationId": "xml_putComplexTypeRefNoMeta",
         "description": "Puts a complex type that has a ref to a complex type with no XML node",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "model",
@@ -59,9 +49,7 @@
       "get": {
         "operationId": "xml_getComplexTypeRefWithMeta",
         "description": "Get a complex type that has a ref to a complex type with XML node",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The empty list.",
@@ -74,9 +62,7 @@
       "put": {
         "operationId": "xml_putComplexTypeRefWithMeta",
         "description": "Puts a complex type that has a ref to a complex type with XML node",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "model",
@@ -98,9 +84,7 @@
       "get": {
         "operationId": "xml_getSimple",
         "description": "Get a simple XML document",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The simple XML document",
@@ -119,9 +103,7 @@
       "put": {
         "operationId": "xml_putSimple",
         "description": "Put a simple XML document",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "slideshow",
@@ -149,9 +131,7 @@
       "get": {
         "operationId": "xml_getWrappedLists",
         "description": "Get an XML document with multiple wrapped lists",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The XML document with multiple wrapped lists",
@@ -164,9 +144,7 @@
       "put": {
         "operationId": "xml_putWrappedLists",
         "description": "Put an XML document with multiple wrapped lists",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "wrappedLists",
@@ -194,9 +172,7 @@
       "get": {
         "operationId": "xml_getHeaders",
         "description": "Get strongly-typed response headers.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The response header.",
@@ -214,9 +190,7 @@
       "get": {
         "operationId": "xml_getEmptyList",
         "description": "Get an empty list.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The empty list.",
@@ -229,9 +203,7 @@
       "put": {
         "operationId": "xml_putEmptyList",
         "description": "Puts an empty list.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "slideshow",
@@ -253,9 +225,7 @@
       "get": {
         "operationId": "xml_getEmptyWrappedLists",
         "description": "Gets some empty wrapped lists.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The empty lists.",
@@ -268,9 +238,7 @@
       "put": {
         "operationId": "xml_putEmptyWrappedLists",
         "description": "Puts some empty wrapped lists.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "appleBarrel",
@@ -292,9 +260,7 @@
       "get": {
         "operationId": "xml_getRootList",
         "description": "Gets a list as the root element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The root list.",
@@ -313,9 +279,7 @@
       "put": {
         "operationId": "xml_putRootList",
         "description": "Puts a list as the root element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "bananas",
@@ -344,9 +308,7 @@
       "get": {
         "operationId": "xml_getRootListSingleItem",
         "description": "Gets a list with a single item.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The root list.",
@@ -365,9 +327,7 @@
       "put": {
         "operationId": "xml_putRootListSingleItem",
         "description": "Puts a list with a single item.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "bananas",
@@ -396,9 +356,7 @@
       "get": {
         "operationId": "xml_getEmptyRootList",
         "description": "Gets an empty list as the root element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The root list.",
@@ -417,9 +375,7 @@
       "put": {
         "operationId": "xml_putEmptyRootList",
         "description": "Puts an empty list as the root element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "bananas",
@@ -448,9 +404,7 @@
       "get": {
         "operationId": "xml_getEmptyChildElement",
         "description": "Gets an XML document with an empty child element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The unknown banana.",
@@ -463,9 +417,7 @@
       "put": {
         "operationId": "xml_putEmptyChildElement",
         "description": "Puts a value with an empty child element.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "banana",
@@ -487,17 +439,13 @@
       "get": {
         "operationId": "xml_listContainers",
         "description": "Lists containers in a storage account.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "list"
-            ],
+            "enum": ["list"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -516,17 +464,13 @@
       "get": {
         "operationId": "xml_getServiceProperties",
         "description": "Gets storage service properties.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "properties"
-            ],
+            "enum": ["properties"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -534,9 +478,7 @@
             "name": "restype",
             "in": "query",
             "type": "string",
-            "enum": [
-              "service"
-            ],
+            "enum": ["service"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -553,17 +495,13 @@
       "put": {
         "operationId": "xml_putServiceProperties",
         "description": "Puts storage service properties.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "properties"
-            ],
+            "enum": ["properties"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -571,9 +509,7 @@
             "name": "restype",
             "in": "query",
             "type": "string",
-            "enum": [
-              "service"
-            ],
+            "enum": ["service"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -597,17 +533,13 @@
       "get": {
         "operationId": "xml_getAcls",
         "description": "Gets storage ACLs for a container.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "acl"
-            ],
+            "enum": ["acl"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -615,9 +547,7 @@
             "name": "restype",
             "in": "query",
             "type": "string",
-            "enum": [
-              "container"
-            ],
+            "enum": ["container"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -634,17 +564,13 @@
       "put": {
         "operationId": "xml_putAcls",
         "description": "Puts storage ACLs for a container.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "acl"
-            ],
+            "enum": ["acl"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -652,9 +578,7 @@
             "name": "restype",
             "in": "query",
             "type": "string",
-            "enum": [
-              "container"
-            ],
+            "enum": ["container"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -678,17 +602,13 @@
       "get": {
         "operationId": "xml_listBlobs",
         "description": "Lists blobs in a storage container.",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "comp",
             "in": "query",
             "type": "string",
-            "enum": [
-              "list"
-            ],
+            "enum": ["list"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           },
@@ -696,9 +616,7 @@
             "name": "restype",
             "in": "query",
             "type": "string",
-            "enum": [
-              "container"
-            ],
+            "enum": ["container"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -716,13 +634,9 @@
     "/xml/jsoninput": {
       "put": {
         "operationId": "xml_jsonInput",
-        "consumes":[
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "description": "A Swagger with XML that has one operation that takes JSON as input. You need to send the ID number 42",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "properties",
@@ -743,13 +657,9 @@
     "/xml/jsonoutput": {
       "get": {
         "operationId": "xml_jsonOutput",
-        "produces":[
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "description": "A Swagger with XML that has one operation that returns JSON. ID number 42",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "Indicates success.",
@@ -778,9 +688,7 @@
       "get": {
         "operationId": "xml_getBytes",
         "description": "Get an XML document with binary property",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The simple XML document",
@@ -799,9 +707,7 @@
       "put": {
         "operationId": "xml_putBinary",
         "description": "Put an XML document with binary property",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "slideshow",
@@ -829,9 +735,7 @@
       "get": {
         "operationId": "xml_getUri",
         "description": "Get an XML document with uri property",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "responses": {
           "200": {
             "description": "The simple XML document",
@@ -850,9 +754,7 @@
       "put": {
         "operationId": "xml_putUri",
         "description": "Put an XML document with uri property",
-        "tags": [
-          "XML Operations"
-        ],
+        "tags": ["XML Operations"],
         "parameters": [
           {
             "name": "model",
@@ -1040,10 +942,7 @@
     },
     "Container": {
       "type": "object",
-      "required": [
-        "Name",
-        "Properties"
-      ],
+      "required": ["Name", "Properties"],
       "description": "An Azure Storage container",
       "properties": {
         "Name": {
@@ -1059,10 +958,7 @@
     },
     "ContainerProperties": {
       "type": "object",
-      "required": [
-        "Last-Modified",
-        "Etag"
-      ],
+      "required": ["Last-Modified", "Etag"],
       "description": "Properties of a container",
       "properties": {
         "Last-Modified": {
@@ -1093,12 +989,7 @@
       },
       "description": "An enumeration of containers",
       "type": "object",
-      "required": [
-        "ServiceEndpoint",
-        "Prefix",
-        "MaxResults",
-        "NextMarker"
-      ],
+      "required": ["ServiceEndpoint", "Prefix", "MaxResults", "NextMarker"],
       "properties": {
         "ServiceEndpoint": {
           "type": "string",
@@ -1132,13 +1023,7 @@
     "CorsRule": {
       "description": "CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as same-origin policy that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain",
       "type": "object",
-      "required": [
-        "AllowedOrigins",
-        "AllowedMethods",
-        "AllowedHeaders",
-        "ExposedHeaders",
-        "MaxAgeInSeconds"
-      ],
+      "required": ["AllowedOrigins", "AllowedMethods", "AllowedHeaders", "ExposedHeaders", "MaxAgeInSeconds"],
       "properties": {
         "AllowedOrigins": {
           "description": "The origin domains that are permitted to make a request against the storage service via CORS. The origin domain is the domain from which the request originates. Note that the origin must be an exact case-sensitive match with the origin that the user age sends to the service. You can also use the wildcard character '*' to allow all origin domains to make requests via CORS.",
@@ -1169,12 +1054,7 @@
     "Blob": {
       "description": "An Azure Storage blob",
       "type": "object",
-      "required": [
-        "Name",
-        "Deleted",
-        "Snapshot",
-        "Properties"
-      ],
+      "required": ["Name", "Deleted", "Snapshot", "Properties"],
       "properties": {
         "Name": {
           "type": "string"
@@ -1199,10 +1079,7 @@
     "BlobProperties": {
       "description": "Properties of a blob",
       "type": "object",
-      "required": [
-        "Etag",
-        "Last-Modified"
-      ],
+      "required": ["Etag", "Last-Modified"],
       "properties": {
         "Last-Modified": {
           "type": "string",
@@ -1241,11 +1118,7 @@
         },
         "BlobType": {
           "type": "string",
-          "enum": [
-            "BlockBlob",
-            "PageBlob",
-            "AppendBlob"
-          ],
+          "enum": ["BlockBlob", "PageBlob", "AppendBlob"],
           "x-ms-enum": {
             "name": "BlobType",
             "modelAsString": false
@@ -1309,13 +1182,7 @@
     "Logging": {
       "description": "Azure Analytics Logging settings.",
       "type": "object",
-      "required": [
-        "Version",
-        "Delete",
-        "Read",
-        "Write",
-        "RetentionPolicy"
-      ],
+      "required": ["Version", "Delete", "Read", "Write", "RetentionPolicy"],
       "properties": {
         "Version": {
           "description": "The version of Storage Analytics to configure.",
@@ -1346,9 +1213,7 @@
     },
     "Metrics": {
       "description": "",
-      "required": [
-        "Enabled"
-      ],
+      "required": ["Enabled"],
       "properties": {
         "Version": {
           "description": "The version of Storage Analytics to configure.",
@@ -1373,15 +1238,7 @@
       },
       "description": "An enumeration of blobs",
       "type": "object",
-      "required": [
-        "ContainerName",
-        "Prefix",
-        "Marker",
-        "MaxResults",
-        "Delimiter",
-        "Blobs",
-        "NextMarker"
-      ],
+      "required": ["ContainerName", "Prefix", "Marker", "MaxResults", "Delimiter", "Blobs", "NextMarker"],
       "properties": {
         "ServiceEndpoint": {
           "type": "string",
@@ -1434,9 +1291,7 @@
     },
     "BlobPrefix": {
       "type": "object",
-      "required": [
-        "Name"
-      ],
+      "required": ["Name"],
       "properties": {
         "Name": {
           "type": "string"
@@ -1445,10 +1300,7 @@
     },
     "PublicAccessType": {
       "type": "string",
-      "enum": [
-        "container",
-        "blob"
-      ],
+      "enum": ["container", "blob"],
       "x-ms-enum": {
         "name": "PublicAccessType",
         "modelAsString": true
@@ -1456,12 +1308,7 @@
     },
     "CopyStatus": {
       "type": "string",
-      "enum": [
-        "pending",
-        "success",
-        "aborted",
-        "failed"
-      ],
+      "enum": ["pending", "success", "aborted", "failed"],
       "x-ms-enum": {
         "name": "CopyStatusType",
         "modelAsString": false
@@ -1469,10 +1316,7 @@
     },
     "LeaseDuration": {
       "type": "string",
-      "enum": [
-        "infinite",
-        "fixed"
-      ],
+      "enum": ["infinite", "fixed"],
       "x-ms-enum": {
         "name": "LeaseDurationType",
         "modelAsString": false
@@ -1480,13 +1324,7 @@
     },
     "LeaseState": {
       "type": "string",
-      "enum": [
-        "available",
-        "leased",
-        "expired",
-        "breaking",
-        "broken"
-      ],
+      "enum": ["available", "leased", "expired", "breaking", "broken"],
       "x-ms-enum": {
         "name": "LeaseStateType",
         "modelAsString": false
@@ -1494,10 +1332,7 @@
     },
     "LeaseStatus": {
       "type": "string",
-      "enum": [
-        "locked",
-        "unlocked"
-      ],
+      "enum": ["locked", "unlocked"],
       "x-ms-enum": {
         "name": "LeaseStatusType",
         "modelAsString": false
@@ -1505,11 +1340,7 @@
     },
     "AccessPolicy": {
       "type": "object",
-      "required": [
-        "Start",
-        "Expiry",
-        "Permission"
-      ],
+      "required": ["Start", "Expiry", "Permission"],
       "description": "An Access policy",
       "properties": {
         "Start": {
@@ -1530,18 +1361,7 @@
     },
     "AccessTier": {
       "type": "string",
-      "enum": [
-        "P4",
-        "P6",
-        "P10",
-        "P20",
-        "P30",
-        "P40",
-        "P50",
-        "Hot",
-        "Cool",
-        "Archive"
-      ],
+      "enum": ["P4", "P6", "P10", "P20", "P30", "P40", "P50", "Hot", "Cool", "Archive"],
       "x-ms-enum": {
         "name": "AccessTier",
         "modelAsString": true
@@ -1549,10 +1369,7 @@
     },
     "ArchiveStatus": {
       "type": "string",
-      "enum": [
-        "rehydrate-pending-to-hot",
-        "rehydrate-pending-to-cool"
-      ],
+      "enum": ["rehydrate-pending-to-hot", "rehydrate-pending-to-cool"],
       "x-ms-enum": {
         "name": "ArchiveStatus",
         "modelAsString": true
@@ -1561,9 +1378,7 @@
     "RetentionPolicy": {
       "description": "the retention policy",
       "type": "object",
-      "required": [
-        "Enabled"
-      ],
+      "required": ["Enabled"],
       "properties": {
         "Enabled": {
           "description": "Indicates whether a retention policy is enabled for the storage service",
@@ -1579,10 +1394,7 @@
     "SignedIdentifier": {
       "description": "signed identifier",
       "type": "object",
-      "required": [
-        "Id",
-        "AccessPolicy"
-      ],
+      "required": ["Id", "AccessPolicy"],
       "properties": {
         "Id": {
           "type": "string",
@@ -1647,7 +1459,7 @@
     "ComplexTypeNoMeta": {
       "description": "I am a complex type with no XML node",
       "type": "object",
-      "properties":{
+      "properties": {
         "ID": {
           "description": "The id of the res",
           "type": "string"
@@ -1657,7 +1469,7 @@
     "ComplexTypeWithMeta": {
       "description": "I am a complex type with XML node",
       "type": "object",
-      "properties":{
+      "properties": {
         "ID": {
           "description": "The id of the res",
           "type": "string"
@@ -1670,7 +1482,7 @@
     "RootWithRefAndNoMeta": {
       "description": "I am root, and I ref a model with no meta",
       "type": "object",
-      "properties":{
+      "properties": {
         "RefToModel": {
           "description": "XML will use RefToModel",
           "$ref": "#/definitions/ComplexTypeNoMeta"
@@ -1684,7 +1496,7 @@
     "RootWithRefAndMeta": {
       "description": "I am root, and I ref a model WITH meta",
       "type": "object",
-      "properties":{
+      "properties": {
         "RefToModel": {
           "description": "XML will use XMLComplexTypeWithMeta",
           "$ref": "#/definitions/ComplexTypeWithMeta"
@@ -1698,7 +1510,7 @@
     "ObjectWithXMsTextProperty": {
       "description": "Contans property ",
       "type": "object",
-      "properties":{
+      "properties": {
         "language": {
           "xml": {
             "attribute": true,

@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/azure/resource-flatten/array": {
       "put": {
@@ -177,14 +171,14 @@
             "schema": {
               "$ref": "#/definitions/Error"
             }
-          } 
+          }
         }
       }
     }
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -196,7 +190,7 @@
       }
     },
     "Resource": {
-      "type":  "object",
+      "type": "object",
       "x-ms-azure-resource": true,
       "description": "Some resource",
       "externalDocs": {
@@ -236,7 +230,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -245,7 +239,7 @@
       }
     },
     "FlattenedResourceProperties": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "pname": {
           "type": "string"
@@ -260,7 +254,7 @@
       }
     },
     "ResourceCollection": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productresource": {
           "type": "object",

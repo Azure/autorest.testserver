@@ -9,21 +9,13 @@
     }
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/parameterFlattening/{resourceGroupName}/{availabilitySetName}": {
       "patch": {
-        "tags": [
-          "AvailabilitySets"
-        ],
+        "tags": ["AvailabilitySets"],
         "operationId": "AvailabilitySets_Update",
         "description": "Updates the tags for an availability set.",
         "parameters": [
@@ -63,7 +55,7 @@
   },
   "definitions": {
     "AvailabilitySetUpdateParameters": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "tags": {
           "type": "object",
@@ -74,9 +66,7 @@
           }
         }
       },
-      "required": [
-        "tags"
-      ]
+      "required": ["tags"]
     }
   }
 }

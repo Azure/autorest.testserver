@@ -6,24 +6,16 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/formsdataurlencoded/pet/add/{petId}": {
       "post": {
-        "tags": [
-          "formsdataurlencoded"
-        ],
+        "tags": ["formsdataurlencoded"],
         "summary": "Updates a pet in the store with form data",
         "description": "",
         "operationId": "formdataurlencoded_updatePetWithForm",
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "petId",
@@ -69,21 +61,17 @@
   },
   "parameters": {
     "Pet_type": {
-        "name": "pet_type",
-        "description": "Can take a value of dog, or cat, or fish",
-        "type": "string",
-        "in": "formData",
-        "required": true,
-        "enum": [
-            "dog",
-            "cat",
-            "fish"
-        ],
-        "x-ms-parameter-location": "method",
-        "x-ms-enum": {
-          "name": "PetType",
-          "modelAsString": false
-        }
+      "name": "pet_type",
+      "description": "Can take a value of dog, or cat, or fish",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "enum": ["dog", "cat", "fish"],
+      "x-ms-parameter-location": "method",
+      "x-ms-enum": {
+        "name": "PetType",
+        "modelAsString": false
+      }
     },
     "Pet_food": {
       "name": "pet_food",
@@ -91,11 +79,7 @@
       "type": "string",
       "in": "formData",
       "required": true,
-      "enum": [
-          "meat",
-          "fish",
-          "plant"
-      ],
+      "enum": ["meat", "fish", "plant"],
       "x-ms-parameter-location": "method",
       "x-ms-enum": {
         "name": "PetFood",

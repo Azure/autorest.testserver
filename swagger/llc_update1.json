@@ -1,55 +1,51 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "LLCClient",
-        "description": "LLC Swagger, this is the initial swager a service could do"
-    },
-    "host": "localhost:3000",
-    "schemes": [
-        "http"
-    ],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/llc/parameters": {
-            "get": {
-                "operationId": "params_getRequired",
-                "description": "Get true Boolean value on path",
-                "parameters": [
-                    {
-                        "name": "parameter1",
-                        "in": "query",
-                        "description": "I am a required parameter with a client default value",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-client-default": "DefaultValue"
-                    },
-                    {
-                        "name": "parameter2",
-                        "in": "query",
-                        "description": "I was a required parameter, but now I'm optional",
-                        "type": "string",
-                        "required": false
-                    },
-                    {
-                        "name": "parameter3",
-                        "in": "query",
-                        "description": "I am a required parameter and I'm last in Swagger",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Answer from service",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "LLCClient",
+    "description": "LLC Swagger, this is the initial swager a service could do"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/llc/parameters": {
+      "get": {
+        "operationId": "params_getRequired",
+        "description": "Get true Boolean value on path",
+        "parameters": [
+          {
+            "name": "parameter1",
+            "in": "query",
+            "description": "I am a required parameter with a client default value",
+            "type": "string",
+            "required": true,
+            "x-ms-client-default": "DefaultValue"
+          },
+          {
+            "name": "parameter2",
+            "in": "query",
+            "description": "I was a required parameter, but now I'm optional",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "parameter3",
+            "in": "query",
+            "description": "I am a required parameter and I'm last in Swagger",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
             }
+          }
         }
+      }
     }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "parameters": {
-      "input": 200.4
+    "input": 200.4
   },
   "responses": {
     "200": {

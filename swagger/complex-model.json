@@ -6,11 +6,9 @@
     "version": "2014-04-01-preview"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/Microsoft.Cache/Redis": {
       "get": {
@@ -32,9 +30,7 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
-        "tags": [
-          "Redis"
-        ],
+        "tags": ["Redis"],
         "responses": {
           "200": {
             "description": "A list of caches",
@@ -82,9 +78,7 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
-        "tags": [
-          "Redis"
-        ],
+        "tags": ["Redis"],
         "responses": {
           "200": {
             "description": "A list of caches",
@@ -132,9 +126,7 @@
             "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
-        "tags": [
-          "Redis"
-        ],
+        "tags": ["Redis"],
         "responses": {
           "200": {
             "description": "A list of caches",
@@ -154,7 +146,7 @@
   },
   "definitions": {
     "Product": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
       "properties": {
         "product_id": {
@@ -185,7 +177,7 @@
       }
     },
     "CatalogDictionary": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productDictionary": {
           "type": "object",
@@ -197,7 +189,7 @@
       }
     },
     "CatalogArray": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productArray": {
           "description": "Array of products",
@@ -209,7 +201,7 @@
       }
     },
     "CatalogArrayOfDictionary": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productArrayOfDictionary": {
           "description": "Array of dictionary of products",
@@ -224,7 +216,7 @@
       }
     },
     "CatalogDictionaryOfArray": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productDictionaryOfArray": {
           "type": "object",
@@ -239,7 +231,7 @@
       }
     },
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -258,7 +250,7 @@
       "description": "Subscription ID.",
       "required": true,
       "type": "string",
-      "enum": [ "123456" ],
+      "enum": ["123456"],
       "x-ms-enum": { "modelAsString": false }
     },
     "ApiVersionParameter": {
@@ -267,7 +259,7 @@
       "description": "API ID.",
       "required": true,
       "type": "string",
-      "enum": [ "2014-04-01-preview" ]
+      "enum": ["2014-04-01-preview"]
     }
   }
 }

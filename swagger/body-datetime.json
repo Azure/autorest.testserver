@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/datetime/null": {
       "get": {
@@ -448,9 +442,7 @@
             "schema": {
               "type": "string",
               "format": "date-time",
-              "enum": [
-                "0001-01-01T00:00:00Z"
-              ],
+              "enum": ["0001-01-01T00:00:00Z"],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -500,9 +492,7 @@
             "schema": {
               "type": "string",
               "format": "date-time",
-              "enum": [
-                "0001-01-01t00:00:00+14:00"
-              ],
+              "enum": ["0001-01-01t00:00:00+14:00"],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -562,9 +552,7 @@
             "schema": {
               "type": "string",
               "format": "date-time",
-              "enum": [
-                "0001-01-01t00:00:00-14:00"
-              ],
+              "enum": ["0001-01-01t00:00:00-14:00"],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -606,7 +594,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

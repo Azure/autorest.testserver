@@ -6,19 +6,13 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/paging/noitemname": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "nextLink"},
+        "x-ms-pageable": { "nextLinkName": "nextLink" },
         "operationId": "Paging_getNoItemNamePages",
         "description": "A paging operation that must return result of the default 'value' node.",
         "responses": {
@@ -108,7 +102,7 @@
             "format": "int32",
             "description": "Sets the maximum number of items to return in the response.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           },
           {
@@ -120,10 +114,10 @@
             "default": 30,
             "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           }
-		    ],
+        ],
         "responses": {
           "200": {
             "description": "Initial response with ProvisioningState='Canceled'",
@@ -139,7 +133,11 @@
     },
     "/paging/multiple/getWithQueryParams": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values", "operationName": "Paging_nextOperationWithQueryParams" },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink",
+          "itemName": "values",
+          "operationName": "Paging_nextOperationWithQueryParams"
+        },
         "operationId": "Paging_getWithQueryParams",
         "description": "A paging operation that includes a next operation. It has a different query parameter from it's next operation nextOperationWithQueryParams. Returns a ProductResult",
         "parameters": [
@@ -156,12 +154,10 @@
             "description": "A constant. Must be True and will be passed as a query parameter to nextOperationWithQueryParams",
             "required": true,
             "type": "boolean",
-            "enum": [
-              true
-            ],
+            "enum": [true],
             "x-ms-enum": { "modelAsString": false }
           }
-		    ],
+        ],
         "responses": {
           "200": {
             "description": "Initial response with ProvisioningState='Canceled'",
@@ -187,12 +183,10 @@
             "description": "A constant. Must be True",
             "required": true,
             "type": "boolean",
-            "enum": [
-              true
-            ],
+            "enum": [true],
             "x-ms-enum": { "modelAsString": false }
           }
-		    ],
+        ],
         "responses": {
           "200": {
             "description": "Initial response with ProvisioningState='Canceled'",
@@ -226,7 +220,7 @@
             "format": "int32",
             "description": "Sets the maximum number of items to return in the response.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           },
           {
@@ -238,7 +232,7 @@
             "default": 30,
             "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           }
         ],
@@ -275,7 +269,7 @@
             "format": "int32",
             "description": "Sets the maximum number of items to return in the response.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           },
           {
@@ -286,7 +280,7 @@
             "format": "int32",
             "description": "Offset of return value",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           },
           {
@@ -298,7 +292,7 @@
             "default": 30,
             "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           }
         ],
@@ -407,7 +401,11 @@
     },
     "/paging/multiple/fragment/{tenant}": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values", "operationName": "Paging_nextFragment" },
+        "x-ms-pageable": {
+          "nextLinkName": "odata.nextLink",
+          "itemName": "values",
+          "operationName": "Paging_nextFragment"
+        },
         "operationId": "Paging_getMultiplePagesFragmentNextLink",
         "description": "A paging operation that doesn't return a full URL, just a fragment",
         "parameters": [
@@ -441,7 +439,11 @@
     },
     "/paging/multiple/fragmentwithgrouping/{tenant}": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values", "operationName": "Paging_nextFragmentWithGrouping" },
+        "x-ms-pageable": {
+          "nextLinkName": "odata.nextLink",
+          "itemName": "values",
+          "operationName": "Paging_nextFragmentWithGrouping"
+        },
         "operationId": "Paging_getMultiplePagesFragmentWithGroupingNextLink",
         "description": "A paging operation that doesn't return a full URL, just a fragment with parameters grouped",
         "parameters": [
@@ -500,7 +502,7 @@
             "format": "int32",
             "description": "Sets the maximum number of items to return in the response.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           },
           {
@@ -512,7 +514,7 @@
             "default": 30,
             "description": "Sets the maximum time that the server can spend processing the request, in seconds. The default is 30 seconds.",
             "x-ms-parameter-grouping": {
-                "postfix": "Options"
+              "postfix": "Options"
             }
           }
         ],
@@ -533,7 +535,11 @@
   "x-ms-paths": {
     "/paging/multiple/fragment/{tenant}/{nextLink}": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values", "operationName": "Paging_nextFragment" },
+        "x-ms-pageable": {
+          "nextLinkName": "odata.nextLink",
+          "itemName": "values",
+          "operationName": "Paging_nextFragment"
+        },
         "operationId": "Paging_nextFragment",
         "description": "A paging operation that doesn't return a full URL, just a fragment",
         "parameters": [
@@ -575,7 +581,11 @@
     },
     "/paging/multiple/fragmentwithgrouping/{tenant}/{nextLink}": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "odata.nextLink", "itemName": "values", "operationName": "Paging_nextFragmentWithGrouping" },
+        "x-ms-pageable": {
+          "nextLinkName": "odata.nextLink",
+          "itemName": "values",
+          "operationName": "Paging_nextFragmentWithGrouping"
+        },
         "operationId": "Paging_nextFragmentWithGrouping",
         "description": "A paging operation that doesn't return a full URL, just a fragment",
         "parameters": [
@@ -642,7 +652,7 @@
   },
   "definitions": {
     "ProductResultValue": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "value": {
           "type": "array",
@@ -656,7 +666,7 @@
       }
     },
     "ProductResultValueWithXMSClientName": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "values": {
           "type": "array",
@@ -671,7 +681,7 @@
       }
     },
     "ProductResult": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "values": {
           "type": "array",
@@ -685,7 +695,7 @@
       }
     },
     "OdataProductResult": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "values": {
           "type": "array",
@@ -699,7 +709,7 @@
       }
     },
     "Product": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "properties": {
           "type": "object",
@@ -715,7 +725,7 @@
       }
     },
     "OperationResult": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "description": "The status of the request",

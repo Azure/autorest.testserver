@@ -6,19 +6,15 @@
     "version": "2015-07-01-preview"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/azurespecials/overwrite/x-ms-client-request-id/method/": {
       "get": {
         "operationId": "x-ms-client-request-id_Get",
         "description": "Get method that overwrites x-ms-client-request header with value 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the '9C4D50EE-2D56-4CD3-8152-34347DC9F2B0' x-ms-client-request header"
@@ -33,9 +29,7 @@
       "get": {
         "operationId": "x-ms-client-request-id_ParamGet",
         "description": "Get method that overwrites x-ms-client-request header with value 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0.",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "parameters": [
           {
             "name": "x-ms-client-request-id",
@@ -62,9 +56,7 @@
       "post": {
         "operationId": "subscriptionInCredentials_postMethodGlobalValid",
         "description": "POST method with subscriptionId modeled in credentials.  Set the credential subscriptionId to '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalSubscriptionId"
@@ -87,9 +79,7 @@
       "post": {
         "operationId": "subscriptionInCredentials_postMethodGlobalNull",
         "description": "POST method with subscriptionId modeled in credentials.  Set the credential subscriptionId to null, and client-side validation should prevent you from making this call",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalSubscriptionId"
@@ -112,9 +102,7 @@
       "post": {
         "operationId": "subscriptionInCredentials_postMethodGlobalNotProvidedValid",
         "description": "POST method with subscriptionId modeled in credentials.  Set the credential subscriptionId to '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalSubscriptionId"
@@ -140,9 +128,7 @@
       "post": {
         "operationId": "subscriptionInMethod_postMethodLocalValid",
         "description": "POST method with subscriptionId modeled in the method.  pass in subscription id = '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInMethod Operations"
-        ],
+        "tags": ["SubscriptionInMethod Operations"],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -169,9 +155,7 @@
       "post": {
         "operationId": "subscriptionInMethod_postMethodLocalNull",
         "description": "POST method with subscriptionId modeled in the method.  pass in subscription id = null, client-side validation should prevent you from making this call",
-        "tags": [
-          "SubscriptionInMethod Operations"
-        ],
+        "tags": ["SubscriptionInMethod Operations"],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -203,9 +187,7 @@
       "post": {
         "operationId": "subscriptionInCredentials_postPathGlobalValid",
         "description": "POST method with subscriptionId modeled in credentials.  Set the credential subscriptionId to '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the '1234-5678-9012-3456' credential value from credentials"
@@ -232,9 +214,7 @@
       "post": {
         "operationId": "subscriptionInMethod_postPathLocalValid",
         "description": "POST method with subscriptionId modeled in the method.  pass in subscription id = '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInMethod Operations"
-        ],
+        "tags": ["SubscriptionInMethod Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the '1234-5678-9012-3456' credential value from the local parameter"
@@ -252,9 +232,7 @@
       "post": {
         "operationId": "subscriptionInCredentials_postSwaggerGlobalValid",
         "description": "POST method with subscriptionId modeled in credentials.  Set the credential subscriptionId to '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInCredentials Operations"
-        ],
+        "tags": ["SubscriptionInCredentials Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalSubscriptionId"
@@ -277,9 +255,7 @@
       "post": {
         "operationId": "subscriptionInMethod_postSwaggerLocalValid",
         "description": "POST method with subscriptionId modeled in the method.  pass in subscription id = '1234-5678-9012-3456' to succeed",
-        "tags": [
-          "SubscriptionInMethod Operations"
-        ],
+        "tags": ["SubscriptionInMethod Operations"],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -306,9 +282,7 @@
       "get": {
         "operationId": "apiVersionDefault_getMethodGlobalValid",
         "description": "GET method with api-version modeled in global settings.",
-        "tags": [
-          "ApiVersionDefault Operations"
-        ],
+        "tags": ["ApiVersionDefault Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalApiVersion"
@@ -331,9 +305,7 @@
       "get": {
         "operationId": "apiVersionDefault_getMethodGlobalNotProvidedValid",
         "description": "GET method with api-version modeled in global settings.",
-        "tags": [
-          "ApiVersionDefault Operations"
-        ],
+        "tags": ["ApiVersionDefault Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalApiVersion"
@@ -356,9 +328,7 @@
       "get": {
         "operationId": "apiVersionLocal_getMethodLocalValid",
         "description": "Get method with api-version modeled in the method.  pass in api-version = '2.0' to succeed",
-        "tags": [
-          "ApiVersionLocal Operations"
-        ],
+        "tags": ["ApiVersionLocal Operations"],
         "parameters": [
           {
             "name": "api-version",
@@ -366,7 +336,7 @@
             "description": "This should appear as a method parameter, use value '2.0'",
             "type": "string",
             "required": true,
-            "enum": [ "2.0" ],
+            "enum": ["2.0"],
             "x-ms-enum": { "modelAsString": false },
             "x-ms-api-version": false
           }
@@ -388,9 +358,7 @@
       "get": {
         "operationId": "apiVersionLocal_getMethodLocalNull",
         "description": "Get method with api-version modeled in the method.  pass in api-version = null to succeed",
-        "tags": [
-          "ApiVersionLocal Operations"
-        ],
+        "tags": ["ApiVersionLocal Operations"],
         "parameters": [
           {
             "name": "api-version",
@@ -422,9 +390,7 @@
       "get": {
         "operationId": "apiVersionDefault_getPathGlobalValid",
         "description": "GET method with api-version modeled in global settings.",
-        "tags": [
-          "ApiVersionDefault Operations"
-        ],
+        "tags": ["ApiVersionDefault Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the '2015-07-01-preview' api-version value from global client settings"
@@ -446,7 +412,7 @@
           "description": "This should appear as a method parameter, use value '2.0'",
           "type": "string",
           "required": true,
-          "enum": [ "2.0" ],
+          "enum": ["2.0"],
           "x-ms-enum": { "modelAsString": false },
           "x-ms-api-version": false
         }
@@ -454,9 +420,7 @@
       "get": {
         "operationId": "apiVersionLocal_getPathLocalValid",
         "description": "Get method with api-version modeled in the method.  pass in api-version = '2.0' to succeed",
-        "tags": [
-          "ApiVersionLocal Operations"
-        ],
+        "tags": ["ApiVersionLocal Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the '2.0' api-version value from the local parameter"
@@ -474,9 +438,7 @@
       "get": {
         "operationId": "apiVersionDefault_getSwaggerGlobalValid",
         "description": "GET method with api-version modeled in global settings.",
-        "tags": [
-          "ApiVersionDefault Operations"
-        ],
+        "tags": ["ApiVersionDefault Operations"],
         "parameters": [
           {
             "$ref": "#/parameters/globalApiVersion"
@@ -499,9 +461,7 @@
       "get": {
         "operationId": "apiVersionLocal_getSwaggerLocalValid",
         "description": "Get method with api-version modeled in the method.  pass in api-version = '2.0' to succeed",
-        "tags": [
-          "ApiVersionLocal Operations"
-        ],
+        "tags": ["ApiVersionLocal Operations"],
         "parameters": [
           {
             "name": "api-version",
@@ -509,7 +469,7 @@
             "description": "The api version, which appears in the query, the value is always '2.0'",
             "type": "string",
             "required": true,
-            "enum": [ "2.0" ],
+            "enum": ["2.0"],
             "x-ms-enum": { "modelAsString": false },
             "x-ms-api-version": false
           }
@@ -531,9 +491,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getMethodPathValid",
         "description": "Get method with unencoded path parameter with value 'path1/path2/path3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "parameters": [
           {
             "name": "unencodedPathParam",
@@ -571,9 +529,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getPathPathValid",
         "description": "Get method with unencoded path parameter with value 'path1/path2/path3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the path parameter with value 'path1/path2/path3'"
@@ -591,9 +547,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getSwaggerPathValid",
         "description": "Get method with unencoded path parameter with value 'path1/path2/path3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "parameters": [
           {
             "name": "unencodedPathParam",
@@ -601,7 +555,7 @@
             "description": "An unencoded path parameter with value 'path1/path2/path3'",
             "type": "string",
             "required": true,
-            "enum": [ "path1/path2/path3" ],
+            "enum": ["path1/path2/path3"],
             "x-ms-enum": { "modelAsString": false },
             "x-ms-skip-url-encoding": true
           }
@@ -623,9 +577,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getMethodQueryValid",
         "description": "Get method with unencoded query parameter with value 'value1&q2=value2&q3=value3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "parameters": [
           {
             "name": "q1",
@@ -653,9 +605,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getMethodQueryNull",
         "description": "Get method with unencoded query parameter with value null",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "parameters": [
           {
             "name": "q1",
@@ -692,9 +642,7 @@
       "get": {
         "operationId": "skipUrlEncoding_getPathQueryValid",
         "description": "Get method with unencoded query parameter with value 'value1&q2=value2&q3=value3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the unencoded query parameter with value 'value1&q2=value2&q3=value3'"
@@ -712,16 +660,14 @@
       "get": {
         "operationId": "skipUrlEncoding_getSwaggerQueryValid",
         "description": "Get method with unencoded query parameter with value 'value1&q2=value2&q3=value3'",
-        "tags": [
-          "SkipUrlEncoding Operations"
-        ],
+        "tags": ["SkipUrlEncoding Operations"],
         "parameters": [
           {
             "name": "q1",
             "in": "query",
             "description": "An unencoded query parameter with value 'value1&q2=value2&q3=value3'",
             "type": "string",
-            "enum": [ "value1&q2=value2&q3=value3" ],
+            "enum": ["value1&q2=value2&q3=value3"],
             "x-ms-enum": { "modelAsString": false },
             "required": true,
             "x-ms-skip-url-encoding": true
@@ -744,9 +690,7 @@
       "get": {
         "operationId": "odata_getWithFilter",
         "description": "Specify filter parameter with value '$filter=id gt 5 and name eq 'foo'&$orderby=id&$top=10'",
-        "tags": [
-          "odata Operations"
-        ],
+        "tags": ["odata Operations"],
         "parameters": [
           {
             "name": "$filter",
@@ -799,9 +743,7 @@
             "x-ms-client-request-id": true
           }
         ],
-        "tags": [
-          "Header Operations"
-        ],
+        "tags": ["Header Operations"],
         "x-ms-request-id": "foo-request-id",
         "responses": {
           "200": {
@@ -834,13 +776,10 @@
             "type": "string",
             "description": "The fooRequestId",
             "x-ms-client-request-id": true,
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           }
         ],
-        "tags": [
-          "Header Operations"
-        ],
+        "tags": ["Header Operations"],
         "x-ms-request-id": "foo-request-id",
         "responses": {
           "200": {
@@ -875,9 +814,7 @@
             "x-ms-client-request-id": true
           }
         ],
-        "tags": [
-          "Header Operations"
-        ],
+        "tags": ["Header Operations"],
         "x-ms-request-id": "foo-request-id",
         "responses": {
           "200": {
@@ -920,7 +857,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "required": ["constantId"],
       "properties": {
         "status": {
@@ -929,7 +866,7 @@
         },
         "constantId": {
           "type": "integer",
-          "enum": [ 1 ],
+          "enum": [1],
           "x-ms-enum": { "modelAsString": false }
         },
         "message": {
@@ -938,7 +875,7 @@
       }
     },
     "OdataFilter": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer",

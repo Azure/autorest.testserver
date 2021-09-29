@@ -23,8 +23,8 @@
       }
     ]
   },
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/paging/customurl/partialnextlink": {
       "get": {
@@ -127,7 +127,7 @@
   },
   "definitions": {
     "ProductResult": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "values": {
           "type": "array",
@@ -141,7 +141,7 @@
       }
     },
     "Product": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "properties": {
           "type": "object",
@@ -157,7 +157,7 @@
       }
     },
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

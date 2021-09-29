@@ -1,26 +1,25 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var utils = require('../util/utils')
+var utils = require("../util/utils");
 
-var lroParameterizedEndpoints = function(coverage) {
-    coverage['LROParameterizedEndpoint'] = 0;
+var lroParameterizedEndpoints = function (coverage) {
+  coverage["LROParameterizedEndpoint"] = 0;
 
-    router.post('/', function (req, res, next) {
-        var pollingUri = '/lroParameterizedEndpoints/results/1';
-        var headers = {
-          'Location': pollingUri
-        };
+  router.post("/", function (req, res, next) {
+    var pollingUri = "/lroParameterizedEndpoints/results/1";
+    var headers = {
+      Location: pollingUri,
+    };
 
-        res.set(headers).status(202).end();
-    });
+    res.set(headers).status(202).end();
+  });
 
-    router.get('/results/:resultNumber', function (req, res, next) {
-        coverage['LROParameterizedEndpoint']++;
-        res.status(200).json("success");
-        return;
-    })
-
-}
+  router.get("/results/:resultNumber", function (req, res, next) {
+    coverage["LROParameterizedEndpoint"]++;
+    res.status(200).json("success");
+    return;
+  });
+};
 
 lroParameterizedEndpoints.prototype.router = router;
 

@@ -6,27 +6,17 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/octet-stream" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/octet-stream"],
+  "consumes": ["application/json"],
   "paths": {
     "/formdata/stream/uploadfile": {
       "post": {
         "operationId": "formdata_UploadFile",
-        "consumes": [
-          "multipart/form-data",
-          "application/octet-stream"
-        ],
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
+        "consumes": ["multipart/form-data", "application/octet-stream"],
+        "produces": ["application/octet-stream", "application/json"],
         "description": "Upload file",
-        "tags": [
-          "Formdata"
-        ],
+        "tags": ["Formdata"],
         "parameters": [
           {
             "name": "fileContent",
@@ -60,17 +50,10 @@
       },
       "put": {
         "operationId": "formdata_UploadFileViaBody",
-        "consumes": [
-          "application/octet-stream"
-        ],
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
+        "consumes": ["application/octet-stream"],
+        "produces": ["application/octet-stream", "application/json"],
         "description": "Upload file",
-        "tags": [
-          "Formdata"
-        ],
+        "tags": ["Formdata"],
         "parameters": [
           {
             "name": "fileContent",
@@ -78,8 +61,8 @@
             "required": true,
             "in": "body",
             "schema": {
-                "type": "object",
-                "format": "file"
+              "type": "object",
+              "format": "file"
             }
           }
         ],
@@ -102,18 +85,10 @@
     "/formdata/stream/uploadfiles": {
       "post": {
         "operationId": "formdata_UploadFiles",
-        "consumes": [
-          "multipart/form-data",
-          "application/octet-stream"
-        ],
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
+        "consumes": ["multipart/form-data", "application/octet-stream"],
+        "produces": ["application/octet-stream", "application/json"],
         "description": "Upload multiple files",
-        "tags": [
-          "Formdata"
-        ],
+        "tags": ["Formdata"],
         "parameters": [
           {
             "name": "fileContent",
@@ -145,7 +120,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

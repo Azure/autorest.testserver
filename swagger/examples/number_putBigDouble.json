@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "numberBody": 2.5976931e+101
+    "numberBody": 2.5976931e101
   },
   "responses": {
     "200": {}
