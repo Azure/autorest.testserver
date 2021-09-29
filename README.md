@@ -22,6 +22,9 @@ npm run start:dev
 
 # Start for running: Will build and start the server
 npm run start
+
+# Format all the files(Required for CI). Use prettier vscode extension(or other editor prettier integration) for on save formatting.
+npm run format
 ```
 
 ## Writing mock apis
