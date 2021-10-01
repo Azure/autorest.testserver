@@ -28,7 +28,10 @@ async function collectCoverage(coverageFolder: string) {
     LLC: getMergedReport("llc"),
   };
 
-  if (Object.keys(report).every((cat) => Object.keys(report[cat]).length === 0)) throw "no report";
+  if (Object.keys(report).every((cat) => Object.keys(report[cat]).length === 0)) {
+    const cats = Object.keys(report).join(", ");
+    throw new Error(`No report found in coverage folder '${coverageFolder}' for any of the categories: ${cats}`);
+  }
 
   // post report
   let comment = "";

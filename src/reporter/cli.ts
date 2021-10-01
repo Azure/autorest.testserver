@@ -11,6 +11,7 @@ async function main() {
       default: join(process.cwd(), "coverage"),
       type: "string",
     })
+    .version(false)
     .option("version", { description: "Version", type: "string" })
     .command(
       "publish",
@@ -43,7 +44,15 @@ async function main() {
           args.coverageDirectory,
         );
       },
-    ).argv;
+    )
+    .fail(function (msg, err) {
+      if (err) {
+        throw err;
+      }
+      // eslint-disable-next-line no-console
+      console.log(msg);
+      process.exit(1);
+    }).argv;
 }
 
 main().catch((e) => {
