@@ -3,7 +3,6 @@
     "boolBody": true
   },
   "responses": {
-    "200": {
-    }
+    "200": {}
   }
 }

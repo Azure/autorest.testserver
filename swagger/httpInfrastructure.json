@@ -6,26 +6,22 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/http/failure/emptybody/error": {
       "get": {
         "operationId": "httpFailure_getEmptyError",
         "description": "Get empty error form server",
-        "tags": [
-          "HttpFailure Operations"
-        ],
+        "tags": ["HttpFailure Operations"],
         "responses": {
           "200": {
             "description": "Successfully returns 400 error code with the get request",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -42,16 +38,14 @@
       "get": {
         "operationId": "httpFailure_getNoModelError",
         "description": "Get empty error form server",
-        "tags": [
-          "HttpFailure Operations"
-        ],
+        "tags": ["HttpFailure Operations"],
         "responses": {
           "200": {
             "description": "Successfully returns 400 error code with the get request",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -62,16 +56,14 @@
       "get": {
         "operationId": "httpFailure_getNoModelEmpty",
         "description": "Get empty response from server",
-        "tags": [
-          "HttpFailure Operations"
-        ],
+        "tags": ["HttpFailure Operations"],
         "responses": {
           "200": {
             "description": "Successfully returns 200 error code with the get request",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -82,9 +74,7 @@
       "head": {
         "operationId": "httpSuccess_head200",
         "description": "Return 200 status code if successful",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the head request"
@@ -100,16 +90,14 @@
       "get": {
         "operationId": "httpSuccess_get200",
         "description": "Get 200 success",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the get request",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -124,16 +112,14 @@
       "options": {
         "operationId": "httpSuccess_options200",
         "description": "Options 200 success",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the options request",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -148,9 +134,7 @@
       "put": {
         "operationId": "httpSuccess_put200",
         "description": "Put boolean value true returning 200 success",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -159,7 +143,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -179,9 +163,7 @@
       "patch": {
         "operationId": "httpSuccess_patch200",
         "description": "Patch true Boolean value in request returning 200",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -190,7 +172,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -210,9 +192,7 @@
       "post": {
         "operationId": "httpSuccess_post200",
         "description": "Post bollean value true in request that returns a 200",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -221,7 +201,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -241,9 +221,7 @@
       "delete": {
         "operationId": "httpSuccess_delete200",
         "description": "Delete simple boolean value true returns 200",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -252,7 +230,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -274,9 +252,7 @@
       "put": {
         "operationId": "httpSuccess_put201",
         "description": "Put true Boolean value in request returns 201",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -285,7 +261,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -305,9 +281,7 @@
       "post": {
         "operationId": "httpSuccess_post201",
         "description": "Post true Boolean value in request returns 201 (Created)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -316,7 +290,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -338,9 +312,7 @@
       "put": {
         "operationId": "httpSuccess_put202",
         "description": "Put true Boolean value in request returns 202 (Accepted)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -349,7 +321,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -369,9 +341,7 @@
       "patch": {
         "operationId": "httpSuccess_patch202",
         "description": "Patch true Boolean value in request returns 202",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -380,7 +350,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -400,9 +370,7 @@
       "post": {
         "operationId": "httpSuccess_post202",
         "description": "Post true Boolean value in request returns 202 (Accepted)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -411,7 +379,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -431,9 +399,7 @@
       "delete": {
         "operationId": "httpSuccess_delete202",
         "description": "Delete true Boolean value in request returns 202 (accepted)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -442,7 +408,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -464,9 +430,7 @@
       "head": {
         "operationId": "httpSuccess_head204",
         "description": "Return 204 status code if successful",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "responses": {
           "204": {
             "description": "Successfully received the true boolean value"
@@ -482,9 +446,7 @@
       "put": {
         "operationId": "httpSuccess_put204",
         "description": "Put true Boolean value in request returns 204 (no content)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -493,7 +455,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -513,9 +475,7 @@
       "patch": {
         "operationId": "httpSuccess_patch204",
         "description": "Patch true Boolean value in request returns 204 (no content)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -524,7 +484,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -544,9 +504,7 @@
       "post": {
         "operationId": "HttpSuccess_post204",
         "description": "Post true Boolean value in request returns 204 (no content)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -555,7 +513,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -575,9 +533,7 @@
       "delete": {
         "operationId": "httpSuccess_delete204",
         "description": "Delete true Boolean value in request returns 204 (no content)",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -586,7 +542,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -608,9 +564,7 @@
       "head": {
         "operationId": "httpSuccess_head404",
         "description": "Return 404 status code",
-        "tags": [
-          "HttpSuccess Operations"
-        ],
+        "tags": ["HttpSuccess Operations"],
         "responses": {
           "204": {
             "description": "Successfully received the head request"
@@ -631,9 +585,7 @@
       "head": {
         "operationId": "httpRedirects_head300",
         "description": "Return 300 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned afyter a successful redirect"
@@ -644,7 +596,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ],
+                "enum": ["/http/success/head/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -660,9 +612,7 @@
       "get": {
         "operationId": "httpRedirects_get300",
         "description": "Return 300 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned afyter a successful redirect"
@@ -673,7 +623,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ],
+                "enum": ["/http/success/get/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             },
@@ -698,9 +648,7 @@
       "head": {
         "operationId": "httpRedirects_head301",
         "description": "Return 301 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned afyter a successful redirect"
@@ -711,7 +659,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ],
+                "enum": ["/http/success/head/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -727,9 +675,7 @@
       "get": {
         "operationId": "httpRedirects_get301",
         "description": "Return 301 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpOperation Operations"
-        ],
+        "tags": ["HttpOperation Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned after a successful redirect"
@@ -740,7 +686,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ],
+                "enum": ["/http/success/get/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -756,9 +702,7 @@
       "put": {
         "operationId": "httpRedirects_put301",
         "description": "Put true Boolean value in request returns 301.  This request should not be automatically redirected, but should return the received 301 to the caller for evaluation",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -767,7 +711,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -779,7 +723,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/failure/500" ],
+                "enum": ["/http/failure/500"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -797,9 +741,7 @@
       "head": {
         "operationId": "httpRedirects_head302",
         "description": "Return 302 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned afyter a successful redirect"
@@ -810,7 +752,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ],
+                "enum": ["/http/success/head/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -826,9 +768,7 @@
       "get": {
         "operationId": "httpRedirects_get302",
         "description": "Return 302 status code and redirect to /http/success/200",
-        "tags": [
-          "HttpOperation Operations"
-        ],
+        "tags": ["HttpOperation Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned afyter a successful redirect"
@@ -839,7 +779,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ],
+                "enum": ["/http/success/get/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -855,9 +795,7 @@
       "patch": {
         "operationId": "httpRedirects_patch302",
         "description": "Patch true Boolean value in request returns 302.  This request should not be automatically redirected, but should return the received 302 to the caller for evaluation",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -866,7 +804,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -878,7 +816,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/failure/500" ],
+                "enum": ["/http/failure/500"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -896,9 +834,7 @@
       "post": {
         "operationId": "httpRedirects_post303",
         "description": "Post true Boolean value in request returns 303.  This request should be automatically redirected usign a get, ultimately returning a 200 status code",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -907,7 +843,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -922,7 +858,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ],
+                "enum": ["/http/success/get/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -940,9 +876,7 @@
       "head": {
         "operationId": "httpRedirects_head307",
         "description": "Redirect with 307, resulting in a 200 success",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned after a successful redirect"
@@ -953,7 +887,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/head/200" ],
+                "enum": ["/http/success/head/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -969,9 +903,7 @@
       "get": {
         "operationId": "httpRedirects_get307",
         "description": "Redirect get with 307, resulting in a 200 success",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned after a successful redirect"
@@ -982,7 +914,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/get/200" ],
+                "enum": ["/http/success/get/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -998,9 +930,7 @@
       "options": {
         "operationId": "httpRedirects_options307",
         "description": "options redirected with 307, resulting in a 200 after redirect",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "responses": {
           "200": {
             "description": "Success, should be returned after a successful redirect"
@@ -1011,7 +941,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/options/200" ],
+                "enum": ["/http/success/options/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -1027,9 +957,7 @@
       "put": {
         "operationId": "HttpRedirects_put307",
         "description": "Put redirected with 307, resulting in a 200 after redirect",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1038,7 +966,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1053,7 +981,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/put/200" ],
+                "enum": ["/http/success/put/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -1069,9 +997,7 @@
       "patch": {
         "operationId": "httpRedirects_patch307",
         "description": "Patch redirected with 307, resulting in a 200 after redirect",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1080,7 +1006,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1095,7 +1021,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/patch/200" ],
+                "enum": ["/http/success/patch/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -1111,9 +1037,7 @@
       "post": {
         "operationId": "httpRedirects_post307",
         "description": "Post redirected with 307, resulting in a 200 after redirect",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1122,7 +1046,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1137,7 +1061,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/post/200" ],
+                "enum": ["/http/success/post/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -1153,9 +1077,7 @@
       "delete": {
         "operationId": "httpRedirects_delete307",
         "description": "Delete redirected with 307, resulting in a 200 after redirect",
-        "tags": [
-          "HttpRedirect Operations"
-        ],
+        "tags": ["HttpRedirect Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1164,7 +1086,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1179,7 +1101,7 @@
               "Location": {
                 "description": "The redirect location for this request",
                 "type": "string",
-                "enum": [ "/http/success/delete/200" ],
+                "enum": ["/http/success/delete/200"],
                 "x-ms-enum": { "modelAsString": false }
               }
             }
@@ -1197,9 +1119,7 @@
       "head": {
         "operationId": "httpClientFailure_head400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1212,9 +1132,7 @@
       "get": {
         "operationId": "httpClientFailure_get400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1227,9 +1145,7 @@
       "options": {
         "operationId": "httpClientFailure_options400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1242,9 +1158,7 @@
       "put": {
         "operationId": "httpClientFailure_put400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1253,7 +1167,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1270,9 +1184,7 @@
       "patch": {
         "operationId": "httpClientFailure_patch400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1281,7 +1193,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1298,9 +1210,7 @@
       "post": {
         "operationId": "httpClientFailure_post400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1309,7 +1219,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1326,9 +1236,7 @@
       "delete": {
         "operationId": "httpClientFailure_delete400",
         "description": "Return 400 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1337,7 +1245,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1356,9 +1264,7 @@
       "head": {
         "operationId": "httpClientFailure_head401",
         "description": "Return 401 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1373,9 +1279,7 @@
       "get": {
         "operationId": "httpClientFailure_get402",
         "description": "Return 402 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1390,9 +1294,7 @@
       "options": {
         "operationId": "httpClientFailure_options403",
         "description": "Return 403 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1405,9 +1307,7 @@
       "get": {
         "operationId": "httpClientFailure_get403",
         "description": "Return 403 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1422,9 +1322,7 @@
       "put": {
         "operationId": "httpClientFailure_put404",
         "description": "Return 404 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1433,7 +1331,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1452,9 +1350,7 @@
       "patch": {
         "operationId": "httpClientFailure_patch405",
         "description": "Return 405 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1463,7 +1359,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1482,9 +1378,7 @@
       "post": {
         "operationId": "httpClientFailure_post406",
         "description": "Return 406 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1493,7 +1387,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1512,9 +1406,7 @@
       "delete": {
         "operationId": "httpClientFailure_delete407",
         "description": "Return 407 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1523,7 +1415,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1542,9 +1434,7 @@
       "put": {
         "operationId": "httpClientFailure_put409",
         "description": "Return 409 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1553,7 +1443,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1572,9 +1462,7 @@
       "head": {
         "operationId": "httpClientFailure_head410",
         "description": "Return 410 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1589,9 +1477,7 @@
       "get": {
         "operationId": "httpClientFailure_get411",
         "description": "Return 411 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1606,9 +1492,7 @@
       "options": {
         "operationId": "httpClientFailure_options412",
         "description": "Return 412 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1621,9 +1505,7 @@
       "get": {
         "operationId": "httpClientFailure_get412",
         "description": "Return 412 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1638,9 +1520,7 @@
       "put": {
         "operationId": "httpClientFailure_put413",
         "description": "Return 413 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1649,7 +1529,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1668,9 +1548,7 @@
       "patch": {
         "operationId": "httpClientFailure_patch414",
         "description": "Return 414 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1679,7 +1557,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1698,9 +1576,7 @@
       "post": {
         "operationId": "httpClientFailure_post415",
         "description": "Return 415 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1709,7 +1585,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1728,9 +1604,7 @@
       "get": {
         "operationId": "httpClientFailure_get416",
         "description": "Return 416 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1745,9 +1619,7 @@
       "delete": {
         "operationId": "httpClientFailure_delete417",
         "description": "Return 417 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1756,7 +1628,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1775,9 +1647,7 @@
       "head": {
         "operationId": "httpClientFailure_head429",
         "description": "Return 429 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpClientFailure Operations"
-        ],
+        "tags": ["HttpClientFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1792,9 +1662,7 @@
       "head": {
         "operationId": "httpServerFailure_head501",
         "description": "Return 501 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpServerFailure Operations"
-        ],
+        "tags": ["HttpServerFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1807,9 +1675,7 @@
       "get": {
         "operationId": "httpServerFailure_get501",
         "description": "Return 501 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpServerFailure Operations"
-        ],
+        "tags": ["HttpServerFailure Operations"],
         "responses": {
           "default": {
             "description": "Unexpected error",
@@ -1824,9 +1690,7 @@
       "post": {
         "operationId": "httpServerFailure_post505",
         "description": "Return 505 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpServerFailure Operations"
-        ],
+        "tags": ["HttpServerFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1835,7 +1699,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1852,9 +1716,7 @@
       "delete": {
         "operationId": "httpServerFailure_delete505",
         "description": "Return 505 status code - should be represented in the client as an error",
-        "tags": [
-          "HttpServerFailure Operations"
-        ],
+        "tags": ["HttpServerFailure Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1863,7 +1725,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1882,9 +1744,7 @@
       "head": {
         "operationId": "httpRetry_head408",
         "description": "Return 408 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the true boolean value"
@@ -1902,9 +1762,7 @@
       "put": {
         "operationId": "httpRetry_put500",
         "description": "Return 500 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1913,7 +1771,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1933,9 +1791,7 @@
       "patch": {
         "operationId": "httpRetry_patch500",
         "description": "Return 500 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -1944,7 +1800,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -1966,9 +1822,7 @@
       "get": {
         "operationId": "httpRetry_get502",
         "description": "Return 502 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the true boolean value"
@@ -1984,16 +1838,14 @@
       "options": {
         "operationId": "httpRetry_options502",
         "description": "Return 502 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "responses": {
           "200": {
             "description": "Successfully received the true boolean value",
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -2010,9 +1862,7 @@
       "post": {
         "operationId": "httpRetry_post503",
         "description": "Return 503 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -2021,7 +1871,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -2041,9 +1891,7 @@
       "delete": {
         "operationId": "httpRetry_delete503",
         "description": "Return 503 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -2052,7 +1900,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -2074,9 +1922,7 @@
       "put": {
         "operationId": "httpRetry_put504",
         "description": "Return 504 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -2085,7 +1931,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -2105,9 +1951,7 @@
       "patch": {
         "operationId": "httpRetry_patch504",
         "description": "Return 504 status code, then 200 after retry",
-        "tags": [
-          "HttpRetry Operations"
-        ],
+        "tags": ["HttpRetry Operations"],
         "parameters": [
           {
             "name": "booleanValue",
@@ -2116,7 +1960,7 @@
             "schema": {
               "description": "Simple boolean value true",
               "type": "boolean",
-              "enum": [ true ],
+              "enum": [true],
               "x-ms-enum": { "modelAsString": false }
             }
           }
@@ -2138,9 +1982,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model204NoModelDefaultError200Valid",
         "description": "Send a 200 response with valid payload: {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2164,9 +2006,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model204NoModelDefaultError204Valid",
         "description": "Send a 204 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '204'}",
@@ -2190,9 +2030,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model204NoModelDefaultError201Invalid",
         "description": "Send a 201 response with valid payload: {'statusCode': '201'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2216,9 +2054,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model204NoModelDefaultError202None",
         "description": "Send a 202 response with no payload:",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2242,9 +2078,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model204NoModelDefaultError400Valid",
         "description": "Send a 400 response with valid error payload: {'status': 400, 'message': 'client error'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2268,9 +2102,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model201ModelDefaultError200Valid",
         "description": "Send a 200 response with valid payload: {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2297,9 +2129,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model201ModelDefaultError201Valid",
         "description": "Send a 201 response with valid payload: {'statusCode': '201', 'textStatusCode': 'Created'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2326,9 +2156,7 @@
       "get": {
         "operationId": "multipleResponses_get200Model201ModelDefaultError400Valid",
         "description": "Send a 400 response with valid payload: {'code': '400', 'message': 'client error'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2355,9 +2183,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA201ModelC404ModelDDefaultError200Valid",
         "description": "Send a 200 response with valid payload: {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2390,9 +2216,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA201ModelC404ModelDDefaultError201Valid",
         "description": "Send a 200 response with valid payload: {'httpCode': '201'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2425,9 +2249,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA201ModelC404ModelDDefaultError404Valid",
         "description": "Send a 200 response with valid payload: {'httpStatusCode': '404'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2460,9 +2282,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA201ModelC404ModelDDefaultError400Valid",
         "description": "Send a 400 response with valid payload: {'code': '400', 'message': 'client error'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2495,9 +2315,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultError202None",
         "description": "Send a 202 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2518,9 +2336,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultError204None",
         "description": "Send a 204 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2541,9 +2357,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultError400Valid",
         "description": "Send a 400 response with valid payload: {'code': '400', 'message': 'client error'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2564,9 +2378,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultNone202Invalid",
         "description": "Send a 202 response with an unexpected payload {'property': 'value'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted, but this operation will return {'property': 'value'}"
@@ -2584,9 +2396,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultNone204None",
         "description": "Send a 204 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2604,9 +2414,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultNone400None",
         "description": "Send a 400 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2624,9 +2432,7 @@
       "get": {
         "operationId": "multipleResponses_get202None204NoneDefaultNone400Invalid",
         "description": "Send a 400 response with an unexpected payload {'property': 'value'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "202": {
             "description": "No payload for Accepted"
@@ -2644,9 +2450,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultModelA200Valid",
         "description": "Send a 200 response with valid payload: {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return {'statusCode': '200'}",
@@ -2661,9 +2465,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultModelA200None",
         "description": "Send a 200 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return no payload",
@@ -2678,9 +2480,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultModelA400Valid",
         "description": "Send a 400 response with valid payload: {'statusCode': '400'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Will not happen, server will return 400."
@@ -2698,9 +2498,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultModelA400None",
         "description": "Send a 400 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Will not happen, server will return 400."
@@ -2718,9 +2516,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultNone200Invalid",
         "description": "Send a 200 response with invalid payload: {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return invalid payload {'statusCode': '200'}"
@@ -2732,9 +2528,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultNone200None",
         "description": "Send a 200 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return no payload"
@@ -2746,9 +2540,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultNone400Invalid",
         "description": "Send a 400 response with valid payload: {'statusCode': '400'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Will not happen, server will return 400."
@@ -2763,9 +2555,7 @@
       "get": {
         "operationId": "multipleResponses_getDefaultNone400None",
         "description": "Send a 400 response with no payload",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Will not happen, server will return 400."
@@ -2780,9 +2570,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA200None",
         "description": "Send a 200 response with no payload, when a payload is expected - client should return a null object of thde type for model A",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return no payload",
@@ -2797,9 +2585,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA200Valid",
         "description": "Send a 200 response with payload {'statusCode': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return a respose with valid payload {'statusCode': '200'}",
@@ -2814,9 +2600,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA200Invalid",
         "description": "Send a 200 response with invalid payload {'statusCodeInvalid': '200'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return a respose with invalid payload {'statusCodeInvalid': '200'}",
@@ -2831,9 +2615,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA400None",
         "description": "Send a 400 response with no payload client should treat as an http error with no error model",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return no payload, and an unmodeled 400 response",
@@ -2848,9 +2630,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA400Valid",
         "description": "Send a 200 response with payload {'statusCode': '400'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return a respose with valid payload {'statusCode': '400'}  but error status code 400, which is unmodeled",
@@ -2865,9 +2645,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA400Invalid",
         "description": "Send a 200 response with invalid payload {'statusCodeInvalid': '400'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return a respose with invalid payload {'statusCodeInvalid': '400'}",
@@ -2882,9 +2660,7 @@
       "get": {
         "operationId": "multipleResponses_get200ModelA202Valid",
         "description": "Send a 202 response with payload {'statusCode': '202'}",
-        "tags": [
-          "MultipleResponse Operations"
-        ],
+        "tags": ["MultipleResponse Operations"],
         "responses": {
           "200": {
             "description": "Return a respose with valid payload {'statusCode': '202'}  but unmodeled success status code 202, which is unmodeled",
@@ -2898,7 +2674,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -2910,7 +2686,7 @@
       }
     },
     "A": {
-      "type":  "object",
+      "type": "object",
       "x-ms-client-name": "MyException",
       "properties": {
         "statusCode": {
@@ -2919,10 +2695,8 @@
       }
     },
     "B": {
-      "type":  "object",
-      "allOf": [
-        { "$ref": "#/definitions/A" }
-      ],
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/A" }],
       "properties": {
         "textStatusCode": {
           "type": "string"
@@ -2930,7 +2704,7 @@
       }
     },
     "C": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "httpCode": {
           "type": "string"
@@ -2938,7 +2712,7 @@
       }
     },
     "D": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "httpStatusCode": {
           "type": "string"

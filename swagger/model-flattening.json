@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/model-flatten/array": {
       "put": {
@@ -359,7 +353,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -374,7 +368,7 @@
       }
     },
     "Resource": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "id": {
           "type": "string",
@@ -404,7 +398,7 @@
       }
     },
     "FlattenedProduct": {
-      "type":  "object",
+      "type": "object",
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
@@ -416,7 +410,7 @@
       },
       "properties": {
         "properties": {
-          "type":  "object",
+          "type": "object",
           "x-ms-client-flatten": true,
           "properties": {
             "p.name": {
@@ -450,7 +444,7 @@
       }
     },
     "ResourceCollection": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "productresource": {
           "type": "object",
@@ -471,11 +465,9 @@
       }
     },
     "BaseProduct": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
-      "required": [
-        "base_product_id"
-      ],
+      "required": ["base_product_id"],
       "properties": {
         "base_product_id": {
           "type": "string",
@@ -494,9 +486,9 @@
       }
     },
     "SimpleProduct": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
-      "allOf": [ { "$ref": "#/definitions/BaseProduct" } ],
+      "allOf": [{ "$ref": "#/definitions/BaseProduct" }],
       "properties": {
         "details": {
           "x-ms-client-flatten": true,
@@ -505,12 +497,9 @@
       }
     },
     "SimpleProductProperties": {
-      "type":  "object",
+      "type": "object",
       "description": "The product documentation.",
-      "required": [
-        "max_product_display_name",
-        "max_product_capacity"
-      ],
+      "required": ["max_product_display_name", "max_product_capacity"],
       "properties": {
         "max_product_display_name": {
           "type": "string",
@@ -519,7 +508,7 @@
         "max_product_capacity": {
           "type": "string",
           "description": "Capacity of product. For example, 4 people.",
-          "enum": [ "Large" ],
+          "enum": ["Large"],
           "x-ms-client-name": "capacity"
         },
         "max_product_image": {
@@ -529,7 +518,7 @@
       }
     },
     "GenericUrl": {
-      "type":  "object",
+      "type": "object",
       "description": "The Generic URL.",
       "properties": {
         "generic_value": {
@@ -539,9 +528,9 @@
       }
     },
     "ProductUrl": {
-      "type":  "object",
+      "type": "object",
       "description": "The product URL.",
-      "allOf": [ { "$ref": "#/definitions/GenericUrl" } ],
+      "allOf": [{ "$ref": "#/definitions/GenericUrl" }],
       "properties": {
         "@odata.value": {
           "type": "string",
@@ -550,7 +539,7 @@
       }
     },
     "WrappedProduct": {
-      "type":  "object",
+      "type": "object",
       "description": "The wrapped produc.",
       "properties": {
         "value": {
@@ -560,7 +549,7 @@
       }
     },
     "ProductWrapper": {
-      "type":  "object",
+      "type": "object",
       "description": "The wrapped produc.",
       "properties": {
         "property": {

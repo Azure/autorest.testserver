@@ -1,25 +1,31 @@
-const { spawn } = require('child_process');
-const { extname, isAbsolute, delimiter, resolve, dirname, basename } = require('path');
-const fs = require('fs')
-const { promisify } = require('util');
+const { spawn } = require("child_process");
+const { extname, isAbsolute, delimiter, resolve, dirname, basename } = require("path");
+const fs = require("fs");
+const { promisify } = require("util");
 const lstat = promisify(fs.lstat);
-const { request } = require('http')
-const readline = require('readline');
+const { request } = require("http");
+const readline = require("readline");
 
 async function isFile(path) {
   try {
     return (await lstat(path)).isFile();
-  } catch (e) {
-  }
+  } catch (e) {}
   return false;
 }
 function cmdlineToArray(text, result = [], matcher = /[^\s"]+|"([^"]*)"/gi, count = 0) {
-  text = text.replace(/\\"/g, '\ufffe');
+  text = text.replace(/\\"/g, "\ufffe");
   const match = matcher.exec(text);
-  return match ? cmdlineToArray(text, result, matcher, result.push(match[1] ? match[1].replace(/\ufffe/g, '\\"') : match[0].replace(/\ufffe/g, '\\"'))) : result;
+  return match
+    ? cmdlineToArray(
+        text,
+        result,
+        matcher,
+        result.push(match[1] ? match[1].replace(/\ufffe/g, '\\"') : match[0].replace(/\ufffe/g, '\\"')),
+      )
+    : result;
 }
 function quoteIfNecessary(text) {
-  if (text && text.indexOf(' ') > -1 && text.charAt(0) != '"') {
+  if (text && text.indexOf(" ") > -1 && text.charAt(0) != '"') {
     return `"${text}"`;
   }
   return text;
@@ -27,8 +33,8 @@ function quoteIfNecessary(text) {
 const nodePath = quoteIfNecessary(process.execPath);
 function getPathVariableName() {
   // windows calls it's path 'Path' usually, but this is not guaranteed.
-  if (process.platform === 'win32') {
-    let PATH = 'Path';
+  if (process.platform === "win32") {
+    let PATH = "Path";
     Object.keys(process.env).forEach(function (e) {
       if (e.match(/^PATH$/i)) {
         PATH = e;
@@ -36,10 +42,10 @@ function getPathVariableName() {
     });
     return PATH;
   }
-  return 'PATH';
+  return "PATH";
 }
 async function realPathWithExtension(command) {
-  const pathExt = (process.env.pathext || '.EXE').split(';');
+  const pathExt = (process.env.pathext || ".EXE").split(";");
   for (const each of pathExt) {
     const filename = `${command}${each}`;
     if (await isFile(filename)) {
@@ -49,17 +55,17 @@ async function realPathWithExtension(command) {
   return undefined;
 }
 async function getFullPath(command, searchPath) {
-  command = command.replace(/"/g, '');
+  command = command.replace(/"/g, "");
   const ext = extname(command);
   if (isAbsolute(command)) {
     // if the file has an extension, or we're not on win32, and this is an actual file, use it.
-    if (ext || process.platform !== 'win32') {
+    if (ext || process.platform !== "win32") {
       if (await isFile(command)) {
         return command;
       }
     }
     // if we're on windows, look for a file with an acceptable extension.
-    if (process.platform === 'win32') {
+    if (process.platform === "win32") {
       // try all the PATHEXT extensions to see if it is a recognized program
       const cmd = await realPathWithExtension(command);
       if (cmd) {
@@ -100,7 +106,7 @@ async function execute(cmd, cmdlineargs, options) {
   } else {
     command = cmdlineToArray(cmd);
   }
-  if (command[0] === 'node' || command[0] === 'node.exe') {
+  if (command[0] === "node" || command[0] === "node.exe") {
     command[0] = nodePath;
   }
   const env = { ...process.env };
@@ -115,7 +121,7 @@ async function execute(cmd, cmdlineargs, options) {
   // then we're going to have to add the folder to the PATH
   // and execute it by just the filename
   // and set the path back when we're done.
-  const special = process.platform === 'win32' && fullCommandPath.indexOf(' ') > -1 && !/.exe$/ig.exec(fullCommandPath);
+  const special = process.platform === "win32" && fullCommandPath.indexOf(" ") > -1 && !/.exe$/gi.exec(fullCommandPath);
 
   // preserve the current path
   const originalPath = process.env[PathVar];
@@ -126,101 +132,102 @@ async function execute(cmd, cmdlineargs, options) {
         process.env[PathVar] = `${dirname(fullCommandPath)}${delimiter}${env[PathVar]}`;
       }
       // call spawn and return
-      const cp = spawn(fullCommandPath, command.slice(1), { ...options, stdio: 'pipe' });
+      const cp = spawn(fullCommandPath, command.slice(1), { ...options, stdio: "pipe" });
 
-      cp.on('error', (err) => {
+      cp.on("error", (err) => {
         console.log(`error! ${err} `);
-      })
+      });
 
       if (options.onCreate) {
         options.onCreate(cp);
       }
 
-      options.onStdOutData ? cp.stdout.on('data', options.onStdOutData) : cp;
-      options.onStdErrData ? cp.stderr.on('data', options.onStdErrData) : cp;
+      options.onStdOutData ? cp.stdout.on("data", options.onStdOutData) : cp;
+      options.onStdErrData ? cp.stderr.on("data", options.onStdErrData) : cp;
 
-      let err = '';
-      let out = '';
-      cp.stderr.on('data', (chunk) => {
+      let err = "";
+      let out = "";
+      cp.stderr.on("data", (chunk) => {
         err += chunk;
       });
-      cp.stdout.on('data', (chunk) => {
+      cp.stdout.on("data", (chunk) => {
         out += chunk;
       });
 
-      cp.on('close', (code, signal) => r({ stdout: out, stderr: err, error: code }));
-    }
-    finally {
+      cp.on("close", (code, signal) => r({ stdout: out, stderr: err, error: code }));
+    } finally {
       // regardless, restore the original path on the way out!
       process.env[PathVar] = originalPath;
     }
   });
-
 }
 
 function sleep(delayMS) {
-  return new Promise(res => setTimeout(res, delayMS));
+  return new Promise((res) => setTimeout(res, delayMS));
 }
 
 async function httpGet(addr) {
-  return new Promise((r, j) => request(addr, (response) => {
-    response.on('error', (err) => {
-      j(err);
-    });
+  return new Promise((r, j) =>
+    request(addr, (response) => {
+      response.on("error", (err) => {
+        j(err);
+      });
 
-    if (response.statusCode === 200) {
-      let data = "";
-      response.on('data', (chunk) => {
-        data = data + chunk.toString();
-      });
-      response.on('end', () => {
-        r(data);
-      });
-      return;
-    }
-    j(response);
-  }).end()
-  )
+      if (response.statusCode === 200) {
+        let data = "";
+        response.on("data", (chunk) => {
+          data = data + chunk.toString();
+        });
+        response.on("end", () => {
+          r(data);
+        });
+        return;
+      }
+      j(response);
+    }).end(),
+  );
 }
 async function httpPost(addr) {
   return new Promise((r, j) => {
     try {
       request(addr, (response) => {
-        response.on('error', (err) => {
+        response.on("error", (err) => {
           j(err);
         });
 
         if (response.statusCode === 200) {
           let data = "";
-          response.on('data', (chunk) => {
+          response.on("data", (chunk) => {
             data = data + chunk.toString();
           });
-          response.on('end', () => {
+          response.on("end", () => {
             r(data);
           });
           return;
         }
         j(response);
-      }).on('error', (e) => {
-        j(e);
-      }).end()
-    }
-    catch (e) {
+      })
+        .on("error", (e) => {
+          j(e);
+        })
+        .end();
+    } catch (e) {
       j(e);
     }
-  })
+  });
 }
-
-
 
 async function queryUser(text) {
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
   return new Promise((r, j) => {
-    rl.question(text, (answer) => { r(answer); rl.close() });
+    rl.question(text, (answer) => {
+      r(answer);
+      rl.close();
+    });
   });
 }
 
@@ -229,5 +236,5 @@ module.exports = {
   httpGet,
   httpPost,
   sleep,
-  queryUser
-}
+  queryUser,
+};

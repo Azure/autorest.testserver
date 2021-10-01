@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/parameterGrouping/postRequired/{path}": {
       "post": {
@@ -29,16 +23,14 @@
               "format": "int32"
             },
             "required": true,
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           },
           {
             "name": "customHeader",
             "in": "header",
             "type": "string",
             "required": false,
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           },
           {
             "name": "query",
@@ -48,8 +40,7 @@
             "format": "int32",
             "default": 30,
             "description": "Query parameter with default",
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           },
           {
             "name": "path",
@@ -57,8 +48,7 @@
             "required": true,
             "type": "string",
             "description": "Path parameter",
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           }
         ],
         "responses": {
@@ -84,8 +74,7 @@
             "in": "header",
             "type": "string",
             "required": false,
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           },
           {
             "name": "query",
@@ -95,8 +84,7 @@
             "format": "int32",
             "default": 30,
             "description": "Query parameter with default",
-            "x-ms-parameter-grouping": {
-            }
+            "x-ms-parameter-grouping": {}
           }
         ],
         "responses": {
@@ -113,40 +101,38 @@
       }
     },
     "/parameterGrouping/postReservedWords": {
-        "post": {
-          "operationId": "parameterGrouping_postReservedWords",
-          "description": "Post a grouped parameters with reserved words",
-          "parameters": [
-            {
-              "name": "from",
-              "in": "query",
-              "description": "'from' is a reserved word. Pass in 'bob' to pass.",
-              "type": "string",
-              "x-ms-parameter-grouping": {
-              }
-            },
-            {
-              "name": "accept",
-              "in": "query",
-              "description": "'accept' is a reserved word. Pass in 'yes' to pass.",
-              "type": "string",
-              "x-ms-parameter-grouping": {
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success"
-            },
-            "default": {
-              "description": "Unexpected error",
-              "schema": {
-                "$ref": "#/definitions/Error"
-              }
+      "post": {
+        "operationId": "parameterGrouping_postReservedWords",
+        "description": "Post a grouped parameters with reserved words",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "'from' is a reserved word. Pass in 'bob' to pass.",
+            "type": "string",
+            "x-ms-parameter-grouping": {}
+          },
+          {
+            "name": "accept",
+            "in": "query",
+            "description": "'accept' is a reserved word. Pass in 'yes' to pass.",
+            "type": "string",
+            "x-ms-parameter-grouping": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
           }
         }
-      },
+      }
+    },
     "/parameterGrouping/postMultipleParameterGroups": {
       "post": {
         "operationId": "parameterGrouping_postMultiParamGroups",
@@ -251,7 +237,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

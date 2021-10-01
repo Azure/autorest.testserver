@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/date/null": {
       "get": {
@@ -211,7 +205,7 @@
             "schema": {
               "type": "string",
               "format": "date",
-              "enum":  ["0000-01-01"],
+              "enum": ["0000-01-01"],
               "x-ms-enum": { "modelAsString": false }
             }
           },
@@ -227,7 +221,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

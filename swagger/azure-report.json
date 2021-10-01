@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/report/azure": {
       "get": {
@@ -33,7 +27,7 @@
           "200": {
             "description": "The test coverage mapping",
             "schema": {
-              "type":  "object",
+              "type": "object",
               "additionalProperties": {
                 "type": "integer"
               }
@@ -51,7 +45,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

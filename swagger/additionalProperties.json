@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/additionalProperties/true": {
       "put": {
@@ -212,9 +206,7 @@
     },
     "PetAPTrue": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "properties": {
         "id": {
           "type": "integer"
@@ -244,9 +236,7 @@
     },
     "PetAPObject": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "properties": {
         "id": {
           "type": "integer"
@@ -263,9 +253,7 @@
     },
     "PetAPString": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "properties": {
         "id": {
           "type": "integer"
@@ -284,9 +272,7 @@
     },
     "PetAPInProperties": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "properties": {
         "id": {
           "type": "integer"
@@ -308,10 +294,7 @@
     },
     "PetAPInPropertiesWithAPString": {
       "type": "object",
-      "required": [
-        "id",
-        "@odata.location"
-      ],
+      "required": ["id", "@odata.location"],
       "properties": {
         "id": {
           "type": "integer"

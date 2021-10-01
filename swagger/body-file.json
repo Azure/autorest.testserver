@@ -6,20 +6,16 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/files/stream/nonempty": {
       "get": {
         "operationId": "files_GetFile",
         "description": "Get file",
-        "produces": [ "image/png", "application/json" ],
-        "tags": [
-          "Files"
-        ],
+        "produces": ["image/png", "application/json"],
+        "tags": ["Files"],
         "responses": {
           "200": {
             "description": "The PNG file",
@@ -40,10 +36,8 @@
       "get": {
         "operationId": "files_GetFileLarge",
         "description": "Get a large file",
-        "produces": [ "image/png", "application/json" ],
-        "tags": [
-          "Files"
-        ],
+        "produces": ["image/png", "application/json"],
+        "tags": ["Files"],
         "responses": {
           "200": {
             "description": "The large file",
@@ -64,10 +58,8 @@
       "get": {
         "operationId": "files_GetEmptyFile",
         "description": "Get empty file",
-        "produces": [ "image/png", "application/json" ],
-        "tags": [
-          "Files"
-        ],
+        "produces": ["image/png", "application/json"],
+        "tags": ["Files"],
         "responses": {
           "200": {
             "description": "The empty file stream",
@@ -87,7 +79,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

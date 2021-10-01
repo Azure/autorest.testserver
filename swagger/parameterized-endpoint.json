@@ -1,48 +1,46 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "title": "ParmaterizedEndpointClient",
-      "description": "Service client for testing parameterized hosts with the name 'endpoint'",
-      "version": "1.0.0"
-    },
-    "x-ms-parameterized-host": {
-        "hostTemplate": "{endpoint}",
-        "useSchemePrefix": false,
-        "parameters": [
-          {
-            "$ref": "#/parameters/endpoint"
+  "swagger": "2.0",
+  "info": {
+    "title": "ParmaterizedEndpointClient",
+    "description": "Service client for testing parameterized hosts with the name 'endpoint'",
+    "version": "1.0.0"
+  },
+  "x-ms-parameterized-host": {
+    "hostTemplate": "{endpoint}",
+    "useSchemePrefix": false,
+    "parameters": [
+      {
+        "$ref": "#/parameters/endpoint"
+      }
+    ]
+  },
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/parameterizedEndpoint/get": {
+      "get": {
+        "operationId": "get",
+        "description": "Basic get to make sure base url formatting of 'endpoint' works",
+        "responses": {
+          "200": {
+            "description": "Success response"
+          },
+          "default": {
+            "description": "Unexpected error"
           }
-        ]
-    },
-    "schemes": [
-        "http"
-    ],
-    "produces": [ "application/json"],
-    "paths": {
-        "/parameterizedEndpoint/get": {
-            "get": {
-                "operationId": "get",
-                "description": "Basic get to make sure base url formatting of 'endpoint' works",
-                "responses": {
-                    "200": {
-                        "description": "Success response"
-                    },
-                    "default": {
-                        "description": "Unexpected error"
-                    }
-                }
-            }
         }
-    },
-    "parameters": {
-        "endpoint": {
-            "name": "endpoint",
-            "description": "The parameterized host. Pass in 'http://localhost:3000' to pass.",
-            "x-ms-parameter-location": "client",
-            "required": true,
-            "type": "string",
-            "in": "path",
-            "x-ms-skip-url-encoding": true
-        }
+      }
     }
+  },
+  "parameters": {
+    "endpoint": {
+      "name": "endpoint",
+      "description": "The parameterized host. Pass in 'http://localhost:3000' to pass.",
+      "x-ms-parameter-location": "client",
+      "required": true,
+      "type": "string",
+      "in": "path",
+      "x-ms-skip-url-encoding": true
+    }
+  }
 }

@@ -30,6 +30,9 @@ jobs:
       - script: npm run lint
         displayName: Lint
 
+      - script: npm run check-format
+        displayName: Check formatting
+
       - script: |
           npm link
           autorest-testserver validate-spec-coverage

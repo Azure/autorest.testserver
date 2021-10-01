@@ -6,15 +6,9 @@
     "version": "2016-02-29"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/complex/basic/valid": {
       "get": {
@@ -1257,7 +1251,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",
@@ -1269,7 +1263,7 @@
       }
     },
     "basic": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer",
@@ -1282,7 +1276,7 @@
         },
         "color": {
           "type": "string",
-          "enum": [ "cyan", "Magenta", "YELLOW", "blacK" ],
+          "enum": ["cyan", "Magenta", "YELLOW", "blacK"],
           "x-ms-enum": {
             "name": "CMYKColors",
             "modelAsString": true
@@ -1291,7 +1285,7 @@
       }
     },
     "pet": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer"
@@ -1307,7 +1301,7 @@
           "$ref": "#/definitions/pet"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "color": {
           "type": "string"
@@ -1326,7 +1320,7 @@
           "$ref": "#/definitions/cat"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "breed": {
           "type": "string"
@@ -1339,7 +1333,7 @@
           "$ref": "#/definitions/pet"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "food": {
           "type": "string"
@@ -1347,9 +1341,9 @@
       }
     },
     "DotFish": {
-      "type":  "object",
+      "type": "object",
       "discriminator": "fish.type",
-      "required": [ "fish.type" ],
+      "required": ["fish.type"],
       "properties": {
         "fish.type": {
           "type": "string"
@@ -1365,7 +1359,7 @@
           "$ref": "#/definitions/DotFish"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "location": {
           "type": "string"
@@ -1398,9 +1392,9 @@
       }
     },
     "Fish": {
-      "type":  "object",
+      "type": "object",
       "discriminator": "fishtype",
-      "required": [ "fishtype", "length" ],
+      "required": ["fishtype", "length"],
       "properties": {
         "fishtype": {
           "type": "string"
@@ -1426,7 +1420,7 @@
           "$ref": "#/definitions/Fish"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "location": {
           "type": "string"
@@ -1456,8 +1450,8 @@
           "$ref": "#/definitions/Fish"
         }
       ],
-      "type":  "object",
-      "required": [ "birthday" ],
+      "type": "object",
+      "required": ["birthday"],
       "properties": {
         "age": {
           "type": "integer",
@@ -1475,7 +1469,7 @@
           "$ref": "#/definitions/shark"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "picture": {
           "type": "string",
@@ -1490,7 +1484,7 @@
           "$ref": "#/definitions/shark"
         }
       ],
-      "type":  "object",
+      "type": "object",
       "properties": {
         "jawsize": {
           "type": "integer"
@@ -1498,38 +1492,38 @@
         "color": {
           "type": "string",
           "description": "Colors possible",
-          "enum": [
-            "pink",
-            "gray",
-            "brown",
-            "RED",
-            "red"
-          ],
+          "enum": ["pink", "gray", "brown", "RED", "red"],
           "x-ms-enum": {
             "name": "GoblinSharkColor",
             "modelAsString": true,
-            "values": [{
-              "value": "pink"
-            },{
-              "value": "gray"
-            },{
-              "value": "brown"
-            },{
-              "value": "RED",
-              "description": "Uppercase RED",
-              "name": "upperRed"
-            },{
-              "value": "red",
-              "description": "Lowercase RED",
-              "name": "lowerRed"
-            }]
+            "values": [
+              {
+                "value": "pink"
+              },
+              {
+                "value": "gray"
+              },
+              {
+                "value": "brown"
+              },
+              {
+                "value": "RED",
+                "description": "Uppercase RED",
+                "name": "upperRed"
+              },
+              {
+                "value": "red",
+                "description": "Lowercase RED",
+                "name": "lowerRed"
+              }
+            ]
           },
           "default": "gray"
         }
       }
     },
     "cookiecuttershark": {
-      "type":  "object",
+      "type": "object",
       "allOf": [
         {
           "$ref": "#/definitions/shark"
@@ -1537,7 +1531,7 @@
       ]
     },
     "int-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field1": {
           "type": "integer",
@@ -1550,7 +1544,7 @@
       }
     },
     "long-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field1": {
           "type": "integer",
@@ -1563,7 +1557,7 @@
       }
     },
     "float-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field1": {
           "type": "number",
@@ -1576,7 +1570,7 @@
       }
     },
     "double-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field1": {
           "type": "number",
@@ -1589,7 +1583,7 @@
       }
     },
     "boolean-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field_true": {
           "type": "boolean"
@@ -1600,7 +1594,7 @@
       }
     },
     "string-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string"
@@ -1614,7 +1608,7 @@
       }
     },
     "date-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1627,7 +1621,7 @@
       }
     },
     "datetime-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1640,7 +1634,7 @@
       }
     },
     "datetimerfc1123-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1653,7 +1647,7 @@
       }
     },
     "duration-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1662,7 +1656,7 @@
       }
     },
     "byte-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "field": {
           "type": "string",
@@ -1671,7 +1665,7 @@
       }
     },
     "array-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "array": {
           "type": "array",
@@ -1682,10 +1676,10 @@
       }
     },
     "dictionary-wrapper": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "defaultProgram": {
-          "type":  "object",
+          "type": "object",
           "x-nullable": true,
           "additionalProperties": {
             "type": "string"
@@ -1694,7 +1688,7 @@
       }
     },
     "readonly-obj": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "id": {
           "type": "string",
@@ -1708,9 +1702,7 @@
     },
     "MyKind": {
       "type": "string",
-      "enum": [
-        "Kind1"
-      ],
+      "enum": ["Kind1"],
       "x-ms-enum": {
         "name": "MyKind",
         "modelAsString": true,
@@ -1744,9 +1736,7 @@
           "$ref": "#/definitions/MyBaseHelperType"
         }
       },
-      "required": [
-        "kind"
-      ]
+      "required": ["kind"]
     },
     "MyDerivedType": {
       "type": "object",
@@ -1773,7 +1763,7 @@
       "description": "API ID.",
       "required": true,
       "type": "string",
-      "enum": [ "2016-02-29" ]
+      "enum": ["2016-02-29"]
     }
   }
 }

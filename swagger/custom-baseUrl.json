@@ -23,8 +23,8 @@
       }
     ]
   },
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/customuri": {
       "get": {
@@ -35,9 +35,7 @@
             "$ref": "./examples/paths_getEmpty.json"
           }
         },
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "responses": {
           "200": {
             "description": "Successfully received a 200 response"
@@ -49,7 +47,7 @@
             }
           }
         }
-      }   
+      }
     }
   },
   "parameters": {
@@ -65,7 +63,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

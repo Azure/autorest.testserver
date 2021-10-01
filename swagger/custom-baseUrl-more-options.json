@@ -30,16 +30,14 @@
       }
     ]
   },
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/customuri/{subscriptionId}/{keyName}": {
       "get": {
         "operationId": "paths_getEmpty",
         "description": "Get a 200 to test a valid base uri",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "keyName",
@@ -71,7 +69,7 @@
             }
           }
         }
-      }   
+      }
     }
   },
   "parameters": {
@@ -94,7 +92,7 @@
   },
   "definitions": {
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

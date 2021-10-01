@@ -6,23 +6,15 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/dictionary/null": {
       "get": {
         "operationId": "dictionary_getNull",
         "description": "Get null dictionary value",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The null dictionary value",
@@ -47,9 +39,7 @@
       "get": {
         "operationId": "dictionary_getEmpty",
         "description": "Get empty dictionary value {}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The empty dictionary value {}",
@@ -86,9 +76,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -198,9 +186,7 @@
       "get": {
         "operationId": "dictionary_getBooleanTfft",
         "description": "Get boolean dictionary value {\"0\": true, \"1\": false, \"2\": false, \"3\": true }",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": true, \"1\": false, \"2\": false, \"3\": true }",
@@ -237,9 +223,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -257,9 +241,7 @@
       "get": {
         "operationId": "dictionary_getBooleanInvalidNull",
         "description": "Get boolean dictionary value {\"0\": true, \"1\": null, \"2\": false }",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": true, \"1\": null, \"2\": false }",
@@ -284,9 +266,7 @@
       "get": {
         "operationId": "dictionary_getBooleanInvalidString",
         "description": "Get boolean dictionary value '{\"0\": true, \"1\": \"boolean\", \"2\": false}'",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value '{\"0\": true, \"1\": \"boolean\", \"2\": false}'",
@@ -311,9 +291,7 @@
       "get": {
         "operationId": "dictionary_getIntegerValid",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
@@ -350,9 +328,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -370,9 +346,7 @@
       "get": {
         "operationId": "dictionary_getIntInvalidNull",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": null, \"2\": 0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": null, \"2\": 0}",
@@ -397,9 +371,7 @@
       "get": {
         "operationId": "dictionary_getIntInvalidString",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": \"integer\", \"2\": 0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": \"integer\", \"2\": 0}",
@@ -424,9 +396,7 @@
       "get": {
         "operationId": "dictionary_getLongValid",
         "description": "Get integer dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": -1, \"2\": 3, \"3\": 300}",
@@ -465,9 +435,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -485,9 +453,7 @@
       "get": {
         "operationId": "dictionary_getLongInvalidNull",
         "description": "Get long dictionary value {\"0\": 1, \"1\": null, \"2\": 0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": null, \"2\": 0}",
@@ -513,9 +479,7 @@
       "get": {
         "operationId": "dictionary_getLongInvalidString",
         "description": "Get long dictionary value {\"0\": 1, \"1\": \"integer\", \"2\": 0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1, \"1\": \"integer\", \"2\": 0}",
@@ -541,9 +505,7 @@
       "get": {
         "operationId": "dictionary_getFloatValid",
         "description": "Get float dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
@@ -582,9 +544,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -602,9 +562,7 @@
       "get": {
         "operationId": "dictionary_getFloatInvalidNull",
         "description": "Get float dictionary value {\"0\": 0.0, \"1\": null, \"2\": 1.2e20}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 0.0, \"1\": null, \"2\": 1.2e20}",
@@ -630,9 +588,7 @@
       "get": {
         "operationId": "dictionary_getFloatInvalidString",
         "description": "Get boolean dictionary value {\"0\": 1.0, \"1\": \"number\", \"2\": 0.0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1.0, \"1\": \"number\", \"2\": 0.0}",
@@ -658,9 +614,7 @@
       "get": {
         "operationId": "dictionary_getDoubleValid",
         "description": "Get float dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 0, \"1\": -0.01, \"2\": 1.2e20}",
@@ -699,9 +653,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -719,9 +671,7 @@
       "get": {
         "operationId": "dictionary_getDoubleInvalidNull",
         "description": "Get float dictionary value {\"0\": 0.0, \"1\": null, \"2\": 1.2e20}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 0.0, \"1\": null, \"2\": 1.2e20}",
@@ -747,9 +697,7 @@
       "get": {
         "operationId": "dictionary_getDoubleInvalidString",
         "description": "Get boolean dictionary value {\"0\": 1.0, \"1\": \"number\", \"2\": 0.0}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": 1.0, \"1\": \"number\", \"2\": 0.0}",
@@ -775,9 +723,7 @@
       "get": {
         "operationId": "dictionary_getStringValid",
         "description": "Get string dictionary value {\"0\": \"foo1\", \"1\": \"foo2\", \"2\": \"foo3\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"foo1\", \"1\": \"foo2\", \"2\": \"foo3\"}",
@@ -814,9 +760,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -834,9 +778,7 @@
       "get": {
         "operationId": "dictionary_getStringWithNull",
         "description": "Get string dictionary value {\"0\": \"foo\", \"1\": null, \"2\": \"foo2\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"foo\", \"1\": null, \"2\": \"foo2\"}",
@@ -861,9 +803,7 @@
       "get": {
         "operationId": "dictionary_getStringWithInvalid",
         "description": "Get string dictionary value {\"0\": \"foo\", \"1\": 123, \"2\": \"foo2\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"foo\", \"1\": 123, \"2\": \"foo2\"}",
@@ -888,9 +828,7 @@
       "get": {
         "operationId": "dictionary_getDateValid",
         "description": "Get integer dictionary value {\"0\": \"2000-12-01\", \"1\": \"1980-01-02\", \"2\": \"1492-10-12\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2000-12-01\", \"1\": \"1980-01-02\", \"2\": \"1492-10-12\"}",
@@ -929,9 +867,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -949,9 +885,7 @@
       "get": {
         "operationId": "dictionary_getDateInvalidNull",
         "description": "Get date dictionary value {\"0\": \"2012-01-01\", \"1\": null, \"2\": \"1776-07-04\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2012-01-01\", \"1\": null, \"2\": \"1776-07-04\"}",
@@ -977,9 +911,7 @@
       "get": {
         "operationId": "dictionary_getDateInvalidChars",
         "description": "Get date dictionary value {\"0\": \"2011-03-22\", \"1\": \"date\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2011-03-22\", \"1\": \"date\"}",
@@ -1005,9 +937,7 @@
       "get": {
         "operationId": "dictionary_getDateTimeValid",
         "description": "Get date-time dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"1980-01-02T00:11:35+01:00\", \"2\": \"1492-10-12T10:15:01-08:00\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"1980-01-02T00:11:35+01:00\", \"2\": \"1492-10-12T10:15:01-08:00\"}",
@@ -1046,9 +976,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1066,9 +994,7 @@
       "get": {
         "operationId": "dictionary_getDateTimeInvalidNull",
         "description": "Get date dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": null}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": null}",
@@ -1094,9 +1020,7 @@
       "get": {
         "operationId": "dictionary_getDateTimeInvalidChars",
         "description": "Get date dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"date-time\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"2000-12-01t00:00:01z\", \"1\": \"date-time\"}",
@@ -1122,9 +1046,7 @@
       "get": {
         "operationId": "dictionary_getDateTimeRfc1123Valid",
         "description": "Get date-time-rfc1123 dictionary value {\"0\": \"Fri, 01 Dec 2000 00:00:01 GMT\", \"1\": \"Wed, 02 Jan 1980 00:11:35 GMT\", \"2\": \"Wed, 12 Oct 1492 10:15:01 GMT\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"Fri, 01 Dec 2000 00:00:01 GMT\", \"1\": \"Wed, 02 Jan 1980 00:11:35 GMT\", \"2\": \"Wed, 12 Oct 1492 10:15:01 GMT\"}",
@@ -1163,9 +1085,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1183,9 +1103,7 @@
       "get": {
         "operationId": "dictionary_getDurationValid",
         "description": "Get duration dictionary value {\"0\": \"P123DT22H14M12.011S\", \"1\": \"P5DT1H0M0S\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": \"P123DT22H14M12.011S\", \"1\": \"P5DT1H0M0S\"}",
@@ -1224,9 +1142,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1244,9 +1160,7 @@
       "get": {
         "operationId": "dictionary_getByteValid",
         "description": "Get byte dictionary value {\"0\": hex(FF FF FF FA), \"1\": hex(01 02 03), \"2\": hex (25, 29, 43)} with each item encoded in base64",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The dictionary value {\"0\": hex(FF FF FF FA), \"1\": hex(01 02 03), \"2\": hex (25, 29, 43)} with each elementencoded in base 64",
@@ -1285,9 +1199,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1305,9 +1217,7 @@
       "get": {
         "operationId": "dictionary_getByteInvalidNull",
         "description": "Get byte dictionary value {\"0\": hex(FF FF FF FA), \"1\": null} with the first item base64 encoded",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The byte dictionary value {\"0\": hex(FF FF FF FA), \"1\": null} with the first item base64 encoded",
@@ -1333,9 +1243,7 @@
       "get": {
         "operationId": "dictionary_getBase64Url",
         "description": "Get base64url dictionary value {\"0\": \"a string that gets encoded with base64url\", \"1\": \"test string\", \"2\": \"Lorem ipsum\"}",
-        "tags": [
-          "Dictionary operations"
-        ],
+        "tags": ["Dictionary operations"],
         "responses": {
           "200": {
             "description": "The base64url dictionary value {\"0\": \"a string that gets encoded with base64url\", \"1\": \"test string\", \"2\": \"Lorem ipsum\"}",
@@ -1361,9 +1269,7 @@
       "get": {
         "operationId": "dictionary_getComplexNull",
         "description": "Get dictionary of complex type null value",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Dictionary of complex type with null value",
@@ -1389,9 +1295,7 @@
       "get": {
         "operationId": "dictionary_getComplexEmpty",
         "description": "Get empty dictionary of complex type {}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Empty dictionary of complex type {}",
@@ -1416,9 +1320,7 @@
       "get": {
         "operationId": "dictionary_getComplexItemNull",
         "description": "Get dictionary of complex type with null item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": null, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Dictionary of complex type with null item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": null, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
@@ -1444,9 +1346,7 @@
       "get": {
         "operationId": "dictionary_getComplexItemEmpty",
         "description": "Get dictionary of complex type with empty item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1:\" {}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Dictionary of complex type with empty item {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1:\" {}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
@@ -1471,9 +1371,7 @@
       "get": {
         "operationId": "dictionary_getComplexValid",
         "description": "Get dictionary of complex type with {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": {\"integer\": 3, \"string\": \"4\"}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Dictionary of complex type with {\"0\": {\"integer\": 1, \"string\": \"2\"}, \"1\": {\"integer\": 3, \"string\": \"4\"}, \"2\": {\"integer\": 5, \"string\": \"6\"}}",
@@ -1510,9 +1408,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1530,9 +1426,7 @@
       "get": {
         "operationId": "dictionary_getArrayNull",
         "description": "Get a null array",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "null array",
@@ -1561,9 +1455,7 @@
       "get": {
         "operationId": "dictionary_getArrayEmpty",
         "description": "Get an empty dictionary {}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An empty dictionary {}",
@@ -1591,9 +1483,7 @@
       "get": {
         "operationId": "dictionary_getArrayItemNull",
         "description": "Get an dictionary of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": null, \"2\": [\"7\", \"8\", \"9\"]}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": null, \"2\": [\"7\", \"8\", \"9\"]}",
@@ -1622,9 +1512,7 @@
       "get": {
         "operationId": "dictionary_getArrayItemEmpty",
         "description": "Get an array of array of strings [{\"0\": [\"1\", \"2\", \"3\"], \"1\": [], \"2\": [\"7\", \"8\", \"9\"]}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [], \"2\": [\"7\", \"8\", \"9\"]}",
@@ -1652,9 +1540,7 @@
       "get": {
         "operationId": "dictionary_getArrayValid",
         "description": "Get an array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An array of array of strings {\"0\": [\"1\", \"2\", \"3\"], \"1\": [\"4\", \"5\", \"6\"], \"2\": [\"7\", \"8\", \"9\"]}",
@@ -1697,9 +1583,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1717,9 +1601,7 @@
       "get": {
         "operationId": "dictionary_getDictionaryNull",
         "description": "Get an dictionaries of dictionaries with value null",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An dictionaries of dictionaries with value null",
@@ -1747,9 +1629,7 @@
       "get": {
         "operationId": "dictionary_getDictionaryEmpty",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An dictionaries of dictionaries of type <string, string> with value {}",
@@ -1777,9 +1657,7 @@
       "get": {
         "operationId": "dictionary_getDictionaryItemNull",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": null, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": null, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
@@ -1808,9 +1686,7 @@
       "get": {
         "operationId": "dictionary_getDictionaryItemEmpty",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
@@ -1838,9 +1714,7 @@
       "get": {
         "operationId": "dictionary_getDictionaryValid",
         "description": "Get an dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "An dictionaries of dictionaries of type <string, string> with value {\"0\": {\"1\": \"one\", \"2\": \"two\", \"3\": \"three\"}, \"1\": {\"4\": \"four\", \"5\": \"five\", \"6\": \"six\"}, \"2\": {\"7\": \"seven\", \"8\": \"eight\", \"9\": \"nine\"}}",
@@ -1883,9 +1757,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Dictionary Operations"
-        ],
+        "tags": ["Dictionary Operations"],
         "responses": {
           "200": {
             "description": "Empty Response"
@@ -1913,7 +1785,7 @@
       }
     },
     "Error": {
-      "type":  "object",
+      "type": "object",
       "properties": {
         "status": {
           "type": "integer",

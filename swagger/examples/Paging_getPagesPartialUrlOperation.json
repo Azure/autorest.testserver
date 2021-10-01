@@ -5,15 +5,15 @@
   "responses": {
     "200": {
       "body": {
-        "values":[
+        "values": [
           {
-            "properties":{
-              "id":1,
-              "name":"Product"
+            "properties": {
+              "id": 1,
+              "name": "Product"
             }
           }
         ],
-        "nextLink":"partialnextlinkop/page/2"
+        "nextLink": "partialnextlinkop/page/2"
       }
     }
   }

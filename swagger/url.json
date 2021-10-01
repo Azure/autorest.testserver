@@ -6,26 +6,22 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [ "application/json" ],
-  "consumes": [ "application/json" ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/paths/bool/true/{boolPath}": {
       "get": {
         "operationId": "paths_getBooleanTrue",
         "description": "Get true Boolean value on path",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "boolPath",
             "in": "path",
             "description": "true boolean value",
             "type": "boolean",
-            "enum": [ true ],
+            "enum": [true],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -47,16 +43,14 @@
       "get": {
         "operationId": "paths_getBooleanFalse",
         "description": "Get false Boolean value on path",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "boolPath",
             "in": "path",
             "description": "false boolean value",
             "type": "boolean",
-            "enum": [ false ],
+            "enum": [false],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -78,16 +72,14 @@
       "get": {
         "operationId": "paths_getIntOneMillion",
         "description": "Get '1000000' integer value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "intPath",
             "in": "path",
             "description": "'1000000' integer value",
             "type": "integer",
-            "enum": [ 1000000 ],
+            "enum": [1000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -109,16 +101,14 @@
       "get": {
         "operationId": "paths_getIntNegativeOneMillion",
         "description": "Get '-1000000' integer value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "intPath",
             "in": "path",
             "description": "'-1000000' integer value",
             "type": "integer",
-            "enum": [ -1000000 ],
+            "enum": [-1000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -140,9 +130,7 @@
       "get": {
         "operationId": "paths_getTenBillion",
         "description": "Get '10000000000' 64 bit integer value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "longPath",
@@ -150,7 +138,7 @@
             "description": "'10000000000' 64 bit integer value",
             "type": "integer",
             "format": "int64",
-            "enum": [ 10000000000 ],
+            "enum": [10000000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -172,9 +160,7 @@
       "get": {
         "operationId": "paths_getNegativeTenBillion",
         "description": "Get '-10000000000' 64 bit integer value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "longPath",
@@ -182,7 +168,7 @@
             "description": "'-10000000000' 64 bit integer value",
             "type": "integer",
             "format": "int64",
-            "enum": [ -10000000000 ],
+            "enum": [-10000000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -204,16 +190,14 @@
       "get": {
         "operationId": "paths_floatScientificPositive",
         "description": "Get '1.034E+20' numeric value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "floatPath",
             "in": "path",
             "description": "'1.034E+20'numeric value",
             "type": "number",
-            "enum": [ 1.034E+20 ],
+            "enum": [1.034e20],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -235,16 +219,14 @@
       "get": {
         "operationId": "paths_floatScientificNegative",
         "description": "Get '-1.034E-20' numeric value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "floatPath",
             "in": "path",
             "description": "'-1.034E-20'numeric value",
             "type": "number",
-            "enum": [ -1.034E-20 ],
+            "enum": [-1.034e-20],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -266,9 +248,7 @@
       "get": {
         "operationId": "paths_doubleDecimalPositive",
         "description": "Get '9999999.999' numeric value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "doublePath",
@@ -276,7 +256,7 @@
             "description": "'9999999.999'numeric value",
             "type": "number",
             "format": "double",
-            "enum": [ 9999999.999 ],
+            "enum": [9999999.999],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -298,9 +278,7 @@
       "get": {
         "operationId": "paths_doubleDecimalNegative",
         "description": "Get '-9999999.999' numeric value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "doublePath",
@@ -308,7 +286,7 @@
             "description": "'-9999999.999'numeric value",
             "type": "number",
             "format": "double",
-            "enum": [ -9999999.999 ],
+            "enum": [-9999999.999],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -330,16 +308,14 @@
       "get": {
         "operationId": "paths_stringUnicode",
         "description": "Get '啊齄丂狛狜隣郎隣兀﨩' multi-byte string value",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "stringPath",
             "in": "path",
             "description": "'啊齄丂狛狜隣郎隣兀﨩'multi-byte string value",
             "type": "string",
-            "enum": [ "啊齄丂狛狜隣郎隣兀﨩" ],
+            "enum": ["啊齄丂狛狜隣郎隣兀﨩"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -361,16 +337,14 @@
       "get": {
         "operationId": "paths_stringUrlEncoded",
         "description": "Get 'begin!*'();:@ &=+$,/?#[]end",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "stringPath",
             "in": "path",
             "description": "'begin!*'();:@ &=+$,/?#[]end' url encoded string value",
             "type": "string",
-            "enum": [ "begin!*'();:@ &=+$,/?#[]end" ],
+            "enum": ["begin!*'();:@ &=+$,/?#[]end"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -393,16 +367,14 @@
         "operationId": "paths_stringUrlNonEncoded",
         "description": "https://tools.ietf.org/html/rfc3986#appendix-A 'path' accept any 'pchar' not encoded",
         "summary": "Get 'begin!*'();:@&=+$,end",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "stringPath",
             "in": "path",
             "description": "'begin!*'();:@&=+$,end' url encoded string value",
             "type": "string",
-            "enum": [ "begin!*'();:@&=+$,end" ],
+            "enum": ["begin!*'();:@&=+$,end"],
             "x-ms-enum": { "modelAsString": false },
             "required": true,
             "x-ms-skip-url-encoding": true
@@ -425,16 +397,14 @@
       "get": {
         "operationId": "paths_stringEmpty",
         "description": "Get ''",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "stringPath",
             "in": "path",
             "description": "'' string value",
             "type": "string",
-            "enum": [ "" ],
+            "enum": [""],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -456,9 +426,7 @@
       "get": {
         "operationId": "paths_stringNull",
         "description": "Get null (should throw)",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "stringPath",
@@ -485,16 +453,14 @@
       "get": {
         "operationId": "paths_enumValid",
         "description": "Get using uri with 'green color' in path parameter",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "enumPath",
             "in": "path",
             "description": "send the value green",
             "type": "string",
-            "enum": [ "red color", "green color", "blue color" ],
+            "enum": ["red color", "green color", "blue color"],
             "x-ms-enum": { "name": "UriColor" },
             "required": true
           }
@@ -516,16 +482,14 @@
       "get": {
         "operationId": "paths_enumNull",
         "description": "Get null (should throw on the client before the request is sent on wire)",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "enumPath",
             "in": "path",
             "type": "string",
             "description": "send null should throw",
-            "enum": [ "red color", "green color", "blue color" ],
+            "enum": ["red color", "green color", "blue color"],
             "x-ms-enum": { "name": "UriColor" },
             "required": true
           }
@@ -547,9 +511,7 @@
       "get": {
         "operationId": "paths_byteMultiByte",
         "description": "Get '啊齄丂狛狜隣郎隣兀﨩' multibyte value as utf-8 encoded byte array",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "bytePath",
@@ -577,9 +539,7 @@
       "get": {
         "operationId": "paths_byteEmpty",
         "description": "Get '' as byte array",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "bytePath",
@@ -587,7 +547,7 @@
             "description": "'' as byte array",
             "type": "string",
             "format": "byte",
-            "enum": [ "" ],
+            "enum": [""],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -609,9 +569,7 @@
       "get": {
         "operationId": "paths_byteNull",
         "description": "Get null as byte array (should throw)",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "bytePath",
@@ -639,9 +597,7 @@
       "get": {
         "operationId": "paths_DateValid",
         "description": "Get '2012-01-01' as date",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "datePath",
@@ -649,7 +605,7 @@
             "description": "'2012-01-01' as date",
             "type": "string",
             "format": "date",
-            "enum": [ "2012-01-01" ],
+            "enum": ["2012-01-01"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -671,9 +627,7 @@
       "get": {
         "operationId": "paths_DateNull",
         "description": "Get null as date - this should throw or be unusable on the client side, depending on date representation",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "datePath",
@@ -701,9 +655,7 @@
       "get": {
         "operationId": "paths_DateTimeValid",
         "description": "Get '2012-01-01T01:01:01Z' as date-time",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "dateTimePath",
@@ -711,7 +663,7 @@
             "description": "'2012-01-01T01:01:01Z' as date-time",
             "type": "string",
             "format": "date-time",
-            "enum": [ "2012-01-01T01:01:01Z" ],
+            "enum": ["2012-01-01T01:01:01Z"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -733,9 +685,7 @@
       "get": {
         "operationId": "paths_DateTimeNull",
         "description": "Get null as date-time, should be disallowed or throw depending on representation of date-time",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "dateTimePath",
@@ -763,9 +713,7 @@
       "get": {
         "operationId": "paths_base64Url",
         "description": "Get 'lorem' encoded value as 'bG9yZW0' (base64url)",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "base64UrlPath",
@@ -793,9 +741,7 @@
       "get": {
         "operationId": "paths_ArrayCsvInPath",
         "description": "Get an array of string ['ArrayPath1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the csv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayPath",
@@ -826,9 +772,7 @@
       "get": {
         "operationId": "paths_unixTimeUrl",
         "description": "Get the date 2016-04-13 encoded value as '1460505600' (Unix time)",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "unixTimeUrlPath",
@@ -856,16 +800,14 @@
       "get": {
         "operationId": "queries_getBooleanTrue",
         "description": "Get true Boolean value on path",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "boolQuery",
             "in": "query",
             "description": "true boolean value",
             "type": "boolean",
-            "enum": [ true ],
+            "enum": [true],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -887,16 +829,14 @@
       "get": {
         "operationId": "queries_getBooleanFalse",
         "description": "Get false Boolean value on path",
-        "tags": [
-          "Path Operations"
-        ],
+        "tags": ["Path Operations"],
         "parameters": [
           {
             "name": "boolQuery",
             "in": "query",
             "description": "false boolean value",
             "type": "boolean",
-            "enum": [ false ],
+            "enum": [false],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -918,9 +858,7 @@
       "get": {
         "operationId": "queries_getBooleanNull",
         "description": "Get null Boolean value on query (query string should be absent)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "boolQuery",
@@ -946,16 +884,14 @@
       "get": {
         "operationId": "queries_getIntOneMillion",
         "description": "Get '1000000' integer value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "intQuery",
             "in": "query",
             "description": "'1000000' integer value",
             "type": "integer",
-            "enum": [ 1000000 ],
+            "enum": [1000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -977,16 +913,14 @@
       "get": {
         "operationId": "queries_getIntNegativeOneMillion",
         "description": "Get '-1000000' integer value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "intQuery",
             "in": "query",
             "description": "'-1000000' integer value",
             "type": "integer",
-            "enum": [ -1000000 ],
+            "enum": [-1000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1008,9 +942,7 @@
       "get": {
         "operationId": "queries_getIntNull",
         "description": "Get null integer value (no query parameter)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "intQuery",
@@ -1036,9 +968,7 @@
       "get": {
         "operationId": "queries_getTenBillion",
         "description": "Get '10000000000' 64 bit integer value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "longQuery",
@@ -1046,7 +976,7 @@
             "description": "'10000000000' 64 bit integer value",
             "type": "integer",
             "format": "int64",
-            "enum": [ 10000000000 ],
+            "enum": [10000000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1068,9 +998,7 @@
       "get": {
         "operationId": "queries_getNegativeTenBillion",
         "description": "Get '-10000000000' 64 bit integer value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "longQuery",
@@ -1078,7 +1006,7 @@
             "description": "'-10000000000' 64 bit integer value",
             "type": "integer",
             "format": "int64",
-            "enum": [ -10000000000 ],
+            "enum": [-10000000000],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1100,9 +1028,7 @@
       "get": {
         "operationId": "queries_getLongNull",
         "description": "Get 'null 64 bit integer value (no query param in uri)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "longQuery",
@@ -1129,16 +1055,14 @@
       "get": {
         "operationId": "queries_floatScientificPositive",
         "description": "Get '1.034E+20' numeric value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "floatQuery",
             "in": "query",
             "description": "'1.034E+20'numeric value",
             "type": "number",
-            "enum": [ 1.034E+20 ],
+            "enum": [1.034e20],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1160,16 +1084,14 @@
       "get": {
         "operationId": "queries_floatScientificNegative",
         "description": "Get '-1.034E-20' numeric value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "floatQuery",
             "in": "query",
             "description": "'-1.034E-20'numeric value",
             "type": "number",
-            "enum": [ -1.034E-20 ],
+            "enum": [-1.034e-20],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1191,9 +1113,7 @@
       "get": {
         "operationId": "queries_floatNull",
         "description": "Get null numeric value (no query parameter)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "floatQuery",
@@ -1219,9 +1139,7 @@
       "get": {
         "operationId": "queries_doubleDecimalPositive",
         "description": "Get '9999999.999' numeric value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "doubleQuery",
@@ -1229,7 +1147,7 @@
             "description": "'9999999.999'numeric value",
             "type": "number",
             "format": "double",
-            "enum": [ 9999999.999 ],
+            "enum": [9999999.999],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1251,9 +1169,7 @@
       "get": {
         "operationId": "queries_doubleDecimalNegative",
         "description": "Get '-9999999.999' numeric value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "doubleQuery",
@@ -1261,7 +1177,7 @@
             "description": "'-9999999.999'numeric value",
             "type": "number",
             "format": "double",
-            "enum": [ -9999999.999 ],
+            "enum": [-9999999.999],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1283,9 +1199,7 @@
       "get": {
         "operationId": "queries_doubleNull",
         "description": "Get null numeric value (no query parameter)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "doubleQuery",
@@ -1312,16 +1226,14 @@
       "get": {
         "operationId": "queries_stringUnicode",
         "description": "Get '啊齄丂狛狜隣郎隣兀﨩' multi-byte string value",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "stringQuery",
             "in": "query",
             "description": "'啊齄丂狛狜隣郎隣兀﨩'multi-byte string value",
             "type": "string",
-            "enum": [ "啊齄丂狛狜隣郎隣兀﨩" ],
+            "enum": ["啊齄丂狛狜隣郎隣兀﨩"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1343,16 +1255,14 @@
       "get": {
         "operationId": "queries_stringUrlEncoded",
         "description": "Get 'begin!*'();:@ &=+$,/?#[]end",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "stringQuery",
             "in": "query",
             "description": "'begin!*'();:@ &=+$,/?#[]end' url encoded string value",
             "type": "string",
-            "enum": [ "begin!*'();:@ &=+$,/?#[]end" ],
+            "enum": ["begin!*'();:@ &=+$,/?#[]end"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1374,16 +1284,14 @@
       "get": {
         "operationId": "queries_stringEmpty",
         "description": "Get ''",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "stringQuery",
             "in": "query",
             "description": "'' string value",
             "type": "string",
-            "enum": [ "" ],
+            "enum": [""],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1405,9 +1313,7 @@
       "get": {
         "operationId": "queries_stringNull",
         "description": "Get null (no query parameter in url)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "stringQuery",
@@ -1433,16 +1339,14 @@
       "get": {
         "operationId": "queries_enumValid",
         "description": "Get using uri with query parameter 'green color'",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "enumQuery",
             "in": "query",
             "description": "'green color' enum value",
             "type": "string",
-            "enum": [ "red color", "green color", "blue color" ],
+            "enum": ["red color", "green color", "blue color"],
             "x-ms-enum": { "name": "UriColor" }
           }
         ],
@@ -1463,16 +1367,14 @@
       "get": {
         "operationId": "queries_enumNull",
         "description": "Get null (no query parameter in url)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "enumQuery",
             "in": "query",
             "description": "null string value",
             "type": "string",
-            "enum": [ "red color", "green color", "blue color" ],
+            "enum": ["red color", "green color", "blue color"],
             "x-ms-enum": { "name": "UriColor" }
           }
         ],
@@ -1493,9 +1395,7 @@
       "get": {
         "operationId": "queries_byteMultiByte",
         "description": "Get '啊齄丂狛狜隣郎隣兀﨩' multibyte value as utf-8 encoded byte array",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "byteQuery",
@@ -1522,9 +1422,7 @@
       "get": {
         "operationId": "queries_byteEmpty",
         "description": "Get '' as byte array",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "byteQuery",
@@ -1532,7 +1430,7 @@
             "description": "'' as byte array",
             "type": "string",
             "format": "byte",
-            "enum": [ "" ],
+            "enum": [""],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1554,9 +1452,7 @@
       "get": {
         "operationId": "queries_byteNull",
         "description": "Get null as byte array (no query parameters in uri)",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "byteQuery",
@@ -1583,9 +1479,7 @@
       "get": {
         "operationId": "queries_DateValid",
         "description": "Get '2012-01-01' as date",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "dateQuery",
@@ -1593,7 +1487,7 @@
             "description": "'2012-01-01' as date",
             "type": "string",
             "format": "date",
-            "enum": [ "2012-01-01" ],
+            "enum": ["2012-01-01"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1615,9 +1509,7 @@
       "get": {
         "operationId": "queries_DateNull",
         "description": "Get null as date - this should result in no query parameters in uri",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "dateQuery",
@@ -1644,9 +1536,7 @@
       "get": {
         "operationId": "queries_DateTimeValid",
         "description": "Get '2012-01-01T01:01:01Z' as date-time",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "dateTimeQuery",
@@ -1654,7 +1544,7 @@
             "description": "'2012-01-01T01:01:01Z' as date-time",
             "type": "string",
             "format": "date-time",
-            "enum": [ "2012-01-01T01:01:01Z" ],
+            "enum": ["2012-01-01T01:01:01Z"],
             "x-ms-enum": { "modelAsString": false },
             "required": true
           }
@@ -1676,9 +1566,7 @@
       "get": {
         "operationId": "queries_DateTimeNull",
         "description": "Get null as date-time, should result in no query parameters in uri",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "dateTimeQuery",
@@ -1705,9 +1593,7 @@
       "get": {
         "operationId": "queries_ArrayStringCsvValid",
         "description": "Get an array of string ['ArrayQuery1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the csv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1737,9 +1623,7 @@
       "get": {
         "operationId": "queries_ArrayStringCsvNull",
         "description": "Get a null array of string using the csv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1769,9 +1653,7 @@
       "get": {
         "operationId": "queries_ArrayStringCsvEmpty",
         "description": "Get an empty array [] of string using the csv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1801,9 +1683,7 @@
       "get": {
         "operationId": "queries_ArrayStringNoCollectionFormatEmpty",
         "description": "Array query has no defined collection format, should default to csv. Pass in ['hello', 'nihao', 'bonjour'] for the 'arrayQuery' parameter to the service",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1832,9 +1712,7 @@
       "get": {
         "operationId": "queries_ArrayStringSsvValid",
         "description": "Get an array of string ['ArrayQuery1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the ssv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1864,9 +1742,7 @@
       "get": {
         "operationId": "queries_ArrayStringTsvValid",
         "description": "Get an array of string ['ArrayQuery1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the tsv-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1896,9 +1772,7 @@
       "get": {
         "operationId": "queries_ArrayStringPipesValid",
         "description": "Get an array of string ['ArrayQuery1', 'begin!*'();:@ &=+$,/?#[]end' , null, ''] using the pipes-array format",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "arrayQuery",
@@ -1945,9 +1819,7 @@
       "get": {
         "operationId": "pathItems_getAllWithValues",
         "description": "send globalStringPath='globalStringPath', pathItemStringPath='pathItemStringPath', localStringPath='localStringPath', globalStringQuery='globalStringQuery', pathItemStringQuery='pathItemStringQuery', localStringQuery='localStringQuery'",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "localStringPath",
@@ -1997,9 +1869,7 @@
       "get": {
         "operationId": "pathItems_getGlobalQueryNull",
         "description": "send globalStringPath='globalStringPath', pathItemStringPath='pathItemStringPath', localStringPath='localStringPath', globalStringQuery=null, pathItemStringQuery='pathItemStringQuery', localStringQuery='localStringQuery'",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "localStringPath",
@@ -2049,9 +1919,7 @@
       "get": {
         "operationId": "pathItems_getGlobalAndLocalQueryNull",
         "description": "send globalStringPath=globalStringPath, pathItemStringPath='pathItemStringPath', localStringPath='localStringPath', globalStringQuery=null, pathItemStringQuery='pathItemStringQuery', localStringQuery=null",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "localStringPath",
@@ -2101,9 +1969,7 @@
       "get": {
         "operationId": "pathItems_getLocalPathItemQueryNull",
         "description": "send globalStringPath='globalStringPath', pathItemStringPath='pathItemStringPath', localStringPath='localStringPath', globalStringQuery='globalStringQuery', pathItemStringQuery=null, localStringQuery=null",
-        "tags": [
-          "query Operations"
-        ],
+        "tags": ["query Operations"],
         "parameters": [
           {
             "name": "localStringPath",
@@ -2133,33 +1999,33 @@
       }
     }
   },
-    "parameters": {
-        "globalStringPath": {
-            "name": "globalStringPath",
-            "in": "path",
-            "description": "A string value 'globalItemStringPath' that appears in the path",
-            "type": "string",
-            "required": true
-        },
-        "globalStringQuery": {
-            "name": "globalStringQuery",
-            "in": "query",
-            "description": "should contain value null",
-            "type": "string"
-        }
+  "parameters": {
+    "globalStringPath": {
+      "name": "globalStringPath",
+      "in": "path",
+      "description": "A string value 'globalItemStringPath' that appears in the path",
+      "type": "string",
+      "required": true
     },
-    "definitions": {
-        "Error": {
-          "type":  "object",
-            "properties": {
-                "status": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
-        }
+    "globalStringQuery": {
+      "name": "globalStringQuery",
+      "in": "query",
+      "description": "should contain value null",
+      "type": "string"
     }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }

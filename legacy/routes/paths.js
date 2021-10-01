@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var util = require('util');
-var constants = require('../util/constants');
-var utils = require('../util/utils')
+var util = require("util");
+var constants = require("../util/constants");
+var utils = require("../util/utils");
 
 var scenarioMap = {
   "true": "True",
@@ -22,25 +22,25 @@ var scenarioMap = {
   "null": "Null",
   "2012-01-01": "Valid",
   "2012-01-01T01:01:01Z": "Valid",
-  "green color" : "Valid",
-  "bG9yZW0" : "Base64Url",
+  "green color": "Valid",
+  "bG9yZW0": "Base64Url",
   "1460505600": "UnixTime",
   "ArrayPath1,begin!*'();:@ &=+$,/?#[]end,,": "CSVInPath",
-  "unicode": "Unicode"
+  "unicode": "Unicode",
 };
 
 var typeMap = {
-  "bool": "Bool",
-  "int": "Int",
-  "long": "Long",
-  "float": "Float",
-  "double": "Double",
-  "string": "String",
-  "byte": "Byte",
-  "date": "Date",
-  "datetime": "DateTime",
-  "enum" : "Enum",
-  "array": "Array"
+  bool: "Bool",
+  int: "Int",
+  long: "Long",
+  float: "Float",
+  double: "Double",
+  string: "String",
+  byte: "Byte",
+  date: "Date",
+  datetime: "DateTime",
+  enum: "Enum",
+  array: "Array",
 };
 
 var getScenarioName = function (type, scenario) {
@@ -52,16 +52,16 @@ var getScenarioName = function (type, scenario) {
   }
 
   console.log('Got parsed type "' + parsedType + '" and parsed scenario "' + parsedScenario + '"\n');
-  return '' + parsedType + parsedScenario;
+  return "" + parsedType + parsedScenario;
 };
 
 var validateArrayPath = function (arrayValue, separator) {
   console.log('received array value "' + arrayValue + '" separator "' + separator + '"');
-  return (arrayValue === "ArrayPath1" + separator + "begin!*'();:@ &=+$,/?#[]end" + separator + separator);
+  return arrayValue === "ArrayPath1" + separator + "begin!*'();:@ &=+$,/?#[]end" + separator + separator;
 };
 
 var paths = function (coverage) {
-  router.get('/:type/empty', function (req, res, next) {
+  router.get("/:type/empty", function (req, res, next) {
     console.log("inside router\n");
     var type = req.params.type;
     var scenario = "empty";
@@ -69,18 +69,18 @@ var paths = function (coverage) {
     var test = getScenarioName(type, scenario);
     if (test === null) {
       console.log("test was null\n");
-      utils.send400(res, next, 'Unable to parse scenario \"\/paths\/' + type + '\/' + scenario + '\"');
+      utils.send400(res, next, 'Unable to parse scenario "/paths/' + type + "/" + scenario + '"');
     } else if (scenario === "empty") {
       console.log("in empty test\n");
-      coverage['UrlPaths' + test]++;
+      coverage["UrlPaths" + test]++;
       res.status(200).end();
     } else {
-      console.log('Empty Failure!\n');
+      console.log("Empty Failure!\n");
       utils.send400(res, next, 'Unable to find matching empty scenario for type "' + type + '"');
     }
   });
 
-  router.get('/:type/:scenario/:wireParameter', function (req, res, next) {
+  router.get("/:type/:scenario/:wireParameter", function (req, res, next) {
     console.log("inside router\n");
 
     var type = req.params.type;
@@ -89,13 +89,16 @@ var paths = function (coverage) {
     var test = getScenarioName(type, scenario);
     var bytes = new Buffer(constants.MULTIBYTE_BUFFER);
 
-    if (type === 'enum' || type === 'date' || type === 'array' ||
-           type === 'datetime' ||
-           scenario === 'multibyte' ||
-           (type === 'string' &&
-           scenario.indexOf('begin') === 0) ||
-           scenario === 'bG9yZW0' ||
-           scenario === 'unicode') {
+    if (
+      type === "enum" ||
+      type === "date" ||
+      type === "array" ||
+      type === "datetime" ||
+      scenario === "multibyte" ||
+      (type === "string" && scenario.indexOf("begin") === 0) ||
+      scenario === "bG9yZW0" ||
+      scenario === "unicode"
+    ) {
       scenario = '"' + scenario + '"';
       wireParameter = '"' + wireParameter + '"';
     }
@@ -105,60 +108,92 @@ var paths = function (coverage) {
 
     if (test === null) {
       console.log("test was null\n");
-      utils.send400(res, next, 'Unable to parse scenario \"\/paths\/' + type + '\/' + scenario + '\"');
-    } else if (scenario === "empty" && (wireParameter !== '' && wireParameter !== null)) {
+      utils.send400(res, next, 'Unable to parse scenario "/paths/' + type + "/" + scenario + '"');
+    } else if (scenario === "empty" && wireParameter !== "" && wireParameter !== null) {
       console.log("in empty test\n");
-      utils.send400(res, next, 'Empty scenario must have empty parameter instead of \"' + wireParameter + '\"');
-    } else if (type === 'string') {
-      if (scenario === wireParameter || (scenario === 'unicode' && wireParameter === '啊齄丂狛狜隣郎隣兀﨩')) {
+      utils.send400(res, next, 'Empty scenario must have empty parameter instead of "' + wireParameter + '"');
+    } else if (type === "string") {
+      if (scenario === wireParameter || (scenario === "unicode" && wireParameter === "啊齄丂狛狜隣郎隣兀﨩")) {
         console.log("Success!\n");
-        coverage['UrlPaths' + test]++;
+        coverage["UrlPaths" + test]++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed string scenario \"' + scenario + '\" does not match wire parameter \"' + wireParameter + '\"');
+        utils.send400(
+          res,
+          next,
+          'Failed string scenario "' + scenario + '" does not match wire parameter "' + wireParameter + '"',
+        );
       }
-    } else if (type === 'array') {
-      if (scenario === wireParameter && validateArrayPath(wireParameter, ',')) {
+    } else if (type === "array") {
+      if (scenario === wireParameter && validateArrayPath(wireParameter, ",")) {
         console.log("Success!\n");
-        coverage['UrlPaths' + test]++;
+        coverage["UrlPaths" + test]++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed enum scenario \"' + scenario + '\" does not match wire parameter \"' + wireParameter + '\"');
+        utils.send400(
+          res,
+          next,
+          'Failed enum scenario "' + scenario + '" does not match wire parameter "' + wireParameter + '"',
+        );
       }
-    } else if (type === 'enum') {
+    } else if (type === "enum") {
       if (scenario === wireParameter) {
         console.log("Success!\n");
-        coverage['UrlPaths' + test]++;
+        coverage["UrlPaths" + test]++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed enum scenario \"' + scenario + '\" does not match wire parameter \"' + wireParameter + '\"');
+        utils.send400(
+          res,
+          next,
+          'Failed enum scenario "' + scenario + '" does not match wire parameter "' + wireParameter + '"',
+        );
       }
-    } else if (type === 'byte') {
-      if (scenario === 'multibyte' && wireParameter === bytes.toString("base64")) {
+    } else if (type === "byte") {
+      if (scenario === "multibyte" && wireParameter === bytes.toString("base64")) {
         console.log("Success!\n");
-        coverage['UrlPaths' + test]++;
+        coverage["UrlPaths" + test]++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed byte scenario \"' + wireParameter + '\" does not match expected encoded string \"' + bytes.toString("base64") + '\"');
+        utils.send400(
+          res,
+          next,
+          'Failed byte scenario "' +
+            wireParameter +
+            '" does not match expected encoded string "' +
+            bytes.toString("base64") +
+            '"',
+        );
       }
-    } else if (type === 'datetime') {
+    } else if (type === "datetime") {
       if (utils.coerceDate(wireParameter) === scenario) {
         console.log("Success!\n");
-        coverage['UrlPaths' + test]++;
+        coverage["UrlPaths" + test]++;
         res.status(200).end();
       } else {
-        utils.send400(res, next, 'Failed date-time scenario \"' + utils.coerceDate(wireParameter) + '\" does not match expected date string \"' + scenario +'\"');
+        utils.send400(
+          res,
+          next,
+          'Failed date-time scenario "' +
+            utils.coerceDate(wireParameter) +
+            '" does not match expected date string "' +
+            scenario +
+            '"',
+        );
       }
     } else if (scenario !== wireParameter) {
       console.log("mismatched parameters\n");
-      utils.send400(res, next, 'Expected path parameter \"' + scenario + '\" does not match wire parameter \"' + wireParameter + '\"');
+      utils.send400(
+        res,
+        next,
+        'Expected path parameter "' + scenario + '" does not match wire parameter "' + wireParameter + '"',
+      );
     } else {
       console.log("Success!\n");
-      coverage['UrlPaths' + test]++;
+      coverage["UrlPaths" + test]++;
       res.status(200).end();
     }
   });
-}
+};
 
 paths.prototype.router = router;
 

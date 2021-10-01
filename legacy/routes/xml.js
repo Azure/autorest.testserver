@@ -1,12 +1,12 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var util = require('util');
-var utils = require('../util/utils');
-var xml2js = require('xml2js');
-var util = require('util');
-var _ = require('underscore');
+var util = require("util");
+var utils = require("../util/utils");
+var xml2js = require("xml2js");
+var util = require("util");
+var _ = require("underscore");
 var parseXMLString = util.promisify(xml2js.parseString);
-var assert = require('assert');
+var assert = require("assert");
 
 // Expect given request body. Otherwise, 400 with comparison is returned.
 var expectXmlBody = async function (req, res, body, coverage, testname) {
@@ -26,7 +26,7 @@ var expectXmlBody = async function (req, res, body, coverage, testname) {
     coverage[testname]++;
     res.status(201).end();
   } catch (err) {
-    res.status(400).header('Content-Type', 'text/plain').end(`
+    res.status(400).header("Content-Type", "text/plain").end(`
 Expected (parsed form):
 ${JSON.stringify(err.expected, null, 2)}
 
@@ -43,12 +43,11 @@ ${rawBody}
 };
 
 var sendXmlBody = function (res, body) {
-  res.status(200).header('Content-Type', 'application/xml').end(body);
+  res.status(200).header("Content-Type", "application/xml").end(body);
 };
 
 // sample XML bodies
-var body_list =
-`<?xml version="1.0" encoding="utf-8"?>
+var body_list = `<?xml version="1.0" encoding="utf-8"?>
 <EnumerationResults ServiceEndpoint="https://myaccount.blob.core.windows.net/">
   <MaxResults>3</MaxResults>
   <Containers>
@@ -78,8 +77,7 @@ var body_list =
   <NextMarker>video</NextMarker>
 </EnumerationResults>`;
 
-var body_list_container =
-`<?xml version="1.0" encoding="utf-8"?>
+var body_list_container = `<?xml version="1.0" encoding="utf-8"?>
 <EnumerationResults ContainerName="https://myaccount.blob.core.windows.net/mycontainer">
   <Blobs>
     <Blob>
@@ -191,10 +189,9 @@ var body_list_container =
     </Blob>
   </Blobs>
   <NextMarker />
-</EnumerationResults>`
+</EnumerationResults>`;
 
-var body_acl_container =
-`<?xml version="1.0" encoding="utf-8"?>
+var body_acl_container = `<?xml version="1.0" encoding="utf-8"?>
 <SignedIdentifiers>
   <SignedIdentifier>
     <Id>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</Id>
@@ -206,8 +203,7 @@ var body_acl_container =
   </SignedIdentifier>
 </SignedIdentifiers>`;
 
-var body_properties_service =
-`<?xml version="1.0" encoding="utf-8"?>
+var body_properties_service = `<?xml version="1.0" encoding="utf-8"?>
 <StorageServiceProperties>
     <Logging>
         <Version>1.0</Version>
@@ -240,132 +236,150 @@ var body_properties_service =
 </StorageServiceProperties>`;
 
 var xmlService = function (coverage) {
-  coverage['StorageListContainersXML'] = 0;
-  coverage['StorageGetServicePropertiesXML'] = 0;
-  coverage['StoragePutServicePropertiesXML'] = 0;
-  coverage['StorageGetContainerACLXML'] = 0;
-  coverage['StorageListBlobsXML'] = 0;
-  coverage['StoragePutContainerACLXML'] = 0;
-  coverage['GetSimpleXML'] = 0;
-  coverage['PutSimpleXML'] = 0;
-  coverage['GetWrappedXMLList'] = 0;
-  coverage['PutWrappedXMLList'] = 0;
-  coverage['GetEmptyXMLList'] = 0;
-  coverage['PutEmptyXMLList'] = 0;
-  coverage['GetEmptyWrappedXMLList'] = 0;
-  coverage['PutEmptyWrappedXMLList'] = 0;
-  coverage['GetXMLListAtRoot'] = 0;
-  coverage['PutXMLListAtRoot'] = 0;
-  coverage['GetXMLListAtRootSingle'] = 0;
-  coverage['PutXMLListAtRootSingle'] = 0;
-  coverage['GetEmptyXMLListAtRoot'] = 0;
-  coverage['PutEmptyXMLListAtRoot'] = 0;
-  coverage['GetXMLEmptyNode'] = 0;
-  coverage['PutXMLEmptyNode'] = 0;
-  coverage['GetRootWithRefAndNoMetaXML'] = 0;
-  coverage['PutRootWithRefAndNoMetaXML'] = 0;
-  coverage['GetRootWithRefAndMetaXML'] = 0;
-  coverage['PutRootWithRefAndMetaXML'] = 0;
-  coverage['jsonInputInXMLSwagger'] = 0;
-  coverage['jsonOutputInXMLSwagger'] = 0;
-  coverage['GetWithXMsText'] = 0;
+  coverage["StorageListContainersXML"] = 0;
+  coverage["StorageGetServicePropertiesXML"] = 0;
+  coverage["StoragePutServicePropertiesXML"] = 0;
+  coverage["StorageGetContainerACLXML"] = 0;
+  coverage["StorageListBlobsXML"] = 0;
+  coverage["StoragePutContainerACLXML"] = 0;
+  coverage["GetSimpleXML"] = 0;
+  coverage["PutSimpleXML"] = 0;
+  coverage["GetWrappedXMLList"] = 0;
+  coverage["PutWrappedXMLList"] = 0;
+  coverage["GetEmptyXMLList"] = 0;
+  coverage["PutEmptyXMLList"] = 0;
+  coverage["GetEmptyWrappedXMLList"] = 0;
+  coverage["PutEmptyWrappedXMLList"] = 0;
+  coverage["GetXMLListAtRoot"] = 0;
+  coverage["PutXMLListAtRoot"] = 0;
+  coverage["GetXMLListAtRootSingle"] = 0;
+  coverage["PutXMLListAtRootSingle"] = 0;
+  coverage["GetEmptyXMLListAtRoot"] = 0;
+  coverage["PutEmptyXMLListAtRoot"] = 0;
+  coverage["GetXMLEmptyNode"] = 0;
+  coverage["PutXMLEmptyNode"] = 0;
+  coverage["GetRootWithRefAndNoMetaXML"] = 0;
+  coverage["PutRootWithRefAndNoMetaXML"] = 0;
+  coverage["GetRootWithRefAndMetaXML"] = 0;
+  coverage["PutRootWithRefAndMetaXML"] = 0;
+  coverage["jsonInputInXMLSwagger"] = 0;
+  coverage["jsonOutputInXMLSwagger"] = 0;
+  coverage["GetWithXMsText"] = 0;
 
-  router.get('/', function (req, res, next) {
+  router.get("/", function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
-    switch(comp) {
+    switch (comp) {
       case "list":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-containers2
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/enumerating-blob-resources
           // Swagger: Service_ListContainers
           case undefined:
             sendXmlBody(res, body_list);
-            coverage['StorageListContainersXML']++;
+            coverage["StorageListContainersXML"]++;
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
       case "properties":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-blob-service-properties
           // Swagger: Service_GetServiceProperties
           case "service":
             sendXmlBody(res, body_properties_service);
-            coverage['StorageGetServicePropertiesXML']++;
+            coverage["StorageGetServicePropertiesXML"]++;
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
-      default: res.sendStatus(404); break;
+      default:
+        res.sendStatus(404);
+        break;
     }
   });
-  router.put('/', function (req, res, next) {
+  router.put("/", function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
-    switch(comp) {
+    switch (comp) {
       case "properties":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-blob-service-properties
           case "service":
-            expectXmlBody(req, res, body_properties_service, coverage, 'StoragePutServicePropertiesXML');
+            expectXmlBody(req, res, body_properties_service, coverage, "StoragePutServicePropertiesXML");
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
-      default: res.sendStatus(404); break;
+      default:
+        res.sendStatus(404);
+        break;
     }
   });
 
-  router.get('/mycontainer', function (req, res, next) {
+  router.get("/mycontainer", function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
-    switch(comp) {
+    switch (comp) {
       case "acl":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-container-acl
           case "container":
             sendXmlBody(res, body_acl_container);
-            coverage['StorageGetContainerACLXML']++;
+            coverage["StorageGetContainerACLXML"]++;
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
       case "list":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-blobs
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/enumerating-blob-resources
           // Swagger: Containers_ListBlobs
           case "container":
             sendXmlBody(res, body_list_container);
-            coverage['StorageListBlobsXML']++;
+            coverage["StorageListBlobsXML"]++;
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
-      default: res.sendStatus(404); break;
+      default:
+        res.sendStatus(404);
+        break;
     }
   });
-  router.put('/mycontainer', function (req, res, next) {
+  router.put("/mycontainer", function (req, res, next) {
     var comp = req.query.comp;
     var restype = req.query.restype;
-    switch(comp) {
+    switch (comp) {
       case "acl":
-        switch(restype) {
+        switch (restype) {
           // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-container-acl
           case "container":
-            expectXmlBody(req, res, body_acl_container, coverage, 'StoragePutContainerACLXML');
+            expectXmlBody(req, res, body_acl_container, coverage, "StoragePutContainerACLXML");
             break;
-          default: res.sendStatus(404); break;
+          default:
+            res.sendStatus(404);
+            break;
         }
         break;
-      default: res.sendStatus(404); break;
+      default:
+        res.sendStatus(404);
+        break;
     }
   });
 
-
-  const simpleBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const simpleBody = `<?xml version='1.0' encoding='UTF-8'?>
 <slideshow
         title="Sample Slide Show"
         date="Date of publication"
@@ -382,18 +396,16 @@ var xmlService = function (coverage) {
     </slide>
 </slideshow>`;
 
-  router.get('/simple', function (req, res) {
+  router.get("/simple", function (req, res) {
     sendXmlBody(res, simpleBody);
-    coverage['GetSimpleXML']++;
+    coverage["GetSimpleXML"]++;
   });
 
-  router.put('/simple', function(req, res) {
-    expectXmlBody(req, res, simpleBody, coverage, 'PutSimpleXML');
+  router.put("/simple", function (req, res) {
+    expectXmlBody(req, res, simpleBody, coverage, "PutSimpleXML");
   });
 
-
-  const wrappedListsBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const wrappedListsBody = `<?xml version='1.0' encoding='UTF-8'?>
 <AppleBarrel>
     <GoodApples>
         <Apple>Fuji</Apple>
@@ -402,51 +414,45 @@ var xmlService = function (coverage) {
     <BadApples>
         <Apple>Red Delicious</Apple>
     </BadApples>
-</AppleBarrel>`
+</AppleBarrel>`;
 
-  router.get('/wrapped-lists', function (req, res) {
+  router.get("/wrapped-lists", function (req, res) {
     sendXmlBody(res, wrappedListsBody);
-    coverage['GetWrappedXMLList']++;
+    coverage["GetWrappedXMLList"]++;
   });
 
-  router.put('/wrapped-lists', function(req, res) {
-    expectXmlBody(req, res, wrappedListsBody, coverage, 'PutWrappedXMLList');
+  router.put("/wrapped-lists", function (req, res) {
+    expectXmlBody(req, res, wrappedListsBody, coverage, "PutWrappedXMLList");
   });
 
-
-  const emptyListBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const emptyListBody = `<?xml version='1.0' encoding='UTF-8'?>
 <slideshow/>`;
 
-  router.get('/empty-list', function (req, res) {
+  router.get("/empty-list", function (req, res) {
     sendXmlBody(res, emptyListBody);
-    coverage['GetEmptyXMLList']++;
+    coverage["GetEmptyXMLList"]++;
   });
 
-  router.put('/empty-list', function (req, res) {
-    expectXmlBody(req, res, emptyListBody, coverage, 'PutEmptyXMLList');
+  router.put("/empty-list", function (req, res) {
+    expectXmlBody(req, res, emptyListBody, coverage, "PutEmptyXMLList");
   });
 
-
-  const emptyWrappedListsBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const emptyWrappedListsBody = `<?xml version='1.0' encoding='UTF-8'?>
 <AppleBarrel>
     <GoodApples></GoodApples>
     <BadApples/>
 </AppleBarrel>`;
 
-  router.get('/empty-wrapped-lists', function (req, res) {
+  router.get("/empty-wrapped-lists", function (req, res) {
     sendXmlBody(res, emptyWrappedListsBody);
-    coverage['GetEmptyWrappedXMLList']++;
+    coverage["GetEmptyWrappedXMLList"]++;
   });
 
-  router.put('/empty-wrapped-lists', function (req, res) {
-    expectXmlBody(req, res, emptyWrappedListsBody, coverage, 'PutEmptyWrappedXMLList');
+  router.put("/empty-wrapped-lists", function (req, res) {
+    expectXmlBody(req, res, emptyWrappedListsBody, coverage, "PutEmptyWrappedXMLList");
   });
 
-
-  const rootListBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const rootListBody = `<?xml version='1.0' encoding='UTF-8'?>
 <bananas>
     <banana>
         <name>Cavendish</name>
@@ -458,131 +464,122 @@ var xmlService = function (coverage) {
         <flavor>Savory</flavor>
         <expiration>2018-02-28T00:40:00.123Z</expiration>
     </banana>
-</bananas>`
+</bananas>`;
 
-  router.get('/root-list', function (req, res) {
+  router.get("/root-list", function (req, res) {
     sendXmlBody(res, rootListBody);
-    coverage['GetXMLListAtRoot']++;
+    coverage["GetXMLListAtRoot"]++;
   });
 
-  router.put('/root-list', function(req, res) {
-    expectXmlBody(req, res, rootListBody, coverage, 'PutXMLListAtRoot');
+  router.put("/root-list", function (req, res) {
+    expectXmlBody(req, res, rootListBody, coverage, "PutXMLListAtRoot");
   });
 
-
-  const rootListSingleItemBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const rootListSingleItemBody = `<?xml version='1.0' encoding='UTF-8'?>
 <bananas>
     <banana>
         <name>Cavendish</name>
         <flavor>Sweet</flavor>
         <expiration>2018-02-28T00:40:00.123Z</expiration>
     </banana>
-</bananas>`
+</bananas>`;
 
-  router.get('/root-list-single-item', function (req, res) {
+  router.get("/root-list-single-item", function (req, res) {
     sendXmlBody(res, rootListSingleItemBody);
-    coverage['GetXMLListAtRootSingle']++;
+    coverage["GetXMLListAtRootSingle"]++;
   });
 
-  router.put('/root-list-single-item', function(req, res) {
-    expectXmlBody(req, res, rootListSingleItemBody, coverage, 'PutXMLListAtRootSingle');
+  router.put("/root-list-single-item", function (req, res) {
+    expectXmlBody(req, res, rootListSingleItemBody, coverage, "PutXMLListAtRootSingle");
   });
 
-
-  const emptyRootListBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const emptyRootListBody = `<?xml version='1.0' encoding='UTF-8'?>
 <bananas/>`;
 
-  router.get('/empty-root-list', function (req, res) {
+  router.get("/empty-root-list", function (req, res) {
     sendXmlBody(res, emptyRootListBody);
-    coverage['GetEmptyXMLListAtRoot']++;
+    coverage["GetEmptyXMLListAtRoot"]++;
   });
 
-  router.put('/empty-root-list', function(req, res) {
-    expectXmlBody(req, res, emptyRootListBody, coverage, 'PutEmptyXMLListAtRoot');
+  router.put("/empty-root-list", function (req, res) {
+    expectXmlBody(req, res, emptyRootListBody, coverage, "PutEmptyXMLListAtRoot");
   });
 
-
-  const emptyChildElementBody =
-`<?xml version='1.0' encoding='UTF-8'?>
+  const emptyChildElementBody = `<?xml version='1.0' encoding='UTF-8'?>
 <banana>
   <name>Unknown Banana</name>
   <flavor></flavor>
   <expiration>2012-02-24T00:53:52.789Z</expiration>
-</banana>`
+</banana>`;
 
-  router.get('/empty-child-element', function (req, res) {
+  router.get("/empty-child-element", function (req, res) {
     sendXmlBody(res, emptyChildElementBody);
-    coverage['GetXMLEmptyNode']++;
+    coverage["GetXMLEmptyNode"]++;
   });
 
-  router.put('/empty-child-element', function(req, res) {
-    expectXmlBody(req, res, emptyChildElementBody, coverage, 'PutXMLEmptyNode');
+  router.put("/empty-child-element", function (req, res) {
+    expectXmlBody(req, res, emptyChildElementBody, coverage, "PutXMLEmptyNode");
   });
 
-  const complexTypeRefComplexTypeWithNoXMLmeta =
-  `<?xml version='1.0' encoding='UTF-8'?>
+  const complexTypeRefComplexTypeWithNoXMLmeta = `<?xml version='1.0' encoding='UTF-8'?>
   <RootWithRefAndNoMeta>
     <RefToModel>
       <ID>myid</ID>
     </RefToModel>
     <Something>else</Something>
-  </RootWithRefAndNoMeta>`
+  </RootWithRefAndNoMeta>`;
 
-  router.get('/complex-type-ref-no-meta', function (req, res) {
-    coverage['GetRootWithRefAndNoMetaXML']++;
+  router.get("/complex-type-ref-no-meta", function (req, res) {
+    coverage["GetRootWithRefAndNoMetaXML"]++;
     sendXmlBody(res, complexTypeRefComplexTypeWithNoXMLmeta);
   });
 
-  router.put('/complex-type-ref-no-meta', function(req, res) {
-    expectXmlBody(req, res, complexTypeRefComplexTypeWithNoXMLmeta, coverage, 'PutRootWithRefAndNoMetaXML');
+  router.put("/complex-type-ref-no-meta", function (req, res) {
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithNoXMLmeta, coverage, "PutRootWithRefAndNoMetaXML");
   });
 
-  const complexTypeRefComplexTypeWithXMLmeta =
-  `<?xml version='1.0' encoding='UTF-8'?>
+  const complexTypeRefComplexTypeWithXMLmeta = `<?xml version='1.0' encoding='UTF-8'?>
   <RootWithRefAndMeta>
     <XMLComplexTypeWithMeta>
       <ID>myid</ID>
     </XMLComplexTypeWithMeta>
     <Something>else</Something>
-  </RootWithRefAndMeta>`
+  </RootWithRefAndMeta>`;
 
-  router.get('/complex-type-ref-with-meta', function (req, res) {
-    coverage['GetRootWithRefAndMetaXML']++;
+  router.get("/complex-type-ref-with-meta", function (req, res) {
+    coverage["GetRootWithRefAndMetaXML"]++;
     sendXmlBody(res, complexTypeRefComplexTypeWithXMLmeta);
   });
 
-  router.put('/complex-type-ref-with-meta', function(req, res) {
-    expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta, coverage, 'PutRootWithRefAndMetaXML');
+  router.put("/complex-type-ref-with-meta", function (req, res) {
+    expectXmlBody(req, res, complexTypeRefComplexTypeWithXMLmeta, coverage, "PutRootWithRefAndMetaXML");
   });
 
-  router.get('/headers', function (req, res) {
+  router.get("/headers", function (req, res) {
     res.status(200);
     res.setHeader("Custom-HEADER", "custom-value");
     res.end();
   });
 
-  router.put('/jsoninput', function (req, res, next) {
-    if (_.isEqual(req.body, { "id": 42 })) {
-      coverage['jsonInputInXMLSwagger']++;
+  router.put("/jsoninput", function (req, res, next) {
+    if (_.isEqual(req.body, { id: 42 })) {
+      coverage["jsonInputInXMLSwagger"]++;
       res.status(200).end();
     } else {
       utils.send400(res, next, "Did not like valid req " + util.inspect(req.body));
     }
   });
 
-  router.get('/jsonoutput', function (req, res, next) {
-    coverage['jsonOutputInXMLSwagger']++;
-    res.status(200).json({ "id": 42 });
+  router.get("/jsonoutput", function (req, res, next) {
+    coverage["jsonOutputInXMLSwagger"]++;
+    res.status(200).json({ id: 42 });
   });
 
-  router.get('/x-ms-text', function (req, res, next) {
-    const xmsTextXML =
-    `<?xml version='1.0' encoding='UTF-8'?>
-    <Data language="english">I am text</Data>`
+  router.get("/x-ms-text", function (req, res, next) {
+    const xmsTextXML = `<?xml version='1.0' encoding='UTF-8'?>
+    <Data language="english">I am text</Data>`;
     sendXmlBody(res, xmsTextXML);
-    coverage['GetWithXMsText']++;
+    coverage["GetWithXMsText"]++;
   });
 };
 
