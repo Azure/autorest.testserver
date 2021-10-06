@@ -12,9 +12,7 @@
     "/binary/file": {
       "post": {
         "description": "Uploading json file",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "operationId": "Upload_File",
         "parameters": [
           {
@@ -38,9 +36,7 @@
     "/binary/octet": {
       "put": {
         "description": "Uploading binary file",
-        "consumes": [
-          "application/octet-stream"
-        ],
+        "consumes": ["application/octet-stream"],
         "operationId": "Upload_Binary",
         "parameters": [
           {
