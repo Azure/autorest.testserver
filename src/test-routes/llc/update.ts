@@ -1,4 +1,4 @@
-import { app, json } from "../api";
+import { app, json } from "../../api";
 
 app.category("optional", () => {
   app.get("/llc/parameters", "LLCRequiredToOptional", (req) => {

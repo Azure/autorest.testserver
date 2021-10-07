@@ -1,0 +1,37 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "LLCClient",
+      "description": "LLC Swagger that tests our ability to grow up with customizations"
+    },
+    "host": "localhost:3000",
+    "schemes": ["http"],
+    "produces": ["application/json"],
+    "paths": {
+      "/customization/getModel/{mode}": {
+        "get": {
+          "operationId": "getModel",
+          "description": "Get models that you will either be dealt with as a raw body, or with a handwritten model.",
+          "parameters": [
+            {
+                "name": "mode",
+                "description": "The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.",
+                "required": true,
+                "type": "string",
+                "in": "path",
+                "x-ms-skip-url-encoding": true
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "Answer from service",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
