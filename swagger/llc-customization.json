@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "LLCClient",
-    "description": "LLC Swagger that tests our ability to grow up with customizations"
+    "description": "LLC Swagger that tests our ability to grow up."
   },
   "host": "localhost:3000",
   "schemes": ["http"],
@@ -12,7 +12,7 @@
     "/customization/model/{mode}": {
       "get": {
         "operationId": "getModel",
-        "description": "Get models that you will either return to end users as a raw body, or with a handwritten model.",
+        "description": "Get models that you will either return to end users as a raw body, or with a model added during grow up.",
         "parameters": [
           {
             "$ref": "#/parameters/mode"
@@ -29,7 +29,7 @@
       },
       "post": {
         "operationId": "postModel",
-        "description": "Post either raw response as a model and pass in 'raw' for mode, or customize your operation to take handwritten model instead, and put in 'model' as mode. ",
+        "description": "Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ",
         "parameters": [
           {
             "$ref": "#/parameters/mode"
@@ -56,7 +56,7 @@
       "get": {
         "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
         "operationId": "getPages",
-        "description": "Get pages that you will either return to users in pages of raw bodies, or pages of handwritten models.",
+        "description": "Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.",
         "parameters": [
           {
             "$ref": "#/parameters/mode"
@@ -76,7 +76,7 @@
       "put": {
         "x-ms-long-running-operation": true,
         "operationId": "lro",
-        "description": "Long running put request that will either return to end users a final payload of a raw body, or a final payload of a handwritten model.",
+        "description": "Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.",
         "parameters": [
           {
             "$ref": "#/parameters/mode"
