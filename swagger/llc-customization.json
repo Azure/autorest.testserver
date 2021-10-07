@@ -12,26 +12,52 @@
       "/customization/getModel/{mode}": {
         "get": {
           "operationId": "getModel",
-          "description": "Get models that you will either be dealt with as a raw body, or with a handwritten model.",
+          "description": "Get models that you will either return to end users as a raw body, or with a handwritten model.",
           "parameters": [
             {
-                "name": "mode",
-                "description": "The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.",
-                "required": true,
-                "type": "string",
-                "in": "path",
-                "x-ms-skip-url-encoding": true
-              }
+                "$ref": "#/parameters/mode"
+            }
           ],
           "responses": {
             "200": {
-              "description": "Answer from service",
+              "description": "Returns {'received': <mode>}",
               "schema": {
                 "type": "object"
               }
             }
           }
         }
+      },
+      "/customization/paging/{mode}": {
+        "get": {
+            "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+            "operationId": "getPages",
+            "description": "Get pages that you will either return to users in pages of raw bodies, or pages of handwritten models.",
+            "parameters": [
+                {
+                    "$ref": "#/parameters/mode"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Returns two pages of {'received': <mode>}",
+                    "schema": {
+                      "type": "object"
+                    }
+                }
+            }
+        }
       }
+    },
+    "parameters": {
+        "mode": {
+            "name": "mode",
+            "description": "The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.",
+            "required": true,
+            "type": "string",
+            "in": "path",
+            "x-ms-skip-url-encoding": true,
+            "x-ms-parameter-location": "method"
+        }
     }
   }
