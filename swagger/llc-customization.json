@@ -1,0 +1,156 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "LLCClient",
+    "description": "LLC Swagger that tests our ability to grow up."
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/customization/model/{mode}": {
+      "get": {
+        "operationId": "getModel",
+        "description": "Get models that you will either return to end users as a raw body, or with a model added during grow up.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/mode"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns {'received': <mode>}",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "postModel",
+        "description": "Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ",
+        "parameters": [
+          {
+            "$ref": "#/parameters/mode"
+          },
+          {
+            "name": "input",
+            "in": "body",
+            "description": "Please put {'hello': 'world!'}",
+            "schema": { "$ref": "#/definitions/Input" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns {'received': <mode>}",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      }
+    },
+    "/customization/paging/{mode}": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "operationId": "getPages",
+        "description": "Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/mode"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns two pages of {'received': <mode>}",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          }
+        }
+      }
+    },
+    "/customization/lro/{mode}": {
+      "put": {
+        "x-ms-long-running-operation": true,
+        "operationId": "lro",
+        "description": "Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/mode"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Succeeded'",
+            "schema": {
+              "$ref": "#/definitions/LROProduct"
+            }
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "mode": {
+      "name": "mode",
+      "description": "The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.",
+      "required": true,
+      "type": "string",
+      "in": "path",
+      "x-ms-skip-url-encoding": true,
+      "x-ms-parameter-location": "method"
+    }
+  },
+  "definitions": {
+    "ProductResult": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "required": ["received"],
+      "properties": {
+        "received": {
+          "type": "string",
+          "enum": ["raw", "model"]
+        }
+      }
+    },
+    "Input": {
+      "type": "object",
+      "required": ["hello"],
+      "properties": {
+        "hello": {
+          "type": "string"
+        }
+      }
+    },
+    "LROProduct": {
+      "type": "object",
+      "required": ["provisioningState"],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Product"
+        }
+      ],
+      "properties": {
+        "provisioningState": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
