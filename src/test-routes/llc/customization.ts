@@ -28,19 +28,22 @@ app.category("llc", () => {
     };
   });
 
-  app.get("/customization/paging/raw/", "GetRawPages", (req) => {
+  app.get("/customization/paging/:mode/", "", (req) => {
     return {
       status: 200,
-      body: json({ values: [{ received: "raw" }], nextLink: req.baseUrl + "/customization/paging/raw/2" }),
+      body: json({
+        values: [{ received: "model" }],
+        nextLink: req.baseUrl + "/customization/paging/" + req.params.mode + "/2",
+      }),
     };
   });
-  app.get("/customization/paging/model/", "GetHandwrittenModelPages", (req) => {
+  app.get("/customization/paging/raw/2", "GetRawPages", (req) => {
     return {
       status: 200,
-      body: json({ values: [{ received: "model" }], nextLink: req.baseUrl + "/customization/paging/model/2" }),
+      body: json({ values: [{ received: req.params.mode?.toString() }] }),
     };
   });
-  app.get("/customization/paging/:mode/2", "", (req) => {
+  app.get("/customization/paging/model/2", "GetHandwrittenModelPages", (req) => {
     return {
       status: 200,
       body: json({ values: [{ received: req.params.mode?.toString() }] }),
