@@ -29,8 +29,7 @@
             "name": "new_parameter",
             "in": "query",
             "description": "I'm a new input optional parameter",
-            "type": "string",
-            "required": true
+            "type": "string"
           }
         ],
         "responses": {
