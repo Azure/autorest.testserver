@@ -53,7 +53,7 @@
             "name": "parameter",
             "in": "body",
             "description": "I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }",
-            "type": "object",
+            "schema": { "$ref": "#/definitions/Anything" },
             "required": true
           }
         ],
@@ -92,5 +92,8 @@
         }
       }
     }
+  },
+  "definitions": {
+    "Anything": {}
   }
 }
