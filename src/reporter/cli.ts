@@ -12,7 +12,7 @@ async function main() {
       type: "string",
     })
     .version(false)
-    .option("version", { description: "Version", type: "string" })
+    .option("pkgver", { description: "package version", type: "string" })
     .command(
       "publish",
       "Publish testserver coverage",
@@ -40,7 +40,7 @@ async function main() {
           args.githubToken ?? "",
           args.azStorageAccount,
           args.azStorageAccessKey,
-          args.version,
+          args.pkgver,
           args.coverageDirectory,
         );
       },
