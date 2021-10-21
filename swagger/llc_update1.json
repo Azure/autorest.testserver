@@ -6,12 +6,8 @@
     "description": "LLC Swagger, this is the initial swager a service could do"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
   "paths": {
     "/servicedriven/parameters": {
       "get": {
@@ -44,10 +40,7 @@
       "post": {
         "operationId": "params_postParameters",
         "description": "POST a JSON or a JPEG",
-        "consumes": [
-          "application/json",
-          "image/jpeg"
-        ],
+        "consumes": ["application/json", "image/jpeg"],
         "parameters": [
           {
             "name": "parameter",
@@ -95,13 +88,13 @@
   },
   "definitions": {
     "PostInput": {
-        "type": "object",
-        "required": ["url"],
-        "properties": {
-            "url": {
-                "type": "string"
-            }
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string"
         }
+      }
     }
   }
 }
