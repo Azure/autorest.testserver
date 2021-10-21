@@ -30,7 +30,8 @@
     "coverage": "node ./dist/reporter/cli",
     "prepack": "npm run build",
     "format": "npm run -s check-format -- --write",
-    "check-format": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
+    "check-format": "npm run -s --check --write",
+    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
   },
   "engines": {
     "node": ">=10"
