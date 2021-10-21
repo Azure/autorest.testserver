@@ -29,8 +29,9 @@
     "clean": "rimraf dist/",
     "coverage": "node ./dist/reporter/cli",
     "prepack": "npm run build",
-    "format": "npm run -s check-format -- --write",
-    "check-format": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
+    "format": "npm run -s prettier -- --write",
+    "check-format": "npm run -s prettier -- --check",
+    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
   },
   "engines": {
     "node": ">=10"
