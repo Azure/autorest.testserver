@@ -8,30 +8,17 @@
   "host": "localhost:3000",
   "schemes": ["http"],
   "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
-    "/llc/parameters": {
+    "/servicedriven/parameters": {
       "get": {
         "operationId": "params_getRequired",
         "description": "Get true Boolean value on path",
         "parameters": [
           {
-            "name": "parameter1",
+            "name": "parameter",
             "in": "query",
             "description": "I am a required parameter",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "parameter2",
-            "in": "query",
-            "description": "I am a required parameter",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "parameter3",
-            "in": "query",
-            "description": "I am a required parameter and I'm last in Swagger",
             "type": "string",
             "required": true
           }
@@ -43,6 +30,38 @@
               "type": "object"
             }
           }
+        }
+      },
+      "post": {
+        "operationId": "params_postParameters",
+        "description": "POST a JSON",
+        "parameters": [
+          {
+            "name": "parameter",
+            "in": "body",
+            "description": "I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }",
+            "schema": { "$ref": "#/definitions/PostInput" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PostInput": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string"
         }
       }
     }
