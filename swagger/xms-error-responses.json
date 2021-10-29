@@ -5,7 +5,7 @@
     "title": "XMS Error Response Extensions",
     "description": "XMS Error Response Extensions"
   },
-  "host": "localhost",
+  "host": "localhost:3000",
   "schemes": ["http"],
   "produces": ["application/json"],
   "consumes": ["application/json"],
