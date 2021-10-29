@@ -57,7 +57,12 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "$ref": "#/parameters/Input"
+            "name": "input",
+            "description": "Input parameter.",
+            "in": "body",
+            "schema": {
+                "type": "string"
+            }
           }
         ],
         "responses": {
@@ -69,6 +74,61 @@
           }
         }
       }
+    },
+    "/mediatypes/binaryBody": {
+      "post": {
+        "description": "Binary body with three content types. They should be grouped by body type",
+        "operationId": "binaryBodyWithMultipleContentTypes",
+        "consumes": ["application/octet-stream", "text/plain", "application/json"],
+        "produces": ["text/plain", "application/json", "text/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "message",
+            "description": "The payload body.",
+            "required": true,
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received 'text/plain; encoding=UTF-8' as contentType",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/mediatypes/textAndJson": {
+        "post": {
+            "description": "Body that's either text/plain or application/json",
+            "operationId": "putTextAndJsonBody",
+            "consumes": ["text/plain", "application/json"],
+            "produces": ["text/plain"],
+            "parameters": [
+            {
+                "in": "body",
+                "name": "message",
+                "description": "The payload body.",
+                "required": true,
+                "schema": {
+                "type": "string"
+                }
+            }
+            ],
+            "responses": {
+            "200": {
+                "description": "Received 'text/plain; encoding=UTF-8' as contentType",
+                "schema": {
+                "type": "string"
+                }
+            }
+            }
+        }
     }
   },
   "definitions": {
