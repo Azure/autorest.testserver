@@ -57,6 +57,29 @@
           }
         }
       }
+    },
+    "/formsdataurlencoded/partialConstantBody": {
+      "post": {
+        "description": "Test a partially constant formdata body. Pass in { grant_type: 'access_token', access_token: 'foo', service: 'bar' } to pass the test.",
+        "operationId": "formdataurlencoded_partialConstantBody",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "$ref": "#/parameters/Grant_type"
+          },
+          {
+            "$ref": "#/parameters/Service"
+          },
+          {
+            "$ref": "#/parameters/AccessToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pet updated."
+          }
+        }
+      }
     }
   },
   "parameters": {
@@ -92,6 +115,32 @@
       "type": "integer",
       "in": "formData",
       "required": true,
+      "x-ms-parameter-location": "method"
+    },
+    "Grant_type": {
+      "name": "grant_type",
+      "description": "Constant part of a formdata body.",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "enum": ["access_token"],
+      "x-ms-parameter-location": "method"
+    },
+    "Service": {
+      "name": "service",
+      "in": "formData",
+      "required": true,
+      "description": "Indicates the name of your Azure container registry.",
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "AccessToken": {
+      "name": "access_token",
+      "x-ms-client-name": "aadAccessToken",
+      "in": "formData",
+      "required": true,
+      "description": "AAD access token, mandatory when grant_type is access_token_refresh_token or access_token.",
+      "type": "string",
       "x-ms-parameter-location": "method"
     }
   }

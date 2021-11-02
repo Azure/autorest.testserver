@@ -61,7 +61,7 @@
             "description": "Input parameter.",
             "in": "body",
             "schema": {
-                "type": "string"
+              "type": "string"
             }
           }
         ],
@@ -75,12 +75,12 @@
         }
       }
     },
-    "/mediatypes/binaryBody": {
+    "/mediatypes/binaryBodyTwoContentTypes": {
       "post": {
-        "description": "Binary body with three content types. They should be grouped by body type",
-        "operationId": "binaryBodyWithMultipleContentTypes",
-        "consumes": ["application/octet-stream", "text/plain", "application/json"],
-        "produces": ["text/plain", "application/json", "text/json"],
+        "description": "Binary body with two content types. Pass in of {'hello': 'world'} for the application/json content type, and a byte stream of 'hello, world!' for application/octet-stream.",
+        "operationId": "binaryBodyWithTwoContentTypes",
+        "consumes": ["application/octet-stream", "application/json"],
+        "produces": ["text/plain"],
         "parameters": [
           {
             "in": "body",
@@ -95,7 +95,35 @@
         ],
         "responses": {
           "200": {
-            "description": "Received 'text/plain; encoding=UTF-8' as contentType",
+            "description": "Received correct content type and body.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/mediatypes/binaryBodyThreeContentTypes": {
+      "post": {
+        "description": "Binary body with three content types. Pass in string 'hello, world' with content type 'text/plain', {'hello': world'} with content type 'application/json' and a byte string for 'application/octet-stream'.",
+        "operationId": "binaryBodyWithThreeContentTypes",
+        "consumes": ["application/octet-stream", "text/plain", "application/json"],
+        "produces": ["text/plain"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "message",
+            "description": "The payload body.",
+            "required": true,
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received correct content type and body.",
             "schema": {
               "type": "string"
             }
@@ -104,31 +132,31 @@
       }
     },
     "/mediatypes/textAndJson": {
-        "post": {
-            "description": "Body that's either text/plain or application/json",
-            "operationId": "putTextAndJsonBody",
-            "consumes": ["text/plain", "application/json"],
-            "produces": ["text/plain"],
-            "parameters": [
-            {
-                "in": "body",
-                "name": "message",
-                "description": "The payload body.",
-                "required": true,
-                "schema": {
-                "type": "string"
-                }
+      "post": {
+        "description": "Body that's either text/plain or application/json",
+        "operationId": "putTextAndJsonBody",
+        "consumes": ["text/plain", "application/json"],
+        "produces": ["text/plain"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "message",
+            "description": "The payload body.",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
-            ],
-            "responses": {
-            "200": {
-                "description": "Received 'text/plain; encoding=UTF-8' as contentType",
-                "schema": {
-                "type": "string"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received correct content type and body.",
+            "schema": {
+              "type": "string"
             }
-            }
+          }
         }
+      }
     }
   },
   "definitions": {
