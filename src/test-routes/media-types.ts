@@ -21,7 +21,7 @@ app.category("vanilla", () => {
   app.post("/mediatypes/binaryBodyTwoContentTypes", "MediaTypesTwoContentTypes", (req) => {
     const contentType = req.headers["content-type"];
     if (contentType === "application/json") {
-      req.expect.bodyNotEmpty();
+      req.expect.bodyEquals({ "hello": "world" });
       return {
         status: 200,
       };
