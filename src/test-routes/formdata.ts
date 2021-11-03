@@ -24,4 +24,10 @@ app.category("optional", () => {
       status: 200,
     };
   });
+  app.post("/formsdataurlencoded/partialConstantBody", "UrlEncodedDataWithPartialConstantBody", (request) => {
+    request.expect.bodyEquals({ grant_type: "access_token", access_token: "foo", service: "bar" });
+    return {
+      status: 200,
+    };
+  });
 });
