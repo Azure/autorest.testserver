@@ -31,6 +31,133 @@
           }
         }
       }
+    },
+    "/reservedWords/operation/content": {
+      "put": {
+        "operationId": "operationWithContentParam",
+        "description": "Operation with body param called content. Pass in b'hello, world'",
+        "consumes": ["application/octet-stream"],
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "Pass in b'hello, world'",
+            "required": true,
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/reservedWords/operation/json": {
+      "put": {
+        "operationId": "operationWithJsonParam",
+        "description": "Operation with body param called 'json'. Pass in {'hello': 'world'}",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Pass in {'hello': 'world'}",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Anything"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/reservedWords/operation/data": {
+      "put": {
+        "operationId": "operationWithDataParam",
+        "description": "Operation with urlencoded body param called 'data'.",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "$ref": "#/parameters/Data"
+          },
+          {
+            "$ref": "#/parameters/World"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/reservedWords/operation/files": {
+      "put": {
+        "operationId": "operationWithFilesParam",
+        "description": "Operation with multipart body param called 'files'.",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "name": "files",
+            "description": "Files to upload. Pass in list of input streams",
+            "required": true,
+            "type": "file",
+            "in": "formData"
+          },
+          {
+            "name": "fileName",
+            "description": "File name to upload. Pass in 'my.txt'.",
+            "required": true,
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
     }
+  },
+  "parameters": {
+    "Data": {
+      "name": "data",
+      "in": "formData",
+      "required": true,
+      "description": "Pass in 'hello'.",
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "World": {
+      "name": "world",
+      "in": "formData",
+      "required": true,
+      "description": "Pass in 'world'.",
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    }
+  },
+  "definitions": {
+    "Anything": {}
   }
 }
