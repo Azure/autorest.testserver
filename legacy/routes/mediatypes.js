@@ -28,7 +28,7 @@ var mediatypes = function (coverage) {
   });
   router.post("/contentTypeWithEncoding", function (req, res, next) {
     let content_type = req.headers["content-type"];
-    if (content_type === "text/plain; encoding=UTF-8") {
+    if (content_type === "text/plain; charset=UTF-8") {
       coverage["MediaTypeWithEncoding"]++;
       res.status(200).json("Nice job sending content type with encoding");
     } else {
