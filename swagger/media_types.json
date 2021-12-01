@@ -51,9 +51,9 @@
     },
     "/mediatypes/contentTypeWithEncoding": {
       "post": {
-        "description": "Pass in contentType 'text/plain; encoding=UTF-8' to pass test. Value for input does not matter",
+        "description": "Pass in contentType 'text/plain; charset=UTF-8' to pass test. Value for input does not matter",
         "operationId": "contentTypeWithEncoding",
-        "consumes": ["text/plain"],
+        "consumes": ["text/plain; charset=UTF-8"],
         "produces": ["application/json"],
         "parameters": [
           {
@@ -67,7 +67,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Received 'text/plain; encoding=UTF-8' as contentType",
+            "description": "Received 'text/plain; charset=UTF-8' as contentType",
             "schema": {
               "type": "string"
             }
