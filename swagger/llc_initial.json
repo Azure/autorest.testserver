@@ -12,7 +12,7 @@
   "paths": {
     "/serviceDriven/parameters": {
       "head": {
-        "operationId": "params_noParams",
+        "operationId": "params_headNoParams",
         "description": "Head request, no params",
         "parameters": [],
         "responses": {
