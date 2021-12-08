@@ -3,14 +3,27 @@
   "info": {
     "version": "1.0.0",
     "title": "LLCClient",
-    "description": "LLC Swagger, this is the initial swager a service could do"
+    "description": "LLC Swagger, this is the initial swagger a service could do"
   },
   "host": "localhost:3000",
   "schemes": ["http"],
   "produces": ["application/json"],
   "consumes": ["application/json"],
   "paths": {
-    "/servicedriven/parameters": {
+    "/serviceDriven/parameters": {
+      "head": {
+        "operationId": "params_headNoParams",
+        "description": "Head request, no params",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
       "get": {
         "operationId": "params_getRequired",
         "description": "Get true Boolean value on path",
@@ -32,6 +45,33 @@
           }
         }
       },
+      "put": {
+        "operationId": "params_putRequiredOptional",
+        "description": "Put, has both required and optional params",
+        "parameters": [
+          {
+            "name": "requiredParam",
+            "in": "query",
+            "description": "I am a required parameter",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "optionalParam",
+            "in": "query",
+            "description": "I am an optional parameter",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
       "post": {
         "operationId": "params_postParameters",
         "description": "POST a JSON",
@@ -42,6 +82,28 @@
             "description": "I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }",
             "schema": { "$ref": "#/definitions/PostInput" },
             "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/serviceDriven/moreParameters": {
+      "get": {
+        "operationId": "params_getOptional",
+        "description": "Get true Boolean value on path",
+        "parameters": [
+          {
+            "name": "optionalParam",
+            "in": "query",
+            "description": "I am an optional parameter",
+            "type": "string"
           }
         ],
         "responses": {
