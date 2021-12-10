@@ -87,53 +87,93 @@ var lros = function (coverage) {
   });
 
   router.get("/patch/201/retry/onlyAsyncHeader", function (req, res, next) {
-    res.status(200).type("json").end('{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/201/retry/onlyAsyncHeader", "name": "foo" }');
+    res
+      .status(200)
+      .type("json")
+      .end(
+        '{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/201/retry/onlyAsyncHeader", "name": "foo" }',
+      );
   });
 
   router.patch("/patch/201/retry/onlyAsyncHeader", function (req, res, next) {
     var headers = {
       "Azure-AsyncOperation": getRequestBaseUrl(req) + "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201",
     };
-    res.set(headers).status(201).type("json")
-      .end('{ "properties": { "provisioningState": "Accepted"}, "id": "/lro/patch/201/retry/onlyAsyncHeader", "name": "foo" }');
+    res
+      .set(headers)
+      .status(201)
+      .type("json")
+      .end(
+        '{ "properties": { "provisioningState": "Accepted"}, "id": "/lro/patch/201/retry/onlyAsyncHeader", "name": "foo" }',
+      );
   });
 
   router.get("/patch/201/retry/onlyAsyncHeader/operationStatuses/201", function (req, res, next) {
     coverage["LROPatch201WithAsyncHeader"]++;
     var status = "Accepted";
-    if(coverage["LROPatch201WithAsyncHeader"] === 2) {
+    if (coverage["LROPatch201WithAsyncHeader"] === 2) {
       status = "Updating";
-    } else if(coverage["LROPatch201WithAsyncHeader"] === 3) {
+    } else if (coverage["LROPatch201WithAsyncHeader"] === 3) {
       status = "Succeeded";
     }
-    res.status(200).type("json").end('{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "' + status + '" }');
+    res
+      .status(200)
+      .type("json")
+      .end(
+        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "' +
+          status +
+          '" }',
+      );
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader", function (req, res, next) {
-    res.status(200).type("json").end('{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/202/retry/asyncAndLocationHeader", "name": "foo" }');
+    res
+      .status(200)
+      .type("json")
+      .end(
+        '{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/202/retry/asyncAndLocationHeader", "name": "foo" }',
+      );
   });
 
   router.patch("/patch/202/retry/asyncAndLocationHeader", function (req, res, next) {
     var headers = {
-      "Azure-AsyncOperation": getRequestBaseUrl(req) + "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202",
-      "Location": getRequestBaseUrl(req) + "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202"
+      "Azure-AsyncOperation":
+        getRequestBaseUrl(req) + "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202",
+      "Location":
+        getRequestBaseUrl(req) + "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202",
     };
-    res.set(headers).status(202).type("json")
-      .end('{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/202/retry/asyncAndLocationHeader", "name": "foo" }');
+    res
+      .set(headers)
+      .status(202)
+      .type("json")
+      .end(
+        '{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/202/retry/asyncAndLocationHeader", "name": "foo" }',
+      );
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader/operationResults/202", function (req, res, next) {
     coverage["LROPatch202WithAsyncAndLocationHeader"]++;
     var status = "InProgress";
-    if(coverage["LROPatch202WithAsyncAndLocationHeader"] === 2) {
+    if (coverage["LROPatch202WithAsyncAndLocationHeader"] === 2) {
       status = "Succeeded";
     }
-    res.status(200).type("json").end('{ "status": "' + status + '" }');
+    res
+      .status(200)
+      .type("json")
+      .end('{ "status": "' + status + '" }');
   });
 
-  router.get("/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202", function (req, res, next) {
-    res.status(200).type("json").end('{ "id": "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202", "type": "AsyncAndLocationHeader/Operationresults/finalResults", "name": "202" }');
-  });
+  router.get(
+    "/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202",
+    function (req, res, next) {
+      res
+        .status(200)
+        .type("json")
+        .end(
+          '{ "id": "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202", "type": "AsyncAndLocationHeader/Operationresults/finalResults", "name": "202" }',
+        );
+    },
+  );
 
   coverage["LROPut202Retry200"] = 0;
   router.put("/put/202/retry/200", function (req, res, next) {

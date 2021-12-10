@@ -85,9 +85,7 @@
     },
     "/lro/patch/201/retry/onlyAsyncHeader": {
       "patch": {
-        "tags": [
-          "LROs Operations"
-        ],
+        "tags": ["LROs Operations"],
         "description": "Long running patch request, service returns a 201 to the initial request with async header.",
         "operationId": "LROs_patch201RetryWithAsyncHeader",
         "x-ms-long-running-operation": true,
@@ -134,9 +132,7 @@
     },
     "/lro/patch/202/retry/asyncAndLocationHeader": {
       "patch": {
-        "tags": [
-          "LROs Operations"
-        ],
+        "tags": ["LROs Operations"],
         "description": "Long running patch request, service returns a 202 to the initial request with async and location header.",
         "operationId": "LROs_patch202RetryWithAsyncAndLocationHeader",
         "x-ms-long-running-operation": true,
