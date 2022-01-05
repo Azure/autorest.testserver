@@ -109,21 +109,26 @@ var lros = function (coverage) {
   });
 
   router.get("/patch/201/retry/onlyAsyncHeader/operationStatuses/201", function (req, res, next) {
-    coverage["LROPatch201WithAsyncHeader"]++;
-    var status = "Accepted";
-    if (coverage["LROPatch201WithAsyncHeader"] === 2) {
-      status = "Updating";
-    } else if (coverage["LROPatch201WithAsyncHeader"] === 3) {
-      status = "Succeeded";
-    }
-    res
+    var scenario = "LROPatch201WithAsyncHeader";
+    console.log("In scenario: " + scenario + "\n");
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res
       .status(200)
       .type("json")
       .end(
-        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "' +
-          status +
-          '" }',
+        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Accepted" }',
       );
+    } else {
+      coverage[scenario]++;
+      removeScenarioCookie(res);
+      res
+      .status(200)
+      .type("json")
+      .end(
+        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Succeeded" }',
+      );
+    }
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader", function (req, res, next) {
@@ -152,15 +157,22 @@ var lros = function (coverage) {
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader/operationResults/202", function (req, res, next) {
-    coverage["LROPatch202WithAsyncAndLocationHeader"]++;
-    var status = "InProgress";
-    if (coverage["LROPatch202WithAsyncAndLocationHeader"] === 2) {
-      status = "Succeeded";
-    }
-    res
+    var scenario = "LROPatch202WithAsyncAndLocationHeader";
+    console.log("In scenario: " + scenario + "\n");
+    if (!hasScenarioCookie(req, scenario)) {
+      addScenarioCookie(res, scenario);
+      res
       .status(200)
       .type("json")
-      .end('{ "status": "' + status + '" }');
+      .end('{ "status": "InProgress" }');
+    } else {
+      coverage[scenario]++;
+      removeScenarioCookie(res);
+      res
+      .status(200)
+      .type("json")
+      .end('{ "status": "Succeeded" }');
+    }
   });
 
   router.get(
