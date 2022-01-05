@@ -114,20 +114,20 @@ var lros = function (coverage) {
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
       res
-      .status(200)
-      .type("json")
-      .end(
-        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Accepted" }',
-      );
+        .status(200)
+        .type("json")
+        .end(
+          '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Accepted" }',
+        );
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
       res
-      .status(200)
-      .type("json")
-      .end(
-        '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Succeeded" }',
-      );
+        .status(200)
+        .type("json")
+        .end(
+          '{ "id": "/lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201", "name": "201", "resourceId": "/lro/patch/201/retry/onlyAsyncHeader", "status": "Succeeded" }',
+        );
     }
   });
 
@@ -161,17 +161,11 @@ var lros = function (coverage) {
     console.log("In scenario: " + scenario + "\n");
     if (!hasScenarioCookie(req, scenario)) {
       addScenarioCookie(res, scenario);
-      res
-      .status(200)
-      .type("json")
-      .end('{ "status": "InProgress" }');
+      res.status(200).type("json").end('{ "status": "InProgress" }');
     } else {
       coverage[scenario]++;
       removeScenarioCookie(res);
-      res
-      .status(200)
-      .type("json")
-      .end('{ "status": "Succeeded" }');
+      res.status(200).type("json").end('{ "status": "Succeeded" }');
     }
   });
 
