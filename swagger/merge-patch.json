@@ -1,0 +1,49 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Merge Patch Json Client",
+    "description": "Service client for testing merge patch json",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/mergePatchJson/single": {
+      "patch": {
+        "consumes": ["application/merge-patch+json"],
+        "operationId": "patchSingle",
+        "description": "Basic patch with an object",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Pass in {'foo': 'bar'} for a 200, anything else for an object error",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The empty return value"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
