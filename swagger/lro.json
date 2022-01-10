@@ -83,6 +83,101 @@
         }
       }
     },
+    "/lro/patch/201/retry/onlyAsyncHeader": {
+      "patch": {
+        "tags": ["LROs Operations"],
+        "description": "Long running patch request, service returns a 201 to the initial request with async header.",
+        "operationId": "LROs_patch201RetryWithAsyncHeader",
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "parameters": [
+          {
+            "name": "product",
+            "description": "Product to patch",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product updated successfully.",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "201": {
+            "description": "Async operation to update products was created.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Location to poll for result status: will be set to /lro/patch/201/retry/onlyAsyncHeader/operationStatuses/201",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
+    "/lro/patch/202/retry/asyncAndLocationHeader": {
+      "patch": {
+        "tags": ["LROs Operations"],
+        "description": "Long running patch request, service returns a 202 to the initial request with async and location header.",
+        "operationId": "LROs_patch202RetryWithAsyncAndLocationHeader",
+        "x-ms-long-running-operation": true,
+        "parameters": [
+          {
+            "name": "product",
+            "description": "Product to patch",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product updated successfully.",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "202": {
+            "description": "Async operation to update products was accpeted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Location to poll for result status: will be set to /lro/patch/202/retry/asyncAndLocationHeader/operationResults/202",
+                "type": "string"
+              },
+              "Location": {
+                "description": "Location to poll for final status: will be set to /lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/lro/put/201/succeeded": {
       "put": {
         "x-ms-long-running-operation": true,
