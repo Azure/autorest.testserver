@@ -11,7 +11,39 @@
   - ESLint
   - EditorConfig
 
-## Getting started
+## Usage
+
+```bash
+# Start testserver
+autorest-testserver run
+
+# Start testserver at given port
+autorest-testserver run --port=<port>
+
+# Stop testserver
+autorest-testserver stop
+
+# Stop testserver running at the given port
+autorest-testserver stop --port=<port>
+
+# Sepecify the coverage directory
+autorest-testserver run --coverageDirectory=<path>
+```
+
+### Coverage upload
+
+```bash
+autorest-testserver-coverage publish \
+  --coverageDirectory=<path> \
+  --repo=<repo> \
+  --ref=<path> \
+  --githubToken=<ghToken> \
+  --azStorageAccount=<account> \
+  --azStorageAccessKey=<azStorageKey>
+
+```
+
+## Developping
 
 ```bash
 # Install dependencies
