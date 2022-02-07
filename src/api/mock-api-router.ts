@@ -7,7 +7,7 @@ import { MockRequestHandler, processRequest } from "./request-processor";
 
 export type HttpMethod = "get" | "post" | "put" | "patch" | "delete" | "head";
 
-export type Category = "vanilla" | "azure" | "llc" | "optional";
+export type Category = "vanilla" | "azure" | "dpg" | "optional";
 
 export class MockApiRouter {
   public router: Router;

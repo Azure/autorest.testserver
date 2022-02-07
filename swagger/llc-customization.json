@@ -2,12 +2,16 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "LLCClient",
-    "description": "LLC Swagger that tests our ability to grow up."
+    "title": "DPGClient",
+    "description": "DPG Swagger that tests our ability to grow up."
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/customization/model/{mode}": {
       "get": {
@@ -38,7 +42,9 @@
             "name": "input",
             "in": "body",
             "description": "Please put {'hello': 'world!'}",
-            "schema": { "$ref": "#/definitions/Input" },
+            "schema": {
+              "$ref": "#/definitions/Input"
+            },
             "required": true
           }
         ],
@@ -54,7 +60,10 @@
     },
     "/customization/paging/{mode}": {
       "get": {
-        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink",
+          "itemName": "values"
+        },
         "operationId": "getPages",
         "description": "Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.",
         "parameters": [
@@ -121,17 +130,24 @@
     },
     "Product": {
       "type": "object",
-      "required": ["received"],
+      "required": [
+        "received"
+      ],
       "properties": {
         "received": {
           "type": "string",
-          "enum": ["raw", "model"]
+          "enum": [
+            "raw",
+            "model"
+          ]
         }
       }
     },
     "Input": {
       "type": "object",
-      "required": ["hello"],
+      "required": [
+        "hello"
+      ],
       "properties": {
         "hello": {
           "type": "string"
@@ -140,7 +156,9 @@
     },
     "LROProduct": {
       "type": "object",
-      "required": ["provisioningState"],
+      "required": [
+        "provisioningState"
+      ],
       "allOf": [
         {
           "$ref": "#/definitions/Product"
