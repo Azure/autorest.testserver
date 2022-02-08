@@ -24,8 +24,6 @@ app.category("vanilla", () => {
     return { status: 200 };
   });
   app.get("/reservedWords/foo", "reservedWordsUrlHeaderQuery", (req) => {
-    console.log(`Value is "${req.query["queryParameters"]}"`);
-    console.log(typeof req.query["queryParameters"]);
     req.expect.bodyEmpty;
     req.expect.deepEqual(req.query["queryParameters"], ["one", "two"], "Query parameters not equal");
     return { status: 200 };
