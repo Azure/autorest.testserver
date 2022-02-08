@@ -9,7 +9,7 @@ export class MockRequest {
 
   public readonly baseUrl: string;
   public readonly headers: { [key: string]: string };
-  public readonly query: { [key: string]: string };
+  public readonly query: { [key: string]: string | string[] };
   public readonly params: { [key: string]: string };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public readonly body: any;
