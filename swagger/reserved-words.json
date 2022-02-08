@@ -139,10 +139,9 @@
       }
     },
     "/reservedWords/{url}": {
-      "put": {
+      "get": {
         "operationId": "operationWithUrl",
         "description": "Operation with path format argument URL, header param headerParameters, and query param queryParameters",
-        "consumes": ["multipart/form-data"],
         "parameters": [
           { "$ref": "#/parameters/Url" },
           {
