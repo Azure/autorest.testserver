@@ -1,4 +1,6 @@
 import { RequestExt } from "../server";
+import deepEqual from "deep-equal";
+import { ValidationError } from "../api";
 import {
   validateRawBodyEquals,
   validateBodyEquals,
@@ -64,5 +66,16 @@ export class RequestExpectation {
    */
   public containsHeader(headerName: string, expectedValue: string): void {
     validateHeader(this.originalRequest, headerName, expectedValue);
+  }
+
+  /**
+   * Check if two requests are equal
+   * @param actual Actual value
+   * @param expected Expected value
+   */
+  public deepEqual(actual: unknown, expected: unknown, message = "Values not deep equal"): void {
+    if (!deepEqual(actual, expected, { strict: true })) {
+      throw new ValidationError(message, actual, expected);
+    }
   }
 }

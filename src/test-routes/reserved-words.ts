@@ -23,15 +23,11 @@ app.category("vanilla", () => {
   app.put("/reservedWords/operation/files", "reservedWordsBodyNamedFiles", (req) => {
     return { status: 200 };
   });
-  app.put("/reservedWords/foo", "reservedWordsUrlHeaderQuery", (req) => {
-    if (req.query["queryParameters"][0] !== "one" && req.query["queryParameters"][1] !== "two") {
-      throw new ValidationError(
-        "The query parameters your passed in were incorrect",
-        "one,two",
-        req.query["queryParameters"],
-      );
-    }
-    req.expect.containsHeader("headerparameters", "x-ms-header");
+  app.get("/reservedWords/foo", "reservedWordsUrlHeaderQuery", (req) => {
+    console.log(`Value is "${req.query["queryParameters"]}"`);
+    console.log(typeof req.query["queryParameters"]);
+    req.expect.bodyEmpty;
+    req.expect.deepEqual(req.query["queryParameters"], ["one", "two"], "Query parameters not equal");
     return { status: 200 };
   });
 });
