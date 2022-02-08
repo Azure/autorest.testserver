@@ -1,4 +1,4 @@
-import { app } from "../api";
+import { app, ValidationError } from "../api";
 
 app.category("vanilla", () => {
   app.put("/reservedWords/operationGroup/import", "reservedWordsOperationGroupImport", (req) => {
@@ -21,6 +21,17 @@ app.category("vanilla", () => {
     return { status: 200 };
   });
   app.put("/reservedWords/operation/files", "reservedWordsBodyNamedFiles", (req) => {
+    return { status: 200 };
+  });
+  app.put("/reservedWords/foo", "reservedWordsUrlHeaderQuery", (req) => {
+    if (req.query["queryParameters"][0] !== "one" && req.query["queryParameters"][1] !== "two") {
+      throw new ValidationError(
+        "The query parameters your passed in were incorrect",
+        "one,two",
+        req.query["queryParameters"],
+      );
+    }
+    req.expect.containsHeader("headerparameters", "x-ms-header");
     return { status: 200 };
   });
 });
