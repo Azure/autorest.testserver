@@ -137,6 +137,41 @@
           }
         }
       }
+    },
+    "/reservedWords/{url}": {
+      "get": {
+        "operationId": "operationWithUrl",
+        "description": "Operation with path format argument URL, header param headerParameters, and query param queryParameters",
+        "parameters": [
+          { "$ref": "#/parameters/Url" },
+          {
+            "name": "headerParameters",
+            "description": "Header arg that uses same name as headerParameters in generated code. Pass in 'x-ms-header' to pass. ",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "queryParameters",
+            "description": "Query args that uses same name as queryParameters in generated code. Pass in ['one', 'two'] to pass test",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": false,
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Answer from service",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
     }
   },
   "parameters": {
@@ -153,6 +188,14 @@
       "in": "formData",
       "required": true,
       "description": "Pass in 'world'.",
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "Url": {
+      "name": "url",
+      "in": "path",
+      "required": true,
+      "description": "Pass in 'foo'.",
       "type": "string",
       "x-ms-parameter-location": "method"
     }
