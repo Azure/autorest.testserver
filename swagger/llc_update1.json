@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "LLCClient",
-    "description": "LLC Swagger, this is the initial swagger a service could do"
+    "title": "DPGClient",
+    "description": "DPG Swagger, this is the initial swagger a service could do"
   },
   "host": "localhost:3000",
   "schemes": ["http"],
@@ -99,7 +99,9 @@
             "name": "parameter",
             "in": "body",
             "description": "I am a body parameter with a new content type. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }",
-            "schema": { "$ref": "#/definitions/PostInput" },
+            "schema": {
+              "$ref": "#/definitions/PostInput"
+            },
             "required": true
           }
         ],

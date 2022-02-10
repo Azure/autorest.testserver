@@ -25,7 +25,7 @@ async function collectCoverage(coverageFolder: string) {
     General: getMergedReport("vanilla"),
     Azure: getMergedReport("azure"),
     Optional: getMergedReport("optional"),
-    LLC: getMergedReport("llc"),
+    DPG: getMergedReport("dpg"),
   };
 
   if (Object.keys(report).every((cat) => Object.keys(report[cat]).length === 0)) {

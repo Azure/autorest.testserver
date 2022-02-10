@@ -1,6 +1,6 @@
 import { app, json } from "../../api";
 
-app.category("llc", () => {
+app.category("dpg", () => {
   app.get("/customization/model/raw", "GetRawModel", (req) => {
     return {
       status: 200,
