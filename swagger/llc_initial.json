@@ -6,15 +6,9 @@
     "description": "DPG Swagger, this is the initial swagger a service could do"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/serviceDriven/parameters": {
       "head": {
@@ -128,9 +122,7 @@
   "definitions": {
     "PostInput": {
       "type": "object",
-      "required": [
-        "url"
-      ],
+      "required": ["url"],
       "properties": {
         "url": {
           "type": "string"
