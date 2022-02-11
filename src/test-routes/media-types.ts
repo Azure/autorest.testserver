@@ -58,5 +58,5 @@ app.category("vanilla", () => {
         status: 400,
       };
     }
-  })
+  });
 });
