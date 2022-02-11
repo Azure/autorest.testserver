@@ -36,4 +36,27 @@ app.category("vanilla", () => {
       };
     }
   });
+  app.post("/mediatypes/binaryBodyThreeContentTypes", "MediaTypesThreeContentTypes", (req) => {
+    const contentType = req.headers["content-type"];
+    if (contentType === "application/json") {
+      req.expect.bodyEquals({ hello: "world" });
+      return {
+        status: 200,
+      };
+    } else if (contentType === "application/octet-stream") {
+      req.expect.bodyNotEmpty();
+      return {
+        status: 200,
+      };
+    } else if (contentType === "text/plain") {
+      req.expect.bodyEquals("hello, world");
+      return {
+        status: 200,
+      };
+    } else {
+      return {
+        status: 400,
+      };
+    }
+  })
 });
