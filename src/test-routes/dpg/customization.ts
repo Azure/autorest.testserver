@@ -32,7 +32,7 @@ app.category("dpg", () => {
     return {
       status: 200,
       body: json({
-        values: [{ received: "model" }],
+        values: [{ received: req.params.mode?.toString() }],
         nextLink: req.baseUrl + "/customization/paging/" + req.params.mode + "/2",
       }),
     };
@@ -40,13 +40,13 @@ app.category("dpg", () => {
   app.get("/customization/paging/raw/2", "GetRawPages", (req) => {
     return {
       status: 200,
-      body: json({ values: [{ received: req.params.mode?.toString() }] }),
+      body: json({ values: [{ received: "raw" }] }),
     };
   });
   app.get("/customization/paging/model/2", "GetHandwrittenModelPages", (req) => {
     return {
       status: 200,
-      body: json({ values: [{ received: req.params.mode?.toString() }] }),
+      body: json({ values: [{ received: "model" }] }),
     };
   });
 
