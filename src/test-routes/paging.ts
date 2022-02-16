@@ -12,7 +12,7 @@ app.category("azure", () => {
         }),
       };
     } else if (req.params.pagenumber === "2") {
-      console.log(req.query)
+      console.log(req.query);
       req.expect.deepEqual("serviceReturned", req.query["$filter"]);
       req.expect.deepEqual("bar", req.query["$skiptoken"]);
       return {
