@@ -7,7 +7,9 @@ import { coverageService } from "../../services";
  */
 app.category("dpg", () => {
   /**
-   * Initially has no query parameters. After evolution, a new optional query parameter is added
+   * Initially has no query parameters. After evolution, a new optional query parameter is added.
+   * Note that when defining HEAD and GET methods for the same path, HEAD needs to be defined before
+   * GET. Otherwise Express would register the GET handler as the handler for both and the app.head would be ignored.
    */
   app.head("/servicedriven/parameters", "DPGAddOptionalInput_NoParams", (req) => {
     return {
