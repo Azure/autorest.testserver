@@ -6,13 +6,17 @@
     "description": "DPG Swagger, this is the initial swagger a service could do"
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/serviceDriven/parameters": {
       "head": {
         "operationId": "params_headNoParams",
-        "description": "Head request, no params",
+        "description": "Head request, no params. Initially has no query parameters. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "new_parameter",
@@ -32,7 +36,7 @@
       },
       "get": {
         "operationId": "params_getRequired",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially only has one required Query Parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "parameter",
@@ -59,7 +63,7 @@
       },
       "put": {
         "operationId": "params_putRequiredOptional",
-        "description": "Put, has both required and optional params",
+        "description": "Initially has one required query parameter and one optional query parameter.  After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "requiredParam",
@@ -93,7 +97,10 @@
       "post": {
         "operationId": "params_postParameters",
         "description": "POST a JSON or a JPEG",
-        "consumes": ["application/json", "image/jpeg"],
+        "consumes": [
+          "application/json",
+          "image/jpeg"
+        ],
         "parameters": [
           {
             "name": "parameter",
@@ -116,7 +123,7 @@
       },
       "delete": {
         "operationId": "params_deleteParameters",
-        "description": "Delete something",
+        "description": "Delete something.\n Initially the path exists but there is no delete method. After evolution this is a new method in a known path",
         "parameters": [],
         "responses": {
           "204": {
@@ -128,7 +135,7 @@
     "/serviceDriven/moreParameters": {
       "get": {
         "operationId": "params_getOptional",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially has one optional query parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "optionalParam",
@@ -156,7 +163,7 @@
     "/serviceDriven/newPath": {
       "get": {
         "operationId": "params_getNewOperation",
-        "description": "I'm a new operation",
+        "description": "I'm a new operation.\n Initiallty neither path or method exist for this operation. After evolution, this is a new method in a new path",
         "parameters": [],
         "responses": {
           "200": {
@@ -172,7 +179,9 @@
   "definitions": {
     "PostInput": {
       "type": "object",
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "properties": {
         "url": {
           "type": "string"
