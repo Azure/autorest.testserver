@@ -13,7 +13,7 @@
     "/serviceDriven/parameters": {
       "head": {
         "operationId": "params_headNoParams",
-        "description": "Head request, no params",
+        "description": "Head request, no params.\n Initially has no query parameters. After evolution, a new optional query parameter is added",
         "parameters": [],
         "responses": {
           "200": {
@@ -26,7 +26,7 @@
       },
       "get": {
         "operationId": "params_getRequired",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially only has one required Query Parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "parameter",
@@ -47,7 +47,7 @@
       },
       "put": {
         "operationId": "params_putRequiredOptional",
-        "description": "Put, has both required and optional params",
+        "description": "Initially has one required query parameter and one optional query parameter.  After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "requiredParam",
@@ -99,7 +99,7 @@
     "/serviceDriven/moreParameters": {
       "get": {
         "operationId": "params_getOptional",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially has one optional query parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "optionalParam",

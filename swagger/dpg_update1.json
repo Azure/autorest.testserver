@@ -12,7 +12,7 @@
     "/serviceDriven/parameters": {
       "head": {
         "operationId": "params_headNoParams",
-        "description": "Head request, no params",
+        "description": "Head request, no params. Initially has no query parameters. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "new_parameter",
@@ -32,7 +32,7 @@
       },
       "get": {
         "operationId": "params_getRequired",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially only has one required Query Parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "parameter",
@@ -59,7 +59,7 @@
       },
       "put": {
         "operationId": "params_putRequiredOptional",
-        "description": "Put, has both required and optional params",
+        "description": "Initially has one required query parameter and one optional query parameter.  After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "requiredParam",
@@ -116,7 +116,7 @@
       },
       "delete": {
         "operationId": "params_deleteParameters",
-        "description": "Delete something",
+        "description": "Delete something.\n Initially the path exists but there is no delete method. After evolution this is a new method in a known path",
         "parameters": [],
         "responses": {
           "204": {
@@ -128,7 +128,7 @@
     "/serviceDriven/moreParameters": {
       "get": {
         "operationId": "params_getOptional",
-        "description": "Get true Boolean value on path",
+        "description": "Get true Boolean value on path.\n Initially has one optional query parameter. After evolution, a new optional query parameter is added",
         "parameters": [
           {
             "name": "optionalParam",
@@ -156,7 +156,7 @@
     "/serviceDriven/newPath": {
       "get": {
         "operationId": "params_getNewOperation",
-        "description": "I'm a new operation",
+        "description": "I'm a new operation.\n Initiallty neither path or method exist for this operation. After evolution, this is a new method in a new path",
         "parameters": [],
         "responses": {
           "200": {

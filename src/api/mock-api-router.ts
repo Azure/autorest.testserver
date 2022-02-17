@@ -12,8 +12,10 @@ export type Category = "vanilla" | "azure" | "dpg" | "optional";
 export class MockApiRouter {
   public router: Router;
   private currentCategory: Category | undefined;
+  private registeredRoutes: Map<string, Record<string, string>>;
 
   public constructor() {
+    this.registeredRoutes = new Map();
     this.router = PromiseRouter();
   }
 
@@ -85,6 +87,11 @@ export class MockApiRouter {
    * @param func Request handler.
    */
   public head(uri: string, name: string | undefined, func: MockRequestHandler): void {
+    if (this.hasRegistration(uri, "get")) {
+      throw new Error(
+        `A GET handler for the path ${uri} has been defined already. Make sure head registrations are added before GET`,
+      );
+    }
     this.request("head", uri, name, func);
   }
 
@@ -95,10 +102,12 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    *
-   * @note prefer to use the coresponding method method directly instead of `#request()`(i.e `#get(), #post()`)
+   * @note prefer to use the corresponding method method directly instead of `#request()`(i.e `#get(), #post()`)
    */
   public request(method: HttpMethod, uri: string, name: string | undefined, func: MockRequestHandler): void {
     logger.info(`Registering route ${method} ${uri} (${name})`);
+    this.trackRegistration(uri, method, name);
+
     if (this.currentCategory === undefined) {
       throw new Error(
         [
@@ -118,5 +127,29 @@ export class MockApiRouter {
     this.router.route(uri)[method](async (req: RequestExt, res: Response) => {
       await processRequest(category, name, req, res, func);
     });
+  }
+
+  private hasRegistration(uri: string, method: HttpMethod): boolean {
+    const pathRegistrations = this.registeredRoutes.get(uri);
+    if (!pathRegistrations) {
+      return false;
+    }
+
+    return pathRegistrations[method] !== undefined;
+  }
+
+  private trackRegistration(uri: string, method: HttpMethod, name = "") {
+    const pathRegistrations = this.registeredRoutes.get(uri);
+    if (!pathRegistrations) {
+      this.registeredRoutes.set(uri, { [method]: name });
+      return;
+    }
+
+    if (pathRegistrations[method]) {
+      throw new Error(`A handler for ${method} ${uri} has been registered already`);
+    }
+
+    pathRegistrations[method] = name;
+    return;
   }
 }
