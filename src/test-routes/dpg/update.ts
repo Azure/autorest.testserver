@@ -7,6 +7,16 @@ import { coverageService } from "../../services";
  */
 app.category("dpg", () => {
   /**
+   * Initially has no query parameters. After evolution, a new optional query parameter is added
+   */
+  app.head("/servicedriven/parameters", "DPGAddOptionalInput_NoParams", (req) => {
+    return {
+      status: 200,
+      headers: { "content-length": "0" },
+    };
+  });
+
+  /**
    * Initially only has one required Query Parameter. After evolution, a new optional query parameter is added.
    */
   app.get("/servicedriven/parameters", "DPGAddOptionalInput", (req) => {
@@ -21,16 +31,6 @@ app.category("dpg", () => {
         body: json({ message: `Expected required parameter "parameter"` }),
       };
     }
-  });
-
-  /**
-   * Initially has no query parameters. After evolution, a new optional query parameter is added
-   */
-  app.head("/servicedriven/parameters", "DPGAddOptionalInput_NoParams", (req) => {
-    return {
-      status: 200,
-      headers: { "content-length": "0" },
-    };
   });
 
   /**
