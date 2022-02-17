@@ -11,7 +11,6 @@ app.category("dpg", () => {
    */
   app.get("/servicedriven/parameters", "DPGAddOptionalInput", (req) => {
     if (req.query["parameter"]) {
-      coverageService.track("dpg", "DPGAddOptionalInput");
       return {
         status: 200,
         body: json({ message: `An object was successfully returned` }),
@@ -28,7 +27,6 @@ app.category("dpg", () => {
    * Initially has no query parameters. After evolution, a new optional query parameter is added
    */
   app.head("/servicedriven/parameters", "DPGAddOptionalInput_NoParams", (req) => {
-    coverageService.track("dpg", "DPGAddOptionalInput_NoParams");
     return {
       status: 200,
       headers: { "content-length": "0" },
@@ -40,7 +38,6 @@ app.category("dpg", () => {
    */
   app.put("/servicedriven/parameters", "DPGAddOptionalInput_RequiredOptionalParam", (req) => {
     if (req.query["requiredParam"]) {
-      coverageService.track("dpg", "DPGAddOptionalInput_RequiredOptionalParam");
       return {
         status: 200,
         body: json({ message: `An object was successfully returned` }),
@@ -57,7 +54,6 @@ app.category("dpg", () => {
    * Initially has one optional query parameter. After evolution, a new optional query parameter is added
    */
   app.get("/serviceDriven/moreParameters", "DPGAddOptionalInput_OptionalParam", (req) => {
-    coverageService.track("dpg", "DPGAddOptionalInput_OptionalParam");
     return {
       status: 200,
       body: json({ message: `An object was successfully returned` }),
@@ -88,7 +84,6 @@ app.category("dpg", () => {
    * Initially the path exists but there is no delete method. After evolution this is a new method in a known path
    */
   app.delete("/servicedriven/parameters", "DPGAddNewOperation", (req) => {
-    coverageService.track("dpg", "DPGAddNewOperation");
     return {
       status: 204,
     };
@@ -98,7 +93,6 @@ app.category("dpg", () => {
    * Initially neither path or method exist for this operation. After evolution, this is a new method in a new path
    */
   app.get("/servicedriven/newpath", "DPGAddNewPath", (req) => {
-    coverageService.track("dpg", "DPGAddNewPath");
     return {
       status: 200,
       body: json({ message: `An object was successfully returned` }),
@@ -109,7 +103,6 @@ app.category("dpg", () => {
    * An operation that is not part of the swagger definition but can be called
    */
   app.get("/servicedriven/glassbreaker", "DPGGlassBreaker", (req) => {
-    coverageService.track("dpg", "DPGGlassBreaker");
     return {
       status: 200,
       body: json({ message: `An object was successfully returned` }),
