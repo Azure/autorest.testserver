@@ -14,7 +14,7 @@ app.category("dpg", () => {
   app.head("/servicedriven/parameters", "DPGAddOptionalInput_NoParams", (req) => {
     return {
       status: 200,
-      headers: { "content-length": "0" },
+      headers: { "content-length": "123" },
     };
   });
 
