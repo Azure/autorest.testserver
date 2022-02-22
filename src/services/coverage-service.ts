@@ -40,7 +40,7 @@ export class CoverageService {
 
   /**
    * For LEGACY test only.
-   * @depreacted
+   * @deprecated
    */
   public legacyTrack(category: string, name: string, value: number): void {
     let map = this.coverage[category];
@@ -53,6 +53,7 @@ export class CoverageService {
     }
 
     map[name] = value;
+    this.legacySaveCoverage(category);
   }
 
   public register(category: string, name: string): void {
@@ -83,6 +84,17 @@ export class CoverageService {
 
     try {
       await fs.promises.writeFile(path, JSON.stringify(categoryMap, null, 2));
+    } catch (e) {
+      logger.warn("Error while saving coverage", e);
+    }
+  }
+
+  private legacySaveCoverage(category: string) {
+    const categoryMap = this.coverage[category];
+    fs.mkdirSync(this.coverageDirectory, { recursive: true });
+    const path = join(this.coverageDirectory, `report-${category}.json`);
+    try {
+      fs.writeFileSync(path, JSON.stringify(categoryMap, null, 2));
     } catch (e) {
       logger.warn("Error while saving coverage", e);
     }
