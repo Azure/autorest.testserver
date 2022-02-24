@@ -468,6 +468,7 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     putModelFlattenCustomGroupedParameter: 0,
     getArrayBase64Url: 0,
     getDictionaryBase64Url: 0,
+    UrlPathsStringBase64Url: 0,
     UrlPathsArrayCSVInPath: 0,
     getUnixTime: 0,
     getInvalidUnixTime: 0,
