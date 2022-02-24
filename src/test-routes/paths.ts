@@ -9,45 +9,6 @@ const Constants = {
     "啊齄丂狛狜隣郎隣兀﨩ˊ〞〡￤℡㈱‐ー﹡﹢﹫、〓ⅰⅹ⒈€㈠㈩ⅠⅫ！￣ぁんァヶΑ︴АЯаяāɡㄅㄩ─╋︵﹄︻︱︳︴ⅰⅹɑɡ〇〾⿻⺁䜣€",
 };
 
-const scenarioMap = {
-  "true": "True",
-  "false": "False",
-  "1000000": "Positive",
-  "-1000000": "Negative",
-  "10000000000": "Positive",
-  "-10000000000": "Negative",
-  "1.034E+20": "Positive",
-  "-1.034E-20": "Negative",
-  "9999999.999": "Positive",
-  "-9999999.999": "Negative",
-  "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
-  "begin!*'();:@&=+$,end": "UrlNonEncoded",
-  "multibyte": "MultiByte",
-  "empty": "Empty",
-  "null": "Null",
-  "2012-01-01": "Valid",
-  "2012-01-01T01:01:01Z": "Valid",
-  "green color": "Valid",
-  "bG9yZW0": "Base64Url",
-  "1460505600": "UnixTime",
-  "ArrayPath1,begin!*'();:@ &=+$,/?#[]end,,": "CSVInPath",
-  "unicode": "Unicode",
-};
-
-const typeMap = {
-  bool: "Bool",
-  int: "Int",
-  long: "Long",
-  float: "Float",
-  double: "Double",
-  string: "String",
-  byte: "Byte",
-  date: "Date",
-  datetime: "DateTime",
-  enum: "Enum",
-  array: "Array",
-};
-
 const scenarios = {
   bool: {
     name: "Bool",
@@ -56,88 +17,104 @@ const scenarios = {
       false: "False",
     },
   },
-  int: { name: "Int", scenarios: {} },
-  long: { name: "Long", scenarios: {} },
-  float: { name: "Float", scenarios: {} },
-  double: { name: "Double", scenarios: {} },
-  string: { name: "String", scenarios: {} },
-  byte: { name: "Byte", scenarios: {} },
-  date: { name: "Date", scenarios: {} },
-  datetime: { name: "DateTime", scenarios: {} },
-  enum: { name: "Enum", scenarios: {} },
-  array: { name: "Array", scenarios: {} },
-};
-
-const typeNames: Array<keyof typeof typeMap> = Object.keys(typeMap) as never;
-const scenarioNames: Array<keyof typeof scenarioMap> = Object.keys(scenarioMap) as never;
-
-function getScenarioName(type: keyof typeof typeMap, scenario: keyof typeof scenarioMap): string | undefined {
-  const parsedType = typeMap[type];
-  const parsedScenario = scenarioMap[scenario];
-  return parsedType + parsedScenario;
-}
+  int: {
+    name: "Int",
+    scenarios: {
+      "1000000": "Positive",
+      "-1000000": "Negative",
+      "1460505600": "UnixTime",
+    },
+  },
+  long: {
+    name: "Long",
+    scenarios: {
+      "10000000000": "Positive",
+      "-10000000000": "Negative",
+    },
+  },
+  float: {
+    name: "Float",
+    scenarios: {
+      "1.034E+20": "Positive",
+      "-1.034E-20": "Negative",
+    },
+  },
+  double: {
+    name: "Double",
+    scenarios: {
+      "9999999.999": "Positive",
+      "-9999999.999": "Negative",
+    },
+  },
+  string: {
+    name: "String",
+    scenarios: {
+      "unicode": "Unicode",
+      "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
+      "begin!*'();:@&=+$,end": "UrlNonEncoded",
+      "empty": "Empty",
+      "null": "Null",
+      "bG9yZW0": "Base64Url",
+    },
+  },
+  byte: {
+    name: "Byte",
+    scenarios: {
+      multibyte: "MultiByte",
+    },
+  },
+  date: {
+    name: "Date",
+    scenarios: {
+      "2012-01-01": "Valid",
+    },
+  },
+  datetime: {
+    name: "DateTime",
+    scenarios: {
+      "2012-01-01T01:01:01Z": "Valid",
+    },
+  },
+  enum: {
+    name: "Enum",
+    scenarios: {
+      "green color": "Valid",
+    },
+  },
+  array: {
+    name: "Array",
+    scenarios: {
+      "ArrayPath1,begin!*'();:@ &=+$,/?#[]end,,": "CSVInPath",
+    },
+  },
+} as const;
 
 function validateArrayPath(arrayValue: string, separator: string): boolean {
   return arrayValue === "ArrayPath1" + separator + "begin!*'();:@ &=+$,/?#[]end" + separator + separator;
 }
 
-app.category("vanilla", () => {
-  for (const type of typeNames) {
-    for (const scenario of scenarioNames) {
-      const coverageName = getScenarioName(type as keyof typeof typeMap, scenario);
+type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
 
+app.category("vanilla", () => {
+  for (const [type, value] of Object.entries(scenarios)) {
+    for (const [scenario, scenarioName] of Object.entries(value.scenarios)) {
+      const coverageName = `UrlPaths${value.name}${scenarioName}`;
+      // Convert the string value to a javascript primtive if possible.
       if (scenario === "empty") {
-        app.get(`/paths/${type}/empty`, `UrlPaths${coverageName}`, (req) => {
+        app.get(`/paths/${type}/empty`, coverageName, (req) => {
           return {
             status: 200,
           };
         });
       } else {
-        app.get(`/paths/${type}/${scenario}/:wireParameter`, ``, (req) => {
+        app.get(`/paths/${type}/${scenario}/:wireParameter`, coverageName, (req) => {
           const wireParameter = req.params.wireParameter;
-          const bytes = Buffer.from(Constants.MULTIBYTE_BUFFER);
+          const expectedValue = getExpectedValue(type as never, scenarioName);
 
-          if (type === "string") {
-            const expectedValue = scenario === "unicode" ? Constants.MULTIBYTE_BUFFER : scenario;
-            if (wireParameter === expectedValue) {
-              return { status: 200 };
-            } else {
-              throw new ValidationError(
-                "wireParameter path does not match expected value",
-                expectedValue,
-                wireParameter,
-              );
-            }
-          } else if (type === "array") {
-            if (scenario === wireParameter && validateArrayPath(wireParameter, ",")) {
-              return { status: 200 };
-            } else {
-              throw new ValidationError("wireParameter path does not match expected value", scenario, wireParameter);
-            }
-          } else if (type === "enum") {
-            if (scenario === wireParameter) {
-              return { status: 200 };
-            } else {
-              throw new ValidationError("wireParameter path does not match expected value", scenario, wireParameter);
-            }
-          } else if (type === "byte") {
-            if (scenario === "multibyte" && wireParameter === bytes.toString("base64")) {
-              return { status: 200 };
-            } else {
-              throw new ValidationError(
-                "wireParameter path does not match expected value",
-                bytes.toString("base64"),
-                wireParameter,
-              );
-            }
-          } else if (type === "datetime") {
-            if (wireParameter === scenario) {
-              return { status: 200 };
-            } else {
-              throw new ValidationError("wireParameter path does not match expected value", scenario, wireParameter);
-            }
-          } else if (scenario !== wireParameter) {
-            throw new ValidationError("wireParameter path does not match expected value", scenario, wireParameter);
+          if (scenario !== wireParameter) {
+            throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
           } else {
             return { status: 200 };
           }
@@ -146,3 +123,18 @@ app.category("vanilla", () => {
     }
   }
 });
+
+function getExpectedValue<T extends keyof typeof scenarios, S extends keyof typeof scenarios[T]["scenarios"]>(
+  type: T,
+  scenario: S,
+) {
+  const defaultValue = JSON.parse(`"${scenario}"`);
+  switch (type) {
+    case "string":
+      return scenario === "unicode" ? Constants.MULTIBYTE_BUFFER : defaultValue;
+    case "byte":
+      return Buffer.from(Constants.MULTIBYTE_BUFFER).toString("base64");
+    default:
+      return defaultValue;
+  }
+}
