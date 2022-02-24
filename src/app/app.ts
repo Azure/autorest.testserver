@@ -21,8 +21,10 @@ export class ApiMockApp {
     this.server.use("/", internalRouter);
 
     await requireMockRoutes(ROUTE_FOLDER);
-    registerLegacyRoutes(this.server);
+
+    // Need to init after registering the new routes but before the legacy routes.
     coverageService.init(this.config.coverageDirectory, this.config.appendCoverage);
+    registerLegacyRoutes(this.server);
     const apiRouter = app;
     this.server.use("/", apiRouter.router);
     this.server.start();

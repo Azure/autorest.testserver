@@ -125,9 +125,8 @@ export class CoverageService {
       }
       const content = fs.readFileSync(path);
       const data = JSON.parse(content.toString());
-
-      for (const [key, value] of data) {
-        this.coverage[category][key] = value;
+      for (const [key, value] of Object.entries(data)) {
+        this.coverage[category][key] = value as number;
       }
     } catch (e) {
       logger.warn("Error while loading existing coverage", e);
