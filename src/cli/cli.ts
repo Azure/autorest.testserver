@@ -47,7 +47,11 @@ const run = async () => {
     .command(
       ["$0", "run"],
       "Run the autorest test server.",
-      () => null,
+      (cmd) =>
+        cmd.option("appendCoverage", {
+          type: "boolean",
+          description: "Load the existing coverage reports and append to it instead of starting fresh.",
+        }),
       (args) => runCommand(args),
     )
     .command(

@@ -20,6 +20,9 @@ autorest-testserver run
 # Start testserver at given port
 autorest-testserver run --port=<port>
 
+# Start testserver without reseting the coverage. This can be used when you are running the test server multiple times to get the full coverage.
+autorest-testserver run --appendCoverage
+
 # Stop testserver
 autorest-testserver stop
 
@@ -32,6 +35,8 @@ autorest-testserver run --coverageDirectory=<path>
 
 ### Coverage upload
 
+Upload the coverage produce by the autorest testserver.
+
 ```bash
 autorest-testserver-coverage publish \
   --coverageDirectory=<path> \
@@ -41,6 +46,14 @@ autorest-testserver-coverage publish \
   --azStorageAccount=<account> \
   --azStorageAccessKey=<azStorageKey>
 
+```
+
+### Clear coverage folder
+
+Clear the coverage folder. `--coverageDirectory` is optional. It defaults to `./coverage`
+
+```bash
+autorest-testserver-coverage clear [--coverageDirectory=<path>]
 ```
 
 ## Developping

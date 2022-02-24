@@ -14,7 +14,6 @@ export class ApiMockApp {
   private server: MockApiServer;
 
   constructor(private config: ApiMockAppConfig) {
-    coverageService.coverageDirectory = config.coverageDirectory;
     this.server = new MockApiServer({ port: config.port });
   }
 
@@ -23,7 +22,7 @@ export class ApiMockApp {
 
     await requireMockRoutes(ROUTE_FOLDER);
     registerLegacyRoutes(this.server);
-
+    coverageService.init(this.config.coverageDirectory, this.config.appendCoverage);
     const apiRouter = app;
     this.server.use("/", apiRouter.router);
     this.server.start();
