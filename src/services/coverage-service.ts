@@ -53,7 +53,9 @@ export class CoverageService {
       map[name] = 0;
     }
 
-    map[name] = value;
+    if (value > map[name]) {
+      map[name] = value;
+    }
     this.legacySaveCoverage(category);
   }
 
