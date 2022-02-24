@@ -2,6 +2,7 @@ import { Response } from "express";
 import { logger } from "../logger";
 import { RequestExt } from "../server";
 import { coverageService } from "../services";
+import { Category } from "./mock-api-router";
 import { MockRequest } from "./mock-request";
 import { MockResponse } from "./mock-response";
 import { ValidationError } from "./validation-error";
@@ -9,7 +10,7 @@ import { ValidationError } from "./validation-error";
 export type MockRequestHandler = (req: MockRequest) => MockResponse | Promise<MockResponse>;
 
 export const processRequest = async (
-  category: string,
+  category: Category,
   name: string | undefined,
   request: RequestExt,
   response: Response,
