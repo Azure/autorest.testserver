@@ -48,6 +48,26 @@ const typeMap = {
   array: "Array",
 };
 
+const scenarios = {
+  bool: {
+    name: "Bool",
+    scenarios: {
+      true: "True",
+      false: "False",
+    },
+  },
+  int: { name: "Int", scenarios: {} },
+  long: { name: "Long", scenarios: {} },
+  float: { name: "Float", scenarios: {} },
+  double: { name: "Double", scenarios: {} },
+  string: { name: "String", scenarios: {} },
+  byte: { name: "Byte", scenarios: {} },
+  date: { name: "Date", scenarios: {} },
+  datetime: { name: "DateTime", scenarios: {} },
+  enum: { name: "Enum", scenarios: {} },
+  array: { name: "Array", scenarios: {} },
+};
+
 const typeNames: Array<keyof typeof typeMap> = Object.keys(typeMap) as never;
 const scenarioNames: Array<keyof typeof scenarioMap> = Object.keys(scenarioMap) as never;
 

@@ -47,7 +47,6 @@ const number = requireLegacy("number");
 const objectType = requireLegacy("objectType.js");
 const paging = requireLegacy("paging");
 const pathitem = requireLegacy("pathitem");
-const paths = requireLegacy("paths");
 const queries = requireLegacy("queries");
 const time = requireLegacy("time.js");
 const validation = requireLegacy("validation.js");
