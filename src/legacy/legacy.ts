@@ -13,7 +13,6 @@ const legacyRoutePath = `${ProjectRoot}/legacy/routes`;
 
 const requireLegacy = (filename: string) => require(`${legacyRoutePath}/${filename}`);
 
-const additionalProperties = requireLegacy("additionalProperties.js");
 const array = requireLegacy("array");
 const parameterGrouping = requireLegacy("azureParameterGrouping.js");
 const azureSpecial = requireLegacy("azureSpecials");
@@ -82,12 +81,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   });
 
   const coverage = proxyCoverage("vanilla", {
-    additionalPropertiesTrue: 0,
-    additionalPropertiesSubclass: 0,
-    additionalPropertiesTypeObject: 0,
-    additionalPropertiesTypeString: 0,
-    additionalPropertiesInProperties: 0,
-    additionalPropertiesInPropertiesWithAPTypeString: 0,
     getArrayNull: 0,
     getArrayEmpty: 0,
     putArrayEmpty: 0,
@@ -494,7 +487,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/customUri", new customUri(coverage).router);
   app.use("/extensibleEnums", new extensibleEnums(coverage).router);
   app.use("/errorStatusCodes", new errorStatusCodes(coverage, optionalCoverage).router);
-  app.use("/additionalProperties", new additionalProperties(coverage).router);
   app.use("/mediatypes", new mediatypes(coverage).router);
   app.use("/xml", new xml(coverage).router);
   app.use("/multiapi", new multiapi(optionalCoverage).router);

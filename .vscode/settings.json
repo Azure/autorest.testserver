@@ -8,6 +8,7 @@
     "**/node_modules": true,
     "dist": true
   },
+  "files.eol": "\n",
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   }
