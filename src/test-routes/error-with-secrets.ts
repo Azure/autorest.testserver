@@ -2,7 +2,7 @@ import { app, json } from "../api";
 
 app.category("vanilla", () => {
   // Returns an error response with secrets and PII in the headers and body.
-  app.get("/insecureError", "InsecureError", (req) => {
+  app.get("/errorWithSecrets", "ErrorWithSecrets", (req) => {
     return {
       status: 403,
       headers: {
@@ -17,7 +17,7 @@ app.category("vanilla", () => {
           message: "The user 'user@contoso.com' is unauthorized.",
           details: [
             {
-              code: "UnauthorizedAccessToken",
+              code: "UnauthorizedSharedKey",
               innererror: "Shared key 1c88a67921784300a462b2cb61da2339 is not permitted access.",
             },
           ],

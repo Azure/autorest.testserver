@@ -1,9 +1,10 @@
 # Writing mock apis
 
-1. First step is to create a new file typescript file in the [src/test-routes](../src/test-routes) folder:
-1. All the needed imports are from the `api` folder
-1. Define the category for your apis using `app.category("vanilla" | "azure" | "optional", () => {})`
-1. Start writing mock apis inside the `category` callback
+1. First step is to create a new file typescript file in the [src/test-routes](../src/test-routes) folder.
+1. All the needed imports are from the `api` folder.
+1. Define the category for your apis using `app.category("vanilla" | "azure" | "optional", () => {})`.
+1. Start writing mock apis inside the `category` callback as shown below.
+1. Add a swagger file e.g., using the same file name, to the [swagger](../swagger) folder.
 
 ## Example
 
@@ -31,6 +32,77 @@ app.category("vanilla", () => {
     };
   });
 });
+```
+
+### Example swagger
+
+```json
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Test Client",
+    "description": "Client for an example test service.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "paths": {
+    "/test": {
+      "get": {
+        "operationId": "GetMyTest",
+        "description": "Gets a test object.",
+        "responses": {
+          "200": {
+            "description": "A test object containing 'foo' and 'bar'.",
+            "schema": { "$ref": "#/definitions/MyTest" }
+          }
+        }
+      },
+      "post": {
+        "operationId": "PostMyTest",
+        "description": "Creates a test object..",
+        "parameters": [
+          {
+            "name": "input",
+            "description": "A test object containing 'foo' and 'bar'.",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/MyTest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A response indicating success.",
+            "schema": { "$ref": "#/definitions/PostMyTestResponse" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MyTest": {
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        },
+        "bar": {
+          "type": "string"
+        }
+      },
+      "required": ["foo", "bar"]
+    },
+    "PostMyTestResponse": {
+      "type": "object",
+      "properties": {
+        "succeeded": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
 ```
 
 ## How to build response
