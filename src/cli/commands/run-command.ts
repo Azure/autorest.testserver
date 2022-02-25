@@ -5,6 +5,7 @@ const getAppConfig = (cliConfig: CliConfig): ApiMockAppConfig => {
   return {
     coverageDirectory: cliConfig.coverageDirectory,
     port: cliConfig.port,
+    appendCoverage: cliConfig.appendCoverage,
   };
 };
 

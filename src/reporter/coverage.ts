@@ -5,10 +5,20 @@ import { join } from "path";
 import { createBlobService } from "azure-storage";
 import { GitHubCiClient } from "./github";
 
-const commentIndicatorPublish = "<!--AUTO-GENERATED PUBLISH JOB COMMENT-->\n";
-const commentIndicatorCoverage = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
+const GithubCommentHeader = "<!--AUTO-GENERATED PUBLISH JOB COMMENT-->\n";
+const ReportHeader = "<!--AUTO-GENERATED TESTSERVER COVERAGE COMMENT-->\n";
 
-async function collectCoverage(coverageFolder: string) {
+export interface CategorySummary {
+  covered: number;
+  total: number;
+}
+
+export interface CoverageReport {
+  summary: Record<string, CategorySummary>;
+  report: string;
+}
+
+async function collectCoverage(coverageFolder: string): Promise<CoverageReport> {
   // search for reports
   const getMergedReport = (category: string) => {
     const reports = readdirSync(coverageFolder)
@@ -21,28 +31,33 @@ async function collectCoverage(coverageFolder: string) {
     return result;
   };
 
-  const report: Record<string, Record<string, number>> = {
+  const reports: Record<string, Record<string, number>> = {
     General: getMergedReport("vanilla"),
     Azure: getMergedReport("azure"),
     Optional: getMergedReport("optional"),
     DPG: getMergedReport("dpg"),
   };
 
-  if (Object.keys(report).every((cat) => Object.keys(report[cat]).length === 0)) {
-    const cats = Object.keys(report).join(", ");
+  if (Object.keys(reports).every((cat) => Object.keys(reports[cat]).length === 0)) {
+    const cats = Object.keys(reports).join(", ");
     throw new Error(`No report found in coverage folder '${coverageFolder}' for any of the categories: ${cats}`);
   }
 
   // post report
   let comment = "";
-  for (const category of Object.keys(report)) {
-    const categoryObject = report[category];
+  const summary: Record<string, CategorySummary> = {};
+  for (const category of Object.keys(reports)) {
+    const categoryObject = reports[category];
     const features = Object.keys(categoryObject)
       .sort()
       .map((x) => [x, categoryObject[x] > 0]);
     const countTotal = features.length;
     const countCovered = features.filter((x) => x[1]).length;
     const countMissing = countTotal - countCovered;
+    summary[category] = {
+      covered: countCovered,
+      total: countTotal,
+    };
     const percentCoverage = ((countCovered / (countTotal || 1)) * 100) | 0;
     comment += `## ${percentCoverage === 100 ? "✔️" : "❌️"} ${category}: ${percentCoverage}%\n\n`;
     if (countMissing > 0) {
@@ -64,7 +79,12 @@ async function collectCoverage(coverageFolder: string) {
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const testServerVersion = require(join(__dirname, "..", "..", "package.json")).version;
-  return `${commentIndicatorCoverage}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
+  const report = `${ReportHeader}# 🤖 AutoRest automatic feature coverage report 🤖\n*feature set version ${testServerVersion}*\n\n${comment}`;
+
+  return {
+    summary,
+    report,
+  };
 }
 
 function getPublishedPackageVersion() {
@@ -95,41 +115,11 @@ async function pushCoverage(
     blobSvc.createBlockBlobFromText(
       container,
       `${repo.split("/")[1]}_${version}.md`,
-      `<!-- ${ref} -->\n` + comment,
+      `<!-- Ref: ${ref}, Generated at ${new Date().toISOString()} -->\n` + comment,
       { contentSettings: { contentType: "text/markdown; charset=utf-8" } },
       (error, result) => (error ? rej(error) : res(result.name)),
     ),
   );
-}
-
-export async function show(repo: string, pr: number, token: string, coverageFolder: string): Promise<void> {
-  const comment = await collectCoverage(coverageFolder);
-
-  const ghClient = new GitHubCiClient(repo, token);
-  // try cleaning up previous auto-comments
-  try {
-    const comments = await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage);
-    for (const comment of comments) await ghClient.tryDeleteComment(comment.id);
-  } catch (_) {
-    // .
-  }
-  // send comment
-  await ghClient.createComment(pr, comment);
-}
-
-export async function push(
-  repo: string,
-  pr: number,
-  token: string,
-  azStorageAccount: string,
-  azStorageAccessKey: string,
-  version?: string,
-): Promise<void> {
-  const ghClient = new GitHubCiClient(repo, token);
-  // try pushing coverage
-  const coverageComment = (await ghClient.getCommentsWithIndicator(pr, commentIndicatorCoverage))[0];
-  if (coverageComment)
-    await pushCoverage(repo, pr.toString(), azStorageAccount, azStorageAccessKey, coverageComment.message, version);
 }
 
 export async function immediatePush(
@@ -156,7 +146,7 @@ export async function immediatePush(
       const ghClient = new GitHubCiClient(repo, githubToken);
       await ghClient.createComment(
         pr,
-        `${commentIndicatorPublish}
+        `${GithubCommentHeader}
   # 🤖 AutoRest automatic publish job 🤖
   ## success (version: ${version})
   <!--IMPORTANT: this assumes that this script is only run after successful publish via VSTS! So no "Continue on error" on the publish task!-->`,
@@ -167,6 +157,12 @@ export async function immediatePush(
     }
   }
 
-  const comment = await collectCoverage(coverageFolder);
-  await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, comment, version);
+  const { report, summary } = await collectCoverage(coverageFolder);
+  console.log("Uploading coverage report:");
+  for (const [category, categorySummary] of Object.entries(summary)) {
+    const percent = ((categorySummary.covered / categorySummary.total) * 100).toFixed(3);
+    console.log(`  - ${category}: ${percent}% (${categorySummary.covered / categorySummary.total})`);
+  }
+  console.log("");
+  await pushCoverage(repo, ref, azStorageAccount, azStorageAccessKey, report, version);
 }

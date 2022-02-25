@@ -219,7 +219,7 @@
     "/paging/multiple/nextOperationWithQueryParams": {
       "get": {
         "x-ms-pageable": {
-          "nextLinkName": "null",
+          "nextLinkName": null,
           "itemName": "values"
         },
         "operationId": "Paging_nextOperationWithQueryParams",

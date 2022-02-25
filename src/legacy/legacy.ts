@@ -225,17 +225,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     putFloatSmallScientificNotation: 0,
     getDoubleSmallScientificNotation: 0,
     putDoubleSmallScientificNotation: 0,
-    getStringNull: 0,
-    putStringNull: 0,
-    getStringEmpty: 0,
-    putStringEmpty: 0,
-    getStringMultiByteCharacters: 0,
-    putStringMultiByteCharacters: 0,
-    getStringWithLeadingAndTrailingWhitespace: 0,
-    putStringWithLeadingAndTrailingWhitespace: 0,
-    getStringNotProvided: 0,
-    getEnumNotExpandable: 0,
-    putEnumNotExpandable: 0,
     putComplexBasicValid: 0,
     getComplexBasicValid: 0,
     getComplexBasicEmpty: 0,
@@ -477,10 +466,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     putModelFlattenCustomBase: 0,
     postModelFlattenCustomParameter: 0,
     putModelFlattenCustomGroupedParameter: 0,
-    getStringBase64Encoded: 0,
-    getStringBase64UrlEncoded: 0,
-    putStringBase64UrlEncoded: 0,
-    getStringNullBase64UrlEncoding: 0,
     getArrayBase64Url: 0,
     getDictionaryBase64Url: 0,
     UrlPathsStringBase64Url: 0,
@@ -494,10 +479,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     unexpectedEnum: 0,
     allowedValueEnum: 0,
     roundTripEnum: 0,
-    getEnumReferenced: 0,
-    putEnumReferenced: 0,
-    getEnumReferencedConstant: 0,
-    putEnumReferencedConstant: 0,
     expectedNoErrors: 0,
     expectedPetSadError: 0,
     expectedPetHungryError: 0,
@@ -527,7 +508,7 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/formdata", new formData(optionalCoverage).router);
   app.use("/http", new httpResponses(coverage, optionalCoverage).router);
   app.use("/model-flatten", new modelFlatten(coverage).router);
-  app.use("/lro", new lros(azurecoverage).router);
+  app.use("/lro", new lros(azurecoverage, optionalCoverage).router);
   app.use("/lroParameterizedEndpoints", new lroParameterizedEndpoints(azurecoverage).router);
   app.use("/paging", new paging(azurecoverage).router);
   app.use("/azurespecials", new azureSpecial(azurecoverage).router);

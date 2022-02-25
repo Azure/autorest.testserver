@@ -13,4 +13,9 @@ export interface CliConfig {
    * Directory where the coverage reports should be saved.
    */
   coverageDirectory: string;
+
+  /**
+   * Append coverage
+   */
+  appendCoverage?: boolean;
 }

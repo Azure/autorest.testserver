@@ -41,7 +41,7 @@ var getPascalCase = function (inString) {
   return "" + inString.substring(0, 1).toUpperCase() + inString.substring(1);
 };
 
-var lros = function (coverage) {
+var lros = function (coverage, optionalCoverage) {
   coverage["LROPutInlineComplete"] = 0;
   coverage["LROPutInlineComplete201"] = 0;
   coverage["CustomHeaderPutAsyncSucceded"] = 0;
@@ -49,7 +49,7 @@ var lros = function (coverage) {
   coverage["CustomHeaderPutSucceeded"] = 0;
   coverage["CustomHeaderPostSucceeded"] = 0;
   coverage["LROPut200InlineCompleteNoState"] = 0;
-  coverage["LROPatchInlineCompleteIgnoreHeaders"] = 0;
+  optionalCoverage["LROPatchInlineCompleteIgnoreHeaders"] = 0;
   coverage["LROPatch201WithAsyncHeader"] = 0;
   coverage["LROPatch202WithAsyncAndLocationHeader"] = 0;
 
@@ -75,7 +75,7 @@ var lros = function (coverage) {
   });
 
   router.patch("/patch/200/succeeded/ignoreheaders", function (req, res, next) {
-    coverage["LROPatchInlineCompleteIgnoreHeaders"]++;
+    optionalCoverage["LROPatchInlineCompleteIgnoreHeaders"]++;
     var headers = {
       "Azure-AsyncOperation": "http://localhost/fakeurl_crash_with_404_you_should_not_call_this",
     };

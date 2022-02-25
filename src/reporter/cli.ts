@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import fs from "fs";
 import { join } from "path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
@@ -45,6 +46,14 @@ async function main() {
           args.version,
           args.coverageDirectory,
         );
+      },
+    )
+    .command(
+      "clear",
+      "Clear the code coverage directory",
+      () => null,
+      async (args) => {
+        await fs.promises.rm(args.coverageDirectory, { recursive: true });
       },
     )
     .fail(function (msg, err) {
