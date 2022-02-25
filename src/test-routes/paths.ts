@@ -1,5 +1,5 @@
+import { escape } from "querystring";
 import { app, json, ValidationError } from "../api";
-
 const Constants = {
   DEFAULT_SERVER_PORT: "3000",
 
@@ -52,7 +52,6 @@ const scenarios = {
       "unicode": "Unicode",
       "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
       "begin!*'();:@&=+$,end": "UrlNonEncoded",
-      "empty": "Empty",
       "null": "Null",
       "bG9yZW0": "Base64Url",
     },
@@ -99,27 +98,25 @@ type Entries<T> = {
 
 app.category("vanilla", () => {
   for (const [type, value] of Object.entries(scenarios)) {
+    app.get(`/paths/${type}/empty`, `UrlPaths${value.name}Empty`, (req) => {
+      return {
+        status: 200,
+      };
+    });
     for (const [scenario, scenarioName] of Object.entries(value.scenarios)) {
       const coverageName = `UrlPaths${value.name}${scenarioName}`;
       // Convert the string value to a javascript primtive if possible.
-      if (scenario === "empty") {
-        app.get(`/paths/${type}/empty`, coverageName, (req) => {
-          return {
-            status: 200,
-          };
-        });
-      } else {
-        app.get(`/paths/${type}/${scenario}/:wireParameter`, coverageName, (req) => {
-          const wireParameter = req.params.wireParameter;
-          const expectedValue = getExpectedValue(type as never, scenarioName);
 
-          if (scenario !== wireParameter) {
-            throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
-          } else {
-            return { status: 200 };
-          }
-        });
-      }
+      app.get(`/paths/${type}/${escape(scenario)}/:wireParameter`, coverageName, (req) => {
+        const wireParameter = req.params.wireParameter;
+        const expectedValue = getExpectedValue(type as never, scenarioName);
+
+        if (scenario !== wireParameter) {
+          throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
+        } else {
+          return { status: 200 };
+        }
+      });
     }
   }
 });
