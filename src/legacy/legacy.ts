@@ -47,7 +47,6 @@ const number = requireLegacy("number");
 const objectType = requireLegacy("objectType.js");
 const paging = requireLegacy("paging");
 const pathitem = requireLegacy("pathitem");
-const paths = requireLegacy("paths");
 const queries = requireLegacy("queries");
 const time = requireLegacy("time.js");
 const validation = requireLegacy("validation.js");
@@ -275,25 +274,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     getComplexPolymorphicRecursiveValid: 0,
     putComplexReadOnlyPropertyValid: 0,
     getComplexReadOnlyPropertyValid: 0,
-    UrlPathsBoolFalse: 0,
-    UrlPathsBoolTrue: 0,
-    UrlPathsIntPositive: 0,
-    UrlPathsIntNegative: 0,
-    UrlPathsLongPositive: 0,
-    UrlPathsLongNegative: 0,
-    UrlPathsFloatPositive: 0,
-    UrlPathsFloatNegative: 0,
-    UrlPathsDoublePositive: 0,
-    UrlPathsDoubleNegative: 0,
-    UrlPathsStringUrlEncoded: 0,
-    UrlPathsStringUrlNonEncoded: 0,
-    UrlPathsStringEmpty: 0,
-    UrlPathsStringUnicode: 0,
-    UrlPathsEnumValid: 0,
-    UrlPathsByteMultiByte: 0,
-    UrlPathsByteEmpty: 0,
-    UrlPathsDateValid: 0,
-    UrlPathsDateTimeValid: 0,
     UrlQueriesBoolFalse: 0,
     UrlQueriesBoolTrue: 0,
     UrlQueriesBoolNull: 0,
@@ -468,13 +448,10 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     putModelFlattenCustomGroupedParameter: 0,
     getArrayBase64Url: 0,
     getDictionaryBase64Url: 0,
-    UrlPathsStringBase64Url: 0,
-    UrlPathsArrayCSVInPath: 0,
     getUnixTime: 0,
     getInvalidUnixTime: 0,
     getNullUnixTime: 0,
     putUnixTime: 0,
-    UrlPathsIntUnixTime: 0,
     expectedEnum: 0,
     unexpectedEnum: 0,
     allowedValueEnum: 0,
@@ -500,7 +477,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/array", new array(coverage).router);
   app.use("/complex", new complex(coverage).router);
   app.use("/dictionary", new dictionary(coverage).router);
-  app.use("/paths", new paths(coverage).router);
   app.use("/queries", new queries(coverage).router);
   app.use("/pathitem", new pathitem(coverage).router);
   app.use("/header", new header(coverage, optionalCoverage).router);

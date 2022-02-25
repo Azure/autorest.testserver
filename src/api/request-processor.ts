@@ -57,7 +57,7 @@ const callHandler = async (
     }
 
     logger.warn(
-      [`Request validation failed: ${e.message}:`, ` Expected:\n ${e.expected}`, ` Actual: \n${e.actual}`].join("\n"),
+      [`Request validation failed: ${e.message}:`, ` Expected:\n${e.expected}`, ` Actual: \n${e.actual}`].join("\n"),
     );
     response
       .status(400)
