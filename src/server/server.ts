@@ -43,6 +43,7 @@ export class MockApiServer {
     this.app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
     this.app.use(bodyParser.text({ type: "*/xml", verify: rawBodySaver }));
     this.app.use(bodyParser.text({ type: "*/pdf", verify: rawBodySaver }));
+    this.app.use(bodyParser.text({ type: "text/plain" }));
     this.app.use(bodyParser.raw({ type: "application/octet-stream", limit: "10mb" }));
   }
 
