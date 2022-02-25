@@ -484,7 +484,7 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/formdata", new formData(optionalCoverage).router);
   app.use("/http", new httpResponses(coverage, optionalCoverage).router);
   app.use("/model-flatten", new modelFlatten(coverage).router);
-  app.use("/lro", new lros(azurecoverage).router);
+  app.use("/lro", new lros(azurecoverage, optionalCoverage).router);
   app.use("/lroParameterizedEndpoints", new lroParameterizedEndpoints(azurecoverage).router);
   app.use("/paging", new paging(azurecoverage).router);
   app.use("/azurespecials", new azureSpecial(azurecoverage).router);
