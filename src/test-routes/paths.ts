@@ -111,11 +111,11 @@ app.category("vanilla", () => {
         const wireParameter = req.params.wireParameter;
         const expectedValue = getExpectedValue(type as never, scenarioName);
 
-        if (scenario !== wireParameter) {
+        if (wireParameter !== expectedValue) {
           throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
-        } else {
-          return { status: 200 };
         }
+
+        return { status: 200 };
       });
     }
   }
