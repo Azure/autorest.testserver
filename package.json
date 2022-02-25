@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.3.6",
+  "version": "3.3.7",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
@@ -18,7 +18,7 @@
     "dev": "npm run watch",
     "start": "npm run build && node ./dist/cli/cli.js",
     "start:prod": "node ./dist/cli/cli.js",
-    "start:dev": "concurrently  \"npm run watch\" \"nodemon ./dist/cli/cli.js\"",
+    "start:dev": "nodemon ./dist/cli/cli.js",
     "stop": "node ./dist/cli/cli.js stop",
     "fix": "eslint  . --fix --ext .ts",
     "lint": "eslint  ./src --ext .ts --max-warnings=0",
