@@ -1,4 +1,4 @@
-import { app, HttpMethod, json } from "../api";
+import { app, HttpMethod, json, ValidationError } from "../api";
 import { MockRequest } from "../api/mock-request";
 import { MockResponse } from "../api/mock-response";
 
@@ -158,6 +158,237 @@ app.category("vanilla", () => {
       }
     },
   );
+
+  //#region Multiple responses described as 204
+  app.get(
+    "/http/payloads/200/A/204/none/default/Error/response/200/valid",
+    "ResponsesScenarioA200MatchingModel",
+    (req) => {
+      return { status: 200, body: json({ statusCode: "200" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/204/none/default/Error/response/201/valid",
+    "ResponsesScenarioA201DefaultNoModel",
+    (req) => {
+      return { status: 201, body: json({ statusCode: "201" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/204/none/default/Error/response/202/none",
+    "ResponsesScenarioA202DefaultNoModel",
+    (req) => {
+      return { status: 202, body: json({ statusCode: "202" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/204/none/default/Error/response/204/none",
+    "ResponsesScenarioA204MatchingNoModel",
+    (req) => {
+      return { status: 204 };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/204/none/default/Error/response/400/valid",
+    "ResponsesScenarioA400DefaultModel",
+    (req) => {
+      return { status: 400, testSuccessful: true, body: json({ message: "client error" }) };
+    },
+  );
+  // #endregion
+
+  //#region Endpoint with response for 200, 201 default
+  app.get(
+    "/http/payloads/200/A/201/B/default/Error/response/200/valid",
+    "ResponsesScenarioB200MatchingModel",
+    (req) => {
+      return { status: 200, body: json({ statusCode: "200" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/201/B/default/Error/response/201/valid",
+    "ResponsesScenarioB201MatchingModel",
+    (req) => {
+      return { status: 201, body: json({ statusCode: "201", textStatusCode: "Created" }) };
+    },
+  );
+
+  app.get("/http/payloads/200/A/201/B/default/Error/response/400/valid", "ResponsesScenarioB400DefaultModel", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ message: "client error" }) };
+  });
+  // #endregion
+
+  //#region Endpoint with response for 200, 201, 404 and default
+  app.get(
+    "/http/payloads/200/A/201/C/404/D/default/Error/response/200/valid",
+    "ResponsesScenarioC200MatchingModel",
+    (req) => {
+      return { status: 200, body: json({ statusCode: "200" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/201/C/404/D/default/Error/response/201/valid",
+    "ResponsesScenarioC201MatchingModel",
+    (req) => {
+      return { status: 201, body: json({ httpCode: "201" }) };
+    },
+  );
+  app.get(
+    "/http/payloads/200/A/201/C/404/D/default/Error/response/404/valid",
+    "ResponsesScenarioC404MatchingModel",
+    (req) => {
+      return { status: 404, testSuccessful: true, body: json({ httpStatusCode: "404" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/200/A/201/C/404/D/default/Error/response/400/valid",
+    "ResponsesScenarioC400DefaultModel",
+    (req) => {
+      return { status: 400, testSuccessful: true, body: json({ message: "client error" }) };
+    },
+  );
+  // #endregion
+
+  //#region Endpoint with response for 202, 204 where it is returning empty body.
+  app.get(
+    "/http/payloads/202/none/204/none/default/Error/response/202/none",
+    "ResponsesScenarioD202MatchingNoModel",
+    (req) => {
+      return { status: 202 };
+    },
+  );
+
+  app.get(
+    "/http/payloads/202/none/204/none/default/Error/response/204/none",
+    "ResponsesScenarioD204MatchingNoModel",
+    (req) => {
+      return { status: 204 };
+    },
+  );
+
+  app.get(
+    "/http/payloads/202/none/204/none/default/Error/response/400/valid",
+    "ResponsesScenarioD400DefaultModel",
+    (req) => {
+      return { status: 400, testSuccessful: true, body: json({ message: "client error" }) };
+    },
+  );
+  // #endregion
+
+  //#region Endpoint with response for 202, 204, 400 returning invalid payloads
+  app.get(
+    "/http/payloads/202/none/204/none/default/none/response/202/invalid",
+    "ResponsesScenarioE202MatchingInvalid",
+    (req) => {
+      return { status: 202, body: json({ property: "value" }) };
+    },
+  );
+
+  app.get(
+    "/http/payloads/202/none/204/none/default/none/response/204/none",
+    "ResponsesScenarioE204MatchingNoModel",
+    (req) => {
+      return { status: 204 };
+    },
+  );
+
+  app.get(
+    "/http/payloads/202/none/204/none/default/none/response/400/none",
+    "ResponsesScenarioE400DefaultNoModel",
+    (req) => {
+      return { status: 400, testSuccessful: true };
+    },
+  );
+  app.get(
+    "/http/payloads/202/none/204/none/default/none/response/400/invalid",
+    "ResponsesScenarioE400DefaultInvalid",
+    (req) => {
+      return { status: 400, testSuccessful: true, body: json({ property: "value" }) };
+    },
+  );
+  // #endregion
+
+  //#region Endpoint with response for 202, 204, 400 returning valid payloads
+  app.get("/http/payloads/default/a/response/200/valid", "ResponsesScenarioF200DefaultModel", (req) => {
+    return { status: 200, body: json({ property: "value" }) };
+  });
+
+  app.get("/http/payloads/default/a/response/200/none", "ResponsesScenarioF200DefaultNone", (req) => {
+    return { status: 200 };
+  });
+
+  app.get("/http/payloads/default/a/response/400/valid", "ResponsesScenarioF400DefaultModel", (req) => {
+    return { status: 400, testSuccessful: true };
+  });
+  app.get("/http/payloads/default/a/response/400/none", "ResponsesScenarioF400DefaultNone", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ property: "value" }) };
+  });
+  // #endregion
+
+  //#region Endpoint with response for 202, 204, 400 returning invalid payloads
+  app.get("/http/payloads/default/none/response/200/invalid", "ResponsesScenarioG200DefaultInvalid", (req) => {
+    return { status: 200, body: json({ statusCode: "200" }) };
+  });
+
+  app.get("/http/payloads/default/none/response/200/none", "ResponsesScenarioG200DefaultNoModel", (req) => {
+    return { status: 200 };
+  });
+
+  app.get("/http/payloads/default/none/response/400/invalid", "ResponsesScenarioG400DefaultInvalid", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ statusCode: "200" }) };
+  });
+
+  app.get("/http/payloads/default/none/response/400/none", "ResponsesScenarioG400DefaultNoModel", (req) => {
+    return { status: 400, testSuccessful: true };
+  });
+  // #endregion
+
+  //#region Endpoint with response for 202, 204, 400 returning invalid payloads
+  app.get("/http/payloads/200/a/response/200/none", "ResponsesScenarioH200MatchingNone", (req) => {
+    return { status: 200 };
+  });
+
+  app.get("/http/payloads/200/a/response/200/valid", "ResponsesScenarioH200MatchingModel", (req) => {
+    return { status: 200 };
+  });
+
+  app.get("/http/payloads/200/a/response/200/invalid", "ResponsesScenarioH200MatchingInvalid", (req) => {
+    return { status: 200, body: json({ statusCodeInvalid: "200" }) };
+  });
+
+  app.get("/http/payloads/200/a/response/400/none", "ResponsesScenarioH400NonMatchingNone", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ statusCode: "200" }) };
+  });
+
+  app.get("/http/payloads/200/a/response/400/valid", "ResponsesScenarioH400NonMatchingModel", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ statusCode: "200" }) };
+  });
+  app.get("/http/payloads/200/a/response/400/invalid", "ResponsesScenarioH400NonMatchingInvalid", (req) => {
+    return { status: 400, testSuccessful: true, body: json({ statusCodeInvalid: "200" }) };
+  });
+
+  app.get("/http/payloads/200/a/response/202/valid", "ResponsesScenarioH202NonMatchingModel", (req) => {
+    return { status: 202, testSuccessful: true, body: json({ statusCode: "200" }) };
+  });
+  // #endregion
+
+  app.get("/http/failure/emptybody/error", "ResponsesScenarioEmptyErrorBody", () => {
+    return { status: 400, testSuccessful: true, body: json({ message: "" }) };
+  });
+
+  app.get("/http/failure/nomodel/error", "ResponsesScenarioNoModelErrorBody", () => {
+    return { status: 400, testSuccessful: true, body: json({ message: "NoErrorModel" }) };
+  });
+  app.get("/http/failure/nomodel/empty", "ResponsesScenarioNoModelEmptyBody", () => {
+    return { status: 400, testSuccessful: true };
+  });
 });
 
 function isRetryRequest(req: MockRequest, code: number, method: HttpMethod) {
