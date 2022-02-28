@@ -425,38 +425,6 @@ var httpResponses = function (coverage, optionalCoverage) {
     }
   };
 
-  router.all("/success/:code", function (req, res, next) {
-    var scenario = getHttpScenarioName("Success", req.method, req.params.code);
-    var code = JSON.parse(req.params.code);
-    if (scenario !== null) {
-      updateScenarioCoverage(scenario, req.method);
-      if (req.method === "GET" || req.method === "OPTIONS") {
-        res.status(code).end("true");
-      } else {
-        res.status(code).end();
-      }
-    } else {
-      utils.send400(res, next, 'Unable to parse success scenario with return code "' + req.params.code + '"');
-    }
-  });
-
-  router.all("/success/:method/:code", function (req, res, next) {
-    res = removeRetryTracker(res);
-    if (req.method.toLowerCase() === req.params.method) {
-      res.status(JSON.parse(req.params.code)).end();
-    } else {
-      utils.send400(
-        res,
-        next,
-        'Unable to parse redirection, expected method "' +
-          req.params.method +
-          '" did not match actual method "' +
-          req.method.toLowerCase() +
-          '"',
-      );
-    }
-  });
-
   router.all("/failure/:code", function (req, res, next) {
     utils.send400(res, next, "Client incorrectly redirected a request");
   });

@@ -22,7 +22,7 @@ export const processRequest = async (
     return;
   }
 
-  if (mockResponse.status >= 200 && mockResponse.status < 300) {
+  if ((mockResponse.status >= 200 && mockResponse.status < 300) || mockResponse.testSuccessful) {
     if (name) {
       await coverageService.track(category, name);
     }
