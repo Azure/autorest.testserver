@@ -13,7 +13,6 @@ const legacyRoutePath = `${ProjectRoot}/legacy/routes`;
 
 const requireLegacy = (filename: string) => require(`${legacyRoutePath}/${filename}`);
 
-const array = requireLegacy("array");
 const parameterGrouping = requireLegacy("azureParameterGrouping.js");
 const azureSpecial = requireLegacy("azureSpecials");
 const azureUrl = requireLegacy("azureUrl");
@@ -81,74 +80,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   });
 
   const coverage = proxyCoverage("vanilla", {
-    getArrayNull: 0,
-    getArrayEmpty: 0,
-    putArrayEmpty: 0,
-    getArrayInvalid: 0,
-    getArrayBooleanValid: 0,
-    putArrayBooleanValid: 0,
-    getArrayBooleanWithNull: 0,
-    getArrayBooleanWithString: 0,
-    getArrayIntegerValid: 0,
-    putArrayIntegerValid: 0,
-    getArrayIntegerWithNull: 0,
-    getArrayIntegerWithString: 0,
-    getArrayLongValid: 0,
-    putArrayLongValid: 0,
-    getArrayLongWithNull: 0,
-    getArrayLongWithString: 0,
-    getArrayFloatValid: 0,
-    putArrayFloatValid: 0,
-    getArrayFloatWithNull: 0,
-    getArrayFloatWithString: 0,
-    getArrayDoubleValid: 0,
-    putArrayDoubleValid: 0,
-    getArrayDoubleWithNull: 0,
-    getArrayDoubleWithString: 0,
-    getArrayStringValid: 0,
-    putArrayStringValid: 0,
-    getArrayEnumValid: 0,
-    putArrayEnumValid: 0,
-    getArrayStringEnumValid: 0,
-    putArrayStringEnumValid: 0,
-    getArrayStringWithNull: 0,
-    getArrayStringWithNumber: 0,
-    getArrayDateValid: 0,
-    putArrayDateValid: 0,
-    getArrayDateWithNull: 0,
-    getArrayDateWithInvalidChars: 0,
-    getArrayDateTimeValid: 0,
-    putArrayDateTimeValid: 0,
-    getArrayDateTimeWithNull: 0,
-    getArrayDateTimeWithInvalidChars: 0,
-    getArrayDateTimeRfc1123Valid: 0,
-    putArrayDateTimeRfc1123Valid: 0,
-    getArrayDurationValid: 0,
-    putArrayDurationValid: 0,
-    getArrayUuidValid: 0,
-    getArrayUuidWithInvalidChars: 0,
-    putArrayUuidValid: 0,
-    getArrayByteValid: 0,
-    putArrayByteValid: 0,
-    getArrayByteWithNull: 0,
-    getArrayArrayNull: 0,
-    getArrayArrayEmpty: 0,
-    getArrayArrayItemNull: 0,
-    getArrayArrayItemEmpty: 0,
-    getArrayArrayValid: 0,
-    putArrayArrayValid: 0,
-    getArrayComplexNull: 0,
-    getArrayComplexEmpty: 0,
-    getArrayComplexItemNull: 0,
-    getArrayComplexItemEmpty: 0,
-    getArrayComplexValid: 0,
-    putArrayComplexValid: 0,
-    getArrayDictionaryNull: 0,
-    getArrayDictionaryEmpty: 0,
-    getArrayDictionaryItemNull: 0,
-    getArrayDictionaryItemEmpty: 0,
-    getArrayDictionaryValid: 0,
-    putArrayDictionaryValid: 0,
     getBoolTrue: 0,
     putBoolTrue: 0,
     getBoolFalse: 0,
@@ -467,7 +398,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/datetime", new datetime(coverage, optionalCoverage).router);
   app.use("/datetimeRfc1123", new datetimeRfc1123(coverage).router);
   app.use("/duration", new duration(coverage, optionalCoverage).router);
-  app.use("/array", new array(coverage).router);
   app.use("/complex", new complex(coverage).router);
   app.use("/dictionary", new dictionary(coverage).router);
   app.use("/queries", new queries(coverage).router);
