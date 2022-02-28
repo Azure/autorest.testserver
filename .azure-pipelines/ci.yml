@@ -35,6 +35,5 @@ jobs:
 
       - script: |
           npm link
-          autorest-testserver validate-spec-coverage
+          autorest-testserver validate-spec-coverage --maxErrorCount=596
         displayName: Validate OpenAPI specs mock API coverage
-        continueOnError: true

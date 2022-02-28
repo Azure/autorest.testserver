@@ -14,7 +14,7 @@ interface Layer {
   regexp: RegExp;
 }
 
-export const validateSpecCoverageCommand = async (cliConfig: CliConfig): Promise<void> => {
+export const validateSpecCoverageCommand = async (options: { maxErrorCount: number }): Promise<void> => {
   const files = await findFilesFromPattern(join(ProjectRoot, "swagger/*.json"));
   logger.info(`Validating spec coverage, found ${files.length} specs.`);
   const paths = await getPathsFromSpecs(files);
@@ -24,12 +24,17 @@ export const validateSpecCoverageCommand = async (cliConfig: CliConfig): Promise
   logger.info(`Found ${registeredPaths.length} mock paths.`);
 
   const errors = findSpecCoverageErrors(paths, registeredPaths);
-  if (errors.length) {
+  if (errors.length > 0) {
     for (const error of errors) {
       logger.warn(`Route ${error.path.path} is missing a mocked API for methods: ${error.methods.join(",")}`);
     }
-    logger.error(`Validate spec coverage completed with ${errors.length} errors.`);
-    process.exit(-1);
+    logger.warn(`Validate spec coverage found ${errors.length} missing endpoints.`);
+    if (errors.length > options.maxErrorCount) {
+      logger.error(
+        `Number of missing endpoint ${errors.length} is more than the number allowed ${options.maxErrorCount}. Failing.`,
+      );
+      process.exit(-1);
+    }
   } else {
     process.exit(0);
   }

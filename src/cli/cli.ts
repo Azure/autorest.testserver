@@ -63,7 +63,11 @@ const run = async () => {
     .command(
       "validate-spec-coverage",
       "Validate there is a mock api for all the path defined in the specs",
-      () => null,
+      (cmd) =>
+        cmd.option("maxErrorCount", {
+          description: "Maximum number of errors allowed",
+          default: 0,
+        }),
       (args) => validateSpecCoverageCommand(args),
     ).argv;
 };

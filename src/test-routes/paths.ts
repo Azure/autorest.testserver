@@ -101,11 +101,11 @@ interface ScenarioConfig {
 
 function encodeSegement(value: string): string {
   return encodeURIComponent(value)
-    .replaceAll("!", "%21")
-    .replaceAll("*", "%2A")
-    .replaceAll("'", "%27")
-    .replaceAll("(", "%28")
-    .replaceAll(")", "%29");
+    .replace(/!/g, "%21")
+    .replace(/\*/g, "%2A")
+    .replace(/'/g, "%27")
+    .replace(/\(/g, "%28")
+    .replace(/\)/g, "%29");
 }
 app.category("vanilla", () => {
   for (const [type, value] of Object.entries(scenarios)) {
