@@ -17,7 +17,6 @@ const parameterGrouping = requireLegacy("azureParameterGrouping.js");
 const azureSpecial = requireLegacy("azureSpecials");
 const azureUrl = requireLegacy("azureUrl");
 const bool = requireLegacy("bool");
-const byte = requireLegacy("byte");
 const complex = requireLegacy("complex");
 const customUri = requireLegacy("customUri.js");
 const date = requireLegacy("date");
@@ -86,11 +85,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
     putBoolFalse: 0,
     getBoolInvalid: 0,
     getBoolNull: 0,
-    getByteNull: 0,
-    getByteEmpty: 0,
-    getByteNonAscii: 0,
-    putByteNonAscii: 0,
-    getByteInvalid: 0,
     getDateNull: 0,
     getDateInvalid: 0,
     getDateOverflow: 0,
@@ -393,7 +387,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/bool", new bool(coverage).router);
   app.use("/int", new integer(coverage).router);
   app.use("/number", new number(coverage, optionalCoverage).router);
-  app.use("/byte", new byte(coverage).router);
   app.use("/date", new date(coverage).router);
   app.use("/datetime", new datetime(coverage, optionalCoverage).router);
   app.use("/datetimeRfc1123", new datetimeRfc1123(coverage).router);
