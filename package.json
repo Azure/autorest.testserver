@@ -1,6 +1,6 @@
 {
   "name": "@microsoft.azure/autorest.testserver",
-  "version": "3.3.10",
+  "version": "3.3.",
   "description": "Autorest test server.",
   "main": "dist/cli/cli.js",
   "bin": {
@@ -31,7 +31,8 @@
     "prepack": "npm run build",
     "format": "npm run -s prettier -- --write",
     "check-format": "npm run -s prettier -- --check",
-    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
+    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}",
+    "validate-spec-coverage": "node ./dist/cli/cli.js validate-spec-coverage --maxErrorCount=166"
   },
   "engines": {
     "node": ">=10"
