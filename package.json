@@ -31,7 +31,8 @@
     "prepack": "npm run build",
     "format": "npm run -s prettier -- --write",
     "check-format": "npm run -s prettier -- --check",
-    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}"
+    "prettier": "prettier --config ./.prettierrc.yml **/*.{ts,js,cjs,mjs,json,yml,yaml,md}",
+    "validate-spec-coverage": "node ./dist/cli/cli.js validate-spec-coverage --maxErrorCount=164"
   },
   "engines": {
     "node": ">=10"

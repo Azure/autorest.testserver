@@ -33,7 +33,5 @@ jobs:
       - script: npm run check-format
         displayName: Check formatting
 
-      - script: |
-          npm link
-          autorest-testserver validate-spec-coverage --maxErrorCount=596
+      - script: npm run validate-spec-coverage
         displayName: Validate OpenAPI specs mock API coverage

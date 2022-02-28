@@ -7,7 +7,6 @@ import { registerLegacyRoutes } from "../../legacy";
 import { logger } from "../../logger";
 import { getPathsFromSpecs, SpecPath } from "../../services";
 import { findFilesFromPattern } from "../../utils";
-import { CliConfig } from "../cli-config";
 
 interface Layer {
   route: { path: string; methods: Record<HttpMethod, boolean> };
@@ -73,7 +72,6 @@ const findSpecCoverageErrors = (paths: SpecPath[], registeredPaths: Layer[]): Sp
  */
 const validateRouteDefined = (path: SpecPath, registeredPaths: Layer[]): HttpMethod[] => {
   const methodFound: Partial<Record<HttpMethod, boolean>> = {};
-
   for (const registeredPath of registeredPaths) {
     if (registeredPath.regexp.test(path.path)) {
       for (const [method, defined] of Object.entries(registeredPath.route.methods)) {
@@ -84,7 +82,7 @@ const validateRouteDefined = (path: SpecPath, registeredPaths: Layer[]): HttpMet
     }
   }
 
-  return path.methods.filter((x) => !methodFound[x]);
+  return path.methods.filter((x) => !methodFound[x]).filter((x) => !x.startsWith("x-"));
 };
 
 const loadRegisteredRoutes = async (): Promise<Layer[]> => {
@@ -99,14 +97,24 @@ const loadRegisteredRoutes = async (): Promise<Layer[]> => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const findRoutesFromMiddleware = (middleware: any): Layer[] => {
-  let routes: Layer[] = [];
+  const routes: Layer[] = [];
   if (middleware.route) {
-    routes.push(middleware);
+    routes.push({ route: middleware.route, regexp: middleware.regexp });
   } else if (middleware.name === "router") {
     for (const nested of middleware.handle.stack) {
-      routes = routes.concat(findRoutesFromMiddleware(nested));
+      if (nested.route) {
+        routes.push({ route: nested.route, regexp: concatRegexp(middleware.regexp, nested.regexp) });
+      }
     }
   }
 
   return routes;
 };
+
+/**
+ * Combine the router regex with the child regex.
+ */
+function concatRegexp(router: RegExp, child: RegExp) {
+  const reg = router.source.replace("\\/?(?=\\/|$)", child.source.slice(1));
+  return new RegExp(reg, child.flags);
+}
