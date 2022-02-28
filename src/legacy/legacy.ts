@@ -29,7 +29,6 @@ const extensibleEnums = requireLegacy("extensibleEnums.js");
 const files = requireLegacy("files");
 const formData = requireLegacy("formData");
 const header = requireLegacy("header");
-const httpResponses = requireLegacy("httpResponses");
 const routes = requireLegacy("index");
 const integer = requireLegacy("int");
 const lroParameterizedEndpoints = requireLegacy("lroParameterizedEndpoints.js");
@@ -398,7 +397,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/header", new header(coverage, optionalCoverage).router);
   app.use("/files", new files(coverage).router);
   app.use("/formdata", new formData(optionalCoverage).router);
-  app.use("/http", new httpResponses(coverage, optionalCoverage).router);
   app.use("/model-flatten", new modelFlatten(coverage).router);
   app.use("/lro", new lros(azurecoverage, optionalCoverage).router);
   app.use("/lroParameterizedEndpoints", new lroParameterizedEndpoints(azurecoverage).router);
