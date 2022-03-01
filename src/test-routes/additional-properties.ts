@@ -1,6 +1,6 @@
 import { app, json } from "../api";
 
-app.category("azure", () => {
+app.category("vanilla", () => {
   app.put("/additionalProperties/true", "additionalPropertiesTrue", (req) => {
     const expectedBody = {
       id: 1,
