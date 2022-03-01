@@ -8,6 +8,7 @@ import {
   validateBodyNotEmpty,
   validateXMLBodyEquals,
   validateHeader,
+  validateQueryParam,
 } from "./request-validations";
 
 /**
@@ -66,6 +67,15 @@ export class RequestExpectation {
    */
   public containsHeader(headerName: string, expectedValue: string): void {
     validateHeader(this.originalRequest, headerName, expectedValue);
+  }
+
+  /**
+   * Expect the query string of the request contains the expected name/value pair.
+   * @param paramName Name of the query parameter.
+   * @param expectedValue Value expected of the query parameter.
+   */
+  public containsQueryParam(paramName: string, expectedValue: string): void {
+    validateQueryParam(this.originalRequest, paramName, expectedValue);
   }
 
   /**
