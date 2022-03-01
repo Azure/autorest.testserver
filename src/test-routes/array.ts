@@ -303,15 +303,6 @@ app.category("vanilla", () => {
       body: json(["YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw", "dGVzdCBzdHJpbmc", "TG9yZW0gaXBzdW0"]),
     };
   });
-
-  app.put("/array/prim/base64url/valid", "putArrayBase64Url", (req) => {
-    req.expect.bodyEquals([
-      "YSBzdHJpbmcgdGhhdCBnZXRzIGVuY29kZWQgd2l0aCBiYXNlNjR1cmw",
-      "dGVzdCBzdHJpbmc",
-      "TG9yZW0gaXBzdW0",
-    ]);
-    return { status: 200 };
-  });
   //#endregion
 
   //#region complex
