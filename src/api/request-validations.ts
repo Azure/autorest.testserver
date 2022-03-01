@@ -95,3 +95,13 @@ export const validateHeader = (request: RequestExt, headerName: string, expected
     throw new ValidationError(`Expected ${expected} but got ${actual}`, expected, actual);
   }
 };
+
+/**
+ * Check whether the query string contains the given parameter name and value.
+ */
+export const validateQueryParam = (request: RequestExt, paramName: string, expected: string): void => {
+  const actual = request.query[paramName];
+  if (actual !== expected) {
+    throw new ValidationError(`Expected query param ${paramName}=${expected} but got ${actual}`, expected, actual);
+  }
+};
