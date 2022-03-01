@@ -82,7 +82,10 @@ const validateRouteDefined = (path: SpecPath, registeredPaths: Layer[]): HttpMet
     }
   }
 
-  return path.methods.filter((x) => !methodFound[x]).filter((x) => !x.startsWith("x-"));
+  return path.methods
+    .filter((x): x is HttpMethod => x !== "options")
+    .filter((x) => !methodFound[x])
+    .filter((x) => !x.startsWith("x-"));
 };
 
 const loadRegisteredRoutes = async (): Promise<Layer[]> => {

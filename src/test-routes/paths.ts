@@ -49,19 +49,22 @@ const scenarios = {
   string: {
     name: "String",
     scenarios: {
+      "empty": "Empty",
       "unicode": { name: "Unicode", expectedValue: Constants.MULTIBYTE_BUFFER },
       "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
       "begin!*'();:@&=+$,end": {
         name: "UrlNonEncoded",
         expectedValue: "begin!*'();:@&=+$,end",
       },
-      "null": "Null",
+      // This scenario shouldn't really be possible. The sdk should never call the endpoint.
+      // "null": "Null",
       "bG9yZW0": "Base64Url",
     },
   },
   byte: {
     name: "Byte",
     scenarios: {
+      empty: "Empty",
       multibyte: { name: "MultiByte", expectedValue: Buffer.from(Constants.MULTIBYTE_BUFFER).toString("base64") },
     },
   },
@@ -103,21 +106,29 @@ interface ScenarioConfig {
 
 app.category("vanilla", () => {
   for (const [type, value] of Object.entries(scenarios)) {
-    app.get(`/paths/${type}/empty`, `UrlPaths${value.name}Empty`, (req) => {
-      return {
-        status: 200,
-      };
-    });
-
     for (const scenarioConfig of Object.values<string | ScenarioConfig>(value.scenarios)) {
       const coverageName = `UrlPaths${value.name}${getScenarioName(scenarioConfig)}`;
       coverageService.register("vanilla", coverageName);
     }
 
-    app.get(`/paths/${type}/:scenarioName/:wireParameter`, undefined, (req) => {
-      const wireParameter = deserializeValue(type as never, req.params.wireParameter);
+    app.get(`/paths/${type}/:scenarioName/:wireParameter?`, undefined, (req) => {
       const scenarioName: string = decodeURIComponent(req.params.scenarioName);
       const scenarioConfig: ScenarioConfig = value.scenarios[scenarioName as keyof typeof value.scenarios];
+      const coverageName = `UrlPaths${value.name}${getScenarioName(scenarioConfig)}`;
+
+      if (scenarioName === "empty") {
+        if (req.params.wireParameter) {
+          throw new ValidationError("wireParameter should be empty", undefined, req.params.wireParameter);
+        }
+        coverageService.track("vanilla", coverageName);
+
+        return {
+          status: 200,
+        };
+      }
+
+      const wireParameter = deserializeValue(type as never, req.params.wireParameter);
+
       if (scenarioConfig === undefined) {
         return { status: 404, body: json({ message: `Scenario "${scenarioName}" not found for type ${type}` }) };
       }
@@ -127,7 +138,7 @@ app.category("vanilla", () => {
         throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
       }
 
-      coverageService.track("vanilla", `UrlPaths${value.name}${getScenarioName(scenarioConfig)}`);
+      coverageService.track("vanilla", coverageName);
       return { status: 200 };
     });
   }
