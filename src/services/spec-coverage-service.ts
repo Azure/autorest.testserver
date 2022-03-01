@@ -10,7 +10,7 @@ export interface SpecPath {
   /**
    * List of HTTP methods to implement.
    */
-  methods: HttpMethod[];
+  methods: (HttpMethod | "options")[];
 }
 
 export const getPathsFromSpecs = async (specPaths: string[]): Promise<SpecPath[]> => {

@@ -10,5 +10,4 @@ end_of_line = lf
 
 # JS/TS files
 [*.{js,jsx,ts,tsx}]
-end_of_line = lf
 indent_size = 2

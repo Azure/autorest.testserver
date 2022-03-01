@@ -32,15 +32,15 @@ app.category("vanilla", () => {
     "/success",
     "Success",
     {
-      200: ["head", "get", "options", "put", "post", "patch", "delete"],
+      200: ["head", "get", "put", "post", "patch", "delete"],
       201: ["put", "post"],
       202: ["put", "post", "patch", "delete"],
       204: ["head", "put", "post", "patch", "delete"],
       404: ["head"],
     },
     ({ method, code }) => {
-      const body = method === "get" || method === "options" ? json(true) : undefined;
-      return { status: Number(code), body };
+      const body = method === "get" ? json(true) : undefined;
+      return { status: Number(code), body, testSuccessful: true };
     },
   );
 
@@ -61,7 +61,7 @@ app.category("vanilla", () => {
       301: ["head", "put", "get"],
       302: ["head", "get", "patch"],
       303: ["post"],
-      307: ["head", "get", "options", "put", "post", "patch", "delete"],
+      307: ["head", "get", "put", "post", "patch", "delete"],
     },
     ({ code, method }) => {
       let location;
@@ -90,10 +90,10 @@ app.category("vanilla", () => {
     "/failure/client",
     "ClientFailure",
     {
-      400: ["head", "get", "options", "put", "post", "patch", "delete"],
+      400: ["head", "get", "put", "post", "patch", "delete"],
       401: ["head"],
       402: ["get"],
-      403: ["get", "options"],
+      403: ["get"],
       404: ["put"],
       405: ["patch"],
       406: ["post"],
@@ -101,7 +101,7 @@ app.category("vanilla", () => {
       409: ["put"],
       410: ["head"],
       411: ["get"],
-      412: ["get", "options"],
+      412: ["get"],
       413: ["put"],
       414: ["patch"],
       415: ["post"],
@@ -122,8 +122,6 @@ app.category("vanilla", () => {
     "ServerFailure",
     {
       501: ["head", "get"],
-      502: ["options", "put"],
-      504: ["patch"],
       505: ["post", "delete"],
     },
     ({ code, method }) => {
@@ -139,7 +137,7 @@ app.category("vanilla", () => {
     "Retry",
     {
       408: ["head"],
-      502: ["options", "get"],
+      502: ["get"],
       500: ["put", "patch"],
       503: ["post", "delete"],
       504: ["put", "patch"],
