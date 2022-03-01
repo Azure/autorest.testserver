@@ -16,7 +16,6 @@ const requireLegacy = (filename: string) => require(`${legacyRoutePath}/${filena
 const parameterGrouping = requireLegacy("azureParameterGrouping.js");
 const azureSpecial = requireLegacy("azureSpecials");
 const azureUrl = requireLegacy("azureUrl");
-const bool = requireLegacy("bool");
 const complex = requireLegacy("complex");
 const customUri = requireLegacy("customUri.js");
 const date = requireLegacy("date");
@@ -29,7 +28,6 @@ const extensibleEnums = requireLegacy("extensibleEnums.js");
 const files = requireLegacy("files");
 const formData = requireLegacy("formData");
 const header = requireLegacy("header");
-const httpResponses = requireLegacy("httpResponses");
 const routes = requireLegacy("index");
 const integer = requireLegacy("int");
 const lroParameterizedEndpoints = requireLegacy("lroParameterizedEndpoints.js");
@@ -79,12 +77,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   });
 
   const coverage = proxyCoverage("vanilla", {
-    getBoolTrue: 0,
-    putBoolTrue: 0,
-    getBoolFalse: 0,
-    putBoolFalse: 0,
-    getBoolInvalid: 0,
-    getBoolNull: 0,
     getDateNull: 0,
     getDateInvalid: 0,
     getDateOverflow: 0,
@@ -384,7 +376,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   });
 
   app.use("/", routes);
-  app.use("/bool", new bool(coverage).router);
   app.use("/int", new integer(coverage).router);
   app.use("/number", new number(coverage, optionalCoverage).router);
   app.use("/date", new date(coverage).router);
@@ -398,7 +389,6 @@ export const registerLegacyRoutes = (app: MockApiServer | Router): void => {
   app.use("/header", new header(coverage, optionalCoverage).router);
   app.use("/files", new files(coverage).router);
   app.use("/formdata", new formData(optionalCoverage).router);
-  app.use("/http", new httpResponses(coverage, optionalCoverage).router);
   app.use("/model-flatten", new modelFlatten(coverage).router);
   app.use("/lro", new lros(azurecoverage, optionalCoverage).router);
   app.use("/lroParameterizedEndpoints", new lroParameterizedEndpoints(azurecoverage).router);

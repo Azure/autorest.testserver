@@ -1,4 +1,5 @@
-import { app, ValidationError } from "../api";
+import { app, ValidationError, json } from "../api";
+import { coverageService } from "../services";
 const Constants = {
   DEFAULT_SERVER_PORT: "3000",
 
@@ -34,7 +35,7 @@ const scenarios = {
   float: {
     name: "Float",
     scenarios: {
-      "1.034E\\+20": { name: "Positive", expectedValue: 1.034e20, skipEscape: true },
+      "1.034E+20": { name: "Positive", expectedValue: 1.034e20 },
       "-1.034E-20": { name: "Negative", expectedValue: -1.034e-20 },
     },
   },
@@ -50,10 +51,9 @@ const scenarios = {
     scenarios: {
       "unicode": { name: "Unicode", expectedValue: Constants.MULTIBYTE_BUFFER },
       "begin!*'();:@ &=+$,/?#[]end": "UrlEncoded",
-      "begin!*'\\(\\)\\;\\:\\@\\&\\=\\+\\$\\,end": {
+      "begin!*'();:@&=+$,end": {
         name: "UrlNonEncoded",
         expectedValue: "begin!*'();:@&=+$,end",
-        skipEscape: true,
       },
       "null": "Null",
       "bG9yZW0": "Base64Url",
@@ -74,7 +74,10 @@ const scenarios = {
   datetime: {
     name: "DateTime",
     scenarios: {
-      "2012-01-01T01:01:01Z": { name: "Valid", expectedValue: new Date("2012-01-01T01:01:01Z").toISOString() },
+      "2012-01-01T01:01:01Z": {
+        name: "Valid",
+        expectedValue: new Date("2012-01-01T01:01:01Z").toISOString(),
+      },
     },
   },
   enum: {
@@ -96,17 +99,8 @@ type Scenarios = typeof scenarios;
 interface ScenarioConfig {
   name: string;
   expectedValue: unknown;
-  skipEscape?: boolean;
 }
 
-function encodeSegement(value: string): string {
-  return encodeURIComponent(value)
-    .replace(/!/g, "%21")
-    .replace(/\*/g, "%2A")
-    .replace(/'/g, "%27")
-    .replace(/\(/g, "%28")
-    .replace(/\)/g, "%29");
-}
 app.category("vanilla", () => {
   for (const [type, value] of Object.entries(scenarios)) {
     app.get(`/paths/${type}/empty`, `UrlPaths${value.name}Empty`, (req) => {
@@ -114,23 +108,28 @@ app.category("vanilla", () => {
         status: 200,
       };
     });
-    for (const [scenario, scenarioConfig] of Object.entries<string | ScenarioConfig>(value.scenarios)) {
+
+    for (const scenarioConfig of Object.values<string | ScenarioConfig>(value.scenarios)) {
       const coverageName = `UrlPaths${value.name}${getScenarioName(scenarioConfig)}`;
-      // Convert the string value to a javascript primtive if possible.
-      const scenarioSegment =
-        typeof scenarioConfig === "object" && scenarioConfig.skipEscape ? scenario : encodeSegement(scenario);
-
-      app.get(`/paths/${type}/${scenarioSegment}/:wireParameter`, coverageName, (req) => {
-        const wireParameter = deserializeValue(type as never, req.params.wireParameter);
-        const expectedValue = getScenarioExpectedValue(scenario, scenarioConfig);
-
-        if (wireParameter !== expectedValue) {
-          throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
-        }
-
-        return { status: 200 };
-      });
+      coverageService.register("vanilla", coverageName);
     }
+
+    app.get(`/paths/${type}/:scenarioName/:wireParameter`, undefined, (req) => {
+      const wireParameter = deserializeValue(type as never, req.params.wireParameter);
+      const scenarioName: string = decodeURIComponent(req.params.scenarioName);
+      const scenarioConfig: ScenarioConfig = value.scenarios[scenarioName as keyof typeof value.scenarios];
+      if (scenarioConfig === undefined) {
+        return { status: 404, body: json({ message: `Scenario "${scenarioName}" not found for type ${type}` }) };
+      }
+      const expectedValue = getScenarioExpectedValue(scenarioName, scenarioConfig);
+
+      if (wireParameter !== expectedValue) {
+        throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
+      }
+
+      coverageService.track("vanilla", `UrlPaths${value.name}${getScenarioName(scenarioConfig)}`);
+      return { status: 200 };
+    });
   }
 });
 

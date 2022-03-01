@@ -95,7 +95,7 @@ app.category("azure", () => {
   });
 
   app.put(
-    "/in/properties/with/additionalProperties/string",
+    "/additionalProperties/in/properties/with/additionalProperties/string",
     "additionalPropertiesInPropertiesWithAPTypeString",
     (req) => {
       const expectedBody = {
