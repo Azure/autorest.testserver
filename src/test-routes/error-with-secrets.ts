@@ -31,7 +31,7 @@ app.category("vanilla", () => {
     };
   });
 
-  app.post("/secrets/:create", "RequestWithSecrets", (req) => {
+  app.post("/secrets/[:]create", "RequestWithSecrets", (req) => {
     req.expect.containsHeader("authorization", "SharedKey 1c88a67921784300a462b2cb61da2339");
     req.expect.containsQueryParam("key", "1c88a67921784300a462b2cb61da2339");
     req.expect.bodyEquals({ key: "1c88a67921784300a462b2cb61da2339" });
