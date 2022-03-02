@@ -5,6 +5,7 @@ app.category("vanilla", () => {
   app.get("/secrets/error", "ErrorWithSecrets", (req) => {
     return {
       status: 403,
+      testSuccessful: true,
       headers: {
         // Following headers should be redacted.
         "x-ms-pii": "true",
@@ -38,7 +39,6 @@ app.category("vanilla", () => {
 
     return {
       status: 200,
-      testSuccessful: true,
       headers: {
         // Following headers should be redacted.
         "x-ms-pii": "true",
