@@ -1,0 +1,39 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Autorest Security Aad",
+    "version": "2022-03-01-preview",
+    "description": "Autorest Security Aad REST APIs"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "AADToken": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit"
+    }
+  },
+  "security": [
+    {
+      "AADToken": [
+        "https://security.microsoft.com/.default"
+      ]
+    }
+  ],
+  "paths": {
+    "/securityaad/head": {
+      "head": {
+        "operationId": "securityaad_head",
+        "description": "Operation",
+        "responses": {
+          "200": {
+            "description": "response"
+          }
+        }
+      }
+    }
+  }
+}
