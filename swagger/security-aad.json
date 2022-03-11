@@ -20,9 +20,9 @@
     }
   ],
   "paths": {
-    "/securityaad/head": {
+    "/securityaad": {
       "head": {
-        "operationId": "securityaad_head",
+        "operationId": "head",
         "description": "Operation",
         "responses": {
           "200": {

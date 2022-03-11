@@ -21,9 +21,9 @@
     }
   ],
   "paths": {
-    "/securitykey/head": {
+    "/securitykey": {
       "head": {
-        "operationId": "securitykey_head",
+        "operationId": "head",
         "description": "Operation",
         "responses": {
           "200": {
