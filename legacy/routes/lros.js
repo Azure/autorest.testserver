@@ -147,11 +147,7 @@ var lros = function (coverage, optionalCoverage) {
       "Location":
         getRequestBaseUrl(req) + "/lro/patch/202/retry/asyncAndLocationHeader/operationResults/202/finalResults/202",
     };
-    res
-      .set(headers)
-      .status(202)
-      .type("json")
-      .end();
+    res.set(headers).status(202).type("json").end();
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader/operationResults/202", function (req, res, next) {
