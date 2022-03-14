@@ -151,9 +151,7 @@ var lros = function (coverage, optionalCoverage) {
       .set(headers)
       .status(202)
       .type("json")
-      .end(
-        '{ "properties": { "provisioningState": "Succeeded"}, "id": "/lro/patch/202/retry/asyncAndLocationHeader", "name": "foo" }',
-      );
+      .end();
   });
 
   router.get("/patch/202/retry/asyncAndLocationHeader/operationResults/202", function (req, res, next) {
