@@ -12,6 +12,8 @@ app.category("vanilla", () => {
 
 app.category("vanilla", () => {
   app.head("/securityaad", "SecurityAad", (req) => {
+    req.expect.containsHeader("authorization", "Bearer AADTOKEN");
+
     return {
       status: 200,
     };
