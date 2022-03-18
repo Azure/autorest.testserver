@@ -102,7 +102,7 @@
             "description": "Async operation to update products was accpeted.",
             "headers": {
               "Operation-Location": {
-                "description": "Location to poll for final status: will be set to /customization/lro/{mode}/202",
+                "description": "Location to poll for final status: will be set to /customization/lro/{mode}/operationResults/1",
                 "type": "string"
               }
             },
