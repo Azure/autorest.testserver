@@ -659,7 +659,6 @@
       "required": true,
       "type": "boolean",
       "description": "Constant header property on the client that is a required parameter for operation 'constants_putClientConstants'",
-      "enum": [true]
     },
     "QueryClientConstant": {
       "name": "query-constant",
