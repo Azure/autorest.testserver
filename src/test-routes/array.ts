@@ -127,7 +127,7 @@ app.category("vanilla", () => {
     return { status: 200, body: json(["foo", null, "foo2"]) };
   });
 
-  app.get("/array/prim/string/foo.123.foo2", "getArrayStringWithString", (req) => {
+  app.get("/array/prim/string/foo.123.foo2", "getArrayStringWithNumber", (req) => {
     return { status: 200, body: json(["foo", 123, "foo2"]) };
   });
   //#endregion

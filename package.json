@@ -54,6 +54,7 @@
     "@types/node": "~16.9.6",
     "@types/request-promise-native": "^1.0.18",
     "@types/supertest": "^2.0.10",
+    "@types/underscore": "^1.11.4",
     "@types/xml2js": "^0.4.9",
     "@types/yargs": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
