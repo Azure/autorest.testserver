@@ -1,0 +1,36 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Autorest Security Key",
+    "version": "2022-03-01-preview",
+    "description": "Autorest Security Key REST APIs"
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "securityDefinitions": {
+    "AzureKey": {
+      "type": "apiKey",
+      "description": "key",
+      "name": "security-key",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "AzureKey": []
+    }
+  ],
+  "paths": {
+    "/securitykey": {
+      "head": {
+        "operationId": "head",
+        "description": "Operation",
+        "responses": {
+          "200": {
+            "description": "response"
+          }
+        }
+      }
+    }
+  }
+}

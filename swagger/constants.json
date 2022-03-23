@@ -659,7 +659,10 @@
       "required": true,
       "type": "boolean",
       "description": "Constant header property on the client that is a required parameter for operation 'constants_putClientConstants'",
-      "enum": [true]
+      "enum": [true],
+      "x-ms-enum": {
+        "modelAsString": false
+      }
     },
     "QueryClientConstant": {
       "name": "query-constant",
@@ -668,7 +671,10 @@
       "required": true,
       "type": "integer",
       "description": "Constant query property on the client that is a required parameter for operation 'constants_putClientConstants'",
-      "enum": [100]
+      "enum": [100],
+      "x-ms-enum": {
+        "modelAsString": false
+      }
     },
     "PathClientConstant": {
       "name": "path-constant",
@@ -677,7 +683,10 @@
       "required": true,
       "type": "string",
       "description": "Constant path property on the client that is a required parameter for operation 'constants_putClientConstants'",
-      "enum": ["path"]
+      "enum": ["path"],
+      "x-ms-enum": {
+        "modelAsString": false
+      }
     }
   }
 }
