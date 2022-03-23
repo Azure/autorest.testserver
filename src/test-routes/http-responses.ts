@@ -61,7 +61,7 @@ app.category("vanilla", () => {
       301: ["head", "put", "get"],
       302: ["head", "get", "patch"],
       303: ["post"],
-      307: ["head", "get", "put", "post", "patch", "delete"],
+      307: ["head", "get", "put", "post", "patch", "delete", "options"],
     },
     ({ code, method }) => {
       let location;

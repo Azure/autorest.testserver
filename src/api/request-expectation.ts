@@ -6,6 +6,7 @@ import {
   validateBodyEquals,
   validateBodyEmpty,
   validateBodyNotEmpty,
+  validateCoercedDateBodyEquals,
   validateXMLBodyEquals,
   validateHeader,
   validateQueryParam,
@@ -32,6 +33,15 @@ export class RequestExpectation {
    */
   public bodyEquals(expectedRawBody: unknown | undefined): void {
     validateBodyEquals(this.originalRequest, expectedRawBody);
+  }
+
+  /**
+   * Expect the coerced body of the request to match the given object.
+   * @param rawBody Raw request body.
+   * @throws {ValidationError} if there is an error.
+   */
+  public coercedBodyEquals(expectedRawBody: unknown | undefined): void {
+    validateCoercedDateBodyEquals(this.originalRequest, expectedRawBody);
   }
 
   /**
