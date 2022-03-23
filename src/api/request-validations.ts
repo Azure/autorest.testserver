@@ -35,7 +35,7 @@ export const validateBodyEquals = (request: RequestExt, expectedBody: unknown | 
   }
 };
 
-export const validateCoercedBodyEquals = (request: RequestExt, expectedBody: unknown | undefined): void => {
+export const validateCoercedDateBodyEquals = (request: RequestExt, expectedBody: unknown | undefined): void => {
   if (expectedBody == null) {
     if (!isBodyEmpty(request.rawBody)) {
       throw new ValidationError(BODY_NOT_EQUAL_ERROR_MESSAGE, expectedBody, request.rawBody);
@@ -85,7 +85,7 @@ const coerceDateXml = (xml: string): string => {
 };
 
 const coerceDate = (targetObject: any): any => {
-  var stringRep = JSON.stringify(targetObject);
+  let stringRep = JSON.stringify(targetObject);
   stringRep = stringRep.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d)\.\d{3,7}([Zz]|[+-]00:00)/g, "$1Z");
   return JSON.parse(stringRep);
 };
