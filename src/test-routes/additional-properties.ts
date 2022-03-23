@@ -1,6 +1,4 @@
 import { app, json } from "../api";
-import { coerceDate } from "../utils/body-utils";
-import { isEqual } from "underscore";
 
 app.category("vanilla", () => {
   app.put("/additionalProperties/true", "additionalPropertiesTrue", (req) => {
@@ -13,7 +11,7 @@ app.category("vanilla", () => {
       },
     };
 
-    isEqual(coerceDate(req.body), expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),
@@ -31,7 +29,7 @@ app.category("vanilla", () => {
       },
     };
 
-    isEqual(coerceDate(req.body), expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),
@@ -55,7 +53,7 @@ app.category("vanilla", () => {
       picture: new Buffer([255, 255, 255, 255, 254]).toString("base64"),
     };
 
-    isEqual(coerceDate(req.body), expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);    
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),
