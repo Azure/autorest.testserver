@@ -84,7 +84,7 @@ const coerceDateXml = (xml: string): string => {
   return xml.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d\.\d\d\d)\d{0,4}([Zz]|[+-]00:00)/g, "$1Z");
 };
 
-const coerceDate = (targetObject: any): any => {
+const coerceDate = (targetObject: Record<string, unknown>): Record<string, unknown> => {
   let stringRep = JSON.stringify(targetObject);
   stringRep = stringRep.replace(/(\d\d\d\d-\d\d-\d\d[Tt]\d\d:\d\d:\d\d)\.\d{3,7}([Zz]|[+-]00:00)/g, "$1Z");
   return JSON.parse(stringRep);
