@@ -11,7 +11,7 @@ app.category("vanilla", () => {
       },
     };
 
-    req.expect.bodyEquals(expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),
@@ -29,7 +29,7 @@ app.category("vanilla", () => {
       },
     };
 
-    req.expect.bodyEquals(expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),
@@ -53,7 +53,7 @@ app.category("vanilla", () => {
       picture: new Buffer([255, 255, 255, 255, 254]).toString("base64"),
     };
 
-    req.expect.bodyEquals(expectedBody);
+    req.expect.coercedBodyEquals(expectedBody);
     return {
       status: 200,
       body: json({ ...expectedBody, status: true }),

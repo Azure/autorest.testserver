@@ -5,7 +5,7 @@ import { RequestExt } from "../server";
 import { coverageService } from "../services";
 import { MockRequestHandler, processRequest } from "./request-processor";
 
-export type HttpMethod = "get" | "post" | "put" | "patch" | "delete" | "head";
+export type HttpMethod = "get" | "post" | "put" | "patch" | "delete" | "head" | "options";
 
 export type Category = "vanilla" | "azure" | "dpg" | "optional";
 
@@ -78,6 +78,16 @@ export class MockApiRouter {
    */
   public delete(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("delete", uri, name, func);
+  }
+
+  /**
+   * Register a Options request for the provided uri.
+   * @param uri URI to match.
+   * @param name Name of the scenario(For coverage).
+   * @param func Request handler.
+   */
+  public options(uri: string, name: string | undefined, func: MockRequestHandler): void {
+    this.request("options", uri, name, func);
   }
 
   /**
