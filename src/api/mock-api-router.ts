@@ -86,7 +86,7 @@ export class MockApiRouter {
    * @param name Name of the scenario(For coverage).
    * @param func Request handler.
    */
-   public options(uri: string, name: string | undefined, func: MockRequestHandler): void {
+  public options(uri: string, name: string | undefined, func: MockRequestHandler): void {
     this.request("options", uri, name, func);
   }
 
