@@ -1,6 +1,6 @@
 import { app, ValidationError, json } from "../api";
 import { coverageService } from "../services";
-import { coercedDateString } from "../utils";
+import { coerceDateString } from "../utils";
 const Constants = {
   DEFAULT_SERVER_PORT: "3000",
 
@@ -136,8 +136,8 @@ app.category("vanilla", () => {
       let expectedValue = getScenarioExpectedValue(scenarioName, scenarioConfig);
 
       if (type === "datetime") {
-        wireParameter = coercedDateString(wireParameter);
-        expectedValue = coercedDateString(expectedValue as string);
+        wireParameter = coerceDateString(wireParameter);
+        expectedValue = coerceDateString(expectedValue as string);
       }
       if (wireParameter !== expectedValue) {
         throw new ValidationError("wireParameter path does not match expected value", expectedValue, wireParameter);
