@@ -216,7 +216,7 @@ app.category("vanilla", () => {
   });
 
   app.put("/array/prim/date-time/valid", "putArrayDateTimeValid", (req) => {
-    req.expect.bodyEquals(["2000-12-01T00:00:01.000Z", "1980-01-02T00:11:35.000Z", "1492-10-12T10:15:01.000Z"]);
+    req.expect.coercedBodyEquals(["2000-12-01T00:00:01Z", "1980-01-02T00:11:35Z", "1492-10-12T10:15:01Z"]);
     return { status: 200 };
   });
 
@@ -243,7 +243,7 @@ app.category("vanilla", () => {
     };
   });
 
-  app.put("/array/prim/date-time-rfc1123/valid", "getDateTimeRfc1123Valid", (req) => {
+  app.put("/array/prim/date-time-rfc1123/valid", "putArrayDateTimeRfc1123Valid", (req) => {
     req.expect.bodyEquals([
       "Fri, 01 Dec 2000 00:00:01 GMT",
       "Wed, 02 Jan 1980 00:11:35 GMT",
