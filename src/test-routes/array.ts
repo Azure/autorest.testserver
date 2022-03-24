@@ -211,7 +211,7 @@ app.category("vanilla", () => {
   app.get("/array/prim/date-time/valid", "getArrayDateTimeValid", (req) => {
     return {
       status: 200,
-      body: json(["2000-12-01t00:00:01z", "1980-01-02T01:11:35+01:00", "1492-10-12T02:15:01-08:00"]),
+      body: json(["2000-12-01t00:00:01z", "1980-01-02T00:11:35+01:00", "1492-10-12T10:15:01-08:00"]),
     };
   });
 
