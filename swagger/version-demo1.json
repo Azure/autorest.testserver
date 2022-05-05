@@ -1,0 +1,41 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Widget Service Client",
+        "version": "v1",
+        "description": "Service that demos multiple versions in a single CADL description"
+    },
+    "tags": [],
+    "paths": {
+        "/op1": {
+            "get": {
+                "operationId": "WidgetService_op1",
+                "description": "Method existing in both API versions.",
+                "parameters": [
+                    {
+                        "name": "param1",
+                        "in": "query",
+                        "required": true,
+                        "description": "String input parameter. In both versions",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {}
+}

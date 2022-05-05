@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Widget Service Client",
+        "version": "v2",
+        "description": "Service that demos multiple versions in a single CADL description"
+    },
+    "tags": [],
+    "paths": {
+        "/op1": {
+            "get": {
+                "operationId": "WidgetService_op1",
+                "description": "Method existing in both API versions.",
+                "parameters": [
+                    {
+                        "name": "param1",
+                        "in": "query",
+                        "required": true,
+                        "description": "String input parameter. In both versions",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "param2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Input parameter added in second API version.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/op2": {
+            "get": {
+                "operationId": "WidgetService_op2",
+                "description": "Method added in second API version.",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {}
+}
