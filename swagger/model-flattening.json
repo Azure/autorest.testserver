@@ -510,7 +510,7 @@
           "description": "Capacity of product. For example, 4 people.",
           "enum": ["Large"],
           "x-ms-client-name": "capacity",
-          "x-ms-enum": {"modelAsString": false}
+          "x-ms-enum": { "modelAsString": false }
         },
         "max_product_image": {
           "x-ms-client-flatten": true,
