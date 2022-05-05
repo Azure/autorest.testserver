@@ -137,7 +137,7 @@ app.category("vanilla", () => {
     "Retry",
     {
       408: ["head"],
-      502: ["get"],
+      502: ["get", "options"],
       500: ["put", "patch"],
       503: ["post", "delete"],
       504: ["put", "patch"],
@@ -315,7 +315,7 @@ app.category("vanilla", () => {
 
   //#region Endpoint with response for 202, 204, 400 returning valid payloads
   app.get("/http/payloads/default/a/response/200/valid", "ResponsesScenarioF200DefaultModel", (req) => {
-    return { status: 200, body: json({ property: "value" }) };
+    return { status: 200, body: json({ statusCode: "200" }) };
   });
 
   app.get("/http/payloads/default/a/response/200/none", "ResponsesScenarioF200DefaultNone", (req) => {
@@ -354,7 +354,7 @@ app.category("vanilla", () => {
   });
 
   app.get("/http/payloads/200/a/response/200/valid", "ResponsesScenarioH200MatchingModel", (req) => {
-    return { status: 200 };
+    return { status: 200, body: json({ statusCode: "200" }) };
   });
 
   app.get("/http/payloads/200/a/response/200/invalid", "ResponsesScenarioH200MatchingInvalid", (req) => {
