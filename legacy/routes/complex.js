@@ -10,6 +10,9 @@ var complex = function (coverage) {
    */
   router.put("/basic/:scenario", function (req, res, next) {
     if (req.params.scenario === "valid") {
+      if (req.query["api-version"] !== "2016-02-29") {
+        utils.send400(res, next, 'api version does not match 2016-02-29');
+      }
       if (_.isEqual(req.body, { id: 2, name: "abc", color: "Magenta" })) {
         coverage["putComplexBasicValid"]++;
         res.status(200).end();
