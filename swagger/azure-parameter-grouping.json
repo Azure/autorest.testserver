@@ -233,6 +233,32 @@
           }
         }
       }
+    },
+    "/parameterGrouping/groupWithConstant": {
+      "put": {
+        "operationId": "parameterGrouping_groupWithConstant",
+        "description": "Parameter group with a constant. Don't pass in anything, should just have constant value and None for the optional part of the parameter grouping.",
+        "tags": ["File and Directory Operations"],
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupedConstant"
+          },
+          {
+            "$ref": "#/parameters/GroupedParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -247,6 +273,35 @@
           "type": "string"
         }
       }
+    }
+  },
+  "parameters": {
+    "GroupedConstant": {
+      "name": "groupedConstant",
+      "type": "string",
+      "in": "header",
+      "required": false,
+      "enum": ["AES256"],
+      "x-ms-enum": {
+        "name": "EncryptionAlgorithmType",
+        "modelAsString": false
+      },
+      "x-ms-parameter-location": "method",
+      "x-ms-parameter-grouping": {
+        "name": "grouper"
+      },
+      "description": "A grouped parameter that is a constant."
+    },
+    "GroupedParameter": {
+      "name": "groupedParameter",
+      "type": "string",
+      "in": "header",
+      "required": false,
+      "x-ms-parameter-location": "method",
+      "x-ms-parameter-grouping": {
+        "name": "grouper"
+      },
+      "description": "Optional parameter part of a parameter grouping."
     }
   }
 }
