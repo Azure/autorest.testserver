@@ -12,4 +12,11 @@ app.category("azure", () => {
       status: 200,
     };
   });
+  app.put("/parameterGrouping/groupWithConstant", "PutParameterGroupingConstant", (req) => {
+    req.expect.containsHeader("groupedconstant", "foo");
+    req.expect.containsHeader("groupedparameter", "bar");
+    return {
+      status: 200,
+    };
+  });
 });
