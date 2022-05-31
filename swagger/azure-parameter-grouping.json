@@ -237,7 +237,7 @@
     "/parameterGrouping/groupWithConstant": {
       "put": {
         "operationId": "parameterGrouping_groupWithConstant",
-        "description": "Parameter group with a constant. Don't pass in anything, should just have constant value and None for the optional part of the parameter grouping.",
+        "description": "Parameter group with a constant. Pass in 'foo' for groupedConstant and 'bar' for groupedParameter.",
         "tags": ["File and Directory Operations"],
         "parameters": [
           {
@@ -281,7 +281,7 @@
       "type": "string",
       "in": "header",
       "required": false,
-      "enum": ["AES256"],
+      "enum": ["foo"],
       "x-ms-enum": {
         "name": "EncryptionAlgorithmType",
         "modelAsString": false
