@@ -216,6 +216,41 @@
         }
       }
     },
+    "/paging/maxPageSize": {
+      "get": {
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink",
+          "itemName": "values"
+        },
+        "operationId": "Paging_pageWithMaxPageSize",
+        "description": "Paging with max page size. We don't want to ",
+        "parameters": [
+          {
+            "name": "$maxpagesize",
+            "in": "query",
+            "description": "Max page size query param. Don't send",
+            "required": false,
+            "type": "string",
+            "enum": ["5"],
+            "x-ms-enum": {
+              "name": "MaxPageSizeType",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/multiple/nextOperationWithQueryParams": {
       "get": {
         "x-ms-pageable": {
