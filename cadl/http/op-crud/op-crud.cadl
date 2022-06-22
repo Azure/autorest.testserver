@@ -1,0 +1,8 @@
+import "@cadl-lang/rest";
+import "@cadl-lang/openapi3";
+
+@serviceTitle("Crud Operations Service")
+namespace OpCrud;
+
+using Cadl.Http;
+
