@@ -78,3 +78,20 @@ app.category("azure", () => {
     }
   });
 });
+
+app.category("optional", () => {
+  app.get("/paging/maxPageSize", "PagingDontSendMaxPageSize", (req) => {
+    if (req.query["$maxpagesize"] !== undefined) {
+      return {
+        status: 400,
+        body: json("Should not send maxpagesize."),
+      };
+    }
+    return {
+      status: 200,
+      body: json({
+        values: [],
+      }),
+    };
+  });
+});
