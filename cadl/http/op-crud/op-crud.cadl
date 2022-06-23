@@ -2,7 +2,21 @@ import "@cadl-lang/rest";
 import "@cadl-lang/openapi3";
 
 @serviceTitle("Crud Operations Service")
-namespace OpCrud;
+namespace CrudOps;
 
 using Cadl.Http;
 
+model Product {
+    id: int32;
+}
+
+@error
+model Error {
+    code: int32;
+    message: string;
+}
+
+@route("/products")
+namespace Products {
+    op get(@path id: int32): OkResponse<Product> | Error;
+}

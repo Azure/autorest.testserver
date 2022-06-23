@@ -293,3 +293,4 @@ __files/
 
 dist/
 coverage/
+cadl/.vscode/settings.json
