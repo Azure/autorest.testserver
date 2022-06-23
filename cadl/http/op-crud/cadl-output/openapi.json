@@ -76,5 +76,12 @@
         ]
       }
     }
-  }
+  },
+  "servers": [
+    {
+      "url": "https://example.com",
+      "description": "Main server",
+      "variables": {}
+    }
+  ]
 }

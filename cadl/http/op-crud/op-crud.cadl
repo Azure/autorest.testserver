@@ -1,7 +1,11 @@
 import "@cadl-lang/rest";
 import "@cadl-lang/openapi3";
+import "@azure-tools/cadl-azure-core";
+import "@azure-tools/cadl-autorest";
 
 @serviceTitle("Crud Operations Service")
+//@server("{Endpoint}", "Crud Service", {Endpoint: string})
+@server("https://example.com", "Main server")
 namespace CrudOps;
 
 using Cadl.Http;
