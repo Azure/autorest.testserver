@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Crud Operations Service",
-    "version": "0000-00-00",
+    "version": "2022-06-20",
     "x-cadl-generated": [
       {
         "emitter": "@azure-tools/cadl-autorest"

@@ -3,7 +3,8 @@ import "@azure-tools/cadl-azure-core";
 import "@azure-tools/cadl-autorest";
 
 @serviceTitle("Crud Operations Service")
-@server("{Endpoint}", "Crud Service", {Endpoint: string})
+@serviceVersion("2022-06-20")
+@server("{Endpoint}", "Crud Service", {Endpoint: string}) // Use `Uri` when available: https://github.com/microsoft/cadl/issues/654
 namespace CrudOps;
 
 using Cadl.Http;
