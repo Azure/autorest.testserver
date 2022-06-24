@@ -1,0 +1,26 @@
+import "@cadl-lang/rest";
+import "@azure-tools/cadl-azure-core";
+import "@azure-tools/cadl-autorest";
+
+@serviceTitle("Crud Operations Service")
+@serviceVersion("2022-06-20")
+@server("{Endpoint}", "Crud Service", {Endpoint: string}) // Use `Uri` when available: https://github.com/microsoft/cadl/issues/654
+namespace CrudOps;
+
+using Cadl.Http;
+using Cadl.Rest;
+using Cadl.Rest.Resource;
+
+model Product {
+    @key
+    id: int32;
+}
+
+@error
+model Error {
+    code: int32;
+    message: string;
+}
+
+interface Products extends ResourceOperations<Product, Error> {
+}
