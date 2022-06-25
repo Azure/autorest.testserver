@@ -73,4 +73,15 @@ namespace WebPubSubService {
         @statusCode statusCode: 404;
     } |
      ErrorDetail;
+
+    @route("/:send")
+    // TODO: Add consumes - need contentType param
+    //
+    // TODO: Add tag
+    // TODO: Add summary doc
+    @post
+    op sendToAll(@query excluded?: string[], @body message: bytes): {
+        @statusCode statusCode: 202;
+    } |
+     ErrorDetail;
 }
