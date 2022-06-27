@@ -1,31 +1,32 @@
+// @ts-check
 var express = require("express");
 var router = express.Router();
-var Busboy = require("busboy");
+var busboy = require("busboy");
 
 var formData = function (coverage) {
   coverage["FormdataStreamUploadFile"] = 0;
   router.post("/stream/uploadfile", function (req, res, next) {
-    var busboy = new Busboy({ headers: req.headers });
-    busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
+    var bb = busboy({ headers: req.headers });
+    bb.on("file", function (fieldname, file, filename, encoding, mimetype) {
       console.log(
         "File [" + fieldname + "]: filename: " + filename + ", encoding: " + encoding + ", mimetype: " + mimetype,
       );
       file.pipe(res);
       coverage["FormdataStreamUploadFile"]++;
     });
-    busboy.on("field", function (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+    bb.on("field", function (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
       console.log("Field [" + fieldname + "]: value: " + val);
       if (fieldname === "fileContent") {
         coverage["FormdataStreamUploadFile"]++;
         res.send(val);
       }
     });
-    busboy.on("finish", function () {
+    bb.on("close", function () {
       console.log("Done parsing form!");
       res.send();
     });
 
-    req.pipe(busboy);
+    req.pipe(bb);
   });
 };
 
