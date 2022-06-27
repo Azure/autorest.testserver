@@ -30,11 +30,19 @@
   "consumes": [
     "application/json"
   ],
-  "tags": [],
+  "tags": [
+    {
+      "name": "webpubsub"
+    }
+  ],
   "paths": {
     "/api/hubs/{hub}/:send": {
       "post": {
+        "tags": [
+          "webpubsub"
+        ],
         "operationId": "WebPubSubService_sendToAll",
+        "summary": "Broadcast content inside request body to all the connected client connections.",
         "parameters": [
           {
             "name": "hub",
@@ -76,7 +84,11 @@
     },
     "/api/hubs/{hub}/groups/{group}/connections/{connectionId}": {
       "put": {
+        "tags": [
+          "webpubsub"
+        ],
         "operationId": "WebPubSubService_addConnectionToGroup",
+        "summary": "Add a connection to the target group.",
         "parameters": [
           {
             "name": "hub",
@@ -110,7 +122,11 @@
         }
       },
       "delete": {
+        "tags": [
+          "webpubsub"
+        ],
         "operationId": "WebPubSubService_removeConnectionFromGroup",
+        "summary": "Remove a connection from the target group.",
         "parameters": [
           {
             "name": "hub",
@@ -146,7 +162,11 @@
     },
     "/api/hubs/{hub}/permissions/{permission}/connections/{connectionId}": {
       "head": {
+        "tags": [
+          "webpubsub"
+        ],
         "operationId": "WebPubSubService_checkPermission",
+        "summary": "Check if a connection has permission to the specified action.",
         "parameters": [
           {
             "name": "hub",
@@ -191,7 +211,11 @@
     },
     "/api/hubs/{hub}/users/{userId}/groups/{group}": {
       "put": {
+        "tags": [
+          "webpubsub"
+        ],
         "operationId": "WebPubSubService_addUserToGroup",
+        "summary": "Add a user to the target group.",
         "parameters": [
           {
             "name": "hub",
@@ -226,6 +250,7 @@
       },
       "delete": {
         "operationId": "WebPubSubService_removeUserFromGroup",
+        "summary": "Remove a user from the target group.",
         "parameters": [
           {
             "name": "hub",

@@ -5,9 +5,11 @@ import "@azure-tools/cadl-autorest";
 @serviceTitle("WebPubSub Service")
 @serviceVersion("2021-10-01")
 @server("{Endpoint}", "WebPubSub Service", {Endpoint: string}) // Use `Uri` when available: https://github.com/microsoft/cadl/issues/654
+@produces("text/plain", "application/json", "text/json")
 namespace WebPubSubService;
 
 using Cadl.Http;
+using Cadl.Rest;
 
 @error
 model ErrorDetail {
@@ -25,34 +27,34 @@ model ErrorDetail {
 namespace WebPubSubService {
 
     @route("/groups/{group}/connections/{connectionId}")
+    @tag("webpubsub")
+    @summary("Add a connection to the target group.")
     // TODO: How to take hub here?  with regexp pattern
-    //       For making hub a client
     // TODO: How to take api-version as query parameter?  SDK should handle this
-    // TODO: How to say this produces:
-    //    "text/plain",
-    //      "application/json",
-    //      "text/json"
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
     op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string): {
-        @statusCode statusCode: 200;  // TODO: use Untemplated OkResponse
+        // TODO: use Untemplated OkResponse
+        @statusCode statusCode: 200;
     } | ErrorDetail;
 
-    @route("/groups/{group}/connections/{connectionId}")  // TODO: is there a way to not duplicate these?
+    // TODO: is there a way to not duplicate routes, when multiple operations apply to these? (Without introducing namespace/client boundaries?)
+    @route("/groups/{group}/connections/{connectionId}")
+    @tag("webpubsub")
+    @summary( "Remove a connection from the target group.")
     @delete
     op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string): {
-        @statusCode statusCode: 204;  // TODO: Use DeleteResponse
+        // TODO: Use DeleteResponse
+        @statusCode statusCode: 204;
     } | ErrorDetail;
 
 
     @route("/users/{userId}/groups/{group}")
+    @tag("webpubsub")
+    @summary("Add a user to the target group.")
     // TODO: How to take hub here?  with regexp pattern
     // TODO: How to take api-version as query parameter?  SDK should handle this
-    // TODO: How to say this produces:
-    //    "text/plain",
-    //      "application/json",
-    //      "text/json"
     @put
     op addUserToGroup(@path hub: string, @path group: string, @path userId: string): {
         @statusCode statusCode: 200;
@@ -60,13 +62,17 @@ namespace WebPubSubService {
 
     @route("/users/{userId}/groups/{group}")
     @delete
+    @summary("Remove a user from the target group.")
     op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string): {
         @statusCode statusCode: 200;
     } | ErrorDetail;
 
     @route("/permissions/{permission}/connections/{connectionId}")
+    @tag("webpubsub")
+    @summary("Check if a connection has permission to the specified action.")
     // TODO: How to do an enum (and have it be a string in DPG client)
     // TODO: Unclear why not generating as Response<bool> from DPG generator
+    //    Answer: this is manually added in .NET customization layer at present.
     @head
     op checkPermission(@path hub: string, @path permission: string, @path connectionId: string, @query targetName?: string): {
         @statusCode statusCode: 200;
@@ -77,9 +83,15 @@ namespace WebPubSubService {
      ErrorDetail;
 
     @route("/:send")
+    @tag("webpubsub")
+    @summary("Broadcast content inside request body to all the connected client connections.")
     // TODO: Add consumes - need contentType param
+    // It is not currently possible in Cadl to specify @consumes at the operation level.
+    // Tracking with https://github.com/microsoft/cadl/issues/665
+    //     @consumes("application/octet-stream",
+    //      "text/plain",
+    //      "application/json")
     //
-    // TODO: Add tag
     // TODO: Add summary doc
     @post
     op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes): {
