@@ -1,11 +1,11 @@
 {
-    "parameters": {
-        "mode": "uat",
-        "input": {
-            "hello": "test"
-        }
-    },
-    "responses": {
-        "200": {}
+  "parameters": {
+    "mode": "uat",
+    "input": {
+      "hello": "test"
     }
+  },
+  "responses": {
+    "200": {}
+  }
 }

@@ -1,8 +1,8 @@
 {
-    "parameters": {
-        "mode": "uat"
-    },
-    "responses": {
-        "200": {}
-    }
+  "parameters": {
+    "mode": "uat"
+  },
+  "responses": {
+    "200": {}
+  }
 }

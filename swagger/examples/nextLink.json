@@ -1,8 +1,8 @@
 {
-    "parameters": {
-        "mode": "prod"
-    },
-    "responses": {
-        "200": {}
-    }
+  "parameters": {
+    "mode": "prod"
+  },
+  "responses": {
+    "200": {}
+  }
 }
