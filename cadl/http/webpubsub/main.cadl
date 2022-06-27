@@ -20,11 +20,13 @@ model ErrorDetail {
 }
 
 // TODO: could we specify {hub} at this level?
-@route("/api/hubs")
+// This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
+@route("/api/hubs/{hub}")
 namespace WebPubSubService {
 
     @route("/groups/{group}/connections/{connectionId}")
     // TODO: How to take hub here?  with regexp pattern
+    //       For making hub a client
     // TODO: How to take api-version as query parameter?  SDK should handle this
     // TODO: How to say this produces:
     //    "text/plain",
@@ -33,13 +35,13 @@ namespace WebPubSubService {
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(@path group: string, @path connectionId: string): {
+    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string): {
         @statusCode statusCode: 200;  // TODO: use Untemplated OkResponse
     } | ErrorDetail;
 
     @route("/groups/{group}/connections/{connectionId}")  // TODO: is there a way to not duplicate these?
     @delete
-    op removeConnectionFromGroup(@path group: string,@path connectionId: string): {
+    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string): {
         @statusCode statusCode: 204;  // TODO: Use DeleteResponse
     } | ErrorDetail;
 
@@ -52,13 +54,13 @@ namespace WebPubSubService {
     //      "application/json",
     //      "text/json"
     @put
-    op addUserToGroup(@path group: string, @path userId: string): {
+    op addUserToGroup(@path hub: string, @path group: string, @path userId: string): {
         @statusCode statusCode: 200;
     } | ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
-    op removeUserFromGroup(@path group: string, @path userId: string): {
+    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string): {
         @statusCode statusCode: 200;
     } | ErrorDetail;
 
@@ -66,7 +68,7 @@ namespace WebPubSubService {
     // TODO: How to do an enum (and have it be a string in DPG client)
     // TODO: Unclear why not generating as Response<bool> from DPG generator
     @head
-    op checkPermission(@path permission: string, @path connectionId: string, @query targetName?: string): {
+    op checkPermission(@path hub: string, @path permission: string, @path connectionId: string, @query targetName?: string): {
         @statusCode statusCode: 200;
     } |
     {
@@ -80,7 +82,7 @@ namespace WebPubSubService {
     // TODO: Add tag
     // TODO: Add summary doc
     @post
-    op sendToAll(@query excluded?: string[], @body message: bytes): {
+    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes): {
         @statusCode statusCode: 202;
     } |
      ErrorDetail;

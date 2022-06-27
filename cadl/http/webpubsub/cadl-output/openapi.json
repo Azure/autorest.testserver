@@ -32,10 +32,16 @@
   ],
   "tags": [],
   "paths": {
-    "/api/hubs/:send": {
+    "/api/hubs/{hub}/:send": {
       "post": {
         "operationId": "WebPubSubService_sendToAll",
         "parameters": [
+          {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "excluded",
             "in": "query",
@@ -68,10 +74,16 @@
         }
       }
     },
-    "/api/hubs/groups/{group}/connections/{connectionId}": {
+    "/api/hubs/{hub}/groups/{group}/connections/{connectionId}": {
       "put": {
         "operationId": "WebPubSubService_addConnectionToGroup",
         "parameters": [
+          {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "group",
             "in": "path",
@@ -101,6 +113,12 @@
         "operationId": "WebPubSubService_removeConnectionFromGroup",
         "parameters": [
           {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "group",
             "in": "path",
             "required": true,
@@ -126,10 +144,16 @@
         }
       }
     },
-    "/api/hubs/permissions/{permission}/connections/{connectionId}": {
+    "/api/hubs/{hub}/permissions/{permission}/connections/{connectionId}": {
       "head": {
         "operationId": "WebPubSubService_checkPermission",
         "parameters": [
+          {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "permission",
             "in": "path",
@@ -165,10 +189,16 @@
         }
       }
     },
-    "/api/hubs/users/{userId}/groups/{group}": {
+    "/api/hubs/{hub}/users/{userId}/groups/{group}": {
       "put": {
         "operationId": "WebPubSubService_addUserToGroup",
         "parameters": [
+          {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "group",
             "in": "path",
@@ -197,6 +227,12 @@
       "delete": {
         "operationId": "WebPubSubService_removeUserFromGroup",
         "parameters": [
+          {
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "group",
             "in": "path",
