@@ -18,6 +18,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_getModel": {
+            "$ref": "./examples/getModel.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns {'received': <mode>}",
@@ -44,6 +49,11 @@
             "required": true
           }
         ],
+        "x-ms-examples": {
+          "dpg_postModel": {
+            "$ref": "./examples/postModel.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns {'received': <mode>}",
@@ -67,6 +77,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_nextLink": {
+            "$ref": "./examples/nextLink.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns two pages of {'received': <mode>}",
@@ -87,6 +102,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_lro": {
+            "$ref": "./examples/lro.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Initial response with ProvisioningState='Succeeded'",
