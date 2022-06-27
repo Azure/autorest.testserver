@@ -6,8 +6,12 @@
     "description": "DPG Swagger that tests our ability to grow up."
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/customization/model/{mode}": {
       "get": {
@@ -18,6 +22,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_getModel": {
+            "$ref": "./examples/getModel.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns {'received': <mode>}",
@@ -44,6 +53,11 @@
             "required": true
           }
         ],
+        "x-ms-examples": {
+          "dpg_postModel": {
+            "$ref": "./examples/postModel.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns {'received': <mode>}",
@@ -67,6 +81,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_nextLink": {
+            "$ref": "./examples/nextLink.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Returns two pages of {'received': <mode>}",
@@ -87,6 +106,11 @@
             "$ref": "#/parameters/mode"
           }
         ],
+        "x-ms-examples": {
+          "dpg_lro": {
+            "$ref": "./examples/lro.json"
+          }
+        },
         "responses": {
           "200": {
             "description": "Initial response with ProvisioningState='Succeeded'",
@@ -126,17 +150,24 @@
     },
     "Product": {
       "type": "object",
-      "required": ["received"],
+      "required": [
+        "received"
+      ],
       "properties": {
         "received": {
           "type": "string",
-          "enum": ["raw", "model"]
+          "enum": [
+            "raw",
+            "model"
+          ]
         }
       }
     },
     "Input": {
       "type": "object",
-      "required": ["hello"],
+      "required": [
+        "hello"
+      ],
       "properties": {
         "hello": {
           "type": "string"
@@ -145,7 +176,9 @@
     },
     "LROProduct": {
       "type": "object",
-      "required": ["provisioningState"],
+      "required": [
+        "provisioningState"
+      ],
       "allOf": [
         {
           "$ref": "#/definitions/Product"
