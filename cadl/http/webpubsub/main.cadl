@@ -4,12 +4,20 @@ import "@azure-tools/cadl-autorest";
 
 @serviceTitle("WebPubSub Service")
 @serviceVersion("2021-10-01")
-@server("{Endpoint}", "WebPubSub Service", {Endpoint: string}) // Use `Uri` when available: https://github.com/microsoft/cadl/issues/654
+// TODO: Use `Uri` type when available: https://github.com/microsoft/cadl/issues/654
+// TODO: Emit "format": "url" so .NET client will generate Uri type in client constructor: https://github.com/microsoft/cadl/issues/659
+@server("{Endpoint}", "WebPubSub Service", {Endpoint: string})
 @produces("text/plain", "application/json", "text/json")
 namespace WebPubSubService;
 
 using Cadl.Http;
 using Cadl.Rest;
+
+enum WebPubSubPermission
+{
+    sendToGroup,
+    joinLeaveGroup
+}
 
 @error
 model ErrorDetail {
@@ -18,11 +26,10 @@ model ErrorDetail {
     target: string;
     // TODO: details
     // TODO: inner
-
 }
 
-// TODO: could we specify {hub} at this level?
-// This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
+// TODO: could we specify {hub} at this level, to make it a parameter on the client constructor?
+//   This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
 @route("/api/hubs/{hub}")
 namespace WebPubSubService {
 
@@ -30,72 +37,61 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary("Add a connection to the target group.")
     // TODO: How to take hub here?  with regexp pattern
-    // TODO: How to take api-version as query parameter?  SDK should handle this
+    // TODO: How to take api-version as query parameter?  SDK should handle this?
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string): {
-        // TODO: use Untemplated OkResponse
-        @statusCode statusCode: 200;
-    } | ErrorDetail;
+    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string):
+        // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
+        Response<200> |
+        ErrorDetail;
 
     // TODO: is there a way to not duplicate routes, when multiple operations apply to these? (Without introducing namespace/client boundaries?)
     @route("/groups/{group}/connections/{connectionId}")
     @tag("webpubsub")
     @summary( "Remove a connection from the target group.")
     @delete
-    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string): {
-        // TODO: Use DeleteResponse
-        @statusCode statusCode: 204;
-    } | ErrorDetail;
+    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string):
+        NoContentResponse |
+        ErrorDetail;
 
 
     @route("/users/{userId}/groups/{group}")
     @tag("webpubsub")
     @summary("Add a user to the target group.")
-    // TODO: How to take hub here?  with regexp pattern
-    // TODO: How to take api-version as query parameter?  SDK should handle this
     @put
-    op addUserToGroup(@path hub: string, @path group: string, @path userId: string): {
-        @statusCode statusCode: 200;
-    } | ErrorDetail;
+    // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
+    op addUserToGroup(@path hub: string, @path group: string, @path userId: string):
+        Response<200> |
+        ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
     @summary("Remove a user from the target group.")
-    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string): {
-        @statusCode statusCode: 200;
-    } | ErrorDetail;
+    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string):
+        Response<200> |
+        ErrorDetail;
 
     @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
     @summary("Check if a connection has permission to the specified action.")
     // TODO: How to do an enum (and have it be a string in DPG client)
-    // TODO: Unclear why not generating as Response<bool> from DPG generator
-    //    Answer: this is manually added in .NET customization layer at present.
+    // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
     @head
-    op checkPermission(@path hub: string, @path permission: string, @path connectionId: string, @query targetName?: string): {
-        @statusCode statusCode: 200;
-    } |
-    {
-        @statusCode statusCode: 404;
-    } |
-     ErrorDetail;
+    op checkPermission(@path hub: string, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string):
+        Response<200> |
+        NotFoundResponse |
+        ErrorDetail;
 
     @route("/:send")
     @tag("webpubsub")
     @summary("Broadcast content inside request body to all the connected client connections.")
     // TODO: Add consumes - need contentType param
-    // It is not currently possible in Cadl to specify @consumes at the operation level.
-    // Tracking with https://github.com/microsoft/cadl/issues/665
-    //     @consumes("application/octet-stream",
-    //      "text/plain",
-    //      "application/json")
-    //
-    // TODO: Add summary doc
+    //   It is not currently possible in Cadl to specify @consumes at the operation level.
+    //   Tracking with https://github.com/microsoft/cadl/issues/665
+    // @consumes("application/octet-stream", "text/plain", "application/json")
     @post
-    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes): {
-        @statusCode statusCode: 202;
-    } |
-     ErrorDetail;
+    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes):
+        AcceptedResponse |
+        ErrorDetail;
 }
