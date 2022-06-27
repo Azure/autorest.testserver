@@ -37,11 +37,10 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary("Add a connection to the target group.")
     // TODO: How to take hub here?  with regexp pattern
-    // TODO: How to take api-version as query parameter?  SDK should handle this?
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string):
+    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string, @query "api-version": string):
         // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
         Response<200> |
         ErrorDetail;
@@ -51,7 +50,7 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary( "Remove a connection from the target group.")
     @delete
-    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string):
+    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string, @query "api-version": string):
         NoContentResponse |
         ErrorDetail;
 
@@ -61,24 +60,23 @@ namespace WebPubSubService {
     @summary("Add a user to the target group.")
     @put
     // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
-    op addUserToGroup(@path hub: string, @path group: string, @path userId: string):
+    op addUserToGroup(@path hub: string, @path group: string, @path userId: string, @query "api-version": string):
         Response<200> |
         ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
     @summary("Remove a user from the target group.")
-    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string):
+    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string, @query "api-version": string):
         Response<200> |
         ErrorDetail;
 
     @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
     @summary("Check if a connection has permission to the specified action.")
-    // TODO: How to do an enum (and have it be a string in DPG client)
     // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
     @head
-    op checkPermission(@path hub: string, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string):
+    op checkPermission(@path hub: string, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string, @query "api-version": string):
         Response<200> |
         NotFoundResponse |
         ErrorDetail;
@@ -91,7 +89,7 @@ namespace WebPubSubService {
     //   Tracking with https://github.com/microsoft/cadl/issues/665
     // @consumes("application/octet-stream", "text/plain", "application/json")
     @post
-    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes):
+    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes, @query "api-version": string):
         AcceptedResponse |
         ErrorDetail;
 }
