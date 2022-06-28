@@ -42,9 +42,7 @@ model ErrorDetail {
 
 model CommonParams
 {
-    // TODO: Why does `summary` cause a schema violation in .NET DPG generator?
-    //@summary("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
-
+    @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
     // Note: assuming this is a server-side validation that is ignored by client.
     @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
     // TODO: How can we make `hub` a parameter on the client constructor?
@@ -52,15 +50,15 @@ model CommonParams
     // @extension("x-ms-parameter-location", "client")
     @path hub: string,
 
-    // TODO: by grouping this with `hub`, we make the assumption that the order of
+    // Note: by grouping this with `hub`, we make the assumption that the order of
     //  `api-version` in the query parameters doesn't matter.  I've confirmed this with the API stewardship board.
-    //@summary("The version of the REST APIs.")
+    @doc("The version of the REST APIs.")
     @query "api-version": string
 }
 
 model ConnectionId
 {
-    //@summary("Target connection Id")
+    @doc("Target connection Id")
     // Note: assuming this is a server-side validation that is ignored by client.
     @minLength(1)
     @path connectionId: string
@@ -68,7 +66,7 @@ model ConnectionId
 
 model GroupId
 {
-    //@summary("Target group name, which length should be greater than 0 and less than 1025.")
+    @doc("Target group name, which length should be greater than 0 and less than 1025.")
     // Note: assuming these are server-side validations that are ignored by client.
     @maxLength(1024)
     @minLength(1)
