@@ -2,6 +2,13 @@ import "@cadl-lang/rest";
 import "@azure-tools/cadl-azure-core";
 import "@azure-tools/cadl-autorest";
 
+using Cadl.Http;
+using Cadl.Rest;
+
+//
+// ** Service description **
+//
+
 @serviceTitle("WebPubSub Service")
 @serviceVersion("2021-10-01")
 // TODO: Use `Uri` type when available: https://github.com/microsoft/cadl/issues/654
@@ -10,8 +17,9 @@ import "@azure-tools/cadl-autorest";
 @produces("text/plain", "application/json", "text/json")
 namespace WebPubSubService;
 
-using Cadl.Http;
-using Cadl.Rest;
+//
+// ** Model definitions
+//
 
 enum WebPubSubPermission
 {
@@ -19,8 +27,22 @@ enum WebPubSubPermission
     joinLeaveGroup
 }
 
+@error
+model ErrorDetail {
+    code: string;
+    message: string;
+    target: string;
+    // TODO: details
+    // TODO: inner
+}
+
+//
+// ** Input parameter definitions **
+//
+
 model CommonParams
 {
+    // TODO: Why does `summary` cause a schema violation in .NET DPG generator?
     //@summary("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
     @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
     // TODO: How can we make `hub` a parameter on the client constructor?
@@ -28,6 +50,8 @@ model CommonParams
     // @extension("x-ms-parameter-location", "client")
     @path hub: string,
 
+    // TODO: by grouping this with `hub`, we make the assumption that the order of
+    //  `api-version` in the query parameters doesn't matter.  I've confirmed this with the API stewardship board.
     //@summary("The version of the REST APIs.")
     @query "api-version": string
 }
@@ -67,22 +91,16 @@ model UserParams
     @path userId: string
 }
 
-@error
-model ErrorDetail {
-    code: string;
-    message: string;
-    target: string;
-    // TODO: details
-    // TODO: inner
-}
-
 @route("/api/hubs/{hub}")
 namespace WebPubSubService {
+
+    //
+    // ** Group routes **
+    //
 
     @route("/groups/{group}/connections/{connectionId}")
     @tag("webpubsub")
     @summary("Add a connection to the target group.")
-    // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
     op addConnectionToGroup(...GroupParams, ...ConnectionId):
@@ -99,6 +117,9 @@ namespace WebPubSubService {
         NoContentResponse |
         ErrorDetail;
 
+    //
+    // ** User routes **
+    //
 
     @route("/users/{userId}/groups/{group}")
     @tag("webpubsub")
@@ -116,6 +137,10 @@ namespace WebPubSubService {
         Response<200> |
         ErrorDetail;
 
+    //
+    // ** Permission routes **
+    //
+
     @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
     @summary("Check if a connection has permission to the specified action.")
@@ -125,6 +150,10 @@ namespace WebPubSubService {
         Response<200> |
         NotFoundResponse |
         ErrorDetail;
+
+    //
+    // ** Action routes **
+    //
 
     @route("/:send")
     @tag("webpubsub")
