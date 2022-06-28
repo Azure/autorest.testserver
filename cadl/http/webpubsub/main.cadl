@@ -40,59 +40,6 @@ model ErrorDetail {
 // ** Input parameter definitions **
 //
 
-model CommonParams
-{
-    @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
-    // Note: assuming this is a server-side validation that is ignored by client.
-    @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
-    // TODO: How can we make `hub` a parameter on the client constructor?
-    //   This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
-    // @extension("x-ms-parameter-location", "client")
-    @path hub: string,
-
-    // Note: by grouping this with `hub`, we make the assumption that the order of
-    //  `api-version` in the query parameters doesn't matter.  I've confirmed this with the API stewardship board.
-    @doc("The version of the REST APIs.")
-    @query "api-version": string
-}
-
-model ConnectionId
-{
-    @doc("Target connection Id")
-    // Note: assuming this is a server-side validation that is ignored by client.
-    @minLength(1)
-    @path connectionId: string
-}
-
-model GroupId
-{
-    @doc("Target group name, which length should be greater than 0 and less than 1025.")
-    // Note: assuming these are server-side validations that are ignored by client.
-    @maxLength(1024)
-    @minLength(1)
-    @path group: string,
-}
-
-model ConnectionParams
-{
-    ...CommonParams,
-    ...ConnectionId
-}
-
-model GroupParams
-{
-    ...CommonParams,
-    ...GroupId
-}
-
-model UserParams
-{
-    ...CommonParams,
-
-    @minLength(1)
-    @path userId: string
-}
-
 @route("/api/hubs/{hub}")
 namespace WebPubSubService {
 
@@ -105,7 +52,25 @@ namespace WebPubSubService {
     @summary("Add a connection to the target group.")
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(...GroupParams, ...ConnectionId):
+    op addConnectionToGroup(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Target connection Id")
+        // Note: assuming this is a server-side validation that is ignored by client.
+        @minLength(1)
+        @path connectionId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
         // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
         Response<200> |
         ErrorDetail;
@@ -115,7 +80,24 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary( "Remove a connection from the target group.")
     @delete
-    op removeConnectionFromGroup(...GroupParams, ...ConnectionId):
+    op removeConnectionFromGroup(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Target connection Id")
+        @minLength(1)
+        @path connectionId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
         NoContentResponse |
         ErrorDetail;
 
@@ -128,14 +110,48 @@ namespace WebPubSubService {
     @summary("Add a user to the target group.")
     @put
     // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
-    op addUserToGroup(...UserParams, ...GroupId):
+    op addUserToGroup(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Target user Id.")
+        @minLength(1)
+        @path userId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
         Response<200> |
         ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
     @summary("Remove a user from the target group.")
-    op removeUserFromGroup(...UserParams, ...GroupId):
+    op removeUserFromGroup(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Target user Id.")
+        @minLength(1)
+        @path userId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
         Response<200> |
         ErrorDetail;
 
@@ -148,7 +164,24 @@ namespace WebPubSubService {
     @summary("Check if a connection has permission to the specified action.")
     // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
     @head
-    op checkPermission(...CommonParams, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string):
+    op checkPermission(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("The permission: current supported actions are joinLeaveGroup and sendToGroup.")
+        @path permission: WebPubSubPermission,
+
+        @doc("Target connection Id")
+        @minLength(1)
+        @path connectionId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string,
+
+        @query targetName?: string):
+
         Response<200> |
         NotFoundResponse |
         ErrorDetail;
@@ -165,7 +198,21 @@ namespace WebPubSubService {
     //   Tracking with https://github.com/microsoft/cadl/issues/665
     //@consumes("application/octet-stream", "text/plain", "application/json")
     @post
-    op sendToAll(...CommonParams, @query excluded?: string[], @body message: bytes):
+    op sendToAll(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Excluded connection Ids.")
+        @query excluded?: string[],
+
+        @doc("Excluded connection Ids.")
+        @body message: bytes,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
         AcceptedResponse |
         ErrorDetail;
 }

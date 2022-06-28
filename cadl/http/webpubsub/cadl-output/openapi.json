@@ -45,24 +45,35 @@
         "summary": "Broadcast content inside request body to all the connected client connections.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
-          },
-          {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
             "name": "excluded",
             "in": "query",
             "required": false,
+            "description": "Excluded connection Ids.",
             "type": "array",
             "items": {
               "type": "string"
             }
           },
           {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
+            "type": "string"
+          },
+          {
             "name": "message",
             "in": "body",
             "required": true,
+            "description": "Excluded connection Ids.",
             "schema": {
               "type": "string",
               "format": "byte"
@@ -91,16 +102,36 @@
         "summary": "Add a connection to the target group.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "description": "Target group name, which length should be greater than 0 and less than 1025.",
+            "minLength": 1,
+            "maxLength": 1024,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/GroupId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "description": "Target connection Id",
+            "minLength": 1,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/ConnectionId"
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
+            "type": "string"
           }
         ],
         "responses": {
@@ -123,16 +154,36 @@
         "summary": "Remove a connection from the target group.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "description": "Target group name, which length should be greater than 0 and less than 1025.",
+            "minLength": 1,
+            "maxLength": 1024,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/GroupId"
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "description": "Target connection Id",
+            "minLength": 1,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/ConnectionId"
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
+            "type": "string"
           }
         ],
         "responses": {
@@ -157,10 +208,12 @@
         "summary": "Check if a connection has permission to the specified action.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
-          },
-          {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
             "name": "permission",
@@ -180,6 +233,15 @@
             "name": "connectionId",
             "in": "path",
             "required": true,
+            "description": "Target connection Id",
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
             "type": "string"
           },
           {
@@ -214,16 +276,36 @@
         "summary": "Add a user to the target group.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "description": "Target group name, which length should be greater than 0 and less than 1025.",
+            "minLength": 1,
+            "maxLength": 1024,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/UserParams.userId"
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "Target user Id.",
+            "minLength": 1,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/GroupId"
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
+            "type": "string"
           }
         ],
         "responses": {
@@ -243,16 +325,36 @@
         "summary": "Remove a user from the target group.",
         "parameters": [
           {
-            "$ref": "#/parameters/CommonParams.hub"
+            "name": "hub",
+            "in": "path",
+            "required": true,
+            "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
+            "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/CommonParams.api-version"
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "description": "Target group name, which length should be greater than 0 and less than 1025.",
+            "minLength": 1,
+            "maxLength": 1024,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/UserParams.userId"
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "Target user Id.",
+            "minLength": 1,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/GroupId"
+            "name": "api-version",
+            "in": "query",
+            "required": true,
+            "description": "The version of the REST APIs.",
+            "type": "string"
           }
         ],
         "responses": {
@@ -301,50 +403,5 @@
       }
     }
   },
-  "parameters": {
-    "CommonParams.api-version": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "description": "The version of the REST APIs.",
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "CommonParams.hub": {
-      "name": "hub",
-      "in": "path",
-      "required": true,
-      "description": "Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.",
-      "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "ConnectionId": {
-      "name": "connectionId",
-      "in": "path",
-      "required": true,
-      "description": "Target connection Id",
-      "minLength": 1,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "GroupId": {
-      "name": "group",
-      "in": "path",
-      "required": true,
-      "description": "Target group name, which length should be greater than 0 and less than 1025.",
-      "minLength": 1,
-      "maxLength": 1024,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "UserParams.userId": {
-      "name": "userId",
-      "in": "path",
-      "required": true,
-      "minLength": 1,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  }
+  "parameters": {}
 }
