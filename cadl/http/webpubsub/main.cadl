@@ -19,6 +19,33 @@ enum WebPubSubPermission
     joinLeaveGroup
 }
 
+model CommonParams
+{
+    //@summary("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+    //@pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+    // TODO: How can we make `hub` a parameter on the client constructor?
+    //   This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
+    // @extension("x-ms-parameter-location", "client")
+    @path hub: string,
+
+    //@summary("The version of the REST APIs.")
+    @query "api-version": string
+}
+
+model ConnectionParams
+{
+    ...CommonParams,
+
+    //@summary("Target group name, which length should be greater than 0 and less than 1025.")
+    // @maxLength(1024)
+    // @minLength(1)
+    @path group: string,
+
+    //@summary("Target connection Id")
+    //@minLength(1)
+    @path connectionId: string
+}
+
 @error
 model ErrorDetail {
     code: string;
@@ -28,19 +55,16 @@ model ErrorDetail {
     // TODO: inner
 }
 
-// TODO: could we specify {hub} at this level, to make it a parameter on the client constructor?
-//   This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
 @route("/api/hubs/{hub}")
 namespace WebPubSubService {
 
     @route("/groups/{group}/connections/{connectionId}")
     @tag("webpubsub")
     @summary("Add a connection to the target group.")
-    // TODO: How to take hub here?  with regexp pattern
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(@path hub: string, @path group: string, @path connectionId: string, @query "api-version": string):
+    op addConnectionToGroup(...ConnectionParams):
         // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
         Response<200> |
         ErrorDetail;
@@ -50,7 +74,7 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary( "Remove a connection from the target group.")
     @delete
-    op removeConnectionFromGroup(@path hub: string, @path group: string,@path connectionId: string, @query "api-version": string):
+    op removeConnectionFromGroup(...ConnectionParams):
         NoContentResponse |
         ErrorDetail;
 
@@ -87,9 +111,10 @@ namespace WebPubSubService {
     // TODO: Add consumes - need contentType param
     //   It is not currently possible in Cadl to specify @consumes at the operation level.
     //   Tracking with https://github.com/microsoft/cadl/issues/665
-    // @consumes("application/octet-stream", "text/plain", "application/json")
+    //@consumes("application/octet-stream", "text/plain", "application/json")
     @post
-    op sendToAll(@path hub: string, @query excluded?: string[], @body message: bytes, @query "api-version": string):
+    op sendToAll(
+        @path hub: string, @query excluded?: string[], @body message: bytes, @query "api-version": string):
         AcceptedResponse |
         ErrorDetail;
 }
