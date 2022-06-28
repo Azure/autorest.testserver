@@ -32,18 +32,39 @@ model CommonParams
     @query "api-version": string
 }
 
-model ConnectionParams
+model ConnectionId
 {
-    ...CommonParams,
+    //@summary("Target connection Id")
+    @minLength(1)
+    @path connectionId: string
+}
 
+model GroupId
+{
     //@summary("Target group name, which length should be greater than 0 and less than 1025.")
     @maxLength(1024)
     @minLength(1)
     @path group: string,
+}
 
-    //@summary("Target connection Id")
+model ConnectionParams
+{
+    ...CommonParams,
+    ...ConnectionId
+}
+
+model GroupParams
+{
+    ...CommonParams,
+    ...GroupId
+}
+
+model UserParams
+{
+    ...CommonParams,
+
     @minLength(1)
-    @path connectionId: string
+    @path userId: string
 }
 
 @error
@@ -64,7 +85,7 @@ namespace WebPubSubService {
     // TODO: group common parameters and restrictions on them
     // TODO: As x-ms-error-response and x-ms-error-code header
     @put
-    op addConnectionToGroup(...ConnectionParams):
+    op addConnectionToGroup(...GroupParams, ...ConnectionId):
         // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
         Response<200> |
         ErrorDetail;
@@ -74,7 +95,7 @@ namespace WebPubSubService {
     @tag("webpubsub")
     @summary( "Remove a connection from the target group.")
     @delete
-    op removeConnectionFromGroup(...ConnectionParams):
+    op removeConnectionFromGroup(...GroupParams, ...ConnectionId):
         NoContentResponse |
         ErrorDetail;
 
@@ -84,14 +105,14 @@ namespace WebPubSubService {
     @summary("Add a user to the target group.")
     @put
     // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
-    op addUserToGroup(...CommonParams, @path group: string, @path userId: string):
+    op addUserToGroup(...UserParams, ...GroupId):
         Response<200> |
         ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
     @summary("Remove a user from the target group.")
-    op removeUserFromGroup(...CommonParams, @path group: string, @path userId: string):
+    op removeUserFromGroup(...UserParams, ...GroupId):
         Response<200> |
         ErrorDetail;
 
