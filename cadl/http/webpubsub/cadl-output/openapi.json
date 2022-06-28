@@ -349,6 +349,7 @@
       "name": "hub",
       "in": "path",
       "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$",
       "type": "string",
       "x-ms-parameter-location": "method"
     },
@@ -356,6 +357,7 @@
       "name": "connectionId",
       "in": "path",
       "required": true,
+      "minLength": 1,
       "type": "string",
       "x-ms-parameter-location": "method"
     },
@@ -363,6 +365,8 @@
       "name": "group",
       "in": "path",
       "required": true,
+      "minLength": 1,
+      "maxLength": 1024,
       "type": "string",
       "x-ms-parameter-location": "method"
     }

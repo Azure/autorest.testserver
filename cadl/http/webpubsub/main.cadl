@@ -22,7 +22,7 @@ enum WebPubSubPermission
 model CommonParams
 {
     //@summary("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
-    //@pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+    @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
     // TODO: How can we make `hub` a parameter on the client constructor?
     //   This would need us to designate it as a "global" or "client parameter": https://github.com/microsoft/cadl/issues/664
     // @extension("x-ms-parameter-location", "client")
@@ -37,12 +37,12 @@ model ConnectionParams
     ...CommonParams,
 
     //@summary("Target group name, which length should be greater than 0 and less than 1025.")
-    // @maxLength(1024)
-    // @minLength(1)
+    @maxLength(1024)
+    @minLength(1)
     @path group: string,
 
     //@summary("Target connection Id")
-    //@minLength(1)
+    @minLength(1)
     @path connectionId: string
 }
 
@@ -84,14 +84,14 @@ namespace WebPubSubService {
     @summary("Add a user to the target group.")
     @put
     // TODO: Use untemplated OkResponse: https://github.com/microsoft/cadl/issues/666
-    op addUserToGroup(@path hub: string, @path group: string, @path userId: string, @query "api-version": string):
+    op addUserToGroup(...CommonParams, @path group: string, @path userId: string):
         Response<200> |
         ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @delete
     @summary("Remove a user from the target group.")
-    op removeUserFromGroup(@path hub: string, @path group: string, @path userId: string, @query "api-version": string):
+    op removeUserFromGroup(...CommonParams, @path group: string, @path userId: string):
         Response<200> |
         ErrorDetail;
 
@@ -100,7 +100,7 @@ namespace WebPubSubService {
     @summary("Check if a connection has permission to the specified action.")
     // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
     @head
-    op checkPermission(@path hub: string, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string, @query "api-version": string):
+    op checkPermission(...CommonParams, @path permission: WebPubSubPermission, @path connectionId: string, @query targetName?: string):
         Response<200> |
         NotFoundResponse |
         ErrorDetail;
@@ -113,8 +113,7 @@ namespace WebPubSubService {
     //   Tracking with https://github.com/microsoft/cadl/issues/665
     //@consumes("application/octet-stream", "text/plain", "application/json")
     @post
-    op sendToAll(
-        @path hub: string, @query excluded?: string[], @body message: bytes, @query "api-version": string):
+    op sendToAll(...CommonParams, @query excluded?: string[], @body message: bytes):
         AcceptedResponse |
         ErrorDetail;
 }
