@@ -252,7 +252,7 @@ namespace WebPubSubService {
     @route("/groups/{group}/:send")
     @tag("webpubsub")
     @summary("Send content inside request body to a group of connections.")
-    @delete
+    @post
     op sendToGroup(
 
         @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
@@ -449,7 +449,7 @@ namespace WebPubSubService {
         @doc("The version of the REST APIs.")
         @query "api-version": string):
 
-        Response<200> |
+        Response<204> |
         ErrorDetail;
 
     @route("/users/{userId}/groups")
@@ -500,7 +500,6 @@ namespace WebPubSubService {
         @query targetName?: string):
 
         Response<200> |
-        NotFoundResponse |
         ErrorDetail;
 
     @route("/permissions/{permission}/connections/{connectionId}")
