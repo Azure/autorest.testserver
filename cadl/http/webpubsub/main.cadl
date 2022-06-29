@@ -69,6 +69,58 @@ namespace WebPubSubService {
         Response<200> |
         ErrorDetail;
 
+    @route("/:closeConnections")
+    @tag("webpubsub")
+    @summary("Close the connections in the hub.")
+    // TODO: Add consumes - need contentType param
+    //   It is not currently possible in Cadl to specify @consumes at the operation level.
+    //   Tracking with https://github.com/microsoft/cadl/issues/665
+    //@consumes("application/octet-stream", "text/plain", "application/json")
+    @post
+    op closeAllConnections(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Exclude these connectionIds when closing the connections in the hub.")
+        @query excluded?: string[],
+
+        @doc("The reason closing the client connection.")
+        @query reason?: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        Response<204> |  // TODO: map to definition
+        ErrorDetail;
+
+    @route("/:send")
+    @tag("webpubsub")
+    @summary("Broadcast content inside request body to all the connected client connections.")
+    // TODO: Add consumes - need contentType param
+    //   It is not currently possible in Cadl to specify @consumes at the operation level.
+    //   Tracking with https://github.com/microsoft/cadl/issues/665
+    //@consumes("application/octet-stream", "text/plain", "application/json")
+    @post
+    op sendToAll(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Excluded connection Ids.")
+        @query excluded?: string[],
+
+        @doc("The payload body.")
+        @body message: bytes,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        AcceptedResponse |
+        ErrorDetail;
+
     //
     // ** Connection routes **
     //
@@ -117,9 +169,110 @@ namespace WebPubSubService {
         Response<200> |
         ErrorDetail;
 
+    @route("/connections/{connectionId}/:send")
+    @tag("webpubsub")
+    @summary("Send content inside request body to the specific connection.")
+    // TODO: Add consumes - need contentType param
+    //   It is not currently possible in Cadl to specify @consumes at the operation level.
+    //   Tracking with https://github.com/microsoft/cadl/issues/665
+    //@consumes("application/octet-stream", "text/plain", "application/json")
+    @post
+    op sendToConnection(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target connection Id")
+        @minLength(1)
+        @path connectionId: string,
+
+        @doc("The payload body.")
+        @body message: bytes,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        AcceptedResponse |
+        ErrorDetail;
+
     //
     // ** Group routes **
     //
+
+    @route("/groups/{group}")
+    @tag("webpubsub")
+    @summary("Check if there are any client connections inside the given group")
+    @head
+    op groupExists(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        Response<200> |
+        Response<404> |
+        ErrorDetail;
+
+    @route("/groups/{group}/:closeConnections")
+    @tag("webpubsub")
+    @summary("Close connections in the specific group.")
+    @post
+    op closeGroupConnections(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Exclude these connectionIds when closing the connections in the group.")
+        @query excluded?: string[],
+
+        @doc("The reason closing the client connection.")
+        @query reason?: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        Response<204> |
+        ErrorDetail;
+
+    @route("/groups/{group}/:send")
+    @tag("webpubsub")
+    @summary("Send content inside request body to a group of connections.")
+    @delete
+    op sendToGroup(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target group name, which length should be greater than 0 and less than 1025.")
+        @maxLength(1024)
+        @minLength(1)
+        @path group: string,
+
+        @doc("Excluded connectionIds.")
+        @query excluded?: string[],
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        AcceptedResponse |
+        ErrorDetail;
+
 
     @route("/groups/{group}/connections/{connectionId}")
     @tag("webpubsub")
@@ -175,20 +328,44 @@ namespace WebPubSubService {
         NoContentResponse |
         ErrorDetail;
 
-    @route("/groups/{group}/:closeConnections")
+
+    //
+    // ** User routes **
+    //
+
+    @route("/users/{userId}")
     @tag("webpubsub")
-    @summary("Close connections in the specific group.")
-    @post
-    op closeGroupConnections(
+    @summary("Check if there are any client connections connected for the given user.")
+    @head
+    op userExists(
 
         @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
         @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
         @path hub: string,
 
-        @doc("Target group name, which length should be greater than 0 and less than 1025.")
-        @maxLength(1024)
+        @doc("Target user Id.")
         @minLength(1)
-        @path group: string,
+        @path userId: string,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        Response<200> |
+        ErrorDetail;
+
+    @route("/users/{userId}/:closeConnections")
+    @tag("webpubsub")
+    @summary("Close connections in the specific user.")
+    @post
+    op closeUserConnections(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("The user Id.")
+        @minLength(1)
+        @path userId: string,
 
         @doc("Exclude these connectionIds when closing the connections in the group.")
         @query excluded?: string[],
@@ -202,9 +379,28 @@ namespace WebPubSubService {
         Response<204> |
         ErrorDetail;
 
-    //
-    // ** User routes **
-    //
+    @route("/users/{userId}/:send")
+    @tag("webpubsub")
+    @summary("Send content inside request body to the specific user.")
+    @post
+    op sendToUser(
+
+        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
+        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
+        @path hub: string,
+
+        @doc("Target user Id.")
+        @minLength(1)
+        @path userId: string,
+
+        @doc("The payload body.")
+        @body message: bytes,
+
+        @doc("The version of the REST APIs.")
+        @query "api-version": string):
+
+        AcceptedResponse |
+        ErrorDetail;
 
     @route("/users/{userId}/groups/{group}")
     @tag("webpubsub")
@@ -256,25 +452,19 @@ namespace WebPubSubService {
         Response<200> |
         ErrorDetail;
 
-    @route("/users/{userId}/:closeConnections")
+    @route("/users/{userId}/groups")
     @tag("webpubsub")
-    @summary("Close connections in the specific user.")
-    @post
-    op closeUserConnections(
+    @summary("Remove a user from all groups.")
+    @delete
+    op removeUserFromAllGroups(
 
         @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
         @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
         @path hub: string,
 
-        @doc("The user Id.")
+        @doc("Target user Id.")
         @minLength(1)
         @path userId: string,
-
-        @doc("Exclude these connectionIds when closing the connections in the group.")
-        @query excluded?: string[],
-
-        @doc("The reason closing the client connection.")
-        @query reason?: string,
 
         @doc("The version of the REST APIs.")
         @query "api-version": string):
@@ -285,34 +475,6 @@ namespace WebPubSubService {
     //
     // ** Permission routes **
     //
-
-    @route("/permissions/{permission}/connections/{connectionId}")
-    @tag("webpubsub")
-    @summary("Check if a connection has permission to the specified action.")
-    // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
-    @head
-    op checkPermission(
-
-        @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
-        @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
-        @path hub: string,
-
-        @doc("The permission: current supported actions are joinLeaveGroup and sendToGroup.")
-        @path permission: WebPubSubPermission,
-
-        @doc("Target connection Id")
-        @minLength(1)
-        @path connectionId: string,
-
-        @doc("The version of the REST APIs.")
-        @query "api-version": string,
-
-        @doc("The meaning of the target depends on the specific permission. For joinLeaveGroup and sendToGroup, targetName is a required parameter standing for the group name.")
-        @query targetName?: string):
-
-        Response<200> |
-        NotFoundResponse |
-        ErrorDetail;
 
     @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
@@ -341,60 +503,57 @@ namespace WebPubSubService {
         NotFoundResponse |
         ErrorDetail;
 
-    //
-    // ** Action routes **
-    //
-
-    @route("/:closeConnections")
+    @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
-    @summary("Close the connections in the hub.")
-    // TODO: Add consumes - need contentType param
-    //   It is not currently possible in Cadl to specify @consumes at the operation level.
-    //   Tracking with https://github.com/microsoft/cadl/issues/665
-    //@consumes("application/octet-stream", "text/plain", "application/json")
-    @post
-    op closeAllConnections(
+    @summary("Revoke permission for the connection.")
+    @delete
+    op revokePermission(
 
         @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
         @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
         @path hub: string,
 
-        @doc("Exclude these connectionIds when closing the connections in the hub.")
-        @query excluded?: string[],
+        @doc("The permission: current supported actions are joinLeaveGroup and sendToGroup.")
+        @path permission: WebPubSubPermission,
 
-        @doc("The reason closing the client connection.")
-        @query reason?: string,
+        @doc("Target connection Id")
+        @minLength(1)
+        @path connectionId: string,
 
         @doc("The version of the REST APIs.")
-        @query "api-version": string):
+        @query "api-version": string,
 
-        Response<204> |  // TODO: map to definition
+        @doc("The meaning of the target depends on the specific permission. For joinLeaveGroup and sendToGroup, targetName is a required parameter standing for the group name.")
+        @query targetName?: string):
+
+        Response<204> |
         ErrorDetail;
 
-
-    @route("/:send")
+    @route("/permissions/{permission}/connections/{connectionId}")
     @tag("webpubsub")
-    @summary("Broadcast content inside request body to all the connected client connections.")
-    // TODO: Add consumes - need contentType param
-    //   It is not currently possible in Cadl to specify @consumes at the operation level.
-    //   Tracking with https://github.com/microsoft/cadl/issues/665
-    //@consumes("application/octet-stream", "text/plain", "application/json")
-    @post
-    op sendToAll(
+    @summary("Check if a connection has permission to the specified action.")
+    // Note: Not generating as Response<bool> from .NET DPG generator, because it's manually added in .NET customization layer.
+    @head
+    op checkPermission(
 
         @doc("Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore.")
         @pattern("^[A-Za-z][A-Za-z0-9_`,.[\\]]{0,127}$")
         @path hub: string,
 
-        @doc("Excluded connection Ids.")
-        @query excluded?: string[],
+        @doc("The permission: current supported actions are joinLeaveGroup and sendToGroup.")
+        @path permission: WebPubSubPermission,
 
-        @doc("The payload body.")
-        @body message: bytes,
+        @doc("Target connection Id")
+        @minLength(1)
+        @path connectionId: string,
 
         @doc("The version of the REST APIs.")
-        @query "api-version": string):
+        @query "api-version": string,
 
-        AcceptedResponse |
+        @doc("The meaning of the target depends on the specific permission. For joinLeaveGroup and sendToGroup, targetName is a required parameter standing for the group name.")
+        @query targetName?: string):
+
+        Response<200> |
+        NotFoundResponse |
         ErrorDetail;
 }
