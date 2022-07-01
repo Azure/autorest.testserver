@@ -1,0 +1,40 @@
+{
+  "parameters": {
+    "complexBody": {
+      "fishtype": "salmon",
+      "location": "alaska",
+      "iswild": true,
+      "species": "king",
+      "length": 1.0,
+      "siblings": [
+        {
+          "fishtype": "shark",
+          "age": 6,
+          "birthday": "2012-01-05T01:00:00Z",
+          "length": 20.0,
+          "species": "predator"
+        },
+        {
+          "fishtype": "sawshark",
+          "age": 105,
+          "birthday": "1900-01-05T01:00:00Z",
+          "length": 10.0,
+          "picture": "//////4=",
+          "species": "dangerous"
+        },
+        {
+          "fishtype": "goblin",
+          "age": 1,
+          "birthday": "2012-01-05T01:00:00Z",
+          "length": 30.0,
+          "species": "scary",
+          "jawsize": 5,
+          "color": "pinkish-gray"
+        }
+      ]
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

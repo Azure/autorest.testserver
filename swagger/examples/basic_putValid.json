@@ -1,0 +1,12 @@
+{
+  "parameters": {
+    "complexBody": {
+      "id": 2,
+      "name": "abc",
+      "color": "Magenta"
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

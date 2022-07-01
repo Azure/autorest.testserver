@@ -1,0 +1,10 @@
+{
+  "parameters": {
+    "complexBody": {
+      "array": []
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parameters": {
+    "complexBody": {
+      "field": "goodrequest",
+      "empty": ""
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

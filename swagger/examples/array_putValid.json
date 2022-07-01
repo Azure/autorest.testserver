@@ -1,0 +1,10 @@
+{
+  "parameters": {
+    "complexBody": {
+      "array": ["1, 2, 3, 4", "", null, "&S#$(*Y", "The quick brown fox jumps over the lazy dog"]
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

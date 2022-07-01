@@ -1,0 +1,11 @@
+{
+  "parameters": {
+    "complexBody": {
+      "id": 2,
+      "size": 22
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

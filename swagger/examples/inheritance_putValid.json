@@ -1,0 +1,25 @@
+{
+  "parameters": {
+    "complexBody": {
+      "id": 2,
+      "name": "Siameee",
+      "breed": "persion",
+      "color": "green",
+      "hates": [
+        {
+          "food": "tomato",
+          "id": 1,
+          "name": "Potato"
+        },
+        {
+          "food": "french fries",
+          "id": -1,
+          "name": "Tomato"
+        }
+      ]
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

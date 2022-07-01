@@ -1,0 +1,10 @@
+{
+  "parameters": {
+    "complexBody": {
+      "field": "hex(FF FE FD FC 00 FA F9 F8 F7 F6)"
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

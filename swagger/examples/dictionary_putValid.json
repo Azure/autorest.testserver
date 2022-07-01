@@ -1,0 +1,16 @@
+{
+  "parameters": {
+    "complexBody": {
+      "defaultProgram": {
+        "txt": "notepad",
+        "bmp": "mspaint",
+        "xls": "excel",
+        "exe": "",
+        "": null
+      }
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}
