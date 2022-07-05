@@ -89,7 +89,11 @@ var paging = function (coverage) {
   });
 
   router.get("/multiple/nextOperationWithQueryParams", function (req, res, next) {
-    if (Object.keys(req.query).length <= 1 && req.query["queryConstant"] === "true") {
+    if (
+      ((Object.keys(req.query).length <= 2 && req.query["api-version"] == "1.0.0") ||
+        Object.keys(req.query).length <= 1) &&
+      req.query["queryConstant"] === "true"
+    ) {
       coverage["PagingMultipleWithQueryParameters"]++;
       res.status(200).json({ values: [{ properties: { id: 2, name: "Product" } }] });
     } else {
