@@ -56,32 +56,30 @@ model LROProductResponse {
   @body body: LROProduct;
 }
 
-interface Custom {
-  @route("/customization/model/{mode}")
-  @doc("Get models that you will either return to end users as a raw body, or with a model added during grow up.")
-  @get
-  getModels(...ModeParameter): ProductResponse;
+@route("/customization/model/{mode}")
+@doc("Get models that you will either return to end users as a raw body, or with a model added during grow up.")
+@get
+op getModels(...ModeParameter): ProductResponse;
 
-  @route("/customization/model/{mode}")
-  @doc("Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ")
-  @post
-  postModels(
-    ...ModeParameter,
+@route("/customization/model/{mode}")
+@doc("Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ")
+@post
+op postModels(
+  ...ModeParameter,
 
-    @doc("Please put {'hello': 'world!'}")
-    @body
-    input: Input
-  ): ProductResponse;
+  @doc("Please put {'hello': 'world!'}")
+  @body
+  input: Input
+): ProductResponse;
 
-  // Make me pageable
-  @route("/customization/paging/{mode}")
-  @doc("Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.")
-  @get
-  getPages(...ModeParameter): ProductResultResponse;
+// Make me pageable
+@route("/customization/paging/{mode}")
+@doc("Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.")
+@get
+op getPages(...ModeParameter): ProductResultResponse;
 
-  // Make me LRO
-  @route("/customization/lro/{mode}")
-  @doc("Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.")
-  @get
-  lro(...ModeParameter): LROProductResponse;
-}
+// Make me LRO
+@route("/customization/lro/{mode}")
+@doc("Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.")
+@get
+op lro(...ModeParameter): LROProductResponse;
