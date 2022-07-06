@@ -1,7 +1,7 @@
 {
   "parameters": {
-    "enumStringBody": {
-      "ColorConstant": "green-color"
+    "complexBody": {
+      "field": "P123DT22H14M12.011S"
     }
   },
   "responses": {

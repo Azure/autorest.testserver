@@ -1,0 +1,11 @@
+{
+  "parameters": {
+    "complexBody": {
+      "field_true": true,
+      "field_false": false
+    }
+  },
+  "responses": {
+    "200": {}
+  }
+}

@@ -1,7 +1,7 @@
 {
   "parameters": {
-    "enumStringBody": {
-      "ColorConstant": "green-color"
+    "complexBody": {
+      "array": []
     }
   },
   "responses": {
