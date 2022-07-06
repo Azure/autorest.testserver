@@ -1,6 +1,7 @@
 {
   "parameters": {
-    "accountName": "testaccount"
+    "accountName": "testaccount",
+    "host": "host:3000"
   },
   "responses": {
     "200": {
