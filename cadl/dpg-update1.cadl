@@ -72,8 +72,9 @@ interface params {
     new_parameter?: string
   ): any;
 
+  // In the updated version, I can take "image/jpeg" as input as well
   @route("/parameters")
-  @doc("POST a JSON")
+  @doc("POST a JSON or a JPEG")
   @post
   postParameters(
     @doc("I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }")
