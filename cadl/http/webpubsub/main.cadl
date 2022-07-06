@@ -1,0 +1,76 @@
+import "@cadl-lang/rest";
+import "@azure-tools/cadl-azure-core";
+import "@azure-tools/cadl-autorest";
+
+@serviceTitle("WebPubSub Service")
+@serviceVersion("2021-10-01")
+@server("{Endpoint}", "WebPubSub Service", {Endpoint: string}) // Use `Uri` when available: https://github.com/microsoft/cadl/issues/654
+namespace WebPubSubService;
+
+using Cadl.Http;
+
+@error
+model ErrorDetail {
+    code: string;
+    message: string;
+    target: string;
+    // TODO: details
+    // TODO: inner
+
+}
+
+// TODO: could we specify {hub} at this level?
+@route("/api/hubs")
+namespace WebPubSubService {
+
+    @route("/groups/{group}/connections/{connectionId}")
+    // TODO: How to take hub here?  with regexp pattern
+    // TODO: How to take api-version as query parameter?  SDK should handle this
+    // TODO: How to say this produces:
+    //    "text/plain",
+    //      "application/json",
+    //      "text/json"
+    // TODO: group common parameters and restrictions on them
+    // TODO: As x-ms-error-response and x-ms-error-code header
+    @put
+    op addConnectionToGroup(@path group: string, @path connectionId: string): {
+        @statusCode statusCode: 200;  // TODO: use Untemplated OkResponse
+    } | ErrorDetail;
+
+    @route("/groups/{group}/connections/{connectionId}")  // TODO: is there a way to not duplicate these?
+    @delete
+    op removeConnectionFromGroup(@path group: string,@path connectionId: string): {
+        @statusCode statusCode: 204;  // TODO: Use DeleteResponse
+    } | ErrorDetail;
+
+
+    @route("/users/{userId}/groups/{group}")
+    // TODO: How to take hub here?  with regexp pattern
+    // TODO: How to take api-version as query parameter?  SDK should handle this
+    // TODO: How to say this produces:
+    //    "text/plain",
+    //      "application/json",
+    //      "text/json"
+    @put
+    op addUserToGroup(@path group: string, @path userId: string): {
+        @statusCode statusCode: 200;
+    } | ErrorDetail;
+
+    @route("/users/{userId}/groups/{group}")
+    @delete
+    op removeUserFromGroup(@path group: string, @path userId: string): {
+        @statusCode statusCode: 200;
+    } | ErrorDetail;
+
+    @route("/permissions/{permission}/connections/{connectionId}")
+    // TODO: How to do an enum (and have it be a string in DPG client)
+    // TODO: Unclear why not generating as Response<bool> from DPG generator
+    @head
+    op checkPermission(@path permission: string, @path connectionId: string, @query targetName?: string): {
+        @statusCode statusCode: 200;
+    } |
+    {
+        @statusCode statusCode: 404;
+    } |
+     ErrorDetail;
+}
