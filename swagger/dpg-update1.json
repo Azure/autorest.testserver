@@ -1,13 +1,17 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "title": "DPGClient",
     "description": "DPG Swagger, this is the initial swagger a service could do"
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/serviceDriven/parameters": {
       "head": {
@@ -93,7 +97,10 @@
       "post": {
         "operationId": "params_postParameters",
         "description": "POST a JSON or a JPEG",
-        "consumes": ["application/json", "image/jpeg"],
+        "consumes": [
+          "application/json",
+          "image/jpeg"
+        ],
         "parameters": [
           {
             "name": "parameter",
@@ -172,7 +179,9 @@
   "definitions": {
     "PostInput": {
       "type": "object",
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "properties": {
         "url": {
           "type": "string"
