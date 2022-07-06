@@ -1,5 +1,7 @@
 # Cadl files for testserver
 
+The final plan is to have those files in a cadl.testserver package, this folder is temporary and may be removed in future versions.
+
 Known issues:
 
 - In dpg-update1.json, no model for JSON or JPEG
