@@ -61,13 +61,13 @@ model LROProductResponse {
 
 @route("/customization/model/{mode}")
 @doc("Get models that you will either return to end users as a raw body, or with a model added during grow up.")
-@OpenAPI.operationId("getModel")
+@OpenAPI.operationId("getModel")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
 @get
 op getModel(...ModeParameter): ProductResponse;
 
 @route("/customization/model/{mode}")
 @doc("Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ")
-@OpenAPI.operationId("postModel")
+@OpenAPI.operationId("postModel")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
 @post
 op postModel(
   ...ModeParameter,
@@ -80,13 +80,13 @@ op postModel(
 // Make me pageable
 @route("/customization/paging/{mode}")
 @doc("Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.")
-@OpenAPI.operationId("getPages")
+@OpenAPI.operationId("getPages")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
 @get
 op getPages(...ModeParameter): ProductResultResponse;
 
 // Make me LRO
 @route("/customization/lro/{mode}")
 @doc("Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.")
-@OpenAPI.operationId("lro")
+@OpenAPI.operationId("lro")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
 @put
 op lro(...ModeParameter): LROProductResponse;
