@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "stringBody": "<tab><space><space>Now is the time for all good men to come to the aid of their country<tab><space><space>"
+    "stringBody": "    Now is the time for all good men to come to the aid of their country    "
   },
   "responses": {
     "200": {}
