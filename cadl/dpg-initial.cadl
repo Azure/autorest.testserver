@@ -13,10 +13,14 @@ model PostInput {
   url: string;
 }
 
+model Message {
+  message: string;
+}
+
 @doc("Answer from service")
-model any {
+model MessageResponse {
   @statusCode statusCode: 200;
-  @body body: {};
+  @body body: Message;
 }
 
 @route("/serviceDriven")
@@ -24,7 +28,7 @@ interface params {
   @route("/parameters")
   @doc("Head request, no params.\n Initially has no query parameters. After evolution, a new optional query parameter is added")
   @head
-  headNoParams(): any;
+  headNoParams(): {@statusCode statusCode: 200;};
 
   @route("/parameters")
   @doc("Get true Boolean value on path.\n Initially only has one required Query Parameter. After evolution, a new optional query parameter is added")
@@ -33,7 +37,7 @@ interface params {
     @doc("I am a required parameter")
     @query
     parameter: string
-  ): any;
+  ): MessageResponse;
 
   @route("/parameters")
   @doc("Initially has one required query parameter and one optional query parameter.  After evolution, a new optional query parameter is added")
@@ -46,7 +50,7 @@ interface params {
     @doc("I am an optional parameter")
     @query
     optionalParam?: string
-  ): any;
+  ): MessageResponse;
 
   @route("/parameters")
   @doc("POST a JSON")
@@ -55,7 +59,7 @@ interface params {
     @doc("I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }")
     @body
     parameter: PostInput
-  ): any;
+  ): MessageResponse;
 
   @route("/moreParameters")
   @doc("Get true Boolean value on path.\n Initially has one optional query parameter. After evolution, a new optional query parameter is added")
@@ -64,5 +68,5 @@ interface params {
     @doc("I am an optional parameter")
     @query
     optionalParam?: string
-  ): any;
+  ): MessageResponse;
 }

@@ -22,10 +22,14 @@ model PostInput {
   url: string;
 }
 
+model Message {
+  message: string;
+}
+
 @doc("Answer from service")
-model any {
+model MessageResponse {
   @statusCode statusCode: 200;
-  @body body: {};
+  @body body: Message;
 }
 
 @route("/serviceDriven")
@@ -38,7 +42,7 @@ interface params {
     @doc("I'm a new input optional parameter")
     @query
     new_parameter?: string
-  ): any;
+  ): {@statusCode statusCode: 200;};
 
   @route("/parameters")
   @doc("Get true Boolean value on path.\n Initially only has one required Query Parameter. After evolution, a new optional query parameter is added")
@@ -52,7 +56,7 @@ interface params {
     @doc("I'm a new input optional parameter")
     @query
     new_parameter?: string
-  ): any;
+  ): MessageResponse;
 
   @route("/parameters")
   @doc("Initially has one required query parameter and one optional query parameter.  After evolution, a new optional query parameter is added")
@@ -70,7 +74,7 @@ interface params {
     @doc("I'm a new input optional parameter")
     @query
     new_parameter?: string
-  ): any;
+  ): MessageResponse;
 
   // In the updated version, I can take "image/jpeg" as input as well
   @route("/parameters")
@@ -80,13 +84,13 @@ interface params {
     @doc("I am a body parameter. My only valid JSON entry is { url: \"http://example.org/myimage.jpeg\" }")
     @body
     parameter: PostInput
-  ): any;
+  ): MessageResponse;
 
   @added(Versions.v11)
   @route("/parameters")
   @doc("Delete something.\n Initially the path exists but there is no delete method. After evolution this is a new method in a known path")
   @delete
-  deleteParameters(): any;
+  deleteParameters(): {@statusCode statusCode: 204;};
 
   @route("/moreParameters")
   @doc("Get true Boolean value on path.\n Initially has one optional query parameter. After evolution, a new optional query parameter is added")
@@ -100,11 +104,11 @@ interface params {
     @doc("I'm a new input optional parameter")
     @query
     new_parameter?: string
-  ): any;
+  ): MessageResponse;
 
   @added(Versions.v11)
   @route("/newPath")
   @doc("I'm a new operation.\n Initiallty neither path or method exist for this operation. After evolution, this is a new method in a new path")
   @get
-  getNewOperation(): any;
+  getNewOperation(): MessageResponse;
 }

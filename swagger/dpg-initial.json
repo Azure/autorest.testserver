@@ -17,10 +17,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Answer from service",
-            "schema": {
-              "type": "object"
-            }
+            "description": "Answer from service"
           }
         }
       },
