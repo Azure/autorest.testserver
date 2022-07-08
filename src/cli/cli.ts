@@ -42,7 +42,6 @@ const run = async () => {
     })
     .middleware((args) => {
       setLoggingLevelFromConfig(args);
-      return args;
     })
     .command(
       ["$0", "run"],
