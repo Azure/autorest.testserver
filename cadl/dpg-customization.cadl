@@ -1,0 +1,92 @@
+import "@cadl-lang/rest";
+import "@cadl-lang/openapi";
+
+@serviceTitle("DPGClient")
+@serviceVersion("1.0.0")
+@server("http://localhost:3000", "Testserver endpoint")
+@doc("DPG Swagger that tests our ability to grow up.")
+@Cadl.Rest.produces("application/json")
+@Cadl.Rest.consumes("application/json")
+namespace Cadl.Testserver;
+using Cadl.Http;
+
+@doc("The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.")
+model ModeParameter {
+  @OpenAPI.extension("x-ms-parameter-location", "method")
+  @OpenAPI.extension("x-ms-skip-url-encoding", true)
+  @doc("The mode with which you'll be handling your returned body. 'raw' for just dealing with the raw body, and 'model' if you are going to convert the raw body to a customized body before returning to users.")
+  @path
+  mode: Mode;
+}
+
+model ProductResult {
+  values?: Product[];
+  nextLink?: string;
+}
+
+@doc("Returns two pages of {'received': <mode>}")
+model ProductResultResponse {
+  @statusCode statusCode: 200;
+  @body body: ProductResult;
+}
+
+enum Mode {
+  "raw",
+  "model",
+}
+
+model Product {
+  received: Mode;
+}
+
+@doc("Returns {'received': <mode>}")
+model ProductResponse {
+  @statusCode statusCode: 200;
+  @body body: Product;
+}
+
+model Input {
+  hello: string;
+}
+
+model LROProduct extends Product{
+  provisioningState: string;
+}
+
+@doc("Initial response with ProvisioningState='Succeeded'")
+model LROProductResponse {
+  @statusCode statusCode: 200;
+  @body body: LROProduct;
+}
+
+@route("/customization/model/{mode}")
+@doc("Get models that you will either return to end users as a raw body, or with a model added during grow up.")
+@OpenAPI.operationId("getModel")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
+@get
+op getModel(...ModeParameter): ProductResponse;
+
+@route("/customization/model/{mode}")
+@doc("Post either raw response as a model and pass in 'raw' for mode, or grow up your operation to take a model instead, and put in 'model' as mode. ")
+@OpenAPI.operationId("postModel")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
+@post
+op postModel(
+  ...ModeParameter,
+
+  @doc("Please put {'hello': 'world!'}")
+  @body
+  input: Input
+): ProductResponse;
+
+// Make me pageable
+@route("/customization/paging/{mode}")
+@doc("Get pages that you will either return to users in pages of raw bodies, or pages of models following growup.")
+@OpenAPI.operationId("getPages")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
+@get
+op getPages(...ModeParameter): ProductResultResponse;
+
+// Make me LRO
+@route("/customization/lro/{mode}")
+@doc("Long running put request that will either return to end users a final payload of a raw body, or a final payload of a model after the SDK has grown up.")
+@OpenAPI.operationId("lro")  // Do NOT read this from your CADL emitter, this is here only for Swagger generation accuracy
+@put
+op lro(...ModeParameter): LROProductResponse;
