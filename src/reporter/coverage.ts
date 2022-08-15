@@ -2,7 +2,7 @@
 import { execSync } from "child_process";
 import { readdirSync } from "fs";
 import { join } from "path";
-import { createBlobService } from "azure-storage";
+import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { GitHubCiClient } from "./github";
 
 const GithubCommentHeader = "<!--AUTO-GENERATED PUBLISH JOB COMMENT-->\n";
@@ -104,22 +104,23 @@ async function pushCoverage(
     version = getPublishedPackageVersion();
   }
 
-  const blobSvc = createBlobService(azStorageAccount, azStorageAccessKey);
-  const container = await new Promise<string>((res, rej) =>
-    blobSvc.createContainerIfNotExists(`autorest-ci-coverage-report`, { publicAccessLevel: "blob" }, (error, result) =>
-      error ? rej(error) : res(result.name),
-    ),
+  const blobSvc = new BlobServiceClient(
+    `https://${azStorageAccount}.blob.core.windows.net`,
+    new StorageSharedKeyCredential(azStorageAccount, azStorageAccessKey),
   );
+  const containerClient = blobSvc.getContainerClient(`autorest-ci-coverage-report`);
+  await containerClient.createIfNotExists({
+    access: "blob",
+  });
 
-  await new Promise((res, rej) =>
-    blobSvc.createBlockBlobFromText(
-      container,
-      `${repo.split("/")[1]}_${version}.md`,
-      `<!-- Ref: ${ref}, Generated at ${new Date().toISOString()} -->\n` + comment,
-      { contentSettings: { contentType: "text/markdown; charset=utf-8" } },
-      (error, result) => (error ? rej(error) : res(result.name)),
-    ),
-  );
+  const blockBlobClient = containerClient.getBlockBlobClient(`${repo.split("/")[1]}_${version}.md`);
+
+  const content = `<!-- Ref: ${ref}, Generated at ${new Date().toISOString()} -->\n` + comment;
+  blockBlobClient.upload(content, content.length, {
+    blobHTTPHeaders: {
+      blobContentType: "text/markdown; charset=utf-8",
+    },
+  });
 }
 
 export async function immediatePush(
