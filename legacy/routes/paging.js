@@ -70,11 +70,11 @@ var paging = function (coverage) {
   });
 
   router.get("/single/getWithBodyParams", function (req, res, next) {
-    if (req.body === "body") {
+    if (req.body) {
       coverage["PagingSingleWithBodyParams"]++;
       res.status(200).json({ values: [{ properties: { id: 1, name: "Product" } }] });
     } else {
-      utils.send400(res, next, 'expected body params are "body"');
+      utils.send400(res, next, "body can not be null");
     }
   });
 

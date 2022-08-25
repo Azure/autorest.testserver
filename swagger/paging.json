@@ -6,15 +6,9 @@
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "schemes": [
-    "http"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "consumes": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
   "paths": {
     "/paging/noitemname": {
       "get": {
@@ -84,16 +78,14 @@
           "nextLinkName": "nextLink",
           "itemName": "values"
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "operationId": "Paging_getSinglePagesWithBodyParams",
         "description": "A paging operation that finishes on the first call with body params without a nextlink",
         "parameters": [
           {
             "name": "parameters",
             "in": "body",
-            "description": "A required integer query parameter. Put in value '100' to pass test.",
+            "description": "put any non-null value to pass the test",
             "required": true,
             "schema": {
               "$ref": "#/definitions/BodyParam"
@@ -208,9 +200,7 @@
             "description": "A constant. Must be True and will be passed as a query parameter to nextOperationWithQueryParams",
             "required": true,
             "type": "boolean",
-            "enum": [
-              true
-            ],
+            "enum": [true],
             "x-ms-enum": {
               "modelAsString": false
             }
@@ -274,9 +264,7 @@
             "description": "Max page size query param. Don't send",
             "required": false,
             "type": "string",
-            "enum": [
-              "5"
-            ],
+            "enum": ["5"],
             "x-ms-enum": {
               "name": "MaxPageSizeType",
               "modelAsString": false
@@ -311,9 +299,7 @@
             "description": "A constant. Must be True",
             "required": true,
             "type": "boolean",
-            "enum": [
-              true
-            ],
+            "enum": [true],
             "x-ms-enum": {
               "modelAsString": false
             }
@@ -969,16 +955,8 @@
     "BodyParam": {
       "type": "object",
       "properties": {
-        "properties": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "name": {
-              "type": "string"
-            }
-          }
+        "name": {
+          "type": "string"
         }
       }
     }
