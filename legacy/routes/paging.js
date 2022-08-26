@@ -70,7 +70,7 @@ var paging = function (coverage) {
   });
 
   router.get("/single/getWithBodyParams", function (req, res, next) {
-    if (req.body) {
+    if (req.body["name"] === "body") {
       coverage["PagingSingleWithBodyParams"]++;
       res.status(200).json({ values: [{ properties: { id: 1, name: "Product" } }] });
     } else {
