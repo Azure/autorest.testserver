@@ -34,6 +34,7 @@ var paging = function (coverage) {
   coverage["PagingNoItemName"] = 0;
   coverage["PagingNextLinkNameNull"] = 0;
   coverage["PagingSingle"] = 0;
+  coverage["PagingSingleWithBodyParams"] = 0;
   coverage["PagingMultiple"] = 0;
   coverage["PagingMultipleWithQueryParameters"] = 0;
   coverage["PagingOdataMultiple"] = 0;
@@ -66,6 +67,15 @@ var paging = function (coverage) {
   router.get("/single", function (req, res, next) {
     coverage["PagingSingle"]++;
     res.status(200).json({ values: [{ properties: { id: 1, name: "Product" } }] });
+  });
+
+  router.get("/single/getWithBodyParams", function (req, res, next) {
+    if (req.body) {
+      coverage["PagingSingleWithBodyParams"]++;
+      res.status(200).json({ values: [{ properties: { id: 1, name: "Product" } }] });
+    } else {
+      utils.send400(res, next, "body can not be null");
+    }
   });
 
   router.get("/multiple", function (req, res, next) {

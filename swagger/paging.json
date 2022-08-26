@@ -72,6 +72,39 @@
         }
       }
     },
+    "/paging/single/getWithBodyParams": {
+      "get": {
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink",
+          "itemName": "values"
+        },
+        "produces": ["application/json"],
+        "operationId": "Paging_getSinglePagesWithBodyParams",
+        "description": "A paging operation that finishes on the first call with body params without a nextlink",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "description": "put any non-null value to pass the test",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BodyParam"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Initial response with ProvisioningState='Canceled'",
+            "schema": {
+              "$ref": "#/definitions/ProductResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/firstResponseEmpty/1": {
       "get": {
         "x-ms-pageable": {
@@ -916,6 +949,14 @@
             "Deleted",
             "OK"
           ]
+        }
+      }
+    },
+    "BodyParam": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
         }
       }
     }
