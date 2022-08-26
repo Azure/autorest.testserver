@@ -85,7 +85,7 @@
           {
             "name": "parameters",
             "in": "body",
-            "description": "put any non-null value to pass the test",
+            "description": "put {'name': 'body'} to pass the test",
             "required": true,
             "schema": {
               "$ref": "#/definitions/BodyParam"
