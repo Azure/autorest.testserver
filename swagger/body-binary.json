@@ -1,61 +1,107 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "Sample for file with json and binary content type.",
-    "version": "1.0.0",
-    "title": "Binary with content-type: application/json"
-  },
-  "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
-  "paths": {
-    "/binary/file": {
-      "post": {
-        "description": "Uploading json file",
-        "consumes": ["application/json"],
-        "operationId": "Upload_File",
-        "parameters": [
-          {
-            "name": "fileParam",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "format": "file"
-            },
-            "required": true,
-            "description": "JSON file with payload { \"more\": \"cowbell\" }"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Cowbell was added."
-          }
-        }
-      }
+    "swagger": "2.0",
+    "info": {
+        "description": "Sample for file with json and binary content type.",
+        "version": "1.0.0",
+        "title": "Binary with content-type: application/json"
     },
-    "/binary/octet": {
-      "put": {
-        "description": "Uploading binary file",
-        "consumes": ["application/octet-stream"],
-        "operationId": "Upload_Binary",
-        "parameters": [
-          {
-            "name": "fileParam",
-            "in": "body",
-            "schema": {
-              "type": "string",
-              "format": "binary"
-            },
-            "required": true,
-            "description": "Non-empty binary file"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Binary was added."
-          }
+    "host": "localhost:3000",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/binary/file": {
+            "post": {
+                "description": "Uploading json file",
+                "consumes": [
+                    "application/json"
+                ],
+                "operationId": "Upload_File",
+                "parameters": [
+                    {
+                        "name": "fileParam",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "format": "file"
+                        },
+                        "required": true,
+                        "description": "JSON file with payload { \"more\": \"cowbell\" }"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cowbell was added."
+                    }
+                }
+            }
+        },
+        "/binary/octet": {
+            "put": {
+                "description": "Uploading binary file",
+                "consumes": [
+                    "application/octet-stream"
+                ],
+                "operationId": "Upload_Binary",
+                "parameters": [
+                    {
+                        "name": "fileParam",
+                        "in": "body",
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        },
+                        "required": true,
+                        "description": "Non-empty binary file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Binary was added."
+                    }
+                }
+            }
+        },
+        "/binary/error": {
+            "get": {
+                "description": "Get binary error stream",
+                "produces": [
+                    "application/octet-stream",
+                    "application/json"
+                ],
+                "operationId": "Download_ErrorStream",
+                "responses": {
+                    "200": {
+                        "description": "Binary was added.",
+                        "schema": {
+                            "type": "file"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
-      }
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
     }
-  }
 }
