@@ -1,4 +1,5 @@
 import { app, json } from "../api";
+import { coverageService } from "../services";
 
 app.category("vanilla", () => {
   app.post("/binary/file", "BodyBinaryFile", (req) => {
@@ -10,5 +11,9 @@ app.category("vanilla", () => {
     req.expect.containsHeader("content-type", "application/octet-stream");
     req.expect.bodyNotEmpty();
     return { status: 200 };
+  });
+  app.get("/binary/error", "BodyBinaryError", async (req) => {
+    await coverageService.track("vanilla", "BodyBinaryError");
+    return { status: 400, body: json({ status: 400, message: `I failed on purpose` }) };
   });
 });
