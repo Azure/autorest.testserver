@@ -6,9 +6,10 @@ import { internalRouter } from "../routes";
 import { MockApiServer } from "../server";
 import { coverageService } from "../services";
 import { findFilesFromPattern } from "../utils";
+import { normalizePath } from "../utils/path-utils";
 import { ApiMockAppConfig } from "./config";
 
-export const ROUTE_FOLDER = path.join(__dirname, "../test-routes");
+export const ROUTE_FOLDER = normalizePath(path.join(__dirname, "../test-routes"));
 
 export class ApiMockApp {
   private server: MockApiServer;
