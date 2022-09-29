@@ -38,11 +38,6 @@ var multiapi = function (optionalCoverage) {
     res.status(200).type("json").end('{ "id": "100" }');
   });
 
-  router.get("/paging", function (req, res, next) {
-    optionalCoverage["MultiapiPaging"]++;
-    res.status(200).json({ values: [{ optionalProperty: "paged" }] });
-  });
-
   router.get("/one/testTwoEndpoint", function (req, res, next) {
     if (req.query["api-version"] == "1.0.0") {
       optionalCoverage["MultiapiGetTestTwoApiVersionOne"]++;

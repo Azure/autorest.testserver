@@ -10,10 +10,28 @@
   "produces": ["application/json"],
 
   "paths": {
-    "/multiapi/paging": {
+    "/multiapi/paging/1": {
       "get": {
         "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
         "operationId": "testPaging",
+        "description": "Returns ModelThree with optionalProperty 'paged'",
+        "responses": {
+          "200": {
+            "description": "Initial response. Will return a ModelThree with optionalProperty 'paged'",
+            "schema": {
+              "$ref": "#/definitions/PagingResult"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
+    "/multiapi/one/paging/1": {
+      "get": {
+        "x-ms-pageable": { "nextLinkName": "nextLink", "itemName": "values" },
+        "operationId": "OperationGroupOne_testOperationGroupPaging",
         "description": "Returns ModelThree with optionalProperty 'paged'",
         "responses": {
           "200": {
