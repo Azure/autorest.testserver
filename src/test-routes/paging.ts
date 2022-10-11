@@ -58,7 +58,9 @@ app.category("azure", () => {
         status: 200,
         body: json({
           values: [{ properties: { id: 1, name: "Product" } }],
-          nextLink: req.baseUrl + "/paging/apiVersion/replace/2?Api-Version=notMe&%24skiptoken=bar&startTime=1/1/1970%2012%3A00%3A00%20AM%20%2B00%3A00",
+          nextLink:
+            req.baseUrl +
+            "/paging/apiVersion/replace/2?Api-Version=notMe&%24skiptoken=bar&startTime=1/1/1970%2012%3A00%3A00%20AM%20%2B00%3A00",
         }),
       };
     } else if (req.params.pagenumber === "2") {
