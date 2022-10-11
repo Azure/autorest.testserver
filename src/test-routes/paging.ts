@@ -58,12 +58,15 @@ app.category("azure", () => {
         status: 200,
         body: json({
           values: [{ properties: { id: 1, name: "Product" } }],
-          nextLink: req.baseUrl + "/paging/apiVersion/replace/2?Api-Version=notMe&%24skiptoken=bar",
+          nextLink:
+            req.baseUrl +
+            "/paging/apiVersion/replace/2?Api-Version=notMe&%24skiptoken=bar&startTime=1/1/1970%2012%3A00%3A00%20AM%20%2B00%3A00",
         }),
       };
     } else if (req.params.pagenumber === "2") {
       req.expect.containsQueryParam("api-version", "1.0.0");
       req.expect.containsQueryParam("$skiptoken", "bar");
+      req.expect.containsQueryParam("startTime", "1/1/1970 12:00:00 AM +00:00");
       return {
         status: 200,
         body: json({
