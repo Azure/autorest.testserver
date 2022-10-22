@@ -33,7 +33,7 @@ export class ApiMockApp {
 }
 
 export const requireMockRoutes = async (routesFolder: string): Promise<void> => {
-  const files = await findFilesFromPattern(path.join(routesFolder, "/**/*.js"));
+  const files = await findFilesFromPattern(normalizePath(path.join(routesFolder, "**/*.js")));
   logger.debug("Detected routes:", files);
   for (const file of files) {
     require(path.resolve(file));
