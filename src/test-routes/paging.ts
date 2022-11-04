@@ -2,6 +2,16 @@ import { request } from "express";
 import { app, json } from "../api";
 
 app.category("azure", () => {
+  app.get("/paging/emptynextlink", "PagingEmptyNextLink", (req) => {
+    return {
+      status: 200,
+      body: json({
+        value: [{ properties: { id: 1, name: "Product" } }],
+        nextLink: "",
+      }),
+    };
+  });
+
   app.get("/paging/multiple/duplicateParams/:pagenumber", "PagingDuplicateParameters", (req) => {
     if (req.params.pagenumber === "1") {
       return {
