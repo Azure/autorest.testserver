@@ -30,6 +30,26 @@
         }
       }
     },
+    "/paging/emptynextlink": {
+      "get": {
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "operationId": "Paging_getEmptyNextLinkNamePages",
+        "description": "A paging operation that gets an empty next link and should stop after page 1.",
+        "responses": {
+          "200": {
+            "description": "A list of products",
+            "schema": {
+              "$ref": "#/definitions/ProductResultValue"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    },
     "/paging/nullnextlink": {
       "get": {
         "x-ms-pageable": {
