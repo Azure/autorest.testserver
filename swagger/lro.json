@@ -90,7 +90,7 @@
         "operationId": "LROs_patch201RetryWithAsyncHeader",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
+          "final-state-via": "original-uri"
         },
         "parameters": [
           {
