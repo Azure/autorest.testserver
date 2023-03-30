@@ -172,7 +172,35 @@
           }
         }
       }
-    }
+    },
+    "/reservedWords/enum": {
+        "get": {
+          "operationId": "reservedEnum",
+          "description": "Operation that accepts a reserved enum value",
+          "parameters": [
+            {
+              "name": "enumParameter",
+              "description": "Pass in MyEnum.IMPORT to pass",
+              "required": true,
+              "in": "header",
+              "type": "string",
+              "enum": ["import", "other"],
+              "x-ms-enum": {
+                "name": "MyEnum",
+                "modelAsString": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Answer from service",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
   },
   "parameters": {
     "Data": {

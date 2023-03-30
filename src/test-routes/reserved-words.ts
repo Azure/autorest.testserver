@@ -28,4 +28,9 @@ app.category("vanilla", () => {
     req.expect.deepEqual(req.query["queryParameters"], ["one", "two"], "Query parameters not equal");
     return { status: 200 };
   });
+  app.get("/reservedWords/enum", "reservedWordsHeaderEnum", (req) => {
+    req.expect.bodyEmpty;
+    req.expect.containsHeader("enumparameter", "import");
+    return { status: 200 };
+  });
 });
