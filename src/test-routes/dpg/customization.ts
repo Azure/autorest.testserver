@@ -52,14 +52,50 @@ app.category("dpg", () => {
 
   app.put("/customization/lro/raw", "RawLRO", (req) => {
     return {
+      headers: {
+        "Operation-Location": req.baseUrl + "/customization/lro/raw/operationResults/1"
+      },
       status: 200,
-      body: json({ provisioningState: "Succeeded", received: "raw" }),
+      body: json({ provisioningState: "Succeeded", received: "raw" })
     };
   });
-  app.put("/customization/lro/model", "HandwrittenModelLRO", (req) => {
+
+  app.get("/customization/lro/raw/operationResults/1", "GetRawLROResult", (req) => {
     return {
+      status: 202,
+      body: json({ status : "Succeeded" })
+    };
+  });
+
+  app.get("/customization/lro/raw",  "GetRawLROFinalResult", (req) => {
+    return {
+      status: 202,
+      body: json({ provisioningState : "Succeeded", received: "raw final result" })
+    };
+  });
+
+  app.put("/customization/lro/model", "ModelLRO", (req) => {
+    return {
+      headers: {
+        "Operation-Location": req.baseUrl + "/customization/lro/model/operationResults/1"
+      },
       status: 200,
       body: json({ provisioningState: "Succeeded", received: "model" }),
     };
   });
+
+  app.get("/customization/lro/model/operationResults/1", "ModelLROResult", (req) => {
+    return {
+      status: 202,
+      body: json({ status : "Succeeded" })
+    };
+  });
+
+  app.get("/customization/lro/model", "GetModelLROFinalResult", (req) => {
+    return {
+      status: 202,
+      body: json({ provisioningState: "Succeeded", received: "model" }),
+    };
+  });
+
 });
