@@ -10,38 +10,6 @@
   "produces": ["application/json"],
   "consumes": ["application/json"],
   "paths": {
-    "/header/param/existingkey": {
-      "post": {
-        "operationId": "header_paramExistingKey",
-        "description": "Send a post request with header value \"User-Agent\": \"overwrite\"",
-        "x-ms-examples": {
-          "header_paramExistingKey": {
-            "$ref": "./examples/header_paramExistingKey.json"
-          }
-        },
-        "tags": ["Header Operations"],
-        "parameters": [
-          {
-            "description": "Send a post request with header value \"User-Agent\": \"overwrite\"",
-            "name": "User-Agent",
-            "in": "header",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Empty Response"
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
     "/header/response/existingkey": {
       "post": {
         "operationId": "header_responseExistingKey",

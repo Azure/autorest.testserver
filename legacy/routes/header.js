@@ -8,18 +8,7 @@ var header = function (coverage, optionalCoverage) {
   optionalCoverage["HeaderParameterProtectedKey"] = 1; // NOT A THING
   optionalCoverage["CustomHeaderInRequest"] = 0;
   router.post("/param/:scenario", function (req, res, next) {
-    if (req.params.scenario === "existingkey") {
-      if (req.get("User-Agent") === "overwrite") {
-        coverage["HeaderParameterExistingKey"]++;
-        res.status(200).end();
-      } else {
-        utils.send400(
-          res,
-          next,
-          'Did not like scenario "' + req.params.scenario + '" with value ' + req.get("User-Agent"),
-        );
-      }
-    } else if (req.params.scenario === "protectedkey") {
+    if (req.params.scenario === "protectedkey") {
       //We are making this change in the test server because for data plane we have to support scenarios where the user can override
       //the protected header like Content-Type by providing one.
       if (req.get("Content-Type") === "text/html") {
@@ -34,15 +23,6 @@ var header = function (coverage, optionalCoverage) {
       }
     } else {
       utils.send400(res, next, 'Did not like scenario "' + req.params.scenario);
-    }
-  });
-
-  router.post("/custom/x-ms-client-request-id/9C4D50EE-2D56-4CD3-8152-34347DC9F2B0", function (req, res, next) {
-    if (req.get("x-ms-client-request-id").toLowerCase() === "9C4D50EE-2D56-4CD3-8152-34347DC9F2B0".toLowerCase()) {
-      optionalCoverage["CustomHeaderInRequest"]++;
-      res.status(200).end();
-    } else {
-      utils.send400(res, next, 'Did not like client request id "' + req.get("x-ms-client-request-id"));
     }
   });
 
