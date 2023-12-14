@@ -35,10 +35,9 @@
     "validate-spec-coverage": "node ./dist/cli/cli.js validate-spec-coverage --maxErrorCount=77"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.19.2",
     "@types/busboy": "^1.5.0",
     "@types/commonmark": "^0.27.5",
@@ -51,8 +50,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/morgan": "^1.9.3",
     "@types/mustache": "^4.1.2",
-    "@types/node": "~16.9.6",
-    "@types/request-promise-native": "^1.0.18",
+    "@types/node": "^18.0.0",
     "@types/supertest": "^2.0.10",
     "@types/xml2js": "^0.4.9",
     "@types/yargs": "^17.0.8",
@@ -73,7 +71,6 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.11.0",
-    "axios": "^0.21.4",
     "body-parser": "^1.19.1",
     "busboy": "^1.6.0",
     "commonmark": "^0.30.0",
@@ -84,8 +81,6 @@
     "js-yaml": "~4.1.0",
     "morgan": "^1.10.0",
     "mustache": "^4.1.0",
-    "request": "^2.87.0",
-    "request-promise-native": "^1.0.5",
     "source-map-support": "^0.5.21",
     "underscore": "^1.13.2",
     "winston": "^3.3.4",
