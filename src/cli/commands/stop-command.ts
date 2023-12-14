@@ -1,4 +1,3 @@
-import axios from "axios";
 import { AdminUrls } from "../../constants";
 import { logger } from "../../logger";
 import { CliConfig } from "../cli-config";
@@ -7,7 +6,9 @@ export const stopCommand = async ({ port }: CliConfig): Promise<void> => {
   logger.info("Stopping server at port {port}", port);
   try {
     const url = `http://localhost:${port}${AdminUrls.stop}`;
-    const response = await axios.post(url);
+    const response = await fetch(url, {
+      method: "POST",
+    });
     logger.debug(`Call success: ${url} ${response.status}`);
     logger.info(`Successfuly stopped server at port ${port}`);
     process.exit(0);

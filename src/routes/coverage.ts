@@ -2,7 +2,7 @@ import { Router } from "express";
 import { coverageService } from "../services";
 
 const router = Router();
-export const coverageRouter = router;
+export const coverageRouter: Router = router;
 
 router.post("/report/clear", (_req, res) => {
   coverageService.reset();

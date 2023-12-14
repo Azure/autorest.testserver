@@ -6,4 +6,4 @@ const router = Router();
 router.use("/", adminRoutes);
 router.use("/", coverageRouter);
 
-export const internalRouter = router;
+export const internalRouter: Router = router;
