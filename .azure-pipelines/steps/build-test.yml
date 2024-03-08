@@ -1,0 +1,26 @@
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "20.x"
+    displayName: "Install Node.js"
+
+  - script: |
+      npm install -g npm
+      npm install
+    displayName: "Install dependencies"
+
+  - script: |
+      npm run build
+    displayName: "Build"
+
+  - script: npm run test:ci
+    displayName: Test
+
+  - script: npm run lint
+    displayName: Lint
+
+  - script: npm run check-format
+    displayName: Check formatting
+
+  - script: npm run validate-spec-coverage
+    displayName: Validate OpenAPI specs mock API coverage
