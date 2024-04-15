@@ -1,0 +1,13 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - template: ./steps/build-test.yml
+
+  - script: |
+      echo "//registry.npmjs.org/:_authToken=$(azure-sdk-npm-token)" > ./.npmrc
+      npm publish --access public
+    displayName: "Publish to npm"
