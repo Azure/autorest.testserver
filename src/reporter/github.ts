@@ -1,6 +1,3 @@
-import { RequestAPI } from "request";
-import { defaults } from "request-promise-native";
-
 export interface Comment {
   id: number;
   message: string;
@@ -10,20 +7,22 @@ export interface Comment {
 
 export class GitHubCiClient {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private request: RequestAPI<any, any, any>;
+  private headersInit: Record<string, string> = {
+    "User-Agent": "AutoRest CI",
+  };
 
-  constructor(private githubRepo: string, githubTokenOfCI: string) {
-    this.request = defaults({
-      headers: {
-        "User-Agent": "AutoRest CI",
-        "Authorization": "token " + githubTokenOfCI,
-      },
-    });
+  constructor(
+    private githubRepo: string,
+    githubTokenOfCI: string,
+  ) {
+    this.headersInit["Authorization"] = "token " + githubTokenOfCI;
   }
 
   public async getComments(pr: number): Promise<Comment[]> {
-    const res = await this.request.get(`https://api.github.com/repos/${this.githubRepo}/issues/${pr}/comments`);
-    const comments = JSON.parse(res);
+    const res = await fetch(`https://api.github.com/repos/${this.githubRepo}/issues/${pr}/comments`, {
+      headers: this.headersInit,
+    });
+    const comments = JSON.parse(await res.text());
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return comments.map((x: any) => {
       return { id: x.id, message: x.body, user: x.user.login, url: x.html_url };
@@ -35,13 +34,18 @@ export class GitHubCiClient {
   }
 
   public async setComment(id: number, message: string): Promise<void> {
-    await this.request.post(`https://api.github.com/repos/${this.githubRepo}/issues/comments/${id}`, {
+    await fetch(`https://api.github.com/repos/${this.githubRepo}/issues/comments/${id}`, {
       body: JSON.stringify({ body: message }),
+      headers: this.headersInit,
+      method: "POST",
     });
   }
 
   public async deleteComment(id: number): Promise<void> {
-    await this.request.delete(`https://api.github.com/repos/${this.githubRepo}/issues/comments/${id}`);
+    await fetch(`https://api.github.com/repos/${this.githubRepo}/issues/comments/${id}`, {
+      headers: this.headersInit,
+      method: "DELETE",
+    });
   }
 
   public async tryDeleteComment(id: number): Promise<void> {
@@ -53,9 +57,11 @@ export class GitHubCiClient {
   }
 
   public async createComment(pr: number, message: string): Promise<number> {
-    const res = await this.request.post(`https://api.github.com/repos/${this.githubRepo}/issues/${pr}/comments`, {
+    const res = await fetch(`https://api.github.com/repos/${this.githubRepo}/issues/${pr}/comments`, {
       body: JSON.stringify({ body: message }),
+      headers: this.headersInit,
+      method: "POST",
     });
-    return JSON.parse(res).id;
+    return JSON.parse(await res.text()).id;
   }
 }

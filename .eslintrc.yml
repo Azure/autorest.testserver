@@ -1,7 +1,6 @@
 root: true
 plugins:
   - "@typescript-eslint"
-  - prettier
   - import
   - unicorn
 env:
@@ -27,5 +26,4 @@ rules:
         order: "asc"
         caseInsensitive: true
   unicorn/filename-case: warn
-  prettier/prettier: warn
 parser: "@typescript-eslint/parser"

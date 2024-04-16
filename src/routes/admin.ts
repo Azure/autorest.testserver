@@ -12,4 +12,4 @@ router.post(AdminUrls.stop, (_req, res) => {
   });
 });
 
-export const adminRoutes = router;
+export const adminRoutes: Router = router;
