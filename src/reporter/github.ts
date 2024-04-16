@@ -11,7 +11,10 @@ export class GitHubCiClient {
     "User-Agent": "AutoRest CI",
   };
 
-  constructor(private githubRepo: string, githubTokenOfCI: string) {
+  constructor(
+    private githubRepo: string,
+    githubTokenOfCI: string,
+  ) {
     this.headersInit["Authorization"] = "token " + githubTokenOfCI;
   }
 
