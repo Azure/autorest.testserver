@@ -89,9 +89,6 @@
         "description": "Long running patch request, service returns a 201 to the initial request with async header.",
         "operationId": "LROs_patch201RetryWithAsyncHeader",
         "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        },
         "parameters": [
           {
             "name": "product",

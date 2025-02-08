@@ -7,7 +7,11 @@ export class ValidationError extends Error {
    * @param expected expected value.
    * @param actual actual value.
    */
-  constructor(message: string, public expected: unknown | undefined, public actual: unknown | undefined) {
+  constructor(
+    message: string,
+    public expected: unknown | undefined,
+    public actual: unknown | undefined,
+  ) {
     super(message);
   }
 

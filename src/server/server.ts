@@ -16,8 +16,8 @@ const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   const errResponse = err.toJSON
     ? err.toJSON()
     : err instanceof Error
-    ? { name: err.name, message: err.message, stack: err.stack }
-    : err;
+      ? { name: err.name, message: err.message, stack: err.stack }
+      : err;
 
   res.status(err.status || 500);
   res.contentType("application/json").send(errResponse).end();

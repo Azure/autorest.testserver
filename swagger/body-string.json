@@ -469,7 +469,7 @@
         "description": "Get value that is base64 encoded",
         "tags": ["String Operations"],
         "x-ms-examples": {
-          "string_putNull": {
+          "string_getBase64Encoded": {
             "$ref": "./examples/string_getBase64Encoded.json"
           }
         },
@@ -496,7 +496,7 @@
         "description": "Get value that is base64url encoded",
         "tags": ["String Operations"],
         "x-ms-examples": {
-          "string_putNull": {
+          "string_getBase64UrlEncoded": {
             "$ref": "./examples/string_getBase64UrlEncoded.json"
           }
         },
@@ -520,7 +520,7 @@
         "operationId": "string_putBase64UrlEncoded",
         "description": "Put value that is base64url encoded",
         "x-ms-examples": {
-          "string_putNull": {
+          "string_putBase64UrlEncoded": {
             "$ref": "./examples/string_putBase64UrlEncoded.json"
           }
         },
@@ -556,7 +556,7 @@
         "description": "Get null value that is expected to be base64url encoded",
         "tags": ["String Operations"],
         "x-ms-examples": {
-          "string_putNull": {
+          "string_getNullBase64UrlEncoded": {
             "$ref": "./examples/string_getNullBase64UrlEncoded.json"
           }
         },
