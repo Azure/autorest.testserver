@@ -22,7 +22,7 @@
         "tags": ["HttpSuccess Operations"],
         "responses": {
           "200": {
-            "description": "Successfully returns the true boolean value"
+            "description": "Successfully returns an empty response"
           },
           "default": {
             "description": "Unexpected error"
@@ -42,7 +42,7 @@
         "tags": ["HttpSuccess Operations"],
         "responses": {
           "204": {
-            "description": "Successfully returns the true boolean value"
+            "description": "Successfully returns an empty response"
           },
           "default": {
             "description": "Unexpected error"
@@ -57,7 +57,7 @@
         "tags": ["HttpSuccess Operations"],
         "responses": {
           "204": {
-            "description": "Successfully returns the true boolean value"
+            "description": "Successfully returns an empty response"
           },
           "default": {
             "description": "Unexpected error"

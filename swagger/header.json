@@ -101,14 +101,14 @@
     "/header/response/protectedkey": {
       "post": {
         "operationId": "header_responseProtectedKey",
-        "description": "Get a response with header value \"Content-Type\": \"text/html\"",
+        "description": "Get a response with header value \"Content-Type\": \"text/html; charset=utf-8\"",
         "tags": ["Header Operations"],
         "responses": {
           "200": {
             "description": "Empty Response",
             "headers": {
               "Content-Type": {
-                "description": "response with header value \"Content-Type\": \"text/html\"",
+                "description": "response with header value \"Content-Type\": \"text/html; charset=utf-8\"",
                 "type": "string"
               }
             }
