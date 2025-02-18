@@ -6,8 +6,12 @@
     "description": "DPG Swagger that tests our ability to grow up."
   },
   "host": "localhost:3000",
-  "schemes": ["http"],
-  "produces": ["application/json"],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/customization/model/{mode}": {
       "get": {
@@ -113,6 +117,18 @@
             "schema": {
               "$ref": "#/definitions/LROProduct"
             }
+          },
+          "202": {
+            "description": "Async operation to update products was accpeted.",
+            "headers": {
+              "Operation-Location": {
+                "description": "Location to poll for final status: will be set to /customization/lro/{mode}/operationResults/1",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/LROProduct"
+            }
           }
         }
       }
@@ -146,17 +162,24 @@
     },
     "Product": {
       "type": "object",
-      "required": ["received"],
+      "required": [
+        "received"
+      ],
       "properties": {
         "received": {
           "type": "string",
-          "enum": ["raw", "model"]
+          "enum": [
+            "raw",
+            "model"
+          ]
         }
       }
     },
     "Input": {
       "type": "object",
-      "required": ["hello"],
+      "required": [
+        "hello"
+      ],
       "properties": {
         "hello": {
           "type": "string"
@@ -165,7 +188,9 @@
     },
     "LROProduct": {
       "type": "object",
-      "required": ["provisioningState"],
+      "required": [
+        "provisioningState"
+      ],
       "allOf": [
         {
           "$ref": "#/definitions/Product"
