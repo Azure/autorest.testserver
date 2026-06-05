@@ -1,3 +1,15 @@
+# ⚠️ Deprecation Notice
+
+**AutoRest is deprecated and will be retired on July 1, 2026.**
+
+AutoRest is no longer under active development. No new features, language generators, or plugins will be added.
+
+### ✅ Recommended replacement: TypeSpec
+
+The recommended successor to AutoRest is **[TypeSpec](https://typespec.io/)** — a modern, actively developed API description language and code generation platform.
+
+### 📌 Deprecation tracking issue for more details: https://github.com/Azure/autorest/issues/5175
+
 # Test server V2
 
 ## Requirements
